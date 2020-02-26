@@ -7,34 +7,107 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Hayvan-->
         <scene sceneID="6dn-sO-6wd">
             <objects>
-                <viewController id="u1w-zU-AfM" sceneMemberID="viewController">
+                <viewController id="u1w-zU-AfM" customClass="AnimalViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4lM-eo-q9S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9b-2z-A5o">
-                                <rect key="frame" x="175.5" y="423.5" width="63" height="49"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mYE-AM-3vb">
+                                <rect key="frame" x="20.5" y="45" width="373" height="806"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="aP1-JJ-s5U">
+                                        <rect key="frame" x="0.0" y="28" width="373" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aP1-JJ-s5U" id="baK-r0-MEx">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="u1w-zU-AfM" id="cq7-bV-Esj"/>
+                                    <outlet property="delegate" destination="u1w-zU-AfM" id="MCM-pJ-jia"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n9b-2z-A5o" firstAttribute="centerY" secondItem="4lM-eo-q9S" secondAttribute="centerY" id="7R5-SR-3Yq"/>
-                            <constraint firstItem="n9b-2z-A5o" firstAttribute="centerX" secondItem="4lM-eo-q9S" secondAttribute="centerX" id="hxZ-vM-yOk"/>
+                            <constraint firstItem="mYE-AM-3vb" firstAttribute="centerY" secondItem="4lM-eo-q9S" secondAttribute="centerY" id="4Ig-fB-5CO"/>
+                            <constraint firstItem="mYE-AM-3vb" firstAttribute="centerX" secondItem="4lM-eo-q9S" secondAttribute="centerX" id="ayo-He-VMC"/>
+                            <constraint firstItem="mYE-AM-3vb" firstAttribute="width" secondItem="4lM-eo-q9S" secondAttribute="width" multiplier="0.9" id="dOI-1c-phD"/>
+                            <constraint firstItem="mYE-AM-3vb" firstAttribute="height" secondItem="4lM-eo-q9S" secondAttribute="height" multiplier="0.9" id="zqS-l3-a93"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A3v-RH-Ztl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="e9R-ML-oha"/>
+                    <navigationItem key="navigationItem" title="Hayvan" id="e9R-ML-oha">
+                        <barButtonItem key="backBarButtonItem" title="Geri" id="OWM-kz-kbO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Ekle" id="UNb-nL-52D">
+                            <connections>
+                                <segue destination="2Ab-Pd-fgU" kind="show" id="BlG-gt-6AD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="mYE-AM-3vb" id="dXK-FA-OKM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zc1-qp-TxX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1214" y="1148"/>
+            <point key="canvasLocation" x="-320.28985507246381" y="363.61607142857139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Xhj-91-RWp">
+            <objects>
+                <viewController id="2Ab-Pd-fgU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tH0-wk-lho">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ekleme Sayfası" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLY-Um-H5U">
+                                <rect key="frame" x="63" y="421" width="289" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="7kj-pi-cAm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2rQ-eb-qwc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2b8-dX-Hqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448" y="33"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uHi-ip-xG5">
+            <objects>
+                <viewController id="PM3-cd-rKd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GaG-MU-e9t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detay Sayfası" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsf-S9-MBR">
+                                <rect key="frame" x="76" y="421" width="262" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="td2-uE-6wM"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ea6-0l-qXD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pC6-SM-gNP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="448" y="753"/>
         </scene>
         <!--Hayvan-->
         <scene sceneID="LmO-b7-SoW">
