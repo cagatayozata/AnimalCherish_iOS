@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Gh-Cf-eco">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="6dn-sO-6wd">
+            <objects>
+                <viewController id="u1w-zU-AfM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4lM-eo-q9S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9b-2z-A5o">
+                                <rect key="frame" x="175.5" y="423.5" width="63" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="n9b-2z-A5o" firstAttribute="centerY" secondItem="4lM-eo-q9S" secondAttribute="centerY" id="7R5-SR-3Yq"/>
+                            <constraint firstItem="n9b-2z-A5o" firstAttribute="centerX" secondItem="4lM-eo-q9S" secondAttribute="centerX" id="hxZ-vM-yOk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A3v-RH-Ztl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="e9R-ML-oha"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zc1-qp-TxX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1214" y="1148"/>
+        </scene>
+        <!--Hayvan-->
+        <scene sceneID="LmO-b7-SoW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Gh-Cf-eco" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Hayvan" image="icons8-crow-30" id="PVX-di-FrK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cNA-v3-ZNN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u1w-zU-AfM" kind="relationship" relationship="rootViewController" id="yml-e1-lD1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R04-ys-tJd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1214" y="364"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icons8-crow-30" width="30" height="30"/>
+    </resources>
+</document>
