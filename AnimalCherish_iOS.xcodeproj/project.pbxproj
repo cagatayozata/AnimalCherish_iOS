@@ -20,6 +20,12 @@
 		0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6102406A58D0056E2F0 /* LoginViewController.swift */; };
 		0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6122406A59E0056E2F0 /* RegisterViewController.swift */; };
 		0838D6152406A5B60056E2F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6142406A5B60056E2F0 /* HomeViewController.swift */; };
+		086E425A2406DD4B00F2469C /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42592406DD4B00F2469C /* AnimalViewController.swift */; };
+		086E42642406FD4600F2469C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42632406FD4600F2469C /* DashboardViewController.swift */; };
+		086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42652406FD5200F2469C /* PetShopViewController.swift */; };
+		086E42682406FD6600F2469C /* ShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42672406FD6600F2469C /* ShelterViewController.swift */; };
+		086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42692406FD6F00F2469C /* VetViewController.swift */; };
+		086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E426B2406FD8000F2469C /* ZooViewController.swift */; };
 		08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FB2B7E2405A1E3000D431A /* Vet.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +45,12 @@
 		0838D6102406A58D0056E2F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0838D6122406A59E0056E2F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0838D6142406A5B60056E2F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		086E42592406DD4B00F2469C /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
+		086E42632406FD4600F2469C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		086E42652406FD5200F2469C /* PetShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopViewController.swift; sourceTree = "<group>"; };
+		086E42672406FD6600F2469C /* ShelterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterViewController.swift; sourceTree = "<group>"; };
+		086E42692406FD6F00F2469C /* VetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetViewController.swift; sourceTree = "<group>"; };
+		086E426B2406FD8000F2469C /* ZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooViewController.swift; sourceTree = "<group>"; };
 		08FB2B7E2405A1E3000D431A /* Vet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vet.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,11 +99,73 @@
 		0838D60F2406A56C0056E2F0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0838D6102406A58D0056E2F0 /* LoginViewController.swift */,
-				0838D6122406A59E0056E2F0 /* RegisterViewController.swift */,
+				086E425D2406E93D00F2469C /* Auth */,
+				086E42582406DD1300F2469C /* Animal */,
+				086E425E2406FCC400F2469C /* Dashboard */,
+				086E425F2406FCD600F2469C /* PetShop */,
+				086E42602406FCE300F2469C /* Shelter */,
+				086E42612406FCEE00F2469C /* Vet */,
+				086E42622406FCF400F2469C /* Zoo */,
 				0838D6142406A5B60056E2F0 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		086E42582406DD1300F2469C /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				086E42592406DD4B00F2469C /* AnimalViewController.swift */,
+			);
+			path = Animal;
+			sourceTree = "<group>";
+		};
+		086E425D2406E93D00F2469C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0838D6102406A58D0056E2F0 /* LoginViewController.swift */,
+				0838D6122406A59E0056E2F0 /* RegisterViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		086E425E2406FCC400F2469C /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				086E42632406FD4600F2469C /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		086E425F2406FCD600F2469C /* PetShop */ = {
+			isa = PBXGroup;
+			children = (
+				086E42652406FD5200F2469C /* PetShopViewController.swift */,
+			);
+			path = PetShop;
+			sourceTree = "<group>";
+		};
+		086E42602406FCE300F2469C /* Shelter */ = {
+			isa = PBXGroup;
+			children = (
+				086E42672406FD6600F2469C /* ShelterViewController.swift */,
+			);
+			path = Shelter;
+			sourceTree = "<group>";
+		};
+		086E42612406FCEE00F2469C /* Vet */ = {
+			isa = PBXGroup;
+			children = (
+				086E42692406FD6F00F2469C /* VetViewController.swift */,
+			);
+			path = Vet;
+			sourceTree = "<group>";
+		};
+		086E42622406FCF400F2469C /* Zoo */ = {
+			isa = PBXGroup;
+			children = (
+				086E426B2406FD8000F2469C /* ZooViewController.swift */,
+			);
+			path = Zoo;
 			sourceTree = "<group>";
 		};
 		08FB2B7B24059E51000D431A /* Storyboards */ = {
@@ -184,9 +258,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */,
 				0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */,
+				086E42642406FD4600F2469C /* DashboardViewController.swift in Sources */,
+				086E42682406FD6600F2469C /* ShelterViewController.swift in Sources */,
+				086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */,
+				086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */,
 				0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */,
 				0806814824053BDB00FDE61D /* AppDelegate.swift in Sources */,
+				086E425A2406DD4B00F2469C /* AnimalViewController.swift in Sources */,
 				0806814A24053BDB00FDE61D /* SceneDelegate.swift in Sources */,
 				0838D6152406A5B60056E2F0 /* HomeViewController.swift in Sources */,
 			);
