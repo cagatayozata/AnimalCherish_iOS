@@ -59,7 +59,6 @@
         <!--Login View Controller-->
         <scene sceneID="ubh-DM-jFl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eNQ-9c-NsW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="5aJ-6C-PGq" customClass="LoginViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hSy-Yk-gQj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -80,13 +79,13 @@
                         <viewLayoutGuide key="safeArea" id="TqI-wP-6U2"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNQ-9c-NsW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1197.1014492753625" y="-1098.2142857142856"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="nDB-KC-9Zh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zTd-zN-EdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="j6a-6F-kL0" customClass="RegisterViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u5n-ci-yyV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -107,6 +106,7 @@
                         <viewLayoutGuide key="safeArea" id="v7D-Pb-yvc"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTd-zN-EdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1197" y="-379"/>
         </scene>
