@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3K-81-Tju">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="KtM-wn-3hp">
+            <objects>
+                <viewController id="Ypx-S3-0XX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7M4-mr-Ldq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="CX2-ys-7WO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="00s-KE-Rax"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7UN-XP-JTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1454" y="1148"/>
+        </scene>
+        <!--Pet Shop-->
+        <scene sceneID="DQO-1h-h5I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g3K-81-Tju" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pet Shop" id="8B0-z3-0qG"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2DU-I7-B1J">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ypx-S3-0XX" kind="relationship" relationship="rootViewController" id="2ax-fm-8P4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lX2-NX-ixR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1454" y="363"/>
+        </scene>
+    </scenes>
+</document>

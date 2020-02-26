@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rSR-d1-c0T">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="jgU-L6-e6i">
+            <objects>
+                <viewController id="Dgm-3d-eJd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tJq-vQ-4ek">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Pgy-hq-v83"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fqi-x3-oUe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFB-Ea-RT1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2251" y="1148"/>
+        </scene>
+        <!--Hayvanat Bahçesi-->
+        <scene sceneID="4tT-MX-A4c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rSR-d1-c0T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Hayvanat Bahçesi" id="kiX-DL-nUg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DKi-R5-N1t">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dgm-3d-eJd" kind="relationship" relationship="rootViewController" id="JNe-uW-dyg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvi-eW-30y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2251" y="363"/>
+        </scene>
+    </scenes>
+</document>
