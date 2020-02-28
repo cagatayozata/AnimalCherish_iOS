@@ -27,7 +27,6 @@
 		086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42692406FD6F00F2469C /* VetViewController.swift */; };
 		086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E426B2406FD8000F2469C /* ZooViewController.swift */; };
 		08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FB2B7E2405A1E3000D431A /* Vet.storyboard */; };
-		83A4AAAB2407118E0066B232 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 83A4AAAA2407118D0066B232 /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +52,6 @@
 		086E42692406FD6F00F2469C /* VetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetViewController.swift; sourceTree = "<group>"; };
 		086E426B2406FD8000F2469C /* ZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooViewController.swift; sourceTree = "<group>"; };
 		08FB2B7E2405A1E3000D431A /* Vet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vet.storyboard; sourceTree = "<group>"; };
-		83A4AAAA2407118D0066B232 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../../../Desktop/background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +84,6 @@
 		0806814624053BDB00FDE61D /* AnimalCherish_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				83A4AAA724070E480066B232 /* Images.xcassets */,
 				08FB2B7B24059E51000D431A /* Storyboards */,
 				0838D60F2406A56C0056E2F0 /* ViewControllers */,
 				0806814724053BDB00FDE61D /* AppDelegate.swift */,
@@ -184,14 +181,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		83A4AAA724070E480066B232 /* Images.xcassets */ = {
-			isa = PBXGroup;
-			children = (
-				83A4AAAA2407118D0066B232 /* background.png */,
-			);
-			path = Images.xcassets;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0838D60A2406A3210056E2F0 /* Shelter.storyboard in Resources */,
-				83A4AAAB2407118E0066B232 /* background.png in Resources */,
 				0806815424053BDE00FDE61D /* LaunchScreen.storyboard in Resources */,
 				0838D6082406A2EB0056E2F0 /* Dashboard.storyboard in Resources */,
 				08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */,
