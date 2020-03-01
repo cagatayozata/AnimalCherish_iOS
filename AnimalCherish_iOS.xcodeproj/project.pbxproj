@@ -27,6 +27,8 @@
 		086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42692406FD6F00F2469C /* VetViewController.swift */; };
 		086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E426B2406FD8000F2469C /* ZooViewController.swift */; };
 		08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FB2B7E2405A1E3000D431A /* Vet.storyboard */; };
+		08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE0DFD240C2C92002AFC96 /* Reachability.swift */; };
+		08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE0DFF240C2D18002AFC96 /* Auth.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		086E42692406FD6F00F2469C /* VetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetViewController.swift; sourceTree = "<group>"; };
 		086E426B2406FD8000F2469C /* ZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooViewController.swift; sourceTree = "<group>"; };
 		08FB2B7E2405A1E3000D431A /* Vet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vet.storyboard; sourceTree = "<group>"; };
+		08FE0DFD240C2C92002AFC96 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		08FE0DFF240C2D18002AFC96 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +90,10 @@
 			children = (
 				08FB2B7B24059E51000D431A /* Storyboards */,
 				0838D60F2406A56C0056E2F0 /* ViewControllers */,
+				08FE0DFC240C2C6A002AFC96 /* Services */,
 				0806814724053BDB00FDE61D /* AppDelegate.swift */,
 				0806814924053BDB00FDE61D /* SceneDelegate.swift */,
-				0806814D24053BDB00FDE61D /* Main.storyboard */,
 				0806815024053BDE00FDE61D /* Assets.xcassets */,
-				0806815224053BDE00FDE61D /* LaunchScreen.storyboard */,
 				0806815524053BDE00FDE61D /* Info.plist */,
 			);
 			path = AnimalCherish_iOS;
@@ -171,7 +174,10 @@
 		08FB2B7B24059E51000D431A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				0806814D24053BDB00FDE61D /* Main.storyboard */,
+				0806815224053BDE00FDE61D /* LaunchScreen.storyboard */,
 				0838D6052406A2B50056E2F0 /* Animal.storyboard */,
+				08FE0DFF240C2D18002AFC96 /* Auth.storyboard */,
 				0838D6072406A2EB0056E2F0 /* Dashboard.storyboard */,
 				0838D60B2406A35C0056E2F0 /* PetShop.storyboard */,
 				0838D6092406A3210056E2F0 /* Shelter.storyboard */,
@@ -179,6 +185,14 @@
 				0838D60D2406A3990056E2F0 /* Zoo.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		08FE0DFC240C2C6A002AFC96 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				08FE0DFD240C2C92002AFC96 /* Reachability.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +255,7 @@
 			files = (
 				0838D60A2406A3210056E2F0 /* Shelter.storyboard in Resources */,
 				0806815424053BDE00FDE61D /* LaunchScreen.storyboard in Resources */,
+				08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */,
 				0838D6082406A2EB0056E2F0 /* Dashboard.storyboard in Resources */,
 				08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */,
 				0838D60C2406A35C0056E2F0 /* PetShop.storyboard in Resources */,
@@ -260,6 +275,7 @@
 			files = (
 				086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */,
 				0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */,
+				08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */,
 				086E42642406FD4600F2469C /* DashboardViewController.swift in Sources */,
 				086E42682406FD6600F2469C /* ShelterViewController.swift in Sources */,
 				086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */,
