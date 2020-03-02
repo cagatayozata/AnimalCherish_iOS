@@ -15,16 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN SCREEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfE-eI-YCL">
-                                <rect key="frame" x="86.5" y="427" width="241" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LOGIN SCREEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfE-eI-YCL">
+                                <rect key="frame" x="87" y="336" width="241" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-ap-jyd">
-                                <rect key="frame" x="174" y="646" width="67" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Otv-cj-R10">
+                                <rect key="frame" x="130" y="419" width="154" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="go to App"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jqc-lG-mIJ">
+                                <rect key="frame" x="130" y="471" width="154" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-ap-jyd">
+                                <rect key="frame" x="10" y="558" width="394" height="75"/>
+                                <state key="normal" image="login.png"/>
                                 <connections>
                                     <segue destination="VUY-5w-eSF" kind="presentation" modalPresentationStyle="fullScreen" id="Srx-oL-S4Y"/>
                                 </connections>
@@ -32,7 +42,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="dKP-ap-jyd" firstAttribute="top" secondItem="jqc-lG-mIJ" secondAttribute="bottom" constant="10" id="Ir9-fY-foo"/>
+                            <constraint firstItem="dKP-ap-jyd" firstAttribute="leading" secondItem="87F-ly-6er" secondAttribute="leading" constant="10" id="Wy8-BX-A1T"/>
                             <constraint firstItem="NfE-eI-YCL" firstAttribute="centerX" secondItem="zDh-hE-z8x" secondAttribute="centerX" id="fGa-ay-56b"/>
+                            <constraint firstItem="87F-ly-6er" firstAttribute="trailing" secondItem="dKP-ap-jyd" secondAttribute="trailing" constant="10" id="fit-b0-HbI"/>
+                            <constraint firstItem="87F-ly-6er" firstAttribute="trailing" secondItem="dKP-ap-jyd" secondAttribute="trailing" constant="10" id="lZ7-gu-bPW"/>
+                            <constraint firstItem="dKP-ap-jyd" firstAttribute="top" secondItem="jqc-lG-mIJ" secondAttribute="bottom" constant="10" id="oaQ-Be-CfY"/>
                             <constraint firstItem="NfE-eI-YCL" firstAttribute="centerY" secondItem="zDh-hE-z8x" secondAttribute="centerY" id="saB-SL-eZ5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="87F-ly-6er"/>
@@ -56,10 +71,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-E0-FqS">
-                                <rect key="frame" x="174" y="623" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="go to App"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-E0-FqS">
+                                <rect key="frame" x="10" y="479" width="394" height="82"/>
+                                <state key="normal" image="register.png"/>
                                 <connections>
                                     <segue destination="VUY-5w-eSF" kind="presentation" modalPresentationStyle="fullScreen" id="50M-mM-gzD"/>
                                 </connections>
@@ -67,7 +81,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="OBm-E0-FqS" firstAttribute="leading" secondItem="r7Z-kH-bvP" secondAttribute="leading" constant="10" id="HDg-1k-BtN"/>
                             <constraint firstItem="Bju-bZ-lyg" firstAttribute="centerY" secondItem="FhV-dM-6gI" secondAttribute="centerY" id="Qzc-YY-MrN"/>
+                            <constraint firstItem="r7Z-kH-bvP" firstAttribute="trailing" secondItem="OBm-E0-FqS" secondAttribute="trailing" constant="10" id="Ykd-OG-4oc"/>
+                            <constraint firstItem="OBm-E0-FqS" firstAttribute="top" secondItem="Bju-bZ-lyg" secondAttribute="bottom" constant="10" id="gPK-YT-Ftb"/>
+                            <constraint firstItem="r7Z-kH-bvP" firstAttribute="trailing" secondItem="OBm-E0-FqS" secondAttribute="trailing" constant="10" id="oNO-tv-vK5"/>
                             <constraint firstItem="Bju-bZ-lyg" firstAttribute="centerX" secondItem="FhV-dM-6gI" secondAttribute="centerX" id="wA3-RT-Dex"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r7Z-kH-bvP"/>
@@ -80,7 +98,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="1AF-LJ-5yB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="50F-my-Qhj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="VUY-5w-eSF" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="g84-cD-Pre"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ycL-ci-1gT">
@@ -97,6 +114,7 @@
                         <segue destination="Ped-vu-Geq" kind="relationship" relationship="viewControllers" id="FIe-bf-9HG"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50F-my-Qhj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26" y="-760"/>
         </scene>
@@ -161,6 +179,10 @@
             <point key="canvasLocation" x="844" y="-806"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login.png" width="320" height="80"/>
+        <image name="register.png" width="320" height="82"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="50M-mM-gzD"/>
     </inferredMetricsTieBreakers>
