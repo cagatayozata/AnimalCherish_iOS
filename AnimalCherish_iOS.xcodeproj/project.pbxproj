@@ -29,10 +29,6 @@
 		08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FB2B7E2405A1E3000D431A /* Vet.storyboard */; };
 		08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE0DFD240C2C92002AFC96 /* Reachability.swift */; };
 		08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE0DFF240C2D18002AFC96 /* Auth.storyboard */; };
-		834F339C240D9A20002E4C1D /* animalsBG.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 834F339A240D9A20002E4C1D /* animalsBG.jpeg */; };
-		834F339D240D9A20002E4C1D /* animals2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 834F339B240D9A20002E4C1D /* animals2.jpeg */; };
-		834F33A4240D9E36002E4C1D /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = 834F33A2240D9E36002E4C1D /* register.png */; };
-		834F33A5240D9E36002E4C1D /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 834F33A3240D9E36002E4C1D /* login.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,10 +56,6 @@
 		08FB2B7E2405A1E3000D431A /* Vet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vet.storyboard; sourceTree = "<group>"; };
 		08FE0DFD240C2C92002AFC96 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		08FE0DFF240C2D18002AFC96 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
-		834F339A240D9A20002E4C1D /* animalsBG.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = animalsBG.jpeg; path = ../../../Desktop/animalsBG.jpeg; sourceTree = "<group>"; };
-		834F339B240D9A20002E4C1D /* animals2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = animals2.jpeg; path = ../../../Desktop/animals2.jpeg; sourceTree = "<group>"; };
-		834F33A2240D9E36002E4C1D /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register.png; path = ../../../Desktop/register.png; sourceTree = "<group>"; };
-		834F33A3240D9E36002E4C1D /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login.png; path = ../../../Desktop/login.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +94,6 @@
 				0806814724053BDB00FDE61D /* AppDelegate.swift */,
 				0806814924053BDB00FDE61D /* SceneDelegate.swift */,
 				0806815024053BDE00FDE61D /* Assets.xcassets */,
-				834F33A3240D9E36002E4C1D /* login.png */,
-				834F33A2240D9E36002E4C1D /* register.png */,
-				834F339B240D9A20002E4C1D /* animals2.jpeg */,
-				834F339A240D9A20002E4C1D /* animalsBG.jpeg */,
 				0806815524053BDE00FDE61D /* Info.plist */,
 			);
 			path = AnimalCherish_iOS;
@@ -267,18 +255,14 @@
 			files = (
 				0838D60A2406A3210056E2F0 /* Shelter.storyboard in Resources */,
 				0806815424053BDE00FDE61D /* LaunchScreen.storyboard in Resources */,
-				834F339D240D9A20002E4C1D /* animals2.jpeg in Resources */,
 				08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */,
-				834F339C240D9A20002E4C1D /* animalsBG.jpeg in Resources */,
 				0838D6082406A2EB0056E2F0 /* Dashboard.storyboard in Resources */,
-				834F33A4240D9E36002E4C1D /* register.png in Resources */,
 				08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */,
 				0838D60C2406A35C0056E2F0 /* PetShop.storyboard in Resources */,
 				0838D60E2406A3990056E2F0 /* Zoo.storyboard in Resources */,
 				0806815124053BDE00FDE61D /* Assets.xcassets in Resources */,
 				0838D6062406A2B50056E2F0 /* Animal.storyboard in Resources */,
 				0806814F24053BDB00FDE61D /* Main.storyboard in Resources */,
-				834F33A5240D9E36002E4C1D /* login.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
