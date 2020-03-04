@@ -16,24 +16,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN SCREEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfE-eI-YCL">
-                                <rect key="frame" x="86.5" y="427" width="241" height="42"/>
+                                <rect key="frame" x="86.5" y="74" width="241" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-ap-jyd">
-                                <rect key="frame" x="174" y="646" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="go to App"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-ap-jyd">
+                                <rect key="frame" x="47" y="576" width="320" height="80"/>
+                                <state key="normal" image="login"/>
                                 <connections>
                                     <segue destination="VUY-5w-eSF" kind="presentation" modalPresentationStyle="fullScreen" id="Srx-oL-S4Y"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ot-Ta-oNV">
+                                <rect key="frame" x="82" y="287" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Njh-4K-RCJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="trZ-c7-ta3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Şifre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioN-qh-mg4">
+                                <rect key="frame" x="82" y="352" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="bza-Ux-nqY"/>
+                                    <constraint firstAttribute="height" constant="50" id="rdJ-UQ-CfI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hayvan Bilgi Sistemi Copyright@2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWG-jR-CdL">
+                                <rect key="frame" x="62.5" y="856" width="289" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="NfE-eI-YCL" firstAttribute="centerX" secondItem="zDh-hE-z8x" secondAttribute="centerX" id="fGa-ay-56b"/>
-                            <constraint firstItem="NfE-eI-YCL" firstAttribute="centerY" secondItem="zDh-hE-z8x" secondAttribute="centerY" id="saB-SL-eZ5"/>
+                            <constraint firstItem="7ot-Ta-oNV" firstAttribute="top" secondItem="NfE-eI-YCL" secondAttribute="bottom" constant="171" id="AxL-VQ-nnW"/>
+                            <constraint firstItem="ioN-qh-mg4" firstAttribute="centerX" secondItem="zDh-hE-z8x" secondAttribute="centerX" id="CIB-09-40c"/>
+                            <constraint firstItem="7ot-Ta-oNV" firstAttribute="centerX" secondItem="zDh-hE-z8x" secondAttribute="centerX" id="Py6-Db-DkU"/>
+                            <constraint firstItem="dKP-ap-jyd" firstAttribute="centerX" secondItem="zDh-hE-z8x" secondAttribute="centerX" id="ZwD-bA-tY8"/>
+                            <constraint firstItem="NfE-eI-YCL" firstAttribute="centerX" secondItem="zDh-hE-z8x" secondAttribute="centerX" id="b6D-2y-SK3"/>
+                            <constraint firstItem="QWG-jR-CdL" firstAttribute="bottom" secondItem="87F-ly-6er" secondAttribute="bottom" constant="15" id="ghC-Nh-EFa"/>
+                            <constraint firstItem="ioN-qh-mg4" firstAttribute="top" secondItem="7ot-Ta-oNV" secondAttribute="bottom" constant="15" id="jiW-PT-W5M"/>
+                            <constraint firstItem="NfE-eI-YCL" firstAttribute="top" secondItem="87F-ly-6er" secondAttribute="top" constant="30" id="qG4-Vx-bEI"/>
+                            <constraint firstItem="QWG-jR-CdL" firstAttribute="centerX" secondItem="zDh-hE-z8x" secondAttribute="centerX" id="r6P-35-gQf"/>
+                            <constraint firstItem="QWG-jR-CdL" firstAttribute="top" secondItem="dKP-ap-jyd" secondAttribute="bottom" constant="200" id="xYo-ae-Up3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="87F-ly-6er"/>
                     </view>
@@ -50,16 +81,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hayvan Bilgi Sistemi Copyright@2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8U-3a-UW1">
+                                <rect key="frame" x="62.5" y="826" width="289" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTER SCREEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bju-bZ-lyg">
-                                <rect key="frame" x="59" y="427" width="296" height="42"/>
+                                <rect key="frame" x="59" y="74" width="296" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-E0-FqS">
-                                <rect key="frame" x="174" y="623" width="67" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="go to App"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBm-E0-FqS">
+                                <rect key="frame" x="47" y="714" width="320" height="82"/>
+                                <state key="normal" image="register"/>
                                 <connections>
                                     <segue destination="VUY-5w-eSF" kind="presentation" modalPresentationStyle="fullScreen" id="50M-mM-gzD"/>
                                 </connections>
@@ -67,20 +103,23 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Bju-bZ-lyg" firstAttribute="centerY" secondItem="FhV-dM-6gI" secondAttribute="centerY" id="Qzc-YY-MrN"/>
-                            <constraint firstItem="Bju-bZ-lyg" firstAttribute="centerX" secondItem="FhV-dM-6gI" secondAttribute="centerX" id="wA3-RT-Dex"/>
+                            <constraint firstItem="m8U-3a-UW1" firstAttribute="top" secondItem="OBm-E0-FqS" secondAttribute="bottom" constant="30" id="Cmb-tU-j8e"/>
+                            <constraint firstItem="Bju-bZ-lyg" firstAttribute="centerX" secondItem="FhV-dM-6gI" secondAttribute="centerX" id="GT9-B3-3XT"/>
+                            <constraint firstItem="Bju-bZ-lyg" firstAttribute="top" secondItem="r7Z-kH-bvP" secondAttribute="top" constant="30" id="VvQ-Yj-W9g"/>
+                            <constraint firstItem="m8U-3a-UW1" firstAttribute="centerX" secondItem="FhV-dM-6gI" secondAttribute="centerX" id="eSB-NE-4pw"/>
+                            <constraint firstItem="r7Z-kH-bvP" firstAttribute="bottom" secondItem="m8U-3a-UW1" secondAttribute="bottom" constant="15" id="meY-Gz-sgt"/>
+                            <constraint firstItem="OBm-E0-FqS" firstAttribute="centerX" secondItem="FhV-dM-6gI" secondAttribute="centerX" id="pg7-g2-OV8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r7Z-kH-bvP"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LoU-Nd-QJY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1197" y="-379"/>
+            <point key="canvasLocation" x="-1197.1014492753625" y="-379.01785714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1AF-LJ-5yB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="50F-my-Qhj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController id="VUY-5w-eSF" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="g84-cD-Pre"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ycL-ci-1gT">
@@ -97,6 +136,7 @@
                         <segue destination="Ped-vu-Geq" kind="relationship" relationship="viewControllers" id="FIe-bf-9HG"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50F-my-Qhj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-26" y="-760"/>
         </scene>
@@ -161,7 +201,11 @@
             <point key="canvasLocation" x="844" y="-806"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="login" width="320" height="80"/>
+        <image name="register" width="320" height="82"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="50M-mM-gzD"/>
+        <segue reference="Srx-oL-S4Y"/>
     </inferredMetricsTieBreakers>
 </document>

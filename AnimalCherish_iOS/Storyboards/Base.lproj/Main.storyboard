@@ -15,33 +15,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME SCREEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5K-AZ-ifg">
-                                <rect key="frame" x="87.5" y="427" width="239" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANIMAL CHERISH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5K-AZ-ifg">
+                                <rect key="frame" x="68" y="74" width="278.5" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GI-i1-mQE">
-                                <rect key="frame" x="179" y="586" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="to Login"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GI-i1-mQE">
+                                <rect key="frame" x="47" y="614" width="320" height="80"/>
+                                <state key="normal" image="login"/>
                                 <connections>
                                     <segue destination="ugx-bU-DQt" kind="presentation" modalPresentationStyle="fullScreen" id="N0f-k5-XZ3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcL-mF-BGS">
-                                <rect key="frame" x="170" y="632" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="to Register"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcL-mF-BGS">
+                                <rect key="frame" x="47" y="714" width="320" height="82"/>
+                                <state key="normal" image="register"/>
                                 <connections>
                                     <segue destination="ivg-J0-A2b" kind="presentation" modalPresentationStyle="fullScreen" id="pbW-Nz-zw6"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animalsBG" translatesAutoresizingMaskIntoConstraints="NO" id="smp-1j-3Of">
+                                <rect key="frame" x="57" y="156" width="300" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="UNb-Q4-AQ9"/>
+                                    <constraint firstAttribute="width" constant="300" id="qfp-ut-fdC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hayvan Bilgi Sistemi Copyright@2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsG-Kv-wjR">
+                                <rect key="frame" x="62.5" y="826" width="289" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="z5K-AZ-ifg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mie-uM-9fu"/>
-                            <constraint firstItem="z5K-AZ-ifg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="knb-zN-OTV"/>
+                            <constraint firstItem="z5K-AZ-ifg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="5To-Oh-e4W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YsG-Kv-wjR" secondAttribute="bottom" constant="15" id="60X-Tn-cEG"/>
+                            <constraint firstItem="YsG-Kv-wjR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GIV-Oy-29M"/>
+                            <constraint firstItem="xcL-mF-BGS" firstAttribute="top" secondItem="7GI-i1-mQE" secondAttribute="bottom" constant="20" id="aH4-o8-xGO"/>
+                            <constraint firstItem="xcL-mF-BGS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aJk-4W-muX"/>
+                            <constraint firstItem="smp-1j-3Of" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bC5-dE-mi4"/>
+                            <constraint firstItem="z5K-AZ-ifg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bDj-fh-rnf"/>
+                            <constraint firstItem="7GI-i1-mQE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dHg-fm-Rft"/>
+                            <constraint firstItem="YsG-Kv-wjR" firstAttribute="top" secondItem="xcL-mF-BGS" secondAttribute="bottom" constant="30" id="fYe-la-wBv"/>
+                            <constraint firstItem="7GI-i1-mQE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hUZ-K3-0t6"/>
+                            <constraint firstItem="smp-1j-3Of" firstAttribute="top" secondItem="z5K-AZ-ifg" secondAttribute="bottom" constant="40" id="qTm-tK-6X7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -71,4 +91,9 @@
             <point key="canvasLocation" x="-778" y="-650"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="animalsBG" width="1000" height="582"/>
+        <image name="login" width="320" height="80"/>
+        <image name="register" width="320" height="82"/>
+    </resources>
 </document>
