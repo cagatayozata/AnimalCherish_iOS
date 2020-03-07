@@ -27,6 +27,8 @@
 		086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42692406FD6F00F2469C /* VetViewController.swift */; };
 		086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E426B2406FD8000F2469C /* ZooViewController.swift */; };
 		08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */; };
+		08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3822413BE3500E53BA2 /* Validators.swift */; };
+		08C6F3862413BE8400E53BA2 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */; };
 		08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FB2B7E2405A1E3000D431A /* Vet.storyboard */; };
 		08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE0DFD240C2C92002AFC96 /* Reachability.swift */; };
 		08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE0DFF240C2D18002AFC96 /* Auth.storyboard */; };
@@ -56,6 +58,8 @@
 		086E42692406FD6F00F2469C /* VetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetViewController.swift; sourceTree = "<group>"; };
 		086E426B2406FD8000F2469C /* ZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooViewController.swift; sourceTree = "<group>"; };
 		08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
+		08C6F3822413BE3500E53BA2 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		08FB2B7E2405A1E3000D431A /* Vet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vet.storyboard; sourceTree = "<group>"; };
 		08FE0DFD240C2C92002AFC96 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		08FE0DFF240C2D18002AFC96 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			children = (
 				08FB2B7B24059E51000D431A /* Storyboards */,
 				0838D60F2406A56C0056E2F0 /* ViewControllers */,
+				08C6F3842413BE6800E53BA2 /* Extensions */,
 				08FE0DFC240C2C6A002AFC96 /* Services */,
 				0806814724053BDB00FDE61D /* AppDelegate.swift */,
 				0806814924053BDB00FDE61D /* SceneDelegate.swift */,
@@ -181,6 +186,14 @@
 			path = Zoo;
 			sourceTree = "<group>";
 		};
+		08C6F3842413BE6800E53BA2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		08FB2B7B24059E51000D431A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				08FE0DFD240C2C92002AFC96 /* Reachability.swift */,
+				08C6F3822413BE3500E53BA2 /* Validators.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -347,11 +361,13 @@
 				086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */,
 				0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */,
 				08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */,
+				08C6F3862413BE8400E53BA2 /* UITextField+Extensions.swift in Sources */,
 				08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */,
 				086E42642406FD4600F2469C /* DashboardViewController.swift in Sources */,
 				086E42682406FD6600F2469C /* ShelterViewController.swift in Sources */,
 				086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */,
 				086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */,
+				08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */,
 				0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */,
 				0806814824053BDB00FDE61D /* AppDelegate.swift in Sources */,
 				086E425A2406DD4B00F2469C /* AnimalViewController.swift in Sources */,
