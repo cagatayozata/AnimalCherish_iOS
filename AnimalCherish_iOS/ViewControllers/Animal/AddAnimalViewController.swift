@@ -10,18 +10,21 @@ import UIKit
 
 class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    // MARK: IBOutlet
     @IBOutlet weak var IdTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var genusTextField: UITextField!
     
-    let types = ["test1", "test2", "test3"]
-    let genus = ["test0"]
+    // MARK: Variables
+    let types = ["Köpek", "Kuş", "Yılan", "Böcek", "Balık"]
+    let genus = ["Tür 1", "Tür 2", "Tür 3"]
     
     var typePickerView = UIPickerView()
     var genusPickerView = UIPickerView()
     
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,14 +39,43 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
     }
     
+    // MARK: Pressed Functions
     @IBAction func saveButtonPressed(_ sender: Any) {
-        print("ID: " + IdTextField.text!)
-        print("Name: " + nameTextField.text!)
-        print("Location: " + locationTextField.text!)
-        print("Type: " + typeTextField.text!)
-        print("Genus: " + genusTextField.text!)
+        validate()
     }
     
+    // MARK: Data Preparation and POST request
+    func post(){
+        // MARK: TODO POST request
+        
+    }
+    
+    // MARK: Validation
+    func validate() {
+        do {
+            
+            try IdTextField.validatedText(validationType: ValidatorType.animalId)
+            try nameTextField.validatedText(validationType: ValidatorType.animalName)
+            try locationTextField.validatedText(validationType: ValidatorType.location)
+            try typeTextField.validatedText(validationType: ValidatorType.animalType)
+            try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
+            
+            post()
+            
+       } catch(let error) {
+           showAlert(for: (error as! ValidationError).message)
+       }
+    }
+    
+    // MARK: Alert
+    func showAlert(for alert: String) {
+        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
+        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: UIPickerView
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
