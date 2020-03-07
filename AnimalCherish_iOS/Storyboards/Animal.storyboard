@@ -59,30 +59,88 @@
             </objects>
             <point key="canvasLocation" x="-320.28985507246381" y="363.61607142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--Hayvan Ekle-->
         <scene sceneID="Xhj-91-RWp">
             <objects>
-                <viewController id="2Ab-Pd-fgU" sceneMemberID="viewController">
+                <viewController id="2Ab-Pd-fgU" customClass="AddAnimalViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tH0-wk-lho">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ekleme Sayfası" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLY-Um-H5U">
-                                <rect key="frame" x="63" y="421" width="289" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Küpe Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uq8-ho-IAC">
+                                <rect key="frame" x="80" y="188" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZL3-J7-33k">
+                                <rect key="frame" x="80" y="262" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulunduğu Yer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlA-jT-Gmb">
+                                <rect key="frame" x="80" y="336" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tür" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-du-ox2">
+                                <rect key="frame" x="80" y="410" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cins" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J7b-Rj-aFO">
+                                <rect key="frame" x="80" y="484" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKf-kJ-GOW">
+                                <rect key="frame" x="70" y="618" width="274" height="30"/>
+                                <state key="normal" title="Kaydet"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="2Ab-Pd-fgU" eventType="touchUpInside" id="ewa-se-vvR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7kj-pi-cAm" firstAttribute="trailing" secondItem="FlA-jT-Gmb" secondAttribute="trailing" constant="80" id="1Iu-Un-GSl"/>
+                            <constraint firstItem="FlA-jT-Gmb" firstAttribute="leading" secondItem="7kj-pi-cAm" secondAttribute="leading" constant="80" id="A9Y-SO-yB9"/>
+                            <constraint firstItem="ZL3-J7-33k" firstAttribute="top" secondItem="uq8-ho-IAC" secondAttribute="bottom" constant="40" id="CAM-mA-s3u"/>
+                            <constraint firstItem="ea8-du-ox2" firstAttribute="centerX" secondItem="tH0-wk-lho" secondAttribute="centerX" id="E4V-pg-PhX"/>
+                            <constraint firstItem="7kj-pi-cAm" firstAttribute="trailing" secondItem="uq8-ho-IAC" secondAttribute="trailing" constant="80" id="GbD-Qq-gli"/>
+                            <constraint firstItem="7kj-pi-cAm" firstAttribute="trailing" secondItem="J7b-Rj-aFO" secondAttribute="trailing" constant="80" id="MDH-oM-qyj"/>
+                            <constraint firstItem="FKf-kJ-GOW" firstAttribute="leading" secondItem="7kj-pi-cAm" secondAttribute="leading" constant="70" id="OQd-gJ-hIs"/>
+                            <constraint firstItem="ea8-du-ox2" firstAttribute="leading" secondItem="7kj-pi-cAm" secondAttribute="leading" constant="80" id="QSv-3y-cAr"/>
+                            <constraint firstItem="ZL3-J7-33k" firstAttribute="centerX" secondItem="tH0-wk-lho" secondAttribute="centerX" id="Rtp-eI-9dt"/>
+                            <constraint firstItem="FKf-kJ-GOW" firstAttribute="centerX" secondItem="tH0-wk-lho" secondAttribute="centerX" id="XWM-fJ-ega"/>
+                            <constraint firstItem="J7b-Rj-aFO" firstAttribute="centerX" secondItem="tH0-wk-lho" secondAttribute="centerX" id="Xw4-Ob-rse"/>
+                            <constraint firstItem="ea8-du-ox2" firstAttribute="top" secondItem="FlA-jT-Gmb" secondAttribute="bottom" constant="40" id="Ycx-oj-Myb"/>
+                            <constraint firstItem="FKf-kJ-GOW" firstAttribute="top" secondItem="J7b-Rj-aFO" secondAttribute="bottom" constant="100" id="awi-fl-SYY"/>
+                            <constraint firstItem="uq8-ho-IAC" firstAttribute="centerX" secondItem="tH0-wk-lho" secondAttribute="centerX" id="dus-Og-fNq"/>
+                            <constraint firstItem="ZL3-J7-33k" firstAttribute="leading" secondItem="7kj-pi-cAm" secondAttribute="leading" constant="80" id="esl-qZ-plk"/>
+                            <constraint firstItem="7kj-pi-cAm" firstAttribute="trailing" secondItem="ea8-du-ox2" secondAttribute="trailing" constant="80" id="hgF-53-3DY"/>
+                            <constraint firstItem="7kj-pi-cAm" firstAttribute="trailing" secondItem="ZL3-J7-33k" secondAttribute="trailing" constant="80" id="htI-he-FZG"/>
+                            <constraint firstItem="uq8-ho-IAC" firstAttribute="leading" secondItem="7kj-pi-cAm" secondAttribute="leading" constant="80" id="idr-ex-QHJ"/>
+                            <constraint firstItem="FlA-jT-Gmb" firstAttribute="top" secondItem="ZL3-J7-33k" secondAttribute="bottom" constant="40" id="jSu-gv-JEL"/>
+                            <constraint firstItem="7kj-pi-cAm" firstAttribute="trailing" secondItem="FKf-kJ-GOW" secondAttribute="trailing" constant="70" id="kql-j1-PWH"/>
+                            <constraint firstItem="uq8-ho-IAC" firstAttribute="top" secondItem="7kj-pi-cAm" secondAttribute="top" constant="100" id="qmr-MH-Hlb"/>
+                            <constraint firstItem="FlA-jT-Gmb" firstAttribute="centerX" secondItem="tH0-wk-lho" secondAttribute="centerX" id="r95-IU-F9m"/>
+                            <constraint firstItem="J7b-Rj-aFO" firstAttribute="top" secondItem="ea8-du-ox2" secondAttribute="bottom" constant="40" id="rEh-hl-gpV"/>
+                            <constraint firstItem="J7b-Rj-aFO" firstAttribute="leading" secondItem="7kj-pi-cAm" secondAttribute="leading" constant="80" id="xc9-op-Dhp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7kj-pi-cAm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2rQ-eb-qwc"/>
+                    <navigationItem key="navigationItem" title="Hayvan Ekle" id="2rQ-eb-qwc"/>
+                    <connections>
+                        <outlet property="IdTextField" destination="uq8-ho-IAC" id="tHd-qK-ZMb"/>
+                        <outlet property="genusTextField" destination="J7b-Rj-aFO" id="cky-Cn-gq8"/>
+                        <outlet property="locationTextField" destination="FlA-jT-Gmb" id="Ofn-fq-K1w"/>
+                        <outlet property="nameTextField" destination="ZL3-J7-33k" id="J9U-Or-Mud"/>
+                        <outlet property="typeTextField" destination="ea8-du-ox2" id="crk-rj-Nxt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2b8-dX-Hqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="33"/>
+            <point key="canvasLocation" x="447.82608695652175" y="32.8125"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uHi-ip-xG5">

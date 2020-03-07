@@ -26,6 +26,7 @@
 		086E42682406FD6600F2469C /* ShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42672406FD6600F2469C /* ShelterViewController.swift */; };
 		086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42692406FD6F00F2469C /* VetViewController.swift */; };
 		086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E426B2406FD8000F2469C /* ZooViewController.swift */; };
+		08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */; };
 		08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FB2B7E2405A1E3000D431A /* Vet.storyboard */; };
 		08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE0DFD240C2C92002AFC96 /* Reachability.swift */; };
 		08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE0DFF240C2D18002AFC96 /* Auth.storyboard */; };
@@ -54,6 +55,7 @@
 		086E42672406FD6600F2469C /* ShelterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelterViewController.swift; sourceTree = "<group>"; };
 		086E42692406FD6F00F2469C /* VetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetViewController.swift; sourceTree = "<group>"; };
 		086E426B2406FD8000F2469C /* ZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooViewController.swift; sourceTree = "<group>"; };
+		08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		08FB2B7E2405A1E3000D431A /* Vet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vet.storyboard; sourceTree = "<group>"; };
 		08FE0DFD240C2C92002AFC96 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		08FE0DFF240C2D18002AFC96 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				086E42592406DD4B00F2469C /* AnimalViewController.swift */,
+				08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */,
 			);
 			path = Animal;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */,
 				0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */,
+				08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */,
 				08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */,
 				086E42642406FD4600F2469C /* DashboardViewController.swift in Sources */,
 				086E42682406FD6600F2469C /* ShelterViewController.swift in Sources */,
