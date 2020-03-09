@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Pet Shop-->
         <scene sceneID="KtM-wn-3hp">
             <objects>
                 <viewController id="Ypx-S3-0XX" sceneMemberID="viewController">
@@ -17,11 +17,97 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="CX2-ys-7WO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="00s-KE-Rax"/>
+                    <navigationItem key="navigationItem" title="Pet Shop" id="00s-KE-Rax">
+                        <barButtonItem key="rightBarButtonItem" title="Ekle" id="jpF-mi-6GH">
+                            <connections>
+                                <segue destination="RfD-Pq-2ie" kind="show" id="v3i-om-nKs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7UN-XP-JTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="1148"/>
+            <point key="canvasLocation" x="2346" y="363"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hla-hL-Pbb">
+            <objects>
+                <viewController id="RfD-Pq-2ie" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oqm-4C-xKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qhd-si-oMg">
+                                <rect key="frame" x="80" y="188" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hsc-sB-d4t">
+                                <rect key="frame" x="80" y="262" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Gr-VF-AaQ">
+                                <rect key="frame" x="80" y="336" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefon Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WJh-iS-Wek">
+                                <rect key="frame" x="80" y="410" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mail Adresi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YTn-DB-NO7">
+                                <rect key="frame" x="80" y="484" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2u-IL-7a3">
+                                <rect key="frame" x="80" y="558" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhC-Y0-LVr">
+                                <rect key="frame" x="183" y="692" width="48" height="30"/>
+                                <state key="normal" title="Kaydet"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YTn-DB-NO7" firstAttribute="leading" secondItem="vbg-CR-EoD" secondAttribute="leading" constant="80" id="3kE-rZ-usm"/>
+                            <constraint firstItem="hsc-sB-d4t" firstAttribute="centerX" secondItem="Oqm-4C-xKJ" secondAttribute="centerX" id="6Dk-YF-OB2"/>
+                            <constraint firstItem="BhC-Y0-LVr" firstAttribute="centerX" secondItem="Oqm-4C-xKJ" secondAttribute="centerX" id="7XC-lB-ZU1"/>
+                            <constraint firstItem="BhC-Y0-LVr" firstAttribute="top" secondItem="M2u-IL-7a3" secondAttribute="bottom" constant="100" id="9A0-Ld-8Jd"/>
+                            <constraint firstItem="1Gr-VF-AaQ" firstAttribute="centerX" secondItem="Oqm-4C-xKJ" secondAttribute="centerX" id="BaY-fH-Mj4"/>
+                            <constraint firstItem="qhd-si-oMg" firstAttribute="top" secondItem="vbg-CR-EoD" secondAttribute="top" constant="100" id="BtC-wf-gbG"/>
+                            <constraint firstItem="1Gr-VF-AaQ" firstAttribute="leading" secondItem="vbg-CR-EoD" secondAttribute="leading" constant="80" id="F5T-Q2-rG1"/>
+                            <constraint firstItem="vbg-CR-EoD" firstAttribute="trailing" secondItem="YTn-DB-NO7" secondAttribute="trailing" constant="80" id="NPp-wv-OOK"/>
+                            <constraint firstItem="hsc-sB-d4t" firstAttribute="top" secondItem="qhd-si-oMg" secondAttribute="bottom" constant="40" id="OBK-R4-usv"/>
+                            <constraint firstItem="YTn-DB-NO7" firstAttribute="top" secondItem="WJh-iS-Wek" secondAttribute="bottom" constant="40" id="Qyc-L7-Y8d"/>
+                            <constraint firstItem="1Gr-VF-AaQ" firstAttribute="top" secondItem="hsc-sB-d4t" secondAttribute="bottom" constant="40" id="W4g-KT-2xl"/>
+                            <constraint firstItem="vbg-CR-EoD" firstAttribute="trailing" secondItem="WJh-iS-Wek" secondAttribute="trailing" constant="80" id="Yuz-6h-ADA"/>
+                            <constraint firstItem="M2u-IL-7a3" firstAttribute="centerX" secondItem="Oqm-4C-xKJ" secondAttribute="centerX" id="ZI1-wK-6wo"/>
+                            <constraint firstItem="vbg-CR-EoD" firstAttribute="trailing" secondItem="hsc-sB-d4t" secondAttribute="trailing" constant="80" id="ZTV-L5-a18"/>
+                            <constraint firstItem="qhd-si-oMg" firstAttribute="leading" secondItem="vbg-CR-EoD" secondAttribute="leading" constant="80" id="ZzS-i5-0JH"/>
+                            <constraint firstItem="vbg-CR-EoD" firstAttribute="trailing" secondItem="qhd-si-oMg" secondAttribute="trailing" constant="80" id="bho-RX-jky"/>
+                            <constraint firstItem="WJh-iS-Wek" firstAttribute="top" secondItem="1Gr-VF-AaQ" secondAttribute="bottom" constant="40" id="c2X-4d-vOW"/>
+                            <constraint firstItem="M2u-IL-7a3" firstAttribute="leading" secondItem="vbg-CR-EoD" secondAttribute="leading" constant="80" id="cRK-OJ-6Z7"/>
+                            <constraint firstItem="WJh-iS-Wek" firstAttribute="centerX" secondItem="Oqm-4C-xKJ" secondAttribute="centerX" id="dY8-Rv-Hrs"/>
+                            <constraint firstItem="WJh-iS-Wek" firstAttribute="leading" secondItem="vbg-CR-EoD" secondAttribute="leading" constant="80" id="hFI-tZ-xfa"/>
+                            <constraint firstItem="YTn-DB-NO7" firstAttribute="centerX" secondItem="Oqm-4C-xKJ" secondAttribute="centerX" id="hPT-AO-eY3"/>
+                            <constraint firstItem="vbg-CR-EoD" firstAttribute="trailing" secondItem="1Gr-VF-AaQ" secondAttribute="trailing" constant="80" id="k6V-0s-Ib1"/>
+                            <constraint firstItem="M2u-IL-7a3" firstAttribute="top" secondItem="YTn-DB-NO7" secondAttribute="bottom" constant="40" id="la6-bR-DjQ"/>
+                            <constraint firstItem="hsc-sB-d4t" firstAttribute="leading" secondItem="vbg-CR-EoD" secondAttribute="leading" constant="80" id="q6G-Ul-1UG"/>
+                            <constraint firstItem="vbg-CR-EoD" firstAttribute="trailing" secondItem="M2u-IL-7a3" secondAttribute="trailing" constant="80" id="qQj-hw-QWE"/>
+                            <constraint firstItem="qhd-si-oMg" firstAttribute="centerX" secondItem="Oqm-4C-xKJ" secondAttribute="centerX" id="wJ6-fp-qJw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vbg-CR-EoD"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eBh-9S-TaS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aEA-gI-luw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3117" y="15"/>
         </scene>
         <!--Pet Shop-->
         <scene sceneID="DQO-1h-h5I">
