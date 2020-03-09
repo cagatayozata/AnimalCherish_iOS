@@ -34,6 +34,13 @@ enum ValidatorType {
     case vetPhoneNumber
     case vetMailAddress
     case vetBirthDate
+    case zooEstablishDate
+    case zooName
+    case zooAddress
+    case zooDescription
+    case zooPhoneNumber
+    case zooMailAddress
+
 }
 
 enum VaildatorFactory {
@@ -52,9 +59,17 @@ enum VaildatorFactory {
         case .vetPhoneNumber: return VetPhoneNumberValidator()
         case .vetMailAddress: return VetMailAddressValidator()
         case .vetBirthDate: return VetBirthDateValidator()
+        case .zooName: return ZooNameValidator()
+        case .zooEstablishDate: return ZooEstablishDateValidator()
+        case .zooAddress: return ZooAddressValidator()
+        case .zooDescription: return ZooDescriptionValidator()
+        case .zooPhoneNumber: return ZooPhoneNumberValidator()
+        case .zooMailAddress: return ZooMailAddressValidator()
         }
     }
 }
+
+    //ANIMAL Validator
 
 class AnimalIdValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
@@ -112,6 +127,8 @@ class AnimalGenusValidator: ValidatorConvertible {
         return value
     }
 }
+
+    //VET Validator
 
 class VetNameValidator: ValidatorConvertible {
      func validated(_ value: String) throws -> String {
@@ -211,4 +228,65 @@ class VetBirthDateValidator: ValidatorConvertible {
         guard value.count > 0 else {throw ValidationError("Doğum tarihi bilgisi girilmesi zorunludur!")}
         return value
     }
+}
+
+    // ZOO validator
+
+class ZooNameValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Hayvanat Bahçesi ismi zorunludur!")}
+          return value
+      }
+}
+
+class ZooEstablishDateValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Kuruluş tarihi bilgisi girilmesi zorunludur!")}
+        return value
+    }
+}
+
+class ZooPhoneNumberValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Telefon bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern:
+                "0[0-9]{3}.*[0-9]{3}.*[0-9]{4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+
+class ZooMailAddressValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Mail bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern:
+                "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Mail belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Mail belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+class ZooDescriptionValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Hayvanat Bahçesi açıklaması zorunludur!")}
+          return value
+      }
+}
+
+class ZooAddressValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Hayvanat Bahçesi adresi zorunludur!")}
+          return value
+      }
 }

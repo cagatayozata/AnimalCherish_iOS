@@ -41,8 +41,12 @@ class AddZooViewController: UIViewController {
     // MARK: Validation
     func validate() {
         do {
-            
-            //MARK: TODO validation
+            try establishDate.validatedText(validationType: ValidatorType.zooEstablishDate)
+            try name.validatedText(validationType: ValidatorType.zooName)
+            try email.validatedText(validationType: ValidatorType.zooMailAddress)
+            try phone.validatedText(validationType: ValidatorType.zooPhoneNumber)
+            try address.validatedText(validationType: ValidatorType.zooAddress)
+            try desc.validatedText(validationType: ValidatorType.zooDescription)
             
             post()
             
