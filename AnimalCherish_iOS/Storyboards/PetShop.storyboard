@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="2346" y="363"/>
         </scene>
-        <!--Add Pet Shop View Controller-->
+        <!--Pet Shop Ekle-->
         <scene sceneID="hla-hL-Pbb">
             <objects>
                 <viewController id="RfD-Pq-2ie" customClass="AddPetShopViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,6 +70,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhC-Y0-LVr">
                                 <rect key="frame" x="183" y="692" width="48" height="30"/>
                                 <state key="normal" title="Kaydet"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="RfD-Pq-2ie" eventType="touchUpInside" id="95C-jg-et3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -103,7 +106,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vbg-CR-EoD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eBh-9S-TaS"/>
+                    <navigationItem key="navigationItem" title="Pet Shop Ekle" id="eBh-9S-TaS">
+                        <barButtonItem key="backBarButtonItem" title="Geri" id="pCj-4H-jhz"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="address" destination="hsc-sB-d4t" id="QpF-xN-Kfy"/>
+                        <outlet property="detail" destination="1Gr-VF-AaQ" id="NQL-2H-3Wu"/>
+                        <outlet property="establishDate" destination="M2u-IL-7a3" id="OWC-HJ-TFQ"/>
+                        <outlet property="mail" destination="YTn-DB-NO7" id="xqd-7F-27S"/>
+                        <outlet property="name" destination="qhd-si-oMg" id="lA0-dM-Jv0"/>
+                        <outlet property="phone" destination="WJh-iS-Wek" id="QWk-aa-y95"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEA-gI-luw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

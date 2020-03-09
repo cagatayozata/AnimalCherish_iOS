@@ -14,7 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="rqY-fP-hVn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dxu-qV-LRy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Veteriner" id="fA5-AB-XEV">
@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="677" y="364"/>
         </scene>
-        <!--Add Vet View Controller-->
+        <!--Veteriner Ekle-->
         <scene sceneID="G9p-CY-wdL">
             <objects>
                 <viewController id="eKN-7X-gRM" customClass="AddVetViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,21 +95,32 @@
                                 <rect key="frame" x="172" y="711" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="KAYDET"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ed-8x-eEq">
-                                <rect key="frame" x="181" y="762" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="IPTAL"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="eKN-7X-gRM" eventType="touchUpInside" id="R2t-bj-3T7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="BlZ-17-d8n"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8qN-TJ-gzn"/>
+                    <navigationItem key="navigationItem" title="Veteriner Ekle" id="8qN-TJ-gzn">
+                        <barButtonItem key="backBarButtonItem" title="Geri" id="3bV-jE-veZ"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="birthDate" destination="lOK-Ak-GZ7" id="yK9-1S-8gc"/>
+                        <outlet property="city" destination="7tn-3R-Yk2" id="rPf-ng-LlA"/>
+                        <outlet property="clinicInfo" destination="6qt-SX-HPJ" id="ze5-yA-nvU"/>
+                        <outlet property="educationInfo" destination="i5m-1J-nuz" id="UBa-RO-PlX"/>
+                        <outlet property="email" destination="XZo-TD-Qnv" id="mTx-38-dy6"/>
+                        <outlet property="nameSurname" destination="8bB-FM-Lqz" id="wrX-Ew-aU0"/>
+                        <outlet property="phone" destination="Uqs-Kp-yyu" id="Icb-FJ-pfP"/>
+                        <outlet property="state" destination="nQK-8P-Ahh" id="3yw-rx-wMT"/>
+                        <outlet property="workplace" destination="t1i-dS-wHo" id="ee3-M7-Igz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MUi-jt-cBR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681.1594202898552" y="363.61607142857139"/>
+            <point key="canvasLocation" x="1445" y="1"/>
         </scene>
         <!--Veteriner-->
         <scene sceneID="pah-0F-da7">

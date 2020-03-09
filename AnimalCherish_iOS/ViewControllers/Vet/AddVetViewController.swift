@@ -10,21 +10,56 @@ import UIKit
 
 class AddVetViewController: UIViewController {
 
+    // MARK: IBOutlet
+    @IBOutlet weak var nameSurname: UITextField!
+    @IBOutlet weak var educationInfo: UITextField!
+    @IBOutlet weak var city: UITextField!
+    @IBOutlet weak var state: UITextField!
+    @IBOutlet weak var workplace: UITextField!
+    @IBOutlet weak var clinicInfo: UITextField!
+    @IBOutlet weak var phone: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var birthDate: UITextField!
+    
+     // MARK: Variables
+
+        
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: Pressed Functions
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        validate()
     }
-    */
-
+    
+    // MARK: Data Preparation and POST request
+    func post(){
+        // MARK: TODO POST request
+        
+    }
+    
+    // MARK: Validation
+    func validate() {
+        do {
+            
+            //MARK: TODO validation
+            
+            post()
+            
+       } catch(let error) {
+           showAlert(for: (error as! ValidationError).message)
+       }
+    }
+    
+    // MARK: Alert
+    func showAlert(for alert: String) {
+        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
+        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+  
 }

@@ -27,9 +27,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFB-Ea-RT1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2251" y="1148"/>
+            <point key="canvasLocation" x="3116" y="363"/>
         </scene>
-        <!--Add Zoo View Controller-->
+        <!--Hayvanat Bahçesi Ekle-->
         <scene sceneID="tPw-7F-s80">
             <objects>
                 <viewController id="Hqg-ap-gwG" customClass="AddZooViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,21 +77,29 @@
                                 <rect key="frame" x="168" y="771" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="KAYDET"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGh-Es-qen">
-                                <rect key="frame" x="187" y="809" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="IPTAL"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Hqg-ap-gwG" eventType="touchUpInside" id="K5c-sR-shz"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="lOt-wv-U22"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8Sa-f6-fa1"/>
+                    <navigationItem key="navigationItem" title="Hayvanat Bahçesi Ekle" id="8Sa-f6-fa1">
+                        <barButtonItem key="backBarButtonItem" title="Geri" id="OCB-1a-NWY"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="address" destination="Et3-RC-Igs" id="UKI-sk-qzE"/>
+                        <outlet property="desc" destination="8o7-EJ-BoK" id="g43-3B-Gzo"/>
+                        <outlet property="email" destination="bwN-BL-0cX" id="jJ8-Lt-AFe"/>
+                        <outlet property="establishDate" destination="ToB-YA-ozj" id="f0Q-Y5-nCc"/>
+                        <outlet property="name" destination="ng5-4m-BTx" id="l8D-Pj-eLw"/>
+                        <outlet property="phone" destination="30W-Ex-Huw" id="Ldr-9N-Zh8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl8-iR-TeU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3360.8695652173915" y="1147.7678571428571"/>
+            <point key="canvasLocation" x="3877" y="25"/>
         </scene>
         <!--Hayvanat Bahçesi-->
         <scene sceneID="4tT-MX-A4c">
