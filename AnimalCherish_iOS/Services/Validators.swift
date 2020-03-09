@@ -26,6 +26,14 @@ enum ValidatorType {
     case location
     case animalType
     case animalGenus
+    case vetName
+    case vetEducationInfo
+    case vetCity
+    case vetState
+    case vetClinicInfo
+    case vetPhoneNumber
+    case vetMailAddress
+    case vetBirthDate
 }
 
 enum VaildatorFactory {
@@ -36,6 +44,14 @@ enum VaildatorFactory {
         case .location: return LocationValidator()
         case .animalType: return AnimalTypeValidator()
         case .animalGenus: return AnimalGenusValidator()
+        case .vetName: return VetNameValidator()
+        case .vetEducationInfo: return VetEducationInfoValidator()
+        case .vetCity: return VetCityValidator()
+        case .vetState: return VetStateValidator()
+        case .vetClinicInfo: return VetClinicInfoValidator()
+        case .vetPhoneNumber: return VetPhoneNumberValidator()
+        case .vetMailAddress: return VetMailAddressValidator()
+        case .vetBirthDate: return VetBirthDateValidator()
         }
     }
 }
@@ -93,6 +109,118 @@ class AnimalTypeValidator: ValidatorConvertible {
 class AnimalGenusValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
         guard value.count > 0 else {throw ValidationError("Cins alanı boş bırakılamaz!")}
+        return value
+    }
+}
+
+class VetNameValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Veteriner ismi zorunludur!")}
+          guard value.count >= 3 else {
+              throw ValidationError("Veteriner ismi 3 karakterden az olamaz!" )
+          }
+          guard value.count < 15 else {
+              throw ValidationError("Veteriner 15 karakterden fazla olamaz!" )
+          }
+          
+          do {
+              if try NSRegularExpression(pattern: "^[a-z]{1,18}$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                  throw ValidationError("Veteriner ismi boşluk, rakam ve özel karakter içeremez.")
+              }
+          } catch {
+              throw ValidationError("Veteriner ismi boşluk, rakam ve özel karakter içeremez.")
+          }
+          return value
+      }
+}
+
+class VetCityValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Bulunduğu yer alanı zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern: "^[a-z]{1,18}$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+            }
+        } catch {
+            throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+        }
+        return value
+    }
+}
+
+class VetStateValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Bulunduğu yer alanı zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern: "^[a-z]{1,18}$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+            }
+        } catch {
+            throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+        }
+        return value
+    }
+}
+
+class VetEducationInfoValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Eğitim bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern: "^/([a-zA-Z])/$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Eğitim bilgisi özel karakter içeremez.")
+            }
+        } catch {
+            throw ValidationError("Eğitim bilgisi özel karakter içeremez.")
+        }
+        return value
+    }
+}
+
+class VetClinicInfoValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Klinik bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern: "^/([a-z])/$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Klinik bilgisi özel karakter içeremez.")
+            }
+        } catch {
+            throw ValidationError("Klinik bilgisi özel karakter içeremez.")
+        }
+        return value
+    }
+}
+
+class VetPhoneNumberValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Telefon bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern: "0([0-9]{3})-([0-9]{2})-([0-9]{2})$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+class VetMailAddressValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Mail bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern: "^([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-])+@+([a-zA-Z0-9]{20})+.com$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Mail belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Mail belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+class VetBirthDateValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Doğum tarihi bilgisi girilmesi zorunludur!")}
         return value
     }
 }
