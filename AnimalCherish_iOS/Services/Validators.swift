@@ -40,6 +40,13 @@ enum ValidatorType {
     case zooDescription
     case zooPhoneNumber
     case zooMailAddress
+    case shelterName
+    case shelterAddress
+    case shelterCapacity
+    case shelterDetail
+    case shelterPhoneNumber
+    case shelterMailAddress
+    case shelterEstablishDate
 
 }
 
@@ -65,6 +72,14 @@ enum VaildatorFactory {
         case .zooDescription: return ZooDescriptionValidator()
         case .zooPhoneNumber: return ZooPhoneNumberValidator()
         case .zooMailAddress: return ZooMailAddressValidator()
+        case .shelterName: return ShelterNameValidator()
+        case .shelterAddress: return ShelterAddressValidator()
+        case .shelterCapacity: return ShelterCapacityValidator()
+        case .shelterDetail: return ShelterDetailValidator()
+        case .shelterPhoneNumber: return ShelterPhoneNumberValidator()
+        case .shelterMailAddress: return ShelterMailAddressValidator()
+        case .shelterEstablishDate: return ShelterEstablishDateValidator()
+    
         }
     }
 }
@@ -287,6 +302,81 @@ class ZooDescriptionValidator: ValidatorConvertible {
 class ZooAddressValidator: ValidatorConvertible {
      func validated(_ value: String) throws -> String {
           guard value.count > 0 else {throw ValidationError("Hayvanat Bahçesi adresi zorunludur!")}
+          return value
+      }
+}
+
+    // SHELTER Validator
+
+class ShelterNameValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Barınak ismi zorunludur!")}
+          return value
+      }
+}
+
+class ShelterCapacityValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Barınak kapasite bilgisi girilmesi zorunludur!")}
+        do {
+                if try NSRegularExpression(pattern: "^([0-9]){1,99999}$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                       throw ValidationError("Barınak kapasitesi sayı olmalıdır.")
+                   }
+               } catch {
+                   throw ValidationError("Barınak kapasitesi sayı olmalıdır.")
+               }
+        return value
+    }
+}
+
+class ShelterEstablishDateValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Kuruluş tarihi bilgisi girilmesi zorunludur!")}
+        return value
+    }
+}
+
+class ShelterPhoneNumberValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Telefon bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern:
+                "0[0-9]{3}.*[0-9]{3}.*[0-9]{4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+
+class ShelterMailAddressValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Mail bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern:
+                "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Mail belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Mail belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+class ShelterDetailValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Barınak detayı zorunludur!")}
+          return value
+      }
+}
+
+class ShelterAddressValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Barınak adresi zorunludur!")}
           return value
       }
 }
