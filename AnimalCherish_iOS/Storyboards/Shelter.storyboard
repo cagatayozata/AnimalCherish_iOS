@@ -7,21 +7,116 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Barınak-->
         <scene sceneID="v9D-aJ-qmd">
             <objects>
                 <viewController id="c7D-w5-2hN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w5J-mI-Abr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XZh-5C-xvv"/>
                     </view>
-                    <navigationItem key="navigationItem" id="V7a-bW-O8b"/>
+                    <navigationItem key="navigationItem" title="Barınak" id="V7a-bW-O8b">
+                        <barButtonItem key="rightBarButtonItem" title="Ekle" id="EZ0-eT-2Qc">
+                            <connections>
+                                <segue destination="JkG-10-CtQ" kind="show" id="hj6-Wy-2gl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baL-zi-Is5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="1148"/>
+            <point key="canvasLocation" x="1429" y="364"/>
+        </scene>
+        <!--Add Shelter View Controller-->
+        <scene sceneID="LCc-FD-Imz">
+            <objects>
+                <viewController id="JkG-10-CtQ" customClass="AddShelterViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cyh-EZ-FpX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UX9-fg-eKz">
+                                <rect key="frame" x="80" y="188" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JSf-jP-JTc">
+                                <rect key="frame" x="80" y="262" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kapasite" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="17J-tv-Vpm">
+                                <rect key="frame" x="80" y="336" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6J4-Yw-6ao">
+                                <rect key="frame" x="80" y="410" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefon Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Io5-2b-1aH">
+                                <rect key="frame" x="80" y="484" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mail Adresi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ps6-xU-Lb0">
+                                <rect key="frame" x="80" y="558" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXh-k2-wCI">
+                                <rect key="frame" x="80" y="632" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEW-HD-00D">
+                                <rect key="frame" x="183" y="766" width="48" height="30"/>
+                                <state key="normal" title="Kaydet"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="17J-tv-Vpm" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="25G-Gw-Evk"/>
+                            <constraint firstItem="JSf-jP-JTc" firstAttribute="top" secondItem="UX9-fg-eKz" secondAttribute="bottom" constant="40" id="3TE-Zy-hxN"/>
+                            <constraint firstItem="jSR-g7-v20" firstAttribute="trailing" secondItem="17J-tv-Vpm" secondAttribute="trailing" constant="80" id="3f8-3x-yCm"/>
+                            <constraint firstItem="jSR-g7-v20" firstAttribute="trailing" secondItem="Io5-2b-1aH" secondAttribute="trailing" constant="80" id="3jf-E1-zCD"/>
+                            <constraint firstItem="6J4-Yw-6ao" firstAttribute="leading" secondItem="jSR-g7-v20" secondAttribute="leading" constant="80" id="58C-ur-udh"/>
+                            <constraint firstItem="Io5-2b-1aH" firstAttribute="top" secondItem="6J4-Yw-6ao" secondAttribute="bottom" constant="40" id="6UQ-OB-zhe"/>
+                            <constraint firstItem="6J4-Yw-6ao" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="7Dw-z4-o7b"/>
+                            <constraint firstItem="VEW-HD-00D" firstAttribute="top" secondItem="UXh-k2-wCI" secondAttribute="bottom" constant="100" id="9kC-RZ-tI0"/>
+                            <constraint firstItem="jSR-g7-v20" firstAttribute="trailing" secondItem="UXh-k2-wCI" secondAttribute="trailing" constant="80" id="FvZ-mS-Rqd"/>
+                            <constraint firstItem="JSf-jP-JTc" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="G7V-i7-JOy"/>
+                            <constraint firstItem="UXh-k2-wCI" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="GQJ-nw-yXC"/>
+                            <constraint firstItem="ps6-xU-Lb0" firstAttribute="leading" secondItem="jSR-g7-v20" secondAttribute="leading" constant="80" id="H7y-42-m2K"/>
+                            <constraint firstItem="ps6-xU-Lb0" firstAttribute="top" secondItem="Io5-2b-1aH" secondAttribute="bottom" constant="40" id="Ixh-aR-nH7"/>
+                            <constraint firstItem="JSf-jP-JTc" firstAttribute="leading" secondItem="jSR-g7-v20" secondAttribute="leading" constant="80" id="Jji-Av-shy"/>
+                            <constraint firstItem="UXh-k2-wCI" firstAttribute="top" secondItem="ps6-xU-Lb0" secondAttribute="bottom" constant="40" id="Ked-mg-AaY"/>
+                            <constraint firstItem="VEW-HD-00D" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="KlF-gQ-CDx"/>
+                            <constraint firstItem="Io5-2b-1aH" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="Ort-3g-6Ko"/>
+                            <constraint firstItem="Io5-2b-1aH" firstAttribute="leading" secondItem="jSR-g7-v20" secondAttribute="leading" constant="80" id="VKn-Bu-dgJ"/>
+                            <constraint firstItem="UXh-k2-wCI" firstAttribute="leading" secondItem="jSR-g7-v20" secondAttribute="leading" constant="80" id="Vm7-OU-M45"/>
+                            <constraint firstItem="UX9-fg-eKz" firstAttribute="top" secondItem="jSR-g7-v20" secondAttribute="top" constant="100" id="XRH-ot-ME6"/>
+                            <constraint firstItem="17J-tv-Vpm" firstAttribute="top" secondItem="JSf-jP-JTc" secondAttribute="bottom" constant="40" id="bgn-GR-edb"/>
+                            <constraint firstItem="UX9-fg-eKz" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="dhd-nV-pXe"/>
+                            <constraint firstItem="jSR-g7-v20" firstAttribute="trailing" secondItem="JSf-jP-JTc" secondAttribute="trailing" constant="80" id="dyX-ho-J5Z"/>
+                            <constraint firstItem="jSR-g7-v20" firstAttribute="trailing" secondItem="6J4-Yw-6ao" secondAttribute="trailing" constant="80" id="eSr-FU-S9f"/>
+                            <constraint firstItem="jSR-g7-v20" firstAttribute="trailing" secondItem="ps6-xU-Lb0" secondAttribute="trailing" constant="80" id="fh4-5d-5GY"/>
+                            <constraint firstItem="jSR-g7-v20" firstAttribute="trailing" secondItem="UX9-fg-eKz" secondAttribute="trailing" constant="80" id="gnr-CZ-v2z"/>
+                            <constraint firstItem="UX9-fg-eKz" firstAttribute="leading" secondItem="jSR-g7-v20" secondAttribute="leading" constant="80" id="l1R-P4-mVW"/>
+                            <constraint firstItem="6J4-Yw-6ao" firstAttribute="top" secondItem="17J-tv-Vpm" secondAttribute="bottom" constant="40" id="pio-hv-VcM"/>
+                            <constraint firstItem="ps6-xU-Lb0" firstAttribute="centerX" secondItem="cyh-EZ-FpX" secondAttribute="centerX" id="ukk-KX-frQ"/>
+                            <constraint firstItem="17J-tv-Vpm" firstAttribute="leading" secondItem="jSR-g7-v20" secondAttribute="leading" constant="80" id="w9h-ou-Z19"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jSR-g7-v20"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GPX-Tp-Bmb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K6r-vZ-261" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2202.898550724638" y="93.75"/>
         </scene>
         <!--Barınak-->
         <scene sceneID="lGu-EH-VGK">

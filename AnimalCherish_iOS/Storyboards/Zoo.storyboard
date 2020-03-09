@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="2251" y="1148"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Zoo View Controller-->
         <scene sceneID="tPw-7F-s80">
             <objects>
-                <viewController id="Hqg-ap-gwG" sceneMemberID="viewController">
+                <viewController id="Hqg-ap-gwG" customClass="AddZooViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1cq-Yd-8Rl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
