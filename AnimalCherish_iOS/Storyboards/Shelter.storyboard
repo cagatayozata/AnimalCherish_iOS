@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="1429" y="364"/>
         </scene>
-        <!--Add Shelter View Controller-->
+        <!--Barınak Ekle-->
         <scene sceneID="LCc-FD-Imz">
             <objects>
                 <viewController id="JkG-10-CtQ" customClass="AddShelterViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,6 +75,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEW-HD-00D">
                                 <rect key="frame" x="183" y="766" width="48" height="30"/>
                                 <state key="normal" title="Kaydet"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="JkG-10-CtQ" eventType="touchUpInside" id="pde-TU-kSb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -112,7 +115,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jSR-g7-v20"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GPX-Tp-Bmb"/>
+                    <navigationItem key="navigationItem" title="Barınak Ekle" id="GPX-Tp-Bmb">
+                        <barButtonItem key="backBarButtonItem" title="Geri" id="fyR-gV-ffU"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="address" destination="JSf-jP-JTc" id="GkV-im-B60"/>
+                        <outlet property="capacity" destination="17J-tv-Vpm" id="7Jk-vw-PU9"/>
+                        <outlet property="detail" destination="6J4-Yw-6ao" id="qu1-XF-9Hh"/>
+                        <outlet property="establishDate" destination="UXh-k2-wCI" id="SLx-zZ-rym"/>
+                        <outlet property="mail" destination="ps6-xU-Lb0" id="qC9-hO-0md"/>
+                        <outlet property="name" destination="UX9-fg-eKz" id="oPh-Iq-VKw"/>
+                        <outlet property="phone" destination="Io5-2b-1aH" id="Jh5-2m-iyU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6r-vZ-261" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
