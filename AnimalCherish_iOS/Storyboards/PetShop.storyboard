@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="2346" y="363"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Pet Shop View Controller-->
         <scene sceneID="hla-hL-Pbb">
             <objects>
-                <viewController id="RfD-Pq-2ie" sceneMemberID="viewController">
+                <viewController id="RfD-Pq-2ie" customClass="AddPetShopViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oqm-4C-xKJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
