@@ -47,7 +47,12 @@ enum ValidatorType {
     case shelterPhoneNumber
     case shelterMailAddress
     case shelterEstablishDate
-
+    case petShopName
+    case petShopAddress
+    case petShopDetail
+    case petShopPhoneNumber
+    case petShopMailAddress
+    case petShopEstablishDate
 }
 
 enum VaildatorFactory {
@@ -79,7 +84,13 @@ enum VaildatorFactory {
         case .shelterPhoneNumber: return ShelterPhoneNumberValidator()
         case .shelterMailAddress: return ShelterMailAddressValidator()
         case .shelterEstablishDate: return ShelterEstablishDateValidator()
-    
+        case .petShopName: return PetShopNameValidator()
+        case .petShopAddress: return PetShopAddressValidator()
+        case .petShopDetail: return PetShopDetailValidator()
+        case .petShopPhoneNumber: return PetShopPhoneNumberValidator()
+        case .petShopMailAddress: return PetShopMailAddressValidator()
+        case .petShopEstablishDate: return PetShopEstablishDateValidator()
+            
         }
     }
 }
@@ -377,6 +388,67 @@ class ShelterDetailValidator: ValidatorConvertible {
 class ShelterAddressValidator: ValidatorConvertible {
      func validated(_ value: String) throws -> String {
           guard value.count > 0 else {throw ValidationError("Barınak adresi zorunludur!")}
+          return value
+      }
+}
+
+    //PET SHOP Validation
+
+class PetShopNameValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Pet Shop ismi zorunludur!")}
+          return value
+      }
+}
+
+class PetShopEstablishDateValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Kuruluş tarihi bilgisi girilmesi zorunludur!")}
+        return value
+    }
+}
+
+class PetShopPhoneNumberValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Telefon bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern:
+                "0[0-9]{3}.*[0-9]{3}.*[0-9]{4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Telefon belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+
+class PetShopMailAddressValidator: ValidatorConvertible {
+    func validated(_ value: String) throws -> String {
+        guard value.count > 0 else {throw ValidationError("Mail bilgisi girilmesi zorunludur!")}
+        do {
+            if try NSRegularExpression(pattern:
+                "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+                throw ValidationError("Mail belirtilen formatta olmalıdır.")
+            }
+        } catch {
+            throw ValidationError("Mail belirtilen formatta olmalıdır.")
+        }
+        return value
+    }
+}
+
+class PetShopDetailValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Pet Shop detayı zorunludur!")}
+          return value
+      }
+}
+
+class PetShopAddressValidator: ValidatorConvertible {
+     func validated(_ value: String) throws -> String {
+          guard value.count > 0 else {throw ValidationError("Pet Shop adresi zorunludur!")}
           return value
       }
 }

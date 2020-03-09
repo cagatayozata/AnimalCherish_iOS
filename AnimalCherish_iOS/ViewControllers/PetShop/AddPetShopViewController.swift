@@ -42,7 +42,12 @@ class AddPetShopViewController: UIViewController {
     func validate() {
         do {
             
-            //MARK: TODO validation
+            try name.validatedText(validationType: ValidatorType.petShopName)
+            try address.validatedText(validationType: ValidatorType.petShopAddress)
+            try detail.validatedText(validationType: ValidatorType.petShopDetail)
+            try phone.validatedText(validationType: ValidatorType.petShopPhoneNumber)
+            try mail.validatedText(validationType: ValidatorType.petShopMailAddress)
+            try establishDate.validatedText(validationType: ValidatorType.petShopEstablishDate)
             
             post()
             
