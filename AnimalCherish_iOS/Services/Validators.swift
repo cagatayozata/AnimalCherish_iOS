@@ -136,13 +136,13 @@ class VetNameValidator: ValidatorConvertible {
 
 class VetCityValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
-        guard value.count > 0 else {throw ValidationError("Bulunduğu yer alanı zorunludur!")}
+        guard value.count > 0 else {throw ValidationError("İl yer alanı zorunludur!")}
         do {
             if try NSRegularExpression(pattern: "^[a-z]{1,18}$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-                throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+                throw ValidationError("İl  bilgisi boşluk, rakam ve özel karakter içeremez.")
             }
         } catch {
-            throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+            throw ValidationError("İl bilgisi boşluk, rakam ve özel karakter içeremez.")
         }
         return value
     }
@@ -153,10 +153,10 @@ class VetStateValidator: ValidatorConvertible {
         guard value.count > 0 else {throw ValidationError("Bulunduğu yer alanı zorunludur!")}
         do {
             if try NSRegularExpression(pattern: "^[a-z]{1,18}$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-                throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+                throw ValidationError("İlçe bilgisi boşluk, rakam ve özel karakter içeremez.")
             }
         } catch {
-            throw ValidationError("Bulunduğu yer bilgisi boşluk, rakam ve özel karakter içeremez.")
+            throw ValidationError("İlçe bilgisi boşluk, rakam ve özel karakter içeremez.")
         }
         return value
     }
@@ -165,13 +165,6 @@ class VetStateValidator: ValidatorConvertible {
 class VetEducationInfoValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
         guard value.count > 0 else {throw ValidationError("Eğitim bilgisi girilmesi zorunludur!")}
-        do {
-            if try NSRegularExpression(pattern: "^/([a-zA-Z])/$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-                throw ValidationError("Eğitim bilgisi özel karakter içeremez.")
-            }
-        } catch {
-            throw ValidationError("Eğitim bilgisi özel karakter içeremez.")
-        }
         return value
     }
 }
@@ -179,13 +172,6 @@ class VetEducationInfoValidator: ValidatorConvertible {
 class VetClinicInfoValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
         guard value.count > 0 else {throw ValidationError("Klinik bilgisi girilmesi zorunludur!")}
-        do {
-            if try NSRegularExpression(pattern: "^/([a-z])/$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-                throw ValidationError("Klinik bilgisi özel karakter içeremez.")
-            }
-        } catch {
-            throw ValidationError("Klinik bilgisi özel karakter içeremez.")
-        }
         return value
     }
 }
@@ -194,7 +180,8 @@ class VetPhoneNumberValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
         guard value.count > 0 else {throw ValidationError("Telefon bilgisi girilmesi zorunludur!")}
         do {
-            if try NSRegularExpression(pattern: "0([0-9]{3})-([0-9]{2})-([0-9]{2})$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+            if try NSRegularExpression(pattern:
+                "0[0-9]{3}.*[0-9]{3}.*[0-9]{4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
                 throw ValidationError("Telefon belirtilen formatta olmalıdır.")
             }
         } catch {
@@ -208,7 +195,8 @@ class VetMailAddressValidator: ValidatorConvertible {
     func validated(_ value: String) throws -> String {
         guard value.count > 0 else {throw ValidationError("Mail bilgisi girilmesi zorunludur!")}
         do {
-            if try NSRegularExpression(pattern: "^([a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-])+@+([a-zA-Z0-9]{20})+.com$",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
+            if try NSRegularExpression(pattern:
+                "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}",  options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
                 throw ValidationError("Mail belirtilen formatta olmalıdır.")
             }
         } catch {
