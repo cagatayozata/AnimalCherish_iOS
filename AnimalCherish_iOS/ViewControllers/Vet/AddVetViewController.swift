@@ -15,7 +15,6 @@ class AddVetViewController: UIViewController {
     @IBOutlet weak var educationInfo: UITextField!
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var state: UITextField!
-    @IBOutlet weak var workplace: UITextField!
     @IBOutlet weak var clinicInfo: UITextField!
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -45,7 +44,14 @@ class AddVetViewController: UIViewController {
     func validate() {
         do {
             
-            //MARK: TODO validation
+            try nameSurname.validatedText(validationType: ValidatorType.vetName)
+            try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
+            try city.validatedText(validationType: ValidatorType.vetCity)
+            try state.validatedText(validationType: ValidatorType.vetState)
+            try clinicInfo.validatedText(validationType: ValidatorType.vetClinicInfo)
+            try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
+            try email.validatedText(validationType: ValidatorType.vetMailAddress)
+            try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
             
             post()
             
