@@ -43,7 +43,13 @@ class AddShelterViewController: UIViewController {
     func validate() {
         do {
             
-            //MARK: TODO validation
+            try name.validatedText(validationType: ValidatorType.shelterName)
+            try address.validatedText(validationType: ValidatorType.shelterAddress)
+            try capacity.validatedText(validationType: ValidatorType.shelterCapacity)
+            try detail.validatedText(validationType: ValidatorType.shelterDetail)
+            try phone.validatedText(validationType: ValidatorType.shelterPhoneNumber)
+            try mail.validatedText(validationType: ValidatorType.shelterMailAddress)
+            try establishDate.validatedText(validationType: ValidatorType.shelterEstablishDate)
             
             post()
             
