@@ -29,6 +29,14 @@
 		08B761C42417E78000AC98C3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761C32417E78000AC98C3 /* Configuration.swift */; };
 		08B761C72418024900AC98C3 /* DeatilAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761C62418024900AC98C3 /* DeatilAnimalViewController.swift */; };
 		08B761C92418025C00AC98C3 /* EditAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761C82418025C00AC98C3 /* EditAnimalViewController.swift */; };
+		08B761CB24180F4100AC98C3 /* DetailPetShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761CA24180F4100AC98C3 /* DetailPetShopViewController.swift */; };
+		08B761CD24180F4E00AC98C3 /* EditPetShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761CC24180F4E00AC98C3 /* EditPetShopViewController.swift */; };
+		08B761CF24180F5A00AC98C3 /* DetailShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761CE24180F5A00AC98C3 /* DetailShelterViewController.swift */; };
+		08B761D124180F6600AC98C3 /* EditShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D024180F6600AC98C3 /* EditShelterViewController.swift */; };
+		08B761D324180F7900AC98C3 /* DetailVetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D224180F7900AC98C3 /* DetailVetViewController.swift */; };
+		08B761D524180F8700AC98C3 /* EditVetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D424180F8700AC98C3 /* EditVetViewController.swift */; };
+		08B761D724180F9D00AC98C3 /* DetailZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D624180F9D00AC98C3 /* DetailZooViewController.swift */; };
+		08B761D924180FA600AC98C3 /* EditZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D824180FA600AC98C3 /* EditZooViewController.swift */; };
 		08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */; };
 		08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3822413BE3500E53BA2 /* Validators.swift */; };
 		08C6F3862413BE8400E53BA2 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */; };
@@ -67,6 +75,14 @@
 		08B761C32417E78000AC98C3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		08B761C62418024900AC98C3 /* DeatilAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilAnimalViewController.swift; sourceTree = "<group>"; };
 		08B761C82418025C00AC98C3 /* EditAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAnimalViewController.swift; sourceTree = "<group>"; };
+		08B761CA24180F4100AC98C3 /* DetailPetShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPetShopViewController.swift; sourceTree = "<group>"; };
+		08B761CC24180F4E00AC98C3 /* EditPetShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetShopViewController.swift; sourceTree = "<group>"; };
+		08B761CE24180F5A00AC98C3 /* DetailShelterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailShelterViewController.swift; sourceTree = "<group>"; };
+		08B761D024180F6600AC98C3 /* EditShelterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShelterViewController.swift; sourceTree = "<group>"; };
+		08B761D224180F7900AC98C3 /* DetailVetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVetViewController.swift; sourceTree = "<group>"; };
+		08B761D424180F8700AC98C3 /* EditVetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVetViewController.swift; sourceTree = "<group>"; };
+		08B761D624180F9D00AC98C3 /* DetailZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailZooViewController.swift; sourceTree = "<group>"; };
+		08B761D824180FA600AC98C3 /* EditZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditZooViewController.swift; sourceTree = "<group>"; };
 		08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		08C6F3822413BE3500E53BA2 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -176,6 +192,8 @@
 			children = (
 				086E42652406FD5200F2469C /* PetShopViewController.swift */,
 				08CF276124165DDC0029FE4B /* AddPetShopViewController.swift */,
+				08B761CA24180F4100AC98C3 /* DetailPetShopViewController.swift */,
+				08B761CC24180F4E00AC98C3 /* EditPetShopViewController.swift */,
 			);
 			path = PetShop;
 			sourceTree = "<group>";
@@ -185,6 +203,8 @@
 			children = (
 				086E42672406FD6600F2469C /* ShelterViewController.swift */,
 				08CF276324165E0D0029FE4B /* AddShelterViewController.swift */,
+				08B761CE24180F5A00AC98C3 /* DetailShelterViewController.swift */,
+				08B761D024180F6600AC98C3 /* EditShelterViewController.swift */,
 			);
 			path = Shelter;
 			sourceTree = "<group>";
@@ -194,6 +214,8 @@
 			children = (
 				086E42692406FD6F00F2469C /* VetViewController.swift */,
 				08CF276524165E220029FE4B /* AddVetViewController.swift */,
+				08B761D224180F7900AC98C3 /* DetailVetViewController.swift */,
+				08B761D424180F8700AC98C3 /* EditVetViewController.swift */,
 			);
 			path = Vet;
 			sourceTree = "<group>";
@@ -203,6 +225,8 @@
 			children = (
 				086E426B2406FD8000F2469C /* ZooViewController.swift */,
 				08CF276724165E2E0029FE4B /* AddZooViewController.swift */,
+				08B761D624180F9D00AC98C3 /* DetailZooViewController.swift */,
+				08B761D824180FA600AC98C3 /* EditZooViewController.swift */,
 			);
 			path = Zoo;
 			sourceTree = "<group>";
@@ -387,12 +411,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08B761D724180F9D00AC98C3 /* DetailZooViewController.swift in Sources */,
 				086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */,
 				0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */,
 				08CF276624165E220029FE4B /* AddVetViewController.swift in Sources */,
 				08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */,
+				08B761D124180F6600AC98C3 /* EditShelterViewController.swift in Sources */,
 				08B761C92418025C00AC98C3 /* EditAnimalViewController.swift in Sources */,
+				08B761D524180F8700AC98C3 /* EditVetViewController.swift in Sources */,
 				08C6F3862413BE8400E53BA2 /* UITextField+Extensions.swift in Sources */,
+				08B761D924180FA600AC98C3 /* EditZooViewController.swift in Sources */,
 				08CF276224165DDC0029FE4B /* AddPetShopViewController.swift in Sources */,
 				08CF276824165E2E0029FE4B /* AddZooViewController.swift in Sources */,
 				08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */,
@@ -402,10 +430,14 @@
 				08CF276424165E0D0029FE4B /* AddShelterViewController.swift in Sources */,
 				086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */,
 				08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */,
+				08B761CB24180F4100AC98C3 /* DetailPetShopViewController.swift in Sources */,
 				08B761C72418024900AC98C3 /* DeatilAnimalViewController.swift in Sources */,
+				08B761D324180F7900AC98C3 /* DetailVetViewController.swift in Sources */,
 				08B761C42417E78000AC98C3 /* Configuration.swift in Sources */,
+				08B761CD24180F4E00AC98C3 /* EditPetShopViewController.swift in Sources */,
 				0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */,
 				0806814824053BDB00FDE61D /* AppDelegate.swift in Sources */,
+				08B761CF24180F5A00AC98C3 /* DetailShelterViewController.swift in Sources */,
 				086E425A2406DD4B00F2469C /* AnimalViewController.swift in Sources */,
 				0806814A24053BDB00FDE61D /* SceneDelegate.swift in Sources */,
 				0838D6152406A5B60056E2F0 /* HomeViewController.swift in Sources */,
