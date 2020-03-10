@@ -16,7 +16,7 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Variables
-    let apiUrl = Configuration.apiUrl + "/animal/getall"
+    let apiUrl = Configuration.apiUrl + "/shelter/getall"
     
     var shelterIdArr = [String]()
     var shelterNameArr = [String]()

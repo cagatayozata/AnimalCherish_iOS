@@ -107,5 +107,16 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
          return cell!
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedId = indexPath.row
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "goToEditAnimalScreen") as? DeatilAnimalViewController {
+            viewController.selectedId = selectedId
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+    }
 
 }
