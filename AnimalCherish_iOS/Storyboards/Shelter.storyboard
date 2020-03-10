@@ -10,7 +10,7 @@
         <!--Barınak-->
         <scene sceneID="v9D-aJ-qmd">
             <objects>
-                <viewController id="c7D-w5-2hN" sceneMemberID="viewController">
+                <viewController id="c7D-w5-2hN" customClass="ShelterViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w5J-mI-Abr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +46,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="hr8-zL-CVV" id="cVb-M9-oPL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baL-zi-Is5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
