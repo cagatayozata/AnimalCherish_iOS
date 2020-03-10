@@ -14,7 +14,29 @@
                     <view key="view" contentMode="scaleToFill" id="tJq-vQ-4ek">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2v1-rq-CQU">
+                                <rect key="frame" x="20.5" y="45" width="373" height="806"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Qhe-9T-c4C">
+                                        <rect key="frame" x="0.0" y="28" width="373" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qhe-9T-c4C" id="VLD-OV-WHw">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2v1-rq-CQU" firstAttribute="height" secondItem="tJq-vQ-4ek" secondAttribute="height" multiplier="0.899554" id="7Pj-Es-FTM"/>
+                            <constraint firstItem="2v1-rq-CQU" firstAttribute="width" secondItem="tJq-vQ-4ek" secondAttribute="width" multiplier="0.900966" id="9Y1-OW-CXY"/>
+                            <constraint firstItem="2v1-rq-CQU" firstAttribute="centerY" secondItem="tJq-vQ-4ek" secondAttribute="centerY" id="LBk-8W-x5v"/>
+                            <constraint firstItem="2v1-rq-CQU" firstAttribute="centerX" secondItem="tJq-vQ-4ek" secondAttribute="centerX" id="s10-8q-ItF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Pgy-hq-v83"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hayvanat Bahçesi" id="fqi-x3-oUe">
