@@ -27,6 +27,8 @@
 		086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42692406FD6F00F2469C /* VetViewController.swift */; };
 		086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E426B2406FD8000F2469C /* ZooViewController.swift */; };
 		08B761C42417E78000AC98C3 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761C32417E78000AC98C3 /* Configuration.swift */; };
+		08B761C72418024900AC98C3 /* DeatilAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761C62418024900AC98C3 /* DeatilAnimalViewController.swift */; };
+		08B761C92418025C00AC98C3 /* EditAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761C82418025C00AC98C3 /* EditAnimalViewController.swift */; };
 		08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */; };
 		08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3822413BE3500E53BA2 /* Validators.swift */; };
 		08C6F3862413BE8400E53BA2 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */; };
@@ -63,6 +65,8 @@
 		086E42692406FD6F00F2469C /* VetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetViewController.swift; sourceTree = "<group>"; };
 		086E426B2406FD8000F2469C /* ZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZooViewController.swift; sourceTree = "<group>"; };
 		08B761C32417E78000AC98C3 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		08B761C62418024900AC98C3 /* DeatilAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilAnimalViewController.swift; sourceTree = "<group>"; };
+		08B761C82418025C00AC98C3 /* EditAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAnimalViewController.swift; sourceTree = "<group>"; };
 		08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		08C6F3822413BE3500E53BA2 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				086E42592406DD4B00F2469C /* AnimalViewController.swift */,
 				08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */,
+				08B761C62418024900AC98C3 /* DeatilAnimalViewController.swift */,
+				08B761C82418025C00AC98C3 /* EditAnimalViewController.swift */,
 			);
 			path = Animal;
 			sourceTree = "<group>";
@@ -385,6 +391,7 @@
 				0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */,
 				08CF276624165E220029FE4B /* AddVetViewController.swift in Sources */,
 				08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */,
+				08B761C92418025C00AC98C3 /* EditAnimalViewController.swift in Sources */,
 				08C6F3862413BE8400E53BA2 /* UITextField+Extensions.swift in Sources */,
 				08CF276224165DDC0029FE4B /* AddPetShopViewController.swift in Sources */,
 				08CF276824165E2E0029FE4B /* AddZooViewController.swift in Sources */,
@@ -395,6 +402,7 @@
 				08CF276424165E0D0029FE4B /* AddShelterViewController.swift in Sources */,
 				086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */,
 				08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */,
+				08B761C72418024900AC98C3 /* DeatilAnimalViewController.swift in Sources */,
 				08B761C42417E78000AC98C3 /* Configuration.swift in Sources */,
 				0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */,
 				0806814824053BDB00FDE61D /* AppDelegate.swift in Sources */,
