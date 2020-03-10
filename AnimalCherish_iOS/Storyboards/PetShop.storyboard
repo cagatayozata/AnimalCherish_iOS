@@ -10,11 +10,33 @@
         <!--Pet Shop-->
         <scene sceneID="KtM-wn-3hp">
             <objects>
-                <viewController id="Ypx-S3-0XX" sceneMemberID="viewController">
+                <viewController id="Ypx-S3-0XX" customClass="PetShopViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7M4-mr-Ldq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fh9-EY-eij">
+                                <rect key="frame" x="20.5" y="45" width="373" height="806"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Ya2-ng-IpW">
+                                        <rect key="frame" x="0.0" y="28" width="373" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ya2-ng-IpW" id="V8E-S2-JSA">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Fh9-EY-eij" firstAttribute="width" secondItem="7M4-mr-Ldq" secondAttribute="width" multiplier="0.900966" id="69f-mP-cwL"/>
+                            <constraint firstItem="Fh9-EY-eij" firstAttribute="centerX" secondItem="7M4-mr-Ldq" secondAttribute="centerX" id="W8G-kY-spy"/>
+                            <constraint firstItem="Fh9-EY-eij" firstAttribute="height" secondItem="7M4-mr-Ldq" secondAttribute="height" multiplier="0.899554" id="Z7O-Ec-3LT"/>
+                            <constraint firstItem="Fh9-EY-eij" firstAttribute="centerY" secondItem="7M4-mr-Ldq" secondAttribute="centerY" id="dnX-qe-9Ri"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CX2-ys-7WO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pet Shop" id="00s-KE-Rax">
@@ -24,6 +46,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Fh9-EY-eij" id="ns6-V5-Gqq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7UN-XP-JTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
