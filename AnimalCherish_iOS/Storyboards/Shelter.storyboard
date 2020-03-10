@@ -14,7 +14,29 @@
                     <view key="view" contentMode="scaleToFill" id="w5J-mI-Abr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hr8-zL-CVV">
+                                <rect key="frame" x="20.5" y="45" width="373" height="806"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="GGl-2C-BcD">
+                                        <rect key="frame" x="0.0" y="28" width="373" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GGl-2C-BcD" id="kAm-JM-NS9">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hr8-zL-CVV" firstAttribute="width" secondItem="w5J-mI-Abr" secondAttribute="width" multiplier="0.900966" id="2vB-2x-iku"/>
+                            <constraint firstItem="hr8-zL-CVV" firstAttribute="height" secondItem="w5J-mI-Abr" secondAttribute="height" multiplier="0.899554" id="aba-Oe-48W"/>
+                            <constraint firstItem="hr8-zL-CVV" firstAttribute="centerY" secondItem="w5J-mI-Abr" secondAttribute="centerY" id="duh-tK-2RL"/>
+                            <constraint firstItem="hr8-zL-CVV" firstAttribute="centerX" secondItem="w5J-mI-Abr" secondAttribute="centerX" id="rng-if-u2L"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XZh-5C-xvv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Barınak" id="V7a-bW-O8b">

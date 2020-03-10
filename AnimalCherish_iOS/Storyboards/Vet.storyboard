@@ -14,7 +14,29 @@
                     <view key="view" contentMode="scaleToFill" id="rqY-fP-hVn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b1j-pX-lKH">
+                                <rect key="frame" x="20.5" y="45" width="373" height="806"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="u5V-TU-csv">
+                                        <rect key="frame" x="0.0" y="28" width="373" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u5V-TU-csv" id="xxm-sR-zoF">
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b1j-pX-lKH" firstAttribute="height" secondItem="rqY-fP-hVn" secondAttribute="height" multiplier="0.899554" id="UhG-OO-8oA"/>
+                            <constraint firstItem="b1j-pX-lKH" firstAttribute="centerX" secondItem="rqY-fP-hVn" secondAttribute="centerX" id="gWP-rE-TfP"/>
+                            <constraint firstItem="b1j-pX-lKH" firstAttribute="centerY" secondItem="rqY-fP-hVn" secondAttribute="centerY" id="lBJ-13-97P"/>
+                            <constraint firstItem="b1j-pX-lKH" firstAttribute="width" secondItem="rqY-fP-hVn" secondAttribute="width" multiplier="0.900966" id="z46-h9-TBZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dxu-qV-LRy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Veteriner" id="fA5-AB-XEV">
