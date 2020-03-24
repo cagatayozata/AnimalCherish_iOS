@@ -16,7 +16,7 @@ class PetShopViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Variables
-    let apiUrl = Configuration.apiUrl + "/petshop/getall"
+    let apiUrl = Configuration.apiUrl + "/api/v1/petshop/getall"
     
     var petShopIdArr = [String]()
     var petShopNameArr = [String]()
