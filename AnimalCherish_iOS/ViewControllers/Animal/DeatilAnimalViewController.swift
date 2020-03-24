@@ -20,7 +20,7 @@ class DeatilAnimalViewController: UIViewController {
     @IBOutlet weak var genusTextField: UITextField!
     
     // MARK: Variables
-    let apiUrl = Configuration.apiUrl + "/animal/getall"
+    let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
     
     var selectedId:Int? = nil
     
