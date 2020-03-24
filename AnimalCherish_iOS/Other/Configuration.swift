@@ -10,6 +10,6 @@ import Foundation
 
 struct Configuration {
 
-    static let apiUrl = "http://localhost:8081"
+    static let apiUrl = "http://138.68.67.165"
 
 }

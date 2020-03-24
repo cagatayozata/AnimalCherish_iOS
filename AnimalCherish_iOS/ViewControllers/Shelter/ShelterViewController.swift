@@ -16,7 +16,7 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Variables
-    let apiUrl = Configuration.apiUrl + "/shelter/getall"
+    let apiUrl = Configuration.apiUrl + "/api/v1/shelter/getall"
     
     var shelterIdArr = [String]()
     var shelterNameArr = [String]()
@@ -36,6 +36,9 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: Data Preparation and GET request
     func getShelterList() {
+        
+        // show loading indicator
+        loadingIndicator()
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -71,8 +74,15 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
                 // reload table data
                 self.tableView.reloadData()
                 
+                // close loading indicator
+                self.dismiss(animated: false, completion: nil)
+                
                 break
             case .failure:
+                
+                // close loading indicator
+                self.dismiss(animated: false, completion: nil)
+                
                 self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
                 print(myresponse.error!)
                 break
@@ -87,6 +97,21 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: Loading Indicator
+    func loadingIndicator() {
+        
+        let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
     }
     
     // MARK: UITableView
