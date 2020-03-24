@@ -47,13 +47,9 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 // removeAll
                 self.vetIdArr.removeAll()
                 self.vetNameArr.removeAll()
-                self.vetWorkPlaceArr.removeAll()
                 self.vetCityArr.removeAll()
                 self.vetStateArr.removeAll()
                 self.vetClinicInfoArr.removeAll()
-                self.vetPhoneArr.removeAll()
-                self.vetEmailArr.removeAll()
-                self.vetBirthDateArr.removeAll()
                 
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
