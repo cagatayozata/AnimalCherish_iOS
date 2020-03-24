@@ -67,12 +67,11 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                     self.animalGenusArr.append(genus)
                     
                 }
-                
                 // reload table data
                 self.tableView.reloadData()
                 
                 break
-            case .failure:
+                case .failure:
                 self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
                 print(myresponse.error!)
                 break

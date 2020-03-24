@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class DetailVetViewController: UIViewController {
 
+    @IBAction func nameTextField(_ sender: UITextField) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
