@@ -114,7 +114,7 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          
-         let selectedId = indexPath.row
+         var selectedId = indexPath.row
 
          if let viewController = storyboard?.instantiateViewController(identifier: "goToEditVetScreen") as? DetailVetViewController {
              viewController.selectedId = selectedId
