@@ -19,6 +19,7 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
+    let menuSlide = MenuSlide()
     
     var animalIdArr = [String]()
     var animalNameArr = [String]()
@@ -107,46 +108,59 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     
         }
     }
-    
+
     // MARK: UISegmentedControl
-       @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
-       
-           // change title, image and pickerView hidden
-           switch segmentControl.selectedSegmentIndex {
-               case 0:
-                
-                // Köpek
-                selectedType = "dog"
-               
-               case 1:
-                
-                // Kuş
-                selectedType = "bird"
-               
-               case 2:
-                   
-                // Yılan
-                selectedType = "snake"
+    @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
 
-               case 3:
-                   
-                // Böcek
-                selectedType = "insect"
+       // change title, image and pickerView hidden
+       switch segmentControl.selectedSegmentIndex {
+           case 0:
+            
+            // Köpek
+            selectedType = "dog"
+           
+           case 1:
+            
+            // Kuş
+            selectedType = "bird"
+           
+           case 2:
+               
+            // Yılan
+            selectedType = "snake"
 
+           case 3:
                
-               case 4:
-               
-                // Balık
-                selectedType = "fish"
+            // Böcek
+            selectedType = "insect"
 
-               
-               default:
-               break
-           }
-        
-        self.tableView.reloadData()
-       
+           
+           case 4:
+           
+            // Balık
+            selectedType = "fish"
+
+           
+           default:
+           break
        }
+
+        self.tableView.reloadData()
+
+    }
+
+    // MARK: Show Menu
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
+
+        menuViewController.modalPresentationStyle = .overCurrentContext
+        menuViewController.transitioningDelegate = self
+        present(menuViewController, animated: true)
+        
+    }
+    
     
     // MARK: Alert
     func showAlert(for alert: String) {
