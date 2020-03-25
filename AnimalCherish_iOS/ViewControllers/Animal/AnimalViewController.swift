@@ -1,41 +1,52 @@
-//
-//  MainViewController.swift
-//  AnimalCherish_iOS
-//
-//  Created by Cagatay Ozata on 26.02.2020.
-//  Copyright © 2020 CTIS_Team1. All rights reserved.
-//
 
 import UIKit
 import Alamofire
 import SwiftyJSON
 
-class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     // MARK: IBOutlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     // MARK: Variables
-    let apiUrl = Configuration.apiUrl + "/animal/getall"
+    let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
     
     var animalIdArr = [String]()
     var animalNameArr = [String]()
     var animalTypeArr = [String]()
     var animalGenusArr = [String]()
         
+    var filteredData = [String]()
+    
+    var selectedType: String? = nil
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+
 
         getAnimalList()
+        
+        self.searchBar.delegate = self
+        
+        // UISegmentedControl - set default segment index
+        segmentControl.selectedSegmentIndex = 0
+        
+        selectedType = "dog"
         
     }
     
     // MARK: Data Preparation and GET request
     func getAnimalList() {
+        
+        // show loading indicator
+        loadingIndicator()
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -66,12 +77,22 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                     self.animalTypeArr.append(type)
                     self.animalGenusArr.append(genus)
                     
+                    self.filteredData.append(name)
+                    
                 }
+                
                 // reload table data
                 self.tableView.reloadData()
                 
+                // close loading indicator
+                self.dismiss(animated: false, completion: nil)
+                
                 break
-                case .failure:
+            case .failure:
+                
+                // close loading indicator
+                self.dismiss(animated: false, completion: nil)
+                
                 self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
                 print(myresponse.error!)
                 break
@@ -79,6 +100,46 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     
         }
     }
+    
+    // MARK: UISegmentedControl
+       @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
+       
+           // change title, image and pickerView hidden
+           switch segmentControl.selectedSegmentIndex {
+               case 0:
+                
+                // Köpek
+                selectedType = "dog"
+               
+               case 1:
+                
+                // Kuş
+                selectedType = "bird"
+               
+               case 2:
+                   
+                // Yılan
+                selectedType = "snake"
+
+               case 3:
+                   
+                // Böcek
+                selectedType = "insect"
+
+               
+               case 4:
+               
+                // Balık
+                selectedType = "fish"
+
+               
+               default:
+               break
+           }
+        
+        self.tableView.reloadData()
+       
+       }
     
     // MARK: Alert
     func showAlert(for alert: String) {
@@ -88,9 +149,24 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         present(alertController, animated: true, completion: nil)
     }
     
+    // MARK: Loading Indicator
+    func loadingIndicator() {
+        
+        let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animalIdArr.count
+        return filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,8 +176,23 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
              cell = UITableViewCell(style: .subtitle, reuseIdentifier: "animalcell")
          }
          
-        cell?.textLabel?.text = self.animalNameArr[indexPath.row]
+        cell?.textLabel?.text = self.filteredData[indexPath.row]
         cell?.detailTextLabel?.text = (self.animalTypeArr[indexPath.row] ) + ", " + (self.animalGenusArr[indexPath.row] )
+        
+        cell?.imageView?.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
+        
+        if selectedType == "dog" {
+            cell?.imageView?.image = UIImage(named: "dog3")
+        } else if selectedType == "bird" {
+            cell?.imageView?.image = UIImage(named: "bird3")
+        } else if selectedType == "snake" {
+            cell?.imageView?.image = UIImage(named: "snake3")
+        } else if selectedType == "insect" {
+            cell?.imageView?.image = UIImage(named: "insect3")
+        } else if selectedType == "fish" {
+            cell?.imageView?.image = UIImage(named: "fish3")
+        } else  {}
+        
         
          return cell!
         
@@ -116,6 +207,16 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
             navigationController?.pushViewController(viewController, animated: true)
         }
         
+    }
+    
+    // MARK: UISearchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredData = searchText.isEmpty ? animalNameArr : animalNameArr.filter { (item: String) -> Bool in
+            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        
+        tableView.reloadData()
     }
 
 }
