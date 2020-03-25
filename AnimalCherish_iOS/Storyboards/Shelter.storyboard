@@ -45,6 +45,11 @@
                         <viewLayoutGuide key="safeArea" id="XZh-5C-xvv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Barınak" id="V7a-bW-O8b">
+                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="RQg-Y6-156">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="c7D-w5-2hN" id="0wg-qs-10h"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="EZ0-eT-2Qc">
                             <connections>
                                 <segue destination="JkG-10-CtQ" kind="show" id="hj6-Wy-2gl"/>
@@ -184,5 +189,6 @@
     </scenes>
     <resources>
         <image name="icons8-duck-30" width="30" height="30"/>
+        <image name="text.justify" catalog="system" width="64" height="50"/>
     </resources>
 </document>
