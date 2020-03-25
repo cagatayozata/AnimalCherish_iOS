@@ -34,11 +34,19 @@ class DetailVetViewController: UIViewController {
         
         self.disableEditing()
         
-        // Do any additional setup after loading the view.
+        // if selected id has a problem, it will be equal to -1
+        let checkId = selectedId ?? -1
+        
+        if checkId != -1 {
+            self.getVetDetail()
+        }
+        else {
+            showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
+        }
     }
     
     // MARK: GET request and Prepare Selected Data
-    func getAnimalDetail() {
+    func getVetDetail() {
         
     AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
