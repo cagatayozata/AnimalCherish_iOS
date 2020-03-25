@@ -113,15 +113,31 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8a-1Z-EtW">
+                                <rect key="frame" x="69" y="78" width="45" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="9QN-wS-CTr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hayvanat Bahçesi Detay" id="bDr-Wi-acD"/>
+                    <connections>
+                        <outlet property="addressTF" destination="yrt-yV-4je" id="rtv-2A-i4y"/>
+                        <outlet property="descriptionTF" destination="szv-fx-eWl" id="5oE-gN-sOu"/>
+                        <outlet property="emailTF" destination="Lb1-Uw-4De" id="6jy-uK-hC9"/>
+                        <outlet property="establishDate" destination="heO-yL-bEk" id="rbq-zb-YdQ"/>
+                        <outlet property="establishDateTF" destination="heO-yL-bEk" id="pgt-qK-NYH"/>
+                        <outlet property="idTF" destination="u8a-1Z-EtW" id="idC-N4-xuJ"/>
+                        <outlet property="nameTF" destination="Qye-SI-dOS" id="IZL-Pl-UE0"/>
+                        <outlet property="phoneTF" destination="JQO-1X-AK6" id="TSH-Fa-GkM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oe6-O9-oqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4085" y="744"/>
+            <point key="canvasLocation" x="4084.057971014493" y="743.97321428571422"/>
         </scene>
         <!--Hayvanat Bahçesi Ekle-->
         <scene sceneID="tPw-7F-s80">
