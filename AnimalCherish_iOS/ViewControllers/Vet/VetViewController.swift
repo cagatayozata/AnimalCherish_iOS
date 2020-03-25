@@ -20,23 +20,23 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      
      var vetIdArr = [String]()
      var vetNameArr = [String]()
-     var vetWorkPlaceArr = [String]()
      var vetCityArr = [String]()
      var vetStateArr = [String]()
      var vetClinicInfoArr = [String]()
-     var vetPhoneArr = [String]()
-     var vetEmailArr = [String]()
-     var vetBirthDateArr = [String]()
+
     
      // MARK: viewDidLoad
      override func viewDidLoad() {
          super.viewDidLoad()
-         self.tableView.delegate = self as! UITableViewDelegate
-         self.tableView.dataSource = self as! UITableViewDataSource
+        
+         self.tableView.delegate = self
+         self.tableView.dataSource = self
+        
+         getVetlist()
      }
 
     // MARK: Data Preparation and GET request
-    func getAnimalList() {
+    func getVetlist() {
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -106,8 +106,8 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
           }
           
          cell?.textLabel?.text = self.vetNameArr[indexPath.row]
-         cell?.detailTextLabel?.text = (self.vetWorkPlaceArr[indexPath.row] ) + ", " + (self.vetWorkPlaceArr[indexPath.row] )
-         
+         cell?.detailTextLabel?.text = (self.vetClinicInfoArr[indexPath.row] ) + ", " + (self.vetCityArr[indexPath.row] ) + "," + (self.vetStateArr[indexPath.row])
+        
           return cell!
          
      }
