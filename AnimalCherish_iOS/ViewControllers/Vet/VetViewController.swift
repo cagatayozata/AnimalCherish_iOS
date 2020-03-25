@@ -76,7 +76,7 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 break
                 case .failure:
-                self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
+                self.showAlert(for: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!")
                 print(myresponse.error!)
                 break
             }
