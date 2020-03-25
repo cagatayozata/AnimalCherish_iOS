@@ -23,7 +23,7 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      var vetCityArr = [String]()
      var vetStateArr = [String]()
      var vetClinicInfoArr = [String]()
-
+    
     
      // MARK: viewDidLoad
      override func viewDidLoad() {
