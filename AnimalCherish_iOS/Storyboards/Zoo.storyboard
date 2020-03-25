@@ -10,7 +10,7 @@
         <!--Hayvanat Bahçesi-->
         <scene sceneID="jgU-L6-e6i">
             <objects>
-                <viewController id="Dgm-3d-eJd" sceneMemberID="viewController">
+                <viewController id="Dgm-3d-eJd" customClass="ZooViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tJq-vQ-4ek">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,6 +47,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="2v1-rq-CQU" id="vcc-a8-rvL"/>
                         <segue destination="P0R-gK-zut" kind="presentation" identifier="goToEditZooScreen" id="9oN-4m-K1v"/>
                     </connections>
                 </viewController>
