@@ -146,5 +146,16 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
          return cell!
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedId = indexPath.row
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "goToDetailShelterScreen") as? DetailShelterViewController {
+            viewController.selectedId = selectedId
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+    }
 
 }

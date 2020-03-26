@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3K-81-Tju">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3K-81-Tju">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -58,7 +58,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Fh9-EY-eij" id="ns6-V5-Gqq"/>
-                        <segue destination="Y2C-pK-5dm" kind="presentation" identifier="goToPetShopDetailScreen" id="kL2-AI-HHV"/>
+                        <segue destination="Y2C-pK-5dm" kind="show" identifier="goToPetShopDetailScreen" id="kL2-AI-HHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7UN-XP-JTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -68,9 +68,9 @@
         <!--Pet Shop Detail-->
         <scene sceneID="l4b-YG-iOu">
             <objects>
-                <viewController title="Pet Shop Detail" id="Y2C-pK-5dm" customClass="DetailPetShopViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="goToPetShopDetailScreen" title="Pet Shop Detail" id="Y2C-pK-5dm" customClass="DetailPetShopViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nNN-hP-Jwr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wuh-Iv-S0u">
@@ -81,7 +81,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="&lt;Geri" id="a89-V9-fHy"/>
                                         <barButtonItem key="rightBarButtonItem" title="Düzenle" id="iv0-cT-AiQ">
                                             <connections>
-                                                <segue destination="uSx-r9-4sI" kind="presentation" identifier="goToPetShopEditScreen" id="DLE-7P-uXy"/>
+                                                <segue destination="uSx-r9-4sI" kind="show" identifier="goToPetShopEditScreen" id="DLE-7P-uXy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -133,6 +133,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iqo-Td-Ix7"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yFz-OU-8WY"/>
                     <connections>
                         <outlet property="addressTF" destination="2Ui-yo-B5q" id="3fi-Kw-aFs"/>
                         <outlet property="detailTF" destination="z6A-aj-FSw" id="hLw-oB-3u5"/>
@@ -152,7 +153,7 @@
             <objects>
                 <viewController id="uSx-r9-4sI" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3gc-hQ-XyF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7yL-Bh-S2f">
@@ -213,6 +214,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oy9-6f-Vhq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="bNr-tU-DEp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oLE-Xg-uUh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -332,6 +334,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="text.justify" catalog="system" width="64" height="50"/>
+        <image name="text.justify" catalog="system" width="128" height="100"/>
     </resources>
 </document>

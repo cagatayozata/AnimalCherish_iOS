@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rSR-d1-c0T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rSR-d1-c0T">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,7 +53,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2v1-rq-CQU" id="vcc-a8-rvL"/>
-                        <segue destination="P0R-gK-zut" kind="presentation" identifier="goToEditZooScreen" id="9oN-4m-K1v"/>
+                        <segue destination="P0R-gK-zut" kind="show" identifier="goToEditZooScreen" id="9oN-4m-K1v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFB-Ea-RT1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -63,9 +63,9 @@
         <!--Hayvanat Bahçesi Detay-->
         <scene sceneID="cij-Ub-kCI">
             <objects>
-                <viewController id="P0R-gK-zut" customClass="DetailZooViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="goToEditZooScreen" id="P0R-gK-zut" customClass="DetailZooViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jF7-ef-8Pm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lpA-5w-b0k">
@@ -76,7 +76,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="&lt;Geri" id="KW0-Xd-ay7"/>
                                         <barButtonItem key="rightBarButtonItem" title="Düzenle" id="WAu-Sn-vpJ">
                                             <connections>
-                                                <segue destination="9C1-59-j6k" kind="presentation" id="YkD-4J-fdw"/>
+                                                <segue destination="9C1-59-j6k" kind="show" id="YkD-4J-fdw"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -233,7 +233,7 @@
             <objects>
                 <viewController title="Hayvanat Bahçesi Düzenle" id="9C1-59-j6k" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vWR-yk-hf9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgn-Sg-B6F">
@@ -293,6 +293,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="O2a-l4-hzx"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sR7-9Z-Js2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29t-VT-mRm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -172,7 +172,7 @@
         <!--Veteriner Detay-->
         <scene sceneID="qRi-eb-y8H">
             <objects>
-                <viewController title="Veteriner Detay" id="FuV-in-GfH" customClass="DetailVetViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="goToEditVetScreen" title="Veteriner Detay" id="FuV-in-GfH" customClass="DetailVetViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QcO-tX-3XL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
