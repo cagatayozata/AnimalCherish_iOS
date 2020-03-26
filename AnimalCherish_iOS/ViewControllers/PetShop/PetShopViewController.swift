@@ -39,7 +39,7 @@ class PetShopViewController: UIViewController, UITableViewDataSource, UITableVie
     func getPetShopList() {
         
         // show loading indicator
-        loadingIndicator()
+        //loadingIndicator()
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -76,7 +76,7 @@ class PetShopViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.tableView.reloadData()
                 
                 // close loading indicator
-                self.dismiss(animated: false, completion: nil)
+                //self.dismiss(animated: false, completion: nil)
                 
                 break
             case .failure:
@@ -140,6 +140,17 @@ class PetShopViewController: UIViewController, UITableViewDataSource, UITableVie
         cell?.detailTextLabel?.text = (self.petShopEmailArr[indexPath.row] ) + ", " + (self.petShopPhoneArr[indexPath.row] )
         
          return cell!
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let selectedId = indexPath.row
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "goToPetShopDetailScreen") as? DetailPetShopViewController {
+            viewController.selectedId = selectedId
+            navigationController?.pushViewController(viewController, animated: true)
+        }
         
     }
 
