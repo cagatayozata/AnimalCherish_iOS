@@ -13,7 +13,6 @@ import SwiftyJSON
 class DetailVetViewController: UIViewController {
 
     //MARK: IBOutlet
-    @IBOutlet weak var idTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var educationInfoTF: UITextField!
     @IBOutlet weak var cityTF: UITextField!
@@ -63,7 +62,6 @@ class DetailVetViewController: UIViewController {
                 for item in resultArray.arrayValue {
 
                     if i == self.selectedId {
-                        let id = item["id"].stringValue
                         let name = item["name"].stringValue
                         let education = item["education"].stringValue
                         let city = item["city"].stringValue
@@ -73,7 +71,6 @@ class DetailVetViewController: UIViewController {
                         let email = item["email"].stringValue
                         let birthday = item["birthdate"].stringValue
                         
-                        self.idTF.text! = id
                         self.nameTF.text! = name
                         self.educationInfoTF.text! = education
                         self.cityTF.text! = city
@@ -108,7 +105,6 @@ class DetailVetViewController: UIViewController {
     
     // MARK: disableEditing
     func disableEditing() {
-        
         nameTF.isUserInteractionEnabled = false
         educationInfoTF.isUserInteractionEnabled = false
         cityTF.isUserInteractionEnabled = false

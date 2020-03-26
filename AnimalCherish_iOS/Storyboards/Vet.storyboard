@@ -240,16 +240,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField hidden="YES" autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="daf-OI-6Oi">
-                                <rect key="frame" x="77" y="119" width="261" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                    <bool key="isElement" value="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="wsD-s4-izk"/>
@@ -260,7 +250,6 @@
                         <outlet property="clinicInfoTF" destination="ed0-eD-SBj" id="fhX-eF-MHK"/>
                         <outlet property="educationInfoTF" destination="1I9-4U-wZA" id="Shj-aL-RID"/>
                         <outlet property="emailTF" destination="ExF-Ci-NyS" id="9XL-Gm-h4v"/>
-                        <outlet property="idTF" destination="daf-OI-6Oi" id="BrI-cT-nLS"/>
                         <outlet property="nameTF" destination="dvO-SZ-JEU" id="fjN-m3-1VH"/>
                         <outlet property="phoneTF" destination="MqX-Yb-bEq" id="f8D-8q-V27"/>
                         <outlet property="stateTF" destination="cUV-c5-YiD" id="8is-dH-1WG"/>
