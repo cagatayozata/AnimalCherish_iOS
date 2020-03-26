@@ -45,6 +45,11 @@
                         <viewLayoutGuide key="safeArea" id="CX2-ys-7WO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pet Shop" id="00s-KE-Rax">
+                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="k2W-GM-o2I">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="Ypx-S3-0XX" id="MkK-4z-Ya6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="jpF-mi-6GH">
                             <connections>
                                 <segue destination="RfD-Pq-2ie" kind="show" id="v3i-om-nKs"/>
@@ -326,4 +331,7 @@
             <point key="canvasLocation" x="1454" y="363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="text.justify" catalog="system" width="64" height="50"/>
+    </resources>
 </document>

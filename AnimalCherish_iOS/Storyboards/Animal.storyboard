@@ -59,7 +59,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Hayvan" id="e9R-ML-oha">
                         <barButtonItem key="backBarButtonItem" title="Geri" id="OWM-kz-kbO"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="person.crop.circle" catalog="system" id="eDE-Sf-CpV"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="text.justify" catalog="system" id="eDE-Sf-CpV">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="u1w-zU-AfM" id="vwU-Mu-b11"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="UNb-nL-52D">
                             <connections>
                                 <segue destination="2Ab-Pd-fgU" kind="show" id="BlG-gt-6AD"/>
@@ -276,6 +280,6 @@
     </scenes>
     <resources>
         <image name="icons8-crow-30" width="30" height="30"/>
-        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+        <image name="text.justify" catalog="system" width="64" height="50"/>
     </resources>
 </document>

@@ -1,12 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ICK-Cl-vur">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Intro View Controller-->
+        <scene sceneID="jdY-MG-sBq">
+            <objects>
+                <viewController id="ICK-Cl-vur" customClass="IntroViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j5J-eG-yqS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="vxn-EL-hn9">
+                                <rect key="frame" x="187.5" y="795" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="changePage:" destination="ICK-Cl-vur" eventType="valueChanged" id="O9j-xK-tFB"/>
+                                </connections>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9c-iQ-Uii">
+                                <rect key="frame" x="30" y="464" width="354" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT4-h2-BES">
+                                <rect key="frame" x="50" y="518" width="314" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="bNu-Ua-kUa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kzL-rf-eEc">
+                                <rect key="frame" x="339" y="787.5" width="45" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="WMv-5o-U0D"/>
+                                    <constraint firstAttribute="width" constant="45" id="dWl-Lx-S0V"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7bZ-jz-dyn" appends="YES" id="3pi-Lb-Wy9"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.left.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LfA-57-7oK">
+                                <rect key="frame" x="30" y="787.5" width="45" height="44"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="l8p-8Q-TAO"/>
+                                    <constraint firstAttribute="height" constant="45" id="pT4-1h-GB4"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="795-1m-fJl" appends="YES" id="eBr-xa-bG6"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OrI-6S-Qv4">
+                                <rect key="frame" x="132" y="244" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ksb-bh-OoN"/>
+                                    <constraint firstAttribute="width" constant="150" id="tc8-kx-H53"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-KV-lMP">
+                                <rect key="frame" x="324" y="798" width="60" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="BAŞLA">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="xe8-01-mL8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11146575960000001" green="0.29043528439999999" blue="0.50505268569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="bottom" secondItem="kzL-rf-eEc" secondAttribute="bottom" constant="30" id="4dP-mS-caK"/>
+                            <constraint firstItem="vxn-EL-hn9" firstAttribute="centerX" secondItem="j5J-eG-yqS" secondAttribute="centerX" id="DGJ-ni-4yw"/>
+                            <constraint firstItem="H9c-iQ-Uii" firstAttribute="leading" secondItem="bee-Qh-77N" secondAttribute="leading" constant="30" id="Doo-ey-Gg5"/>
+                            <constraint firstItem="LfA-57-7oK" firstAttribute="leading" secondItem="bee-Qh-77N" secondAttribute="leading" constant="30" id="EaX-O9-9Mg"/>
+                            <constraint firstItem="H9c-iQ-Uii" firstAttribute="centerX" secondItem="j5J-eG-yqS" secondAttribute="centerX" id="JgU-cd-cza"/>
+                            <constraint firstItem="OrI-6S-Qv4" firstAttribute="centerX" secondItem="j5J-eG-yqS" secondAttribute="centerX" id="Jpf-6T-kqV"/>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="kzL-rf-eEc" secondAttribute="trailing" constant="30" id="OVZ-OK-y39"/>
+                            <constraint firstItem="DT4-h2-BES" firstAttribute="leading" secondItem="bee-Qh-77N" secondAttribute="leading" constant="50" id="S4K-Xt-8Rk"/>
+                            <constraint firstItem="H9c-iQ-Uii" firstAttribute="top" secondItem="OrI-6S-Qv4" secondAttribute="bottom" constant="70" id="UBE-0F-bQI"/>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="H9c-iQ-Uii" secondAttribute="trailing" constant="30" id="Xna-vS-6DZ"/>
+                            <constraint firstItem="DT4-h2-BES" firstAttribute="centerX" secondItem="j5J-eG-yqS" secondAttribute="centerX" id="ata-mo-H8B"/>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="bottom" secondItem="pzo-KV-lMP" secondAttribute="bottom" constant="30" id="auC-DV-uYw"/>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="pzo-KV-lMP" secondAttribute="trailing" constant="30" id="cw0-CU-aBz"/>
+                            <constraint firstItem="DT4-h2-BES" firstAttribute="top" secondItem="H9c-iQ-Uii" secondAttribute="bottom" constant="30" id="cy7-nN-1GZ"/>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="bottom" secondItem="vxn-EL-hn9" secondAttribute="bottom" constant="30" id="j8n-fL-h5Q"/>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="DT4-h2-BES" secondAttribute="trailing" constant="50" id="pft-KT-fi2"/>
+                            <constraint firstItem="OrI-6S-Qv4" firstAttribute="top" secondItem="bee-Qh-77N" secondAttribute="top" constant="200" id="rsE-DR-prd"/>
+                            <constraint firstItem="bee-Qh-77N" firstAttribute="bottom" secondItem="LfA-57-7oK" secondAttribute="bottom" constant="30" id="zfB-eI-BzR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bee-Qh-77N"/>
+                    </view>
+                    <connections>
+                        <outlet property="backImage" destination="LfA-57-7oK" id="ePR-Fs-IwL"/>
+                        <outlet property="descLabel" destination="DT4-h2-BES" id="Vzp-dH-TNB"/>
+                        <outlet property="mainImage" destination="OrI-6S-Qv4" id="wQj-PH-aiL"/>
+                        <outlet property="nextImage" destination="kzL-rf-eEc" id="cN0-KG-MI9"/>
+                        <outlet property="pageControl" destination="vxn-EL-hn9" id="L6O-Ai-SRh"/>
+                        <outlet property="startButton" destination="pzo-KV-lMP" id="Sds-Kf-anG"/>
+                        <outlet property="titleLabel" destination="H9c-iQ-Uii" id="gwC-RA-gUp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N78-aZ-lTK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7bZ-jz-dyn">
+                    <connections>
+                        <action selector="nextPage:" destination="ICK-Cl-vur" id="W7L-nb-DvS"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="795-1m-fJl">
+                    <connections>
+                        <action selector="prevPage:" destination="ICK-Cl-vur" id="H4X-MK-puf"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-2143.4782608695655" y="-760.04464285714278"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -65,6 +185,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cdV-9Z-Jiv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,6 +214,8 @@
     </scenes>
     <resources>
         <image name="animalsBG" width="1000" height="582"/>
+        <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="login" width="320" height="80"/>
         <image name="register" width="320" height="82"/>
     </resources>

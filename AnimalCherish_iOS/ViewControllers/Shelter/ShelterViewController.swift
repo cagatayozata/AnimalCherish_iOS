@@ -17,6 +17,7 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/shelter/getall"
+    let menuSlide = MenuSlide()
     
     var shelterIdArr = [String]()
     var shelterNameArr = [String]()
@@ -90,6 +91,19 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
     
         }
     }
+    
+    // MARK: Show Menu
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
+
+        menuViewController.modalPresentationStyle = .overCurrentContext
+        menuViewController.transitioningDelegate = self
+        present(menuViewController, animated: true)
+        
+    }
+    
     
     // MARK: Alert
     func showAlert(for alert: String) {
