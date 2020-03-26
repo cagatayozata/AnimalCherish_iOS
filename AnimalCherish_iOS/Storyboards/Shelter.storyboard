@@ -129,6 +129,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gow-gD-jp5"/>
                     </view>
+                    <connections>
+                        <outlet property="addressTF" destination="sMj-R5-QaJ" id="01s-VW-V0U"/>
+                        <outlet property="capacityTF" destination="8jh-1b-x94" id="9Cg-sU-Kny"/>
+                        <outlet property="detailTF" destination="eOe-sf-Emv" id="6E6-os-TZd"/>
+                        <outlet property="emailTF" destination="soq-68-b0U" id="iNQ-s5-h5S"/>
+                        <outlet property="establishDateTF" destination="cVL-v9-tQY" id="s2Z-59-0x8"/>
+                        <outlet property="nameTF" destination="0Ql-1W-NDh" id="Kjh-Fo-D0r"/>
+                        <outlet property="phoneTF" destination="pK7-ns-LV8" id="cM9-j0-e9W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Yo-9d-Vei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
