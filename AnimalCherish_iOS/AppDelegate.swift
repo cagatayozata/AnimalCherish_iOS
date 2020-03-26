@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //UITabBar.appearance().barTintColor = .black
         //UITabBar.appearance().tintColor = .red
         
+        Thread.sleep(forTimeInterval: 3.0)
         return true
     }
 

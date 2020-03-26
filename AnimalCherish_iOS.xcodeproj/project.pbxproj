@@ -269,11 +269,11 @@
 		08FB2B7B24059E51000D431A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				0806814D24053BDB00FDE61D /* Main.storyboard */,
-				0806815224053BDE00FDE61D /* LaunchScreen.storyboard */,
 				0838D6052406A2B50056E2F0 /* Animal.storyboard */,
 				08FE0DFF240C2D18002AFC96 /* Auth.storyboard */,
 				0838D6072406A2EB0056E2F0 /* Dashboard.storyboard */,
+				0806815224053BDE00FDE61D /* LaunchScreen.storyboard */,
+				0806814D24053BDB00FDE61D /* Main.storyboard */,
 				08A4168F242B630F005CC9B2 /* Menu.storyboard */,
 				0838D60B2406A35C0056E2F0 /* PetShop.storyboard */,
 				0838D6092406A3210056E2F0 /* Shelter.storyboard */,
