@@ -26,7 +26,7 @@ class MenuViewController: UIViewController {
         image?.layer.cornerRadius = (image?.frame.size.width ?? 0.0) / 2
         image?.clipsToBounds = true
         image?.layer.borderWidth = 3.0
-        image?.layer.borderColor = #colorLiteral(red: 0.1119569317, green: 0.5342552066, blue: 0.9994677901, alpha: 1)
+        image?.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         //
         nameLabel.text! = "Çağatay ÖZATA"

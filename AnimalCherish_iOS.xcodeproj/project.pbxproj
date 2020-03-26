@@ -12,6 +12,7 @@
 		0806814F24053BDB00FDE61D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0806814D24053BDB00FDE61D /* Main.storyboard */; };
 		0806815124053BDE00FDE61D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0806815024053BDE00FDE61D /* Assets.xcassets */; };
 		0806815424053BDE00FDE61D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0806815224053BDE00FDE61D /* LaunchScreen.storyboard */; };
+		08179A0B242CA75800178129 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08179A0A242CA75800178129 /* IntroViewController.swift */; };
 		0838D6062406A2B50056E2F0 /* Animal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D6052406A2B50056E2F0 /* Animal.storyboard */; };
 		0838D6082406A2EB0056E2F0 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D6072406A2EB0056E2F0 /* Dashboard.storyboard */; };
 		0838D60A2406A3210056E2F0 /* Shelter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D6092406A3210056E2F0 /* Shelter.storyboard */; };
@@ -62,6 +63,7 @@
 		0806815024053BDE00FDE61D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0806815324053BDE00FDE61D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0806815524053BDE00FDE61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08179A0A242CA75800178129 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		0838D6052406A2B50056E2F0 /* Animal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Animal.storyboard; sourceTree = "<group>"; };
 		0838D6072406A2EB0056E2F0 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		0838D6092406A3210056E2F0 /* Shelter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shelter.storyboard; sourceTree = "<group>"; };
@@ -152,18 +154,27 @@
 			path = AnimalCherish_iOS;
 			sourceTree = "<group>";
 		};
+		08179A09242CA72F00178129 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0838D6142406A5B60056E2F0 /* HomeViewController.swift */,
+				08179A0A242CA75800178129 /* IntroViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		0838D60F2406A56C0056E2F0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				086E42582406DD1300F2469C /* Animal */,
 				086E425D2406E93D00F2469C /* Auth */,
 				086E425E2406FCC400F2469C /* Dashboard */,
+				08179A09242CA72F00178129 /* Main */,
 				08A41691242B633E005CC9B2 /* Menu */,
 				086E425F2406FCD600F2469C /* PetShop */,
 				086E42602406FCE300F2469C /* Shelter */,
 				086E42612406FCEE00F2469C /* Vet */,
 				086E42622406FCF400F2469C /* Zoo */,
-				0838D6142406A5B60056E2F0 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -269,11 +280,11 @@
 		08FB2B7B24059E51000D431A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				0806814D24053BDB00FDE61D /* Main.storyboard */,
-				0806815224053BDE00FDE61D /* LaunchScreen.storyboard */,
 				0838D6052406A2B50056E2F0 /* Animal.storyboard */,
 				08FE0DFF240C2D18002AFC96 /* Auth.storyboard */,
 				0838D6072406A2EB0056E2F0 /* Dashboard.storyboard */,
+				0806815224053BDE00FDE61D /* LaunchScreen.storyboard */,
+				0806814D24053BDB00FDE61D /* Main.storyboard */,
 				08A4168F242B630F005CC9B2 /* Menu.storyboard */,
 				0838D60B2406A35C0056E2F0 /* PetShop.storyboard */,
 				0838D6092406A3210056E2F0 /* Shelter.storyboard */,
@@ -439,6 +450,7 @@
 				08CF276624165E220029FE4B /* AddVetViewController.swift in Sources */,
 				08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */,
 				08B761D124180F6600AC98C3 /* EditShelterViewController.swift in Sources */,
+				08179A0B242CA75800178129 /* IntroViewController.swift in Sources */,
 				08B761C92418025C00AC98C3 /* EditAnimalViewController.swift in Sources */,
 				08A41693242B634E005CC9B2 /* MenuViewController.swift in Sources */,
 				08B761D524180F8700AC98C3 /* EditVetViewController.swift in Sources */,
