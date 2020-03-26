@@ -53,11 +53,86 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hr8-zL-CVV" id="cVb-M9-oPL"/>
+                        <segue destination="4zV-Se-UJ8" kind="presentation" identifier="goToDetailShelterScreen" id="CGA-q1-txZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baL-zi-Is5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1429" y="364"/>
+        </scene>
+        <!--Detail Shelter View Controller-->
+        <scene sceneID="F3x-gW-Mew">
+            <objects>
+                <viewController id="4zV-Se-UJ8" customClass="DetailShelterViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QPf-ux-cRo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l0A-7D-cLo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Barınak Detay" id="HtA-yj-DFX">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;Geri" id="rh2-rU-UaW"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Düzenle" id="LVr-Mb-7Ve">
+                                            <connections>
+                                                <segue destination="lMf-tx-Amc" kind="presentation" id="I6F-Kp-aZN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ql-1W-NDh">
+                                <rect key="frame" x="80" y="183" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sMj-R5-QaJ">
+                                <rect key="frame" x="80" y="257" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kapasite" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8jh-1b-x94">
+                                <rect key="frame" x="80" y="331" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eOe-sf-Emv">
+                                <rect key="frame" x="80" y="405" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0312-000-0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pK7-ns-LV8">
+                                <rect key="frame" x="80" y="479" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mail Adresi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="soq-68-b0U">
+                                <rect key="frame" x="80" y="553" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cVL-v9-tQY">
+                                <rect key="frame" x="80" y="627" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="eOe-sf-Emv" firstAttribute="top" secondItem="8jh-1b-x94" secondAttribute="bottom" constant="40" id="3vn-Q6-XlB"/>
+                            <constraint firstItem="soq-68-b0U" firstAttribute="top" secondItem="pK7-ns-LV8" secondAttribute="bottom" constant="40" id="APJ-kC-Rkv"/>
+                            <constraint firstItem="8jh-1b-x94" firstAttribute="top" secondItem="sMj-R5-QaJ" secondAttribute="bottom" constant="40" id="O0G-la-mzs"/>
+                            <constraint firstItem="pK7-ns-LV8" firstAttribute="top" secondItem="eOe-sf-Emv" secondAttribute="bottom" constant="40" id="QJh-Ge-x19"/>
+                            <constraint firstItem="sMj-R5-QaJ" firstAttribute="top" secondItem="0Ql-1W-NDh" secondAttribute="bottom" constant="40" id="Qun-68-X4j"/>
+                            <constraint firstItem="cVL-v9-tQY" firstAttribute="top" secondItem="soq-68-b0U" secondAttribute="bottom" constant="40" id="lYA-HK-qwg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gow-gD-jp5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Yo-9d-Vei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2203" y="786"/>
         </scene>
         <!--Barınak Ekle-->
         <scene sceneID="LCc-FD-Imz">
@@ -180,6 +255,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CA7-Br-6rg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="571" y="364"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Rvg-gF-dY6">
+            <objects>
+                <viewController id="lMf-tx-Amc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pxd-bM-5Yr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mps-rk-tJt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Barınak Düzenle" id="5ic-6z-FIr">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;Geri" id="Nbe-EC-gWp"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1U-Gn-eA1">
+                                <rect key="frame" x="80" y="144" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WZ1-ZC-sqA">
+                                <rect key="frame" x="80" y="218" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kapasite" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6MK-90-x8o">
+                                <rect key="frame" x="80" y="292" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-Xp-w4a">
+                                <rect key="frame" x="80" y="366" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0312-000-0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EE6-nK-eQO">
+                                <rect key="frame" x="80" y="440" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mail Adresi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgL-Rt-gLX">
+                                <rect key="frame" x="80" y="514" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bmr-D9-A6j">
+                                <rect key="frame" x="80" y="588" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oa5-Ke-f6o">
+                                <rect key="frame" x="183" y="722" width="48" height="30"/>
+                                <state key="normal" title="Kaydet"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="JkG-10-CtQ" eventType="touchUpInside" id="bYx-Dv-xv5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="EE6-nK-eQO" firstAttribute="top" secondItem="bKu-Xp-w4a" secondAttribute="bottom" constant="40" id="1Pp-h0-0wn"/>
+                            <constraint firstItem="Oa5-Ke-f6o" firstAttribute="top" secondItem="Bmr-D9-A6j" secondAttribute="bottom" constant="100" id="6Na-Dh-r8p"/>
+                            <constraint firstItem="WZ1-ZC-sqA" firstAttribute="top" secondItem="f1U-Gn-eA1" secondAttribute="bottom" constant="40" id="BSj-EL-6lO"/>
+                            <constraint firstItem="Bmr-D9-A6j" firstAttribute="top" secondItem="pgL-Rt-gLX" secondAttribute="bottom" constant="40" id="Esq-Pp-yYA"/>
+                            <constraint firstItem="bKu-Xp-w4a" firstAttribute="top" secondItem="6MK-90-x8o" secondAttribute="bottom" constant="40" id="OtE-YS-ZWe"/>
+                            <constraint firstItem="6MK-90-x8o" firstAttribute="top" secondItem="WZ1-ZC-sqA" secondAttribute="bottom" constant="40" id="i3S-dU-YzH"/>
+                            <constraint firstItem="pgL-Rt-gLX" firstAttribute="top" secondItem="EE6-nK-eQO" secondAttribute="bottom" constant="40" id="ndn-qj-UOz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fOA-Kc-C66"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yyd-pr-MdT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3212" y="785"/>
         </scene>
     </scenes>
     <resources>
