@@ -65,7 +65,7 @@ class DetailPetShopViewController: UIViewController {
                            let detail = item["details"].stringValue
                            let phone = item["phone"].stringValue
                            let email = item["email"].stringValue
-                           let establish = item["olusmaTarihi"].stringValue
+                           let establish = item["birthdate"].stringValue
                            
 
                            self.nameTF.text! = name
