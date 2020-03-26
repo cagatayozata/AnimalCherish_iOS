@@ -118,12 +118,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u8a-1Z-EtW">
-                                <rect key="frame" x="69" y="78" width="45" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="9QN-wS-CTr"/>
@@ -135,7 +129,6 @@
                         <outlet property="emailTF" destination="Lb1-Uw-4De" id="6jy-uK-hC9"/>
                         <outlet property="establishDate" destination="heO-yL-bEk" id="rbq-zb-YdQ"/>
                         <outlet property="establishDateTF" destination="heO-yL-bEk" id="pgt-qK-NYH"/>
-                        <outlet property="idTF" destination="u8a-1Z-EtW" id="idC-N4-xuJ"/>
                         <outlet property="nameTF" destination="Qye-SI-dOS" id="IZL-Pl-UE0"/>
                         <outlet property="phoneTF" destination="JQO-1X-AK6" id="TSH-Fa-GkM"/>
                     </connections>

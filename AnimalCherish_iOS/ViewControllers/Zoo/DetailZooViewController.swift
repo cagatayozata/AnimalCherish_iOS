@@ -13,7 +13,6 @@ import SwiftyJSON
 class DetailZooViewController: UIViewController {
 
     //MARK: IBOutlet
-    @IBOutlet weak var idTF: UITextField!
     @IBOutlet weak var establishDateTF: UITextField!
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -60,7 +59,6 @@ class DetailZooViewController: UIViewController {
                    for item in resultArray.arrayValue {
 
                        if i == self.selectedId {
-                           let id = item["id"].stringValue
                            let name = item["name"].stringValue
                            let establish = item["establishDate"].stringValue
                            let address = item["address"].stringValue
@@ -68,7 +66,6 @@ class DetailZooViewController: UIViewController {
                            let email = item["email"].stringValue
                            let description = item["description"].stringValue
                         
-                           self.idTF.text! = id
                            self.nameTF.text! = name
                            self.establishDateTF.text! = establish
                            self.addressTF.text! = address
@@ -101,7 +98,6 @@ class DetailZooViewController: UIViewController {
        
        // MARK: disableEditing
        func disableEditing() {
-           
            nameTF.isUserInteractionEnabled = false
            establishDateTF.isUserInteractionEnabled = false
            addressTF.isUserInteractionEnabled = false
