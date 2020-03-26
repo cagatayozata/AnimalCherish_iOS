@@ -63,7 +63,7 @@
         <!--Pet Shop Detail-->
         <scene sceneID="l4b-YG-iOu">
             <objects>
-                <viewController title="Pet Shop Detail" id="Y2C-pK-5dm" sceneMemberID="viewController">
+                <viewController title="Pet Shop Detail" id="Y2C-pK-5dm" customClass="DetailPetShopViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nNN-hP-Jwr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,6 +86,11 @@
                                 <rect key="frame" x="80" y="157" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dasdas:" destination="7wm-sh-Nw8" eventType="editingDidEnd" id="DFX-QN-q4j"/>
+                                    <action selector="idTF" destination="7wm-sh-Nw8" eventType="editingDidEndOnExit" id="8Kh-K3-dCT"/>
+                                    <action selector="nameTF:" destination="7wm-sh-Nw8" eventType="editingDidEnd" id="vK4-8M-8mp"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ui-yo-B5q">
                                 <rect key="frame" x="80" y="231" width="254" height="34"/>
@@ -123,10 +128,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iqo-Td-Ix7"/>
                     </view>
+                    <connections>
+                        <outlet property="addressTF" destination="2Ui-yo-B5q" id="3fi-Kw-aFs"/>
+                        <outlet property="detailTF" destination="z6A-aj-FSw" id="hLw-oB-3u5"/>
+                        <outlet property="emailTF" destination="jlM-MM-P3F" id="dpB-sM-oc1"/>
+                        <outlet property="establishDateTF" destination="qgg-b3-u4f" id="wXP-dc-9pD"/>
+                        <outlet property="nameTF" destination="TUa-FT-jPE" id="f6Q-kF-agn"/>
+                        <outlet property="phoneTF" destination="Fel-ag-UFh" id="ddM-eu-jle"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjG-FT-JR0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="7wm-sh-Nw8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3139" y="721"/>
+            <point key="canvasLocation" x="3137.68115942029" y="720.53571428571422"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1SV-Qx-NHT">
