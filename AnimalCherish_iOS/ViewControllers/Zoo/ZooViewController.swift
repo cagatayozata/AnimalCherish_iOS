@@ -17,6 +17,7 @@ class ZooViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/zoo/getall"
+    let menuSlide = MenuSlide()
     
     var zooIdArr = [String]()
     var zooNameArr = [String]()
@@ -88,6 +89,18 @@ class ZooViewController: UIViewController, UITableViewDataSource, UITableViewDel
          present(alertController, animated: true, completion: nil)
      }
      
+    // MARK: Show Menu
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
+
+        menuViewController.modalPresentationStyle = .overCurrentContext
+        menuViewController.transitioningDelegate = self
+        present(menuViewController, animated: true)
+        
+    }
+    
      // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return zooIdArr.count

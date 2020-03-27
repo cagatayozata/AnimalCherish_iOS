@@ -45,6 +45,11 @@
                         <viewLayoutGuide key="safeArea" id="Pgy-hq-v83"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hayvanat Bahçesi" id="fqi-x3-oUe">
+                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="pUd-3X-kc8">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="Dgm-3d-eJd" id="gha-zH-dGG"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="04W-ZO-OgZ">
                             <connections>
                                 <segue destination="Hqg-ap-gwG" kind="show" id="R3U-Iy-HeV"/>
@@ -299,4 +304,7 @@
             <point key="canvasLocation" x="4981" y="744"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="text.justify" catalog="system" width="128" height="100"/>
+    </resources>
 </document>

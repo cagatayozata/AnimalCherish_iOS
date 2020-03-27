@@ -49,6 +49,11 @@
                         <viewLayoutGuide key="safeArea" id="dxu-qV-LRy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Veteriner" id="fA5-AB-XEV">
+                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="ITF-aW-Nbu">
+                            <connections>
+                                <action selector="menuButtonPressed:" destination="kwc-Jc-C5h" id="rqY-K7-smk"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="fwL-rU-nHf">
                             <connections>
                                 <segue destination="eKN-7X-gRM" kind="show" id="xOn-yp-ZYO"/>
@@ -281,5 +286,6 @@
     </scenes>
     <resources>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <image name="text.justify" catalog="system" width="128" height="100"/>
     </resources>
 </document>
