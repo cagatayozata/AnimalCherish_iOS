@@ -17,6 +17,7 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      
      // MARK: Variables
      let apiUrl = Configuration.apiUrl + "/api/v1/vet/getall"
+    let menuSlide = MenuSlide()
      
      var vetIdArr = [String]()
      var vetNameArr = [String]()
@@ -37,6 +38,9 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     // MARK: Data Preparation and GET request
     func getVetlist() {
+        
+        // show loading indicator
+//        loadingIndicator()
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -74,14 +78,32 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 // reload table data
                 self.tableView.reloadData()
                 
+                
                 break
                 case .failure:
-                self.showAlert(for: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!")
-                print(myresponse.error!)
-                break
+                    
+
+                    
+                    self.showAlert(for: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!")
+                    print(myresponse.error!)
+                    break
             }
     
         }
+//        // close loading indicator
+//        self.dismiss(animated: false, completion: nil)
+    }
+    
+    // MARK: Show Menu
+    @IBAction func menuButtonPressed(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
+
+        menuViewController.modalPresentationStyle = .overCurrentContext
+        menuViewController.transitioningDelegate = self
+        present(menuViewController, animated: true)
+        
     }
     
      // MARK: Alert
@@ -91,6 +113,21 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
          alertController.addAction(alertAction)
          present(alertController, animated: true, completion: nil)
      }
+    
+    // MARK: Loading Indicator
+    func loadingIndicator() {
+        
+        let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
+
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        
+    }
      
      // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
