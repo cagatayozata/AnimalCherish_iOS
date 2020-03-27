@@ -63,3 +63,17 @@ extension VetViewController: UIViewControllerTransitioningDelegate {
     }
     
 }
+
+extension ZooViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        menuSlide.isPresenting = true
+        return menuSlide
+    }
+
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        menuSlide.isPresenting = false
+        return menuSlide
+    }
+    
+}
