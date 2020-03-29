@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Intro View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="jdY-MG-sBq">
             <objects>
-                <viewController id="ICK-Cl-vur" customClass="IntroViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ICK-Cl-vur" customClass="MainViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j5J-eG-yqS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,13 +24,13 @@
                                 </connections>
                             </pageControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9c-iQ-Uii">
-                                <rect key="frame" x="30" y="464" width="354" height="24"/>
+                                <rect key="frame" x="30" y="480" width="354" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DT4-h2-BES">
-                                <rect key="frame" x="50" y="518" width="314" height="150"/>
+                                <rect key="frame" x="50" y="519" width="314" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="bNu-Ua-kUa"/>
                                 </constraints>
@@ -76,11 +76,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="xe8-01-mL8"/>
+                                    <segue destination="ugx-bU-DQt" kind="presentation" modalPresentationStyle="fullScreen" id="D04-K3-p5K"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.11146575960000001" green="0.29043528439999999" blue="0.50505268569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bee-Qh-77N" firstAttribute="bottom" secondItem="kzL-rf-eEc" secondAttribute="bottom" constant="30" id="4dP-mS-caK"/>
                             <constraint firstItem="vxn-EL-hn9" firstAttribute="centerX" secondItem="j5J-eG-yqS" secondAttribute="centerX" id="DGJ-ni-4yw"/>
@@ -90,12 +90,12 @@
                             <constraint firstItem="OrI-6S-Qv4" firstAttribute="centerX" secondItem="j5J-eG-yqS" secondAttribute="centerX" id="Jpf-6T-kqV"/>
                             <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="kzL-rf-eEc" secondAttribute="trailing" constant="30" id="OVZ-OK-y39"/>
                             <constraint firstItem="DT4-h2-BES" firstAttribute="leading" secondItem="bee-Qh-77N" secondAttribute="leading" constant="50" id="S4K-Xt-8Rk"/>
-                            <constraint firstItem="H9c-iQ-Uii" firstAttribute="top" secondItem="OrI-6S-Qv4" secondAttribute="bottom" constant="70" id="UBE-0F-bQI"/>
+                            <constraint firstItem="H9c-iQ-Uii" firstAttribute="top" secondItem="OrI-6S-Qv4" secondAttribute="bottom" constant="86" id="UBE-0F-bQI"/>
                             <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="H9c-iQ-Uii" secondAttribute="trailing" constant="30" id="Xna-vS-6DZ"/>
                             <constraint firstItem="DT4-h2-BES" firstAttribute="centerX" secondItem="j5J-eG-yqS" secondAttribute="centerX" id="ata-mo-H8B"/>
                             <constraint firstItem="bee-Qh-77N" firstAttribute="bottom" secondItem="pzo-KV-lMP" secondAttribute="bottom" constant="30" id="auC-DV-uYw"/>
                             <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="pzo-KV-lMP" secondAttribute="trailing" constant="30" id="cw0-CU-aBz"/>
-                            <constraint firstItem="DT4-h2-BES" firstAttribute="top" secondItem="H9c-iQ-Uii" secondAttribute="bottom" constant="30" id="cy7-nN-1GZ"/>
+                            <constraint firstItem="DT4-h2-BES" firstAttribute="top" secondItem="H9c-iQ-Uii" secondAttribute="bottom" constant="15" id="cy7-nN-1GZ"/>
                             <constraint firstItem="bee-Qh-77N" firstAttribute="bottom" secondItem="vxn-EL-hn9" secondAttribute="bottom" constant="30" id="j8n-fL-h5Q"/>
                             <constraint firstItem="bee-Qh-77N" firstAttribute="trailing" secondItem="DT4-h2-BES" secondAttribute="trailing" constant="50" id="pft-KT-fi2"/>
                             <constraint firstItem="OrI-6S-Qv4" firstAttribute="top" secondItem="bee-Qh-77N" secondAttribute="top" constant="200" id="rsE-DR-prd"/>
@@ -127,70 +127,6 @@
             </objects>
             <point key="canvasLocation" x="-2143.4782608695655" y="-760.04464285714278"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ANIMAL CHERISH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5K-AZ-ifg">
-                                <rect key="frame" x="68" y="74" width="278.5" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GI-i1-mQE">
-                                <rect key="frame" x="47" y="614" width="320" height="80"/>
-                                <state key="normal" image="login"/>
-                                <connections>
-                                    <segue destination="ugx-bU-DQt" kind="presentation" modalPresentationStyle="fullScreen" id="N0f-k5-XZ3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcL-mF-BGS">
-                                <rect key="frame" x="47" y="714" width="320" height="82"/>
-                                <state key="normal" image="register"/>
-                                <connections>
-                                    <segue destination="ivg-J0-A2b" kind="presentation" modalPresentationStyle="fullScreen" id="pbW-Nz-zw6"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="animalsBG" translatesAutoresizingMaskIntoConstraints="NO" id="smp-1j-3Of">
-                                <rect key="frame" x="57" y="156" width="300" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="UNb-Q4-AQ9"/>
-                                    <constraint firstAttribute="width" constant="300" id="qfp-ut-fdC"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hayvan Bilgi Sistemi Copyright@2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsG-Kv-wjR">
-                                <rect key="frame" x="62.5" y="826" width="289" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="z5K-AZ-ifg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="5To-Oh-e4W"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YsG-Kv-wjR" secondAttribute="bottom" constant="15" id="60X-Tn-cEG"/>
-                            <constraint firstItem="YsG-Kv-wjR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GIV-Oy-29M"/>
-                            <constraint firstItem="xcL-mF-BGS" firstAttribute="top" secondItem="7GI-i1-mQE" secondAttribute="bottom" constant="20" id="aH4-o8-xGO"/>
-                            <constraint firstItem="xcL-mF-BGS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aJk-4W-muX"/>
-                            <constraint firstItem="smp-1j-3Of" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bC5-dE-mi4"/>
-                            <constraint firstItem="z5K-AZ-ifg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bDj-fh-rnf"/>
-                            <constraint firstItem="7GI-i1-mQE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dHg-fm-Rft"/>
-                            <constraint firstItem="YsG-Kv-wjR" firstAttribute="top" secondItem="xcL-mF-BGS" secondAttribute="bottom" constant="30" id="fYe-la-wBv"/>
-                            <constraint firstItem="7GI-i1-mQE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hUZ-K3-0t6"/>
-                            <constraint firstItem="smp-1j-3Of" firstAttribute="top" secondItem="z5K-AZ-ifg" secondAttribute="bottom" constant="40" id="qTm-tK-6X7"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="cdV-9Z-Jiv"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1313" y="-760"/>
-        </scene>
         <!--toLogin-->
         <scene sceneID="gg4-fS-IcC">
             <objects>
@@ -199,24 +135,11 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTl-zE-wjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-790" y="-866"/>
-        </scene>
-        <!--toRegister-->
-        <scene sceneID="zsk-t8-9bC">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Auth" referencedIdentifier="toRegister" id="ivg-J0-A2b" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="TrS-am-GiO"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qCz-EF-MnJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-778" y="-650"/>
+            <point key="canvasLocation" x="-1514" y="-760"/>
         </scene>
     </scenes>
     <resources>
-        <image name="animalsBG" width="1000" height="582"/>
         <image name="arrow.left.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
-        <image name="login" width="320" height="80"/>
-        <image name="register" width="320" height="82"/>
     </resources>
 </document>

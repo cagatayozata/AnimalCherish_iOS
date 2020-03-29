@@ -12,7 +12,7 @@
 		0806814F24053BDB00FDE61D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0806814D24053BDB00FDE61D /* Main.storyboard */; };
 		0806815124053BDE00FDE61D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0806815024053BDE00FDE61D /* Assets.xcassets */; };
 		0806815424053BDE00FDE61D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0806815224053BDE00FDE61D /* LaunchScreen.storyboard */; };
-		08179A0B242CA75800178129 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08179A0A242CA75800178129 /* IntroViewController.swift */; };
+		08179A0B242CA75800178129 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08179A0A242CA75800178129 /* MainViewController.swift */; };
 		0838D6062406A2B50056E2F0 /* Animal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D6052406A2B50056E2F0 /* Animal.storyboard */; };
 		0838D6082406A2EB0056E2F0 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D6072406A2EB0056E2F0 /* Dashboard.storyboard */; };
 		0838D60A2406A3210056E2F0 /* Shelter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D6092406A3210056E2F0 /* Shelter.storyboard */; };
@@ -20,7 +20,6 @@
 		0838D60E2406A3990056E2F0 /* Zoo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D60D2406A3990056E2F0 /* Zoo.storyboard */; };
 		0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6102406A58D0056E2F0 /* LoginViewController.swift */; };
 		0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6122406A59E0056E2F0 /* RegisterViewController.swift */; };
-		0838D6152406A5B60056E2F0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6142406A5B60056E2F0 /* HomeViewController.swift */; };
 		086E425A2406DD4B00F2469C /* AnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42592406DD4B00F2469C /* AnimalViewController.swift */; };
 		086E42642406FD4600F2469C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42632406FD4600F2469C /* DashboardViewController.swift */; };
 		086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E42652406FD5200F2469C /* PetShopViewController.swift */; };
@@ -63,7 +62,7 @@
 		0806815024053BDE00FDE61D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0806815324053BDE00FDE61D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0806815524053BDE00FDE61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		08179A0A242CA75800178129 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		08179A0A242CA75800178129 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0838D6052406A2B50056E2F0 /* Animal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Animal.storyboard; sourceTree = "<group>"; };
 		0838D6072406A2EB0056E2F0 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		0838D6092406A3210056E2F0 /* Shelter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shelter.storyboard; sourceTree = "<group>"; };
@@ -71,7 +70,6 @@
 		0838D60D2406A3990056E2F0 /* Zoo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Zoo.storyboard; sourceTree = "<group>"; };
 		0838D6102406A58D0056E2F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0838D6122406A59E0056E2F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		0838D6142406A5B60056E2F0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		086E42592406DD4B00F2469C /* AnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewController.swift; sourceTree = "<group>"; };
 		086E42632406FD4600F2469C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		086E42652406FD5200F2469C /* PetShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetShopViewController.swift; sourceTree = "<group>"; };
@@ -157,8 +155,7 @@
 		08179A09242CA72F00178129 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				0838D6142406A5B60056E2F0 /* HomeViewController.swift */,
-				08179A0A242CA75800178129 /* IntroViewController.swift */,
+				08179A0A242CA75800178129 /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -450,7 +447,7 @@
 				08CF276624165E220029FE4B /* AddVetViewController.swift in Sources */,
 				08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */,
 				08B761D124180F6600AC98C3 /* EditShelterViewController.swift in Sources */,
-				08179A0B242CA75800178129 /* IntroViewController.swift in Sources */,
+				08179A0B242CA75800178129 /* MainViewController.swift in Sources */,
 				08B761C92418025C00AC98C3 /* EditAnimalViewController.swift in Sources */,
 				08A41693242B634E005CC9B2 /* MenuViewController.swift in Sources */,
 				08B761D524180F8700AC98C3 /* EditVetViewController.swift in Sources */,
@@ -476,7 +473,6 @@
 				08B761CF24180F5A00AC98C3 /* DetailShelterViewController.swift in Sources */,
 				086E425A2406DD4B00F2469C /* AnimalViewController.swift in Sources */,
 				0806814A24053BDB00FDE61D /* SceneDelegate.swift in Sources */,
-				0838D6152406A5B60056E2F0 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
