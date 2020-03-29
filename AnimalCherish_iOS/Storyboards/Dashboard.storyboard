@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vhw-75-SKH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vhw-75-SKH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="z1S-Kr-K86">
             <objects>
-                <viewController id="iYa-fh-i4i" sceneMemberID="viewController">
+                <viewController id="iYa-fh-i4i" customClass="DashboardViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELH-vy-T6h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lN-nB-ap0">
+                                <rect key="frame" x="10" y="98" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0vk-eQ-9Uh"/>
+                                    <constraint firstAttribute="height" constant="40" id="1Hb-PX-ezU"/>
+                                </constraints>
+                                <state key="normal" image="square.and.arrow.down.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="downloadChartToGallery:" destination="iYa-fh-i4i" eventType="touchUpInside" id="4Jc-LE-s3X"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gs-7j-oDZ" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="134.5" width="414" height="627"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4lN-nB-ap0" firstAttribute="leading" secondItem="RUd-0D-JPs" secondAttribute="leading" constant="10" id="1ez-Nb-Kdo"/>
+                            <constraint firstItem="9gs-7j-oDZ" firstAttribute="centerX" secondItem="ELH-vy-T6h" secondAttribute="centerX" id="AVG-de-hgK"/>
+                            <constraint firstItem="9gs-7j-oDZ" firstAttribute="width" secondItem="ELH-vy-T6h" secondAttribute="width" id="M28-WF-OCb"/>
+                            <constraint firstItem="4lN-nB-ap0" firstAttribute="top" secondItem="RUd-0D-JPs" secondAttribute="top" constant="10" id="MxQ-rS-roa"/>
+                            <constraint firstItem="9gs-7j-oDZ" firstAttribute="centerY" secondItem="ELH-vy-T6h" secondAttribute="centerY" id="OAA-rQ-HP6"/>
+                            <constraint firstItem="9gs-7j-oDZ" firstAttribute="height" secondItem="ELH-vy-T6h" secondAttribute="height" multiplier="0.7" id="iuB-ER-auF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RUd-0D-JPs"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lr0-cH-ICN"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="9gs-7j-oDZ" id="qCD-qC-iI7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRb-63-d8o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,5 +73,6 @@
     </scenes>
     <resources>
         <image name="icons8-duck-30" width="30" height="30"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
     </resources>
 </document>
