@@ -45,9 +45,9 @@
                         <viewLayoutGuide key="safeArea" id="CX2-ys-7WO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pet Shop" id="00s-KE-Rax">
-                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="k2W-GM-o2I">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="k2W-GM-o2I">
                             <connections>
-                                <action selector="menuButtonPressed:" destination="Ypx-S3-0XX" id="MkK-4z-Ya6"/>
+                                <segue destination="wJX-rA-MEi" kind="unwind" unwindAction="goBackToHomepage:" id="1QY-yK-rkk"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="jpF-mi-6GH">
@@ -62,6 +62,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7UN-XP-JTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wJX-rA-MEi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2346" y="363"/>
         </scene>
@@ -334,6 +335,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="text.justify" catalog="system" width="128" height="100"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
     </resources>
 </document>

@@ -39,7 +39,7 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
     func getShelterList() {
         
         // show loading indicator
-        loadingIndicator()
+        //loadingIndicator()
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -76,13 +76,13 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.tableView.reloadData()
                 
                 // close loading indicator
-                self.dismiss(animated: false, completion: nil)
+                //self.dismiss(animated: false, completion: nil)
                 
                 break
             case .failure:
                 
                 // close loading indicator
-                self.dismiss(animated: false, completion: nil)
+                //self.dismiss(animated: false, completion: nil)
                 
                 self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
                 print(myresponse.error!)

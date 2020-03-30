@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.1114657596, green: 0.2904352844, blue: 0.5050526857, alpha: 1)
 //        UITabBar.appearance().tintColor = .white
         
+        // Navigation Bar PreferenSces
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.02350346558, green: 0.05396836251, blue: 0.298304379, alpha: 1)
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+
         Thread.sleep(forTimeInterval: 3.0)
         return true
     }

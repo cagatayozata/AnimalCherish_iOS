@@ -49,9 +49,9 @@
                         <viewLayoutGuide key="safeArea" id="dxu-qV-LRy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Veteriner" id="fA5-AB-XEV">
-                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="ITF-aW-Nbu">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="ITF-aW-Nbu">
                             <connections>
-                                <action selector="menuButtonPressed:" destination="kwc-Jc-C5h" id="rqY-K7-smk"/>
+                                <segue destination="8GK-dd-CmG" kind="unwind" unwindAction="goBackToHomepage:" id="TC0-DL-7rw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="fwL-rU-nHf">
@@ -62,10 +62,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="b1j-pX-lKH" id="0ZZ-04-C28"/>
-                        <segue destination="FuV-in-GfH" kind="push" identifier="goToEditVetScreen" id="SZY-zD-xqt"/>
+                        <segue destination="FuV-in-GfH" kind="presentation" identifier="goToEditVetScreen" modalPresentationStyle="fullScreen" id="SZY-zD-xqt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8G-AT-zhx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8GK-dd-CmG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="677" y="364"/>
         </scene>
@@ -272,7 +273,7 @@
             <objects>
                 <viewController title="Veteriner Düzenle" id="zgq-Jb-Y1E" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4n-Xr-NlQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jqQ-XR-SXw"/>
@@ -285,7 +286,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
-        <image name="text.justify" catalog="system" width="128" height="100"/>
     </resources>
 </document>
