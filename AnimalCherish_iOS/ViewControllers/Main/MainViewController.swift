@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroViewController: UIViewController, UIScrollViewDelegate  {
+class MainViewController: UIViewController, UIScrollViewDelegate  {
     
     // MARK: IBOutlet
     @IBOutlet weak var pageControl: UIPageControl!

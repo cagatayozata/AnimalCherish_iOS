@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FU4-im-6RK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--AnimalCherish-->
+        <scene sceneID="hBx-wb-oE5">
+            <objects>
+                <viewController id="fw0-Hv-04x" customClass="HomepageViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jor-ow-Eb4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHq-ma-H81">
+                                <rect key="frame" x="30" y="360" width="424" height="72"/>
+                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="Yxq-Kj-RZ7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Hayvan">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MDz-RH-ig5" kind="presentation" modalPresentationStyle="fullScreen" id="o8q-r2-1Nc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGh-QA-y8d">
+                                <rect key="frame" x="30" y="452" width="424" height="72"/>
+                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="Drb-dd-mJ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Veteriner">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Jb2-HQ-Wzo" kind="presentation" modalPresentationStyle="fullScreen" id="B7V-cA-G4d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-hC-88B">
+                                <rect key="frame" x="30" y="544" width="424" height="72"/>
+                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="pdd-hL-BaF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Barınak">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="e4p-um-j7Z" kind="presentation" modalPresentationStyle="fullScreen" id="JDc-nI-B9W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2MS-V5-DHD">
+                                <rect key="frame" x="30" y="636" width="424" height="72"/>
+                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="L7M-2K-jnW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Pet Shop">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9rP-U4-X03" kind="presentation" modalPresentationStyle="fullScreen" id="xUp-Eq-Imb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEC-ug-IDw">
+                                <rect key="frame" x="30" y="728" width="424" height="72"/>
+                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="ZWi-XB-odm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Hayvanat Bahçesi">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="igt-6H-4ks" kind="presentation" modalPresentationStyle="fullScreen" id="LfV-zB-spT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2MS-V5-DHD" firstAttribute="leading" secondItem="RUd-D9-DeZ" secondAttribute="leading" constant="30" id="6vy-Vv-yh5"/>
+                            <constraint firstAttribute="trailing" secondItem="2MS-V5-DHD" secondAttribute="trailing" constant="-40" id="F55-6v-fUe"/>
+                            <constraint firstAttribute="trailing" secondItem="qEC-ug-IDw" secondAttribute="trailing" constant="-40" id="T1p-zC-FEn"/>
+                            <constraint firstItem="RUd-D9-DeZ" firstAttribute="trailing" secondItem="oHq-ma-H81" secondAttribute="trailing" constant="-40" id="W9T-R6-27d"/>
+                            <constraint firstItem="2MS-V5-DHD" firstAttribute="top" secondItem="IGR-hC-88B" secondAttribute="bottom" constant="20" id="WLI-mP-Rqy"/>
+                            <constraint firstAttribute="trailing" secondItem="IGR-hC-88B" secondAttribute="trailing" constant="-40" id="Zjv-MW-LoZ"/>
+                            <constraint firstItem="oHq-ma-H81" firstAttribute="leading" secondItem="RUd-D9-DeZ" secondAttribute="leading" constant="30" id="aNm-xe-Qyk"/>
+                            <constraint firstAttribute="trailing" secondItem="ZGh-QA-y8d" secondAttribute="trailing" constant="-40" id="atK-6q-t97"/>
+                            <constraint firstItem="ZGh-QA-y8d" firstAttribute="leading" secondItem="RUd-D9-DeZ" secondAttribute="leading" constant="30" id="cwb-vl-XrA"/>
+                            <constraint firstItem="ZGh-QA-y8d" firstAttribute="top" secondItem="oHq-ma-H81" secondAttribute="bottom" constant="20" id="dk2-TE-22F"/>
+                            <constraint firstItem="qEC-ug-IDw" firstAttribute="leading" secondItem="RUd-D9-DeZ" secondAttribute="leading" constant="30" id="fDw-hO-c83"/>
+                            <constraint firstItem="qEC-ug-IDw" firstAttribute="top" secondItem="2MS-V5-DHD" secondAttribute="bottom" constant="20" id="g5P-BB-Ogd"/>
+                            <constraint firstItem="IGR-hC-88B" firstAttribute="top" secondItem="ZGh-QA-y8d" secondAttribute="bottom" constant="20" id="gVg-cK-AA6"/>
+                            <constraint firstItem="IGR-hC-88B" firstAttribute="leading" secondItem="RUd-D9-DeZ" secondAttribute="leading" constant="30" id="mAy-UA-hsd"/>
+                            <constraint firstItem="oHq-ma-H81" firstAttribute="top" secondItem="RUd-D9-DeZ" secondAttribute="top" constant="272" id="yrQ-gH-IFU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RUd-D9-DeZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AnimalCherish" id="a57-KR-IEp"/>
+                    <connections>
+                        <outlet property="animalButton" destination="oHq-ma-H81" id="kkY-j6-yJ1"/>
+                        <outlet property="petShopButton" destination="2MS-V5-DHD" id="qYI-Bb-VrY"/>
+                        <outlet property="shelterButton" destination="IGR-hC-88B" id="44y-Ws-IA2"/>
+                        <outlet property="vetButton" destination="ZGh-QA-y8d" id="UIT-Ro-zYt"/>
+                        <outlet property="zooButton" destination="qEC-ug-IDw" id="osJ-Wg-9Te"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGr-fy-YFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863.768115942029" y="47.544642857142854"/>
+        </scene>
+        <!--Animal-->
+        <scene sceneID="q3X-s5-Hz8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Animal" id="MDz-RH-ig5" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ozV-EW-16X"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pcG-l8-7HB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1729" y="-106"/>
+        </scene>
+        <!--Vet-->
+        <scene sceneID="u0l-df-82L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Vet" id="Jb2-HQ-Wzo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tLu-28-Ifu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="-44"/>
+        </scene>
+        <!--Shelter-->
+        <scene sceneID="WQT-1d-FO8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Shelter" id="e4p-um-j7Z" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ip2-BN-uRj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730" y="48"/>
+        </scene>
+        <!--PetShop-->
+        <scene sceneID="ZwX-eW-pF3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PetShop" id="9rP-U4-X03" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rP6-Ed-Puo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1736" y="126"/>
+        </scene>
+        <!--Zoo-->
+        <scene sceneID="FGi-bd-j1c">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Zoo" id="igt-6H-4ks" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V9s-Ee-WzX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730" y="208"/>
+        </scene>
+        <!--AnimalCherish-->
+        <scene sceneID="asM-mN-ZYF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FU4-im-6RK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="AnimalCherish" image="house.fill" catalog="system" id="tWO-Sb-elK"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zKT-3p-8cb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fw0-Hv-04x" kind="relationship" relationship="rootViewController" id="Mzd-LU-N20"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MGa-Pq-CLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-46.376811594202906" y="47.544642857142854"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+    </resources>
+</document>

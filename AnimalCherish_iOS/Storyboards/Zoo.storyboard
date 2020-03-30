@@ -45,9 +45,9 @@
                         <viewLayoutGuide key="safeArea" id="Pgy-hq-v83"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hayvanat Bahçesi" id="fqi-x3-oUe">
-                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="pUd-3X-kc8">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="pUd-3X-kc8">
                             <connections>
-                                <action selector="menuButtonPressed:" destination="Dgm-3d-eJd" id="gha-zH-dGG"/>
+                                <segue destination="aQa-x6-eOj" kind="unwind" unwindAction="goBackToHomepage:" id="Gae-AT-8FM"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="04W-ZO-OgZ">
@@ -62,6 +62,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFB-Ea-RT1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="aQa-x6-eOj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3116" y="363"/>
         </scene>
@@ -305,6 +306,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="text.justify" catalog="system" width="128" height="100"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
     </resources>
 </document>

@@ -13,6 +13,10 @@ class DashboardViewController: UIViewController {
 
     // MARK: IBOutlet
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var middleMenu: UIStackView!
+    @IBOutlet weak var yeniliklerButton: UIButton!
+    @IBOutlet weak var recentNewsButton: UIButton!
+    @IBOutlet weak var summaryButton: UIButton!
     
     // MARK: Variables
     let rolesTitles = ["Barınak Görevlisi", "Veteriner Hekim", "Normal Kullanıcı", "Administrator"]
@@ -25,6 +29,13 @@ class DashboardViewController: UIViewController {
         
         // create pie chart with data
         createPieChart(dataPoints: rolesTitles, values: rolesValues.map{ Double($0) })
+        
+        // Middle menu style
+        let thickness: CGFloat = 2.0
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x:0, y: middleMenu.frame.size.height - thickness, width: middleMenu.frame.size.width, height:thickness)
+        bottomBorder.backgroundColor = #colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)
+        middleMenu.layer.addSublayer(bottomBorder)
 
     }
 
@@ -36,6 +47,30 @@ class DashboardViewController: UIViewController {
         
     }
 
+    @IBAction func pressedSummary(_ sender: Any) {
+        
+        summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
+        recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
+        yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
+        
+    }
+    
+    @IBAction func pressedRecentNews(_ sender: Any) {
+        
+        summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
+        recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
+        yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
+        
+    }
+    
+    @IBAction func pressedYenilikler(_ sender: Any) {
+        
+        summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
+        recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
+        yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
+        
+    }
+    
     // MARK: Create Pie Chart
     func createPieChart(dataPoints: [String], values: [Double]) {
 
@@ -88,6 +123,10 @@ class DashboardViewController: UIViewController {
         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: goBackToFirst
+    @IBAction func goBackToFirst(_ sender: UIStoryboardSegue) {
     }
     
 }

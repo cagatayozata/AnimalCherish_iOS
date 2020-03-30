@@ -45,9 +45,9 @@
                         <viewLayoutGuide key="safeArea" id="XZh-5C-xvv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Barınak" id="V7a-bW-O8b">
-                        <barButtonItem key="leftBarButtonItem" image="text.justify" catalog="system" id="RQg-Y6-156">
+                        <barButtonItem key="leftBarButtonItem" image="arrow.left" catalog="system" id="RQg-Y6-156">
                             <connections>
-                                <action selector="menuButtonPressed:" destination="c7D-w5-2hN" id="0wg-qs-10h"/>
+                                <segue destination="kZE-zF-YLZ" kind="unwind" unwindAction="goBackToHomepage:" id="hCW-QL-vYa"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Ekle" id="EZ0-eT-2Qc">
@@ -62,6 +62,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="baL-zi-Is5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="kZE-zF-YLZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1429" y="364"/>
         </scene>
@@ -351,7 +352,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="icons8-duck-30" width="30" height="30"/>
-        <image name="text.justify" catalog="system" width="128" height="100"/>
     </resources>
 </document>
