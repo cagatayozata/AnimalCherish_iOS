@@ -301,6 +301,7 @@
                                 <connections>
                                     <action selector="SaveBtn:" destination="uKa-gz-baZ" eventType="touchUpInside" id="AjX-G6-zq0"/>
                                     <action selector="saveButtonPressed:" destination="2Ab-Pd-fgU" eventType="touchUpInside" id="L0l-ZP-rYB"/>
+                                    <segue destination="PM3-cd-rKd" kind="presentation" identifier="saveAnimalSegue" id="j41-BF-9vS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -333,7 +334,6 @@
                         <outlet property="locationTextField" destination="cZE-Vo-evj" id="SpB-BB-6Tz"/>
                         <outlet property="nameTextField" destination="Fzy-4i-Bks" id="ZOA-Io-qYm"/>
                         <outlet property="typeTextField" destination="Xkp-VL-1if" id="AoO-Wc-zOT"/>
-                        <segue destination="PM3-cd-rKd" kind="presentation" identifier="saveAnimalSegue" id="6ak-hj-eYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rk-gr-iQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -346,6 +346,6 @@
         <image name="icons8-crow-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6ak-hj-eYB"/>
+        <segue reference="j41-BF-9vS"/>
     </inferredMetricsTieBreakers>
 </document>
