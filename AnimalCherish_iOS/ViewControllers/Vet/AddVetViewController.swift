@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class AddVetViewController: UIViewController {
 
@@ -21,7 +24,7 @@ class AddVetViewController: UIViewController {
     @IBOutlet weak var birthDate: UITextField!
     
      // MARK: Variables
-
+    let apiUrl = Configuration.apiUrl + "/api/v1/vet/save"
         
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -36,7 +39,52 @@ class AddVetViewController: UIViewController {
     
     // MARK: Data Preparation and POST request
     func post(){
-        // MARK: TODO POST request
+
+        // prepare paramaters
+        let parameters = [        "id": "3c7c0a75-3d2b-428a-bf65-ed25686a5357",
+        "olusmaTarihi": nil,
+        "olusturanKullanici": nil,
+        "sonGuncellenmeTarihi": 1583947209624,
+        "name": nameSurname.text!,
+        "education": educationInfo.text!,
+        "phone": phone.text!,
+        "email": email.text!,
+        "workplace": "Üniversiteler Mah. 06800 Bilkent Ankara/Çankaya ",
+        "clinic": "PetClinic No 15.",
+        "details": "Ankarada 1996 tarihinde kurulmuş, hafta sonu dahil 24 saat hizmet veren bir kliniktir.",
+        "birthdate": 831340800000,
+        "city": city.text!,
+        "ilce": state.text!,
+        "diplomaNo": "6456418765465",
+        "userId": nil,
+        "sicilNo": "87894641679",
+        "kullaniciId": "bd0218f6-2889-4bd1-a829-82b4f1b4950d",
+        "kullaniciAdi": nil] as [String : Any?]
+        
+        // POST request
+        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            // debug
+            debugPrint(response)
+            
+            // check result is success or failure
+            switch response.result {
+            case .success:
+                
+                // refresh Vet List on previous screen
+                self.showAlert(for: "Veteriner başarıyla eklendi!")
+                
+                break
+            case .failure:
+                
+                // show warning to user
+                print(response.error!)
+                self.showAlert(for: "Veteriner eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                break
+                
+            }
+        
+        }
         
     }
     
