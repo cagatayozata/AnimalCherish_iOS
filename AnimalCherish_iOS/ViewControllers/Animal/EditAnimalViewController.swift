@@ -35,7 +35,7 @@ class EditAnimalViewController: UIViewController {
            let checkId = selectedId ?? -1
            
            if checkId != -1 {
-               self.getAnimalDetail()
+            self.getAnimalDetail(ids: selectedId!)
            }
            else {
                showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
@@ -44,10 +44,10 @@ class EditAnimalViewController: UIViewController {
        }
        
        // MARK: GET request and Prepare Selected Data
-       func getAnimalDetail() {
+    func getAnimalDetail(ids:Int) {
            
        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
-               
+  
                // check result is success or failure
                switch myresponse.result {
                case .success:
@@ -60,7 +60,7 @@ class EditAnimalViewController: UIViewController {
                    var i = 0
                    for item in resultArray.arrayValue {
 
-                       if i == self.selectedId {
+                       if i == self.selectedId  {
                            let id = item["id"].stringValue
                            let name = item["name"].stringValue
                            let location = item["address"].stringValue
@@ -93,15 +93,9 @@ class EditAnimalViewController: UIViewController {
     
     // MARK: Data Preparation and POST request
     func post(){
-
-        /*
-         let date = Date()
-         let formatter = DateFormatter()
-         formatter.dateFormat = "dd.MM.yyyy"
-        */
         
         // prepare paramaters
-        let parameters = ["id": IdTextField.text!,"olusmaTarihi":NSDate().timeIntervalSince1970,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":NSDate().timeIntervalSince1970,"name":nameTextField.text!,"address": locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":false,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
+        let parameters = ["id": IdTextField.text!,"olusmaTarihi":nil,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":nil,"name":nameTextField.text!,"address": locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":false,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
         
         // POST request
         AF.request(apiUrlSave, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -112,7 +106,7 @@ class EditAnimalViewController: UIViewController {
             // check result is success or failure
             switch response.result {
             case .success:
-                self.performSegue(withIdentifier: "saveAnimalSegue", sender: self)
+                
                     
                 // refresh Animal List on previous screen
                 self.showAlert(for: ("Hayvan düzenlemesi kaydedildi."))
@@ -143,6 +137,8 @@ class EditAnimalViewController: UIViewController {
     @IBAction func SaveBtn(_ sender: Any) {
         validate()
         post()
+        getAnimalDetail(ids:selectedId!)
+       
     }
     // MARK: Fill Data to Text Fiels
        func prepareTextFields() {
