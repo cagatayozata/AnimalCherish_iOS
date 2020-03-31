@@ -42,6 +42,18 @@ class DeatilAnimalViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          viewLoadSetup()
+
+       }
+
+
+        func viewLoadSetup(){
+         // setup view did load here
+        }
+    
+    
     // MARK: GET request and Prepare Selected Data
     func getAnimalDetail() {
         
@@ -115,5 +127,15 @@ class DeatilAnimalViewController: UIViewController {
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
     }
+    
+    // MARK: Send selectedId to EditAnimalViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goEditAnimalScreen" {
+            let editAnimalController = segue.destination as? EditAnimalViewController
+                if let tempController = editAnimalController {
+                    tempController.selectedId = selectedId
+                }
+            }
+        }
+    }
 
-}
