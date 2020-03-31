@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class AddPetShopViewController: UIViewController {
 
@@ -19,7 +21,7 @@ class AddPetShopViewController: UIViewController {
     @IBOutlet weak var establishDate: UITextField!
     
     // MARK: Variables
-
+    let apiUrl = Configuration.apiUrl + "/api/v1/petshop/save"
         
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -33,10 +35,48 @@ class AddPetShopViewController: UIViewController {
     }
     
     // MARK: Data Preparation and POST request
-    func post(){
-        // MARK: TODO POST request
+     func post(){
+
+         // prepare paramaters
+         let parameters = ["id": "f592580a-e3d6-4c28-a9ed-1c02e675ef3d",
+         "olusmaTarihi": nil,
+         "olusturanKullanici": nil,
+         "sonGuncellenmeTarihi": nil,
+         "name": name.text!,
+         "address": address.text!,
+         "email": mail.text!,
+         "phone": phone.text!,
+         "details": detail.text!,
+         "birthdate": 1575331200000,
+         "workerCount": 2] as [String : Any?]
         
-    }
+         // POST request
+         AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+             
+             // debug
+             debugPrint(response)
+             
+             // check result is success or failure
+             switch response.result {
+             case .success:
+                 
+                 // refresh Pet Shop List on previous screen
+                 self.showAlert(for: "Pet Shop başarıyla eklendi!")
+                 
+                 break
+             case .failure:
+                 
+                 // show warning to user
+                 print(response.error!)
+                 self.showAlert(for: "Pet Shop eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                 break
+                 
+             }
+         
+         }
+         
+     }
+     
     
     // MARK: Validation
     func validate() {
