@@ -70,14 +70,14 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 
                 // refresh Animal List on previous screen
                 self.delegate?.animalInfo()
-                self.showAlert(for: "Hayvan başarıyla eklendi!")
+                self.showWarning(for: "Hayvan başarıyla eklendi!")
                 
                 break
             case .failure:
                 
                 // show warning to user
                 print(response.error!)
-                self.showAlert(for: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                self.showWarning(for: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
                 break
                 
             }
@@ -105,6 +105,13 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     // MARK: Alert
     func showAlert(for alert: String) {
+        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
+        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showWarning(for alert: String) {
         
         let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in

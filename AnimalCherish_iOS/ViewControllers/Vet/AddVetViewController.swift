@@ -72,7 +72,7 @@ class AddVetViewController: UIViewController {
             case .success:
                 
                 // refresh Vet List on previous screen
-                self.showAlert(for: "Veteriner başarıyla eklendi!")
+                self.showWarning(for: "Veteriner başarıyla eklendi!")
                 
                 break
             case .failure:
@@ -114,6 +114,17 @@ class AddVetViewController: UIViewController {
         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func showWarning(for alert: String) {
+        
+        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
+        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+        
     }
   
 }

@@ -61,7 +61,7 @@ class AddPetShopViewController: UIViewController {
              case .success:
                  
                  // refresh Pet Shop List on previous screen
-                 self.showAlert(for: "Pet Shop başarıyla eklendi!")
+                 self.showWarning(for: "Pet Shop başarıyla eklendi!")
                  
                  break
              case .failure:
@@ -102,6 +102,17 @@ class AddPetShopViewController: UIViewController {
         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func showWarning(for alert: String) {
+        
+        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
+        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+        
     }
   
 }
