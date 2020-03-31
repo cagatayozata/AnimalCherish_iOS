@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class AddShelterViewController: UIViewController {
 
@@ -20,7 +22,7 @@ class AddShelterViewController: UIViewController {
     @IBOutlet weak var establishDate: UITextField!
     
    // MARK: Variables
-
+    let apiUrl = Configuration.apiUrl + "/api/v1/shelter/save"
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -34,10 +36,48 @@ class AddShelterViewController: UIViewController {
     }
     
     // MARK: Data Preparation and POST request
-    func post(){
-        // MARK: TODO POST request
-        
-    }
+     func post(){
+
+         // prepare paramaters
+         let parameters = ["id": "d4bc2f7f-ebde-4e00-b91f-c3e0a970e1e5",
+         "olusmaTarihi": nil,
+         "olusturanKullanici": nil,
+         "sonGuncellenmeTarihi": nil,
+         "name": name.text!,
+         "address": address.text!,
+         "capacity": capacity.text!,
+         "email": mail.text!,
+         "phone": phone.text!,
+         "details": detail.text!,
+         "birthdate": 1575158400000,
+         "workerCount": 0] as [String : Any?]
+         
+         // POST request
+         AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+             
+             // debug
+             debugPrint(response)
+             
+             // check result is success or failure
+             switch response.result {
+             case .success:
+                 
+                 // refresh Shelter List on previous screen
+                self.showAlert(for: "Barınak başarıyla eklendi!")
+                 
+                 break
+             case .failure:
+                 
+                 // show warning to user
+                 print(response.error!)
+                 self.showAlert(for: "Barınak eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                 break
+                 
+             }
+         
+         }
+         
+     }
     
     // MARK: Validation
     func validate() {
