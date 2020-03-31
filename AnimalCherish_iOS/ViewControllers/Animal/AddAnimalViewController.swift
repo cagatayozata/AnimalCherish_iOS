@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
+protocol AddAnimalViewControllerDelegate {
+    func animalInfo()
+}
 
 class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -18,11 +24,13 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var genusTextField: UITextField!
     
     // MARK: Variables
+    let apiUrl = Configuration.apiUrl + "/api/v1/animal/save"
     let types = ["Köpek", "Kuş", "Yılan", "Böcek", "Balık"]
     let genus = ["Tür 1", "Tür 2", "Tür 3"]
     
     var typePickerView = UIPickerView()
     var genusPickerView = UIPickerView()
+    var delegate: AddAnimalViewControllerDelegate?
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -46,7 +54,35 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     // MARK: Data Preparation and POST request
     func post(){
-        // MARK: TODO POST request
+
+        // prepare paramaters
+        let parameters = ["id": IdTextField.text!,"olusmaTarihi":1583865345219,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":1583865345219,"name":nameTextField.text!,"address": locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":false,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
+        
+        // POST request
+        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            // debug
+            debugPrint(response)
+            
+            // check result is success or failure
+            switch response.result {
+            case .success:
+                
+                // refresh Animal List on previous screen
+                self.delegate?.animalInfo()
+                self.showAlert(for: "Hayvan başarıyla eklendi!")
+                
+                break
+            case .failure:
+                
+                // show warning to user
+                print(response.error!)
+                self.showAlert(for: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                break
+                
+            }
+        
+        }
         
     }
     
@@ -59,7 +95,7 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             try locationTextField.validatedText(validationType: ValidatorType.location)
             try typeTextField.validatedText(validationType: ValidatorType.animalType)
             try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
-            
+
             post()
             
        } catch(let error) {
@@ -69,10 +105,14 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     // MARK: Alert
     func showAlert(for alert: String) {
+        
         let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
+        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
+            self.navigationController?.popViewController(animated: true)
+        })
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
+        
     }
     
     // MARK: UIPickerView

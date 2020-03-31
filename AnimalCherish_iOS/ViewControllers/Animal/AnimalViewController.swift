@@ -3,7 +3,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddAnimalViewControllerDelegate {
     
     // MARK: IBOutlet
     @IBOutlet weak var tableView: UITableView!
@@ -154,6 +154,12 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
+    // MARK: Delegate
+    func animalInfo() {
+        
+        getAnimalList()
+    
+    }
     
     // MARK: Alert
     func showAlert(for alert: String) {
