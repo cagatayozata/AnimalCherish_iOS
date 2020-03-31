@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Gh-Cf-eco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Gh-Cf-eco">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +26,10 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="aP1-JJ-s5U">
-                                        <rect key="frame" x="0.0" y="72" width="373" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="72" width="373" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aP1-JJ-s5U" id="baK-r0-MEx">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -170,31 +170,31 @@
             <objects>
                 <viewController storyboardIdentifier="goToEditAnimalScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PM3-cd-rKd" customClass="DeatilAnimalViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GaG-MU-e9t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Küpe Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="730-eZ-sdS">
-                                <rect key="frame" x="80" y="188" width="254" height="34"/>
+                                <rect key="frame" x="80" y="100" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W1v-d6-9zg">
-                                <rect key="frame" x="80" y="262" width="254" height="34"/>
+                                <rect key="frame" x="80" y="174" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulunduğu Yer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="77w-xd-T5N">
-                                <rect key="frame" x="80" y="336" width="254" height="34"/>
+                                <rect key="frame" x="80" y="248" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tür" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9W-OO-Gmt">
-                                <rect key="frame" x="80" y="410" width="254" height="34"/>
+                                <rect key="frame" x="80" y="322" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cins" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="opE-X3-HCd">
-                                <rect key="frame" x="80" y="484" width="254" height="34"/>
+                                <rect key="frame" x="80" y="396" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -227,7 +227,7 @@
                     <navigationItem key="navigationItem" title="Detay" id="Ea6-0l-qXD">
                         <barButtonItem key="rightBarButtonItem" title="Düzenle" id="goA-uf-sI3">
                             <connections>
-                                <segue destination="uKa-gz-baZ" kind="show" id="0Bk-JD-qCo"/>
+                                <segue destination="uKa-gz-baZ" kind="show" identifier="goEditAnimalScreen" id="0Bk-JD-qCo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -267,12 +267,74 @@
             <objects>
                 <viewController id="uKa-gz-baZ" customClass="EditAnimalViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1p4-up-lqd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Küpe Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-wC-Nps">
+                                <rect key="frame" x="70" y="90" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fzy-4i-Bks">
+                                <rect key="frame" x="70" y="164" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulunduğu Yer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZE-Vo-evj">
+                                <rect key="frame" x="70" y="238" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tür" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xkp-VL-1if">
+                                <rect key="frame" x="70" y="312" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cins" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXx-0H-PjR">
+                                <rect key="frame" x="70" y="386" width="274" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBd-Bf-TRt">
+                                <rect key="frame" x="183" y="626" width="48" height="30"/>
+                                <state key="normal" title="Kaydet"/>
+                                <connections>
+                                    <action selector="SaveBtn:" destination="uKa-gz-baZ" eventType="touchUpInside" id="AjX-G6-zq0"/>
+                                    <action selector="saveButtonPressed:" destination="2Ab-Pd-fgU" eventType="touchUpInside" id="L0l-ZP-rYB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jDh-wC-Nps" firstAttribute="leading" secondItem="th7-Lm-jsq" secondAttribute="leading" constant="70" id="1oD-lS-ucq"/>
+                            <constraint firstItem="th7-Lm-jsq" firstAttribute="trailing" secondItem="jDh-wC-Nps" secondAttribute="trailing" constant="70" id="2Pv-cy-kTW"/>
+                            <constraint firstItem="th7-Lm-jsq" firstAttribute="trailing" secondItem="cZE-Vo-evj" secondAttribute="trailing" constant="70" id="4ab-gl-1IC"/>
+                            <constraint firstItem="Fzy-4i-Bks" firstAttribute="leading" secondItem="th7-Lm-jsq" secondAttribute="leading" constant="70" id="7aT-Y8-1qo"/>
+                            <constraint firstItem="th7-Lm-jsq" firstAttribute="trailing" secondItem="Fzy-4i-Bks" secondAttribute="trailing" constant="70" id="8Sj-Yn-81E"/>
+                            <constraint firstItem="jDh-wC-Nps" firstAttribute="top" secondItem="th7-Lm-jsq" secondAttribute="top" constant="90" id="BMc-Tk-NBJ"/>
+                            <constraint firstItem="th7-Lm-jsq" firstAttribute="trailing" secondItem="Xkp-VL-1if" secondAttribute="trailing" constant="70" id="GG0-g1-mzV"/>
+                            <constraint firstItem="lXx-0H-PjR" firstAttribute="top" secondItem="Xkp-VL-1if" secondAttribute="bottom" constant="40" id="JmI-Se-p6N"/>
+                            <constraint firstItem="cZE-Vo-evj" firstAttribute="leading" secondItem="th7-Lm-jsq" secondAttribute="leading" constant="70" id="KDn-gv-mcX"/>
+                            <constraint firstItem="lXx-0H-PjR" firstAttribute="leading" secondItem="th7-Lm-jsq" secondAttribute="leading" constant="70" id="Kzz-XN-8JK"/>
+                            <constraint firstItem="Fzy-4i-Bks" firstAttribute="top" secondItem="jDh-wC-Nps" secondAttribute="bottom" constant="40" id="YBo-7U-sID"/>
+                            <constraint firstItem="cBd-Bf-TRt" firstAttribute="top" secondItem="lXx-0H-PjR" secondAttribute="bottom" constant="100" id="cDy-l2-0oc"/>
+                            <constraint firstItem="cBd-Bf-TRt" firstAttribute="centerX" secondItem="1p4-up-lqd" secondAttribute="centerX" id="d9j-me-h6s"/>
+                            <constraint firstItem="cZE-Vo-evj" firstAttribute="top" secondItem="Fzy-4i-Bks" secondAttribute="bottom" constant="40" id="e73-zY-9Lx"/>
+                            <constraint firstItem="Xkp-VL-1if" firstAttribute="top" secondItem="cZE-Vo-evj" secondAttribute="bottom" constant="40" id="jzb-fH-GFw"/>
+                            <constraint firstItem="Xkp-VL-1if" firstAttribute="leading" secondItem="th7-Lm-jsq" secondAttribute="leading" constant="70" id="qoH-tV-mc7"/>
+                            <constraint firstItem="th7-Lm-jsq" firstAttribute="trailing" secondItem="lXx-0H-PjR" secondAttribute="trailing" constant="70" id="tlL-my-HHc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="th7-Lm-jsq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Düzenle" id="cTd-yZ-uK6"/>
+                    <connections>
+                        <outlet property="IdTextField" destination="jDh-wC-Nps" id="Fer-Mw-GBW"/>
+                        <outlet property="genusTextField" destination="lXx-0H-PjR" id="OdS-C7-wpm"/>
+                        <outlet property="locationTextField" destination="cZE-Vo-evj" id="SpB-BB-6Tz"/>
+                        <outlet property="nameTextField" destination="Fzy-4i-Bks" id="ZOA-Io-qYm"/>
+                        <outlet property="typeTextField" destination="Xkp-VL-1if" id="AoO-Wc-zOT"/>
+                        <segue destination="PM3-cd-rKd" kind="presentation" identifier="saveAnimalSegue" id="6ak-hj-eYB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rk-gr-iQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -280,7 +342,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="icons8-crow-30" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6ak-hj-eYB"/>
+    </inferredMetricsTieBreakers>
 </document>
