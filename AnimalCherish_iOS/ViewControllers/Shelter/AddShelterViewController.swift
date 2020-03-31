@@ -63,7 +63,7 @@ class AddShelterViewController: UIViewController {
              case .success:
                  
                  // refresh Shelter List on previous screen
-                self.showAlert(for: "Barınak başarıyla eklendi!")
+                self.showWarning(for: "Barınak başarıyla eklendi!")
                  
                  break
              case .failure:
@@ -104,6 +104,17 @@ class AddShelterViewController: UIViewController {
         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func showWarning(for alert: String) {
+        
+        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
+        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+        
     }
   
 }
