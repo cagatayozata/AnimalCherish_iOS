@@ -20,6 +20,7 @@ class AddShelterViewController: UIViewController {
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var mail: UITextField!
     @IBOutlet weak var establishDate: UITextField!
+    @IBOutlet weak var workers: UITextField!
     
    // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/shelter/save"
@@ -28,11 +29,40 @@ class AddShelterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TextField Style
+        name.setTitleAndIcon(title: "İsim", icon: "person", systemIcon: true)
+        address.setTitleAndIcon(title: "Adres", icon: "person", systemIcon: true)
+        capacity.setTitleAndIcon(title: "Kapsasite", icon: "person", systemIcon: true)
+        detail.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
+        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
+        mail.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
+        establishDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "person", systemIcon: true)
+        workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person", systemIcon: true)
+        
     }
     
     // MARK: Pressed Functions
     @IBAction func saveButtonPressed(_ sender: Any) {
         validate()
+    }
+    
+    // MARK: Validation
+    func validate() {
+        do {
+            
+            try name.validatedText(validationType: ValidatorType.shelterName)
+            try address.validatedText(validationType: ValidatorType.shelterAddress)
+            try capacity.validatedText(validationType: ValidatorType.shelterCapacity)
+            try detail.validatedText(validationType: ValidatorType.shelterDetail)
+            try phone.validatedText(validationType: ValidatorType.shelterPhoneNumber)
+            try mail.validatedText(validationType: ValidatorType.shelterMailAddress)
+            try establishDate.validatedText(validationType: ValidatorType.shelterEstablishDate)
+            
+            post()
+            
+       } catch(let error) {
+           Alert.showAlert(message: (error as! ValidationError).message, vc: self)
+       }
     }
     
     // MARK: Data Preparation and POST request
@@ -50,7 +80,7 @@ class AddShelterViewController: UIViewController {
          "phone": phone.text!,
          "details": detail.text!,
          "birthdate": 1575158400000,
-         "workerCount": 0] as [String : Any?]
+         "workerCount": workers.text!] as [String : Any?]
          
          // POST request
          AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -63,14 +93,14 @@ class AddShelterViewController: UIViewController {
              case .success:
                  
                  // refresh Shelter List on previous screen
-                self.showWarning(for: "Barınak başarıyla eklendi!")
+                Alert.showAlertThenPreviousScreen(message: "Barınak başarıyla eklendi!", vc: self)
                  
                  break
              case .failure:
                  
                  // show warning to user
                  print(response.error!)
-                 self.showAlert(for: "Barınak eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                 Alert.showAlert(message: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
                  break
                  
              }
@@ -79,42 +109,12 @@ class AddShelterViewController: UIViewController {
          
      }
     
-    // MARK: Validation
-    func validate() {
-        do {
-            
-            try name.validatedText(validationType: ValidatorType.shelterName)
-            try address.validatedText(validationType: ValidatorType.shelterAddress)
-            try capacity.validatedText(validationType: ValidatorType.shelterCapacity)
-            try detail.validatedText(validationType: ValidatorType.shelterDetail)
-            try phone.validatedText(validationType: ValidatorType.shelterPhoneNumber)
-            try mail.validatedText(validationType: ValidatorType.shelterMailAddress)
-            try establishDate.validatedText(validationType: ValidatorType.shelterEstablishDate)
-            
-            post()
-            
-       } catch(let error) {
-           showAlert(for: (error as! ValidationError).message)
-       }
-    }
-    
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func showWarning(for alert: String) {
-        
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-        
+    // MARK: Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       
+           // when clicking the UIView, keyboard will be removed
+           self.view.endEditing(true)
+       
     }
   
 }
