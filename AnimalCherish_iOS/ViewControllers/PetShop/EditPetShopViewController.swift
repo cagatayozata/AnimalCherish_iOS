@@ -46,63 +46,61 @@ class EditPetShopViewController: UIViewController {
        }
     
     // MARK: GET request and Prepare Selected Data
-        func getPetShopDetail(ids: Int) {
+    func getPetShopDetail(ids: Int) {
                 
-            AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
+        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
                     
-                    // check result is success or failure
-                    switch myresponse.result {
-                    case .success:
+            // check result is success or failure
+            switch myresponse.result {
+            case .success:
+                    
+                // GET data
+                let myresult = try? JSON(data: myresponse.data!)
+                let resultArray = myresult!
                         
-                        // GET data
-                        let myresult = try? JSON(data: myresponse.data!)
-                        let resultArray = myresult!
-                        
-                        //
-                        var i = 0
-                        for item in resultArray.arrayValue {
+                var i = 0
+                for item in resultArray.arrayValue {
 
-                            if i == self.selectedId {
-                                let name = item["name"].stringValue
-                                let address = item["address"].stringValue
-                                let detail = item["details"].stringValue
-                                let phone = item["phone"].stringValue
-                                let email = item["email"].stringValue
-                                let establish = item["birthdate"].stringValue
-                                let workerCount = item["workerCount"].stringValue
-
-                                self.nameTF.text! = name
-                                self.addressTF.text! = address
-                                self.detailTF.text! = detail
-                                self.phoneTF.text! = phone
-                                self.emailTF.text! = email
-                                self.establishDateTF.text! = establish
-                                self.workerCountTF.text! = workerCount
-                            }
-                            
-                            i = i + 1
-                            
-                        }
+                    if i == self.selectedId {
+                        let name = item["name"].stringValue
+                        let address = item["address"].stringValue
+                        let detail = item["details"].stringValue
+                        let phone = item["phone"].stringValue
+                        let email = item["email"].stringValue
+                        let establish = item["birthdate"].stringValue
+                        let workerCount = item["workerCount"].stringValue
                         
-                        break
-                    case .failure:
-                        self.showAlert(for: "Bir hata oluştu. Pet Shop Listesi Getiriemedi!")
-                        print(myresponse.error!)
-                        break
-                    }
-            
+                        self.nameTF.text! = name
+                        self.addressTF.text! = address
+                        self.detailTF.text! = detail
+                        self.phoneTF.text! = phone
+                        self.emailTF.text! = email
+                        self.establishDateTF.text! = establish
+                        self.workerCountTF.text! = workerCount
                 }
-                
-                prepareTextFields()
-                
+                            
+                i = i + 1
+                        
+            }
+                        
+            break
+            case .failure:
+                self.showAlert(for: "Bir hata oluştu. Pet Shop Listesi Getiriemedi!")
+                print(myresponse.error!)
+            break
             }
             
-            // MARK: Fill Data to Text Fields
-            func prepareTextFields() {
+        }
+        prepareTextFields()
                 
     }
+            
+     // MARK: Fill Data to Text Fields
+     func prepareTextFields() {
+                
+     }
     
-    // MARK: Data Preparation and POST request
+      // MARK: Data Preparation and POST request
       func post(){
 
        // prepare paramaters
@@ -132,7 +130,7 @@ class EditPetShopViewController: UIViewController {
               Alert.showAlertThenPreviousScreen(message: "Pet Shop düzenlemesi kaydedildi.", vc: self)
                
                break
-           case .failure:
+              case .failure:
                
                // show warning to user
                print(response.error!)

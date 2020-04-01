@@ -18,7 +18,8 @@ class DetailZooViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
-    @IBOutlet weak var descriptionTF: UITextField!
+    @IBOutlet weak var detailTF: UITextField!
+    @IBOutlet weak var workerCountTF: UITextField!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/zoo/getall"
@@ -64,14 +65,16 @@ class DetailZooViewController: UIViewController {
                            let address = item["address"].stringValue
                            let phone = item["phone"].stringValue
                            let email = item["email"].stringValue
-                           let description = item["description"].stringValue
+                           let detail = item["detail"].stringValue
+                           let workerCount = item["workerCount"].stringValue
                         
                            self.nameTF.text! = name
                            self.establishDateTF.text! = establish
                            self.addressTF.text! = address
-                           self.descriptionTF.text! = description
+                           self.detailTF.text! = detail
                            self.phoneTF.text! = phone
                            self.emailTF.text! = email
+                           self.workerCountTF.text! = workerCount
                        }
                        
                        i = i + 1
@@ -91,6 +94,17 @@ class DetailZooViewController: UIViewController {
            
        }
        
+    
+    //prepare
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "goToEditZooViewController" {
+             let editZooController = segue.destination as? EditZooViewController
+             if let tempContoller = editZooController {
+                 tempContoller.selectedId = selectedId
+             }
+         }
+     }
+    
        // MARK: Fill Data to Text Fields
        func prepareTextFields() {
            
@@ -101,9 +115,10 @@ class DetailZooViewController: UIViewController {
            nameTF.isUserInteractionEnabled = false
            establishDateTF.isUserInteractionEnabled = false
            addressTF.isUserInteractionEnabled = false
-           descriptionTF.isUserInteractionEnabled = false
+           detailTF.isUserInteractionEnabled = false
            phoneTF.isUserInteractionEnabled = false
            emailTF.isUserInteractionEnabled = false
+           workerCountTF.isUserInteractionEnabled = false
        }
        
        // MARK: Alert
