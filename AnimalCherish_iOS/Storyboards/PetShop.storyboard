@@ -283,6 +283,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="sej-Nf-wGd"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Kaydet">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -333,6 +334,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="address" destination="hsc-sB-d4t" id="QpF-xN-Kfy"/>
+                        <outlet property="button" destination="BhC-Y0-LVr" id="5yU-WC-Km0"/>
                         <outlet property="detail" destination="1Gr-VF-AaQ" id="NQL-2H-3Wu"/>
                         <outlet property="establishDate" destination="M2u-IL-7a3" id="OWC-HJ-TFQ"/>
                         <outlet property="mail" destination="YTn-DB-NO7" id="xqd-7F-27S"/>

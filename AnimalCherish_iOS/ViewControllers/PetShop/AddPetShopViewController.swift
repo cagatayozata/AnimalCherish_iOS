@@ -20,6 +20,7 @@ class AddPetShopViewController: UIViewController {
     @IBOutlet weak var mail: UITextField!
     @IBOutlet weak var establishDate: UITextField!
     @IBOutlet weak var workers: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/petshop/save"
@@ -36,6 +37,10 @@ class AddPetShopViewController: UIViewController {
         mail.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
         establishDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "person", systemIcon: true)
         workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person", systemIcon: true)
+        
+        // Button Button
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
         
     }
     

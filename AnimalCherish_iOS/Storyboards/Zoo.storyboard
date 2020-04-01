@@ -150,52 +150,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ToB-YA-ozj">
-                                <rect key="frame" x="78" y="124" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ToB-YA-ozj">
+                                <rect key="frame" x="20" y="362" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Nc3-YB-sYV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ng5-4m-BTx">
-                                <rect key="frame" x="79" y="188" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ng5-4m-BTx">
+                                <rect key="frame" x="20" y="98" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="vNH-AK-kMk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bwN-BL-0cX">
-                                <rect key="frame" x="78" y="265" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bwN-BL-0cX">
+                                <rect key="frame" x="20" y="296" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="zgt-OH-5zw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0312-000-0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30W-Ex-Huw">
-                                <rect key="frame" x="78" y="329" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0312-000-0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30W-Ex-Huw">
+                                <rect key="frame" x="20" y="230" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="sjG-Vb-mBi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Et3-RC-Igs">
-                                <rect key="frame" x="78" y="386" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Et3-RC-Igs">
+                                <rect key="frame" x="20" y="164" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="u4y-QU-r2j"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Açıklama" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8o7-EJ-BoK">
-                                <rect key="frame" x="78" y="456" width="277" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8o7-EJ-BoK">
+                                <rect key="frame" x="20" y="494" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="h9E-Vc-hwG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwg-C6-5Er">
-                                <rect key="frame" x="168" y="771" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="KAYDET"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwg-C6-5Er">
+                                <rect key="frame" x="20" y="560" width="374" height="56"/>
+                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="zAY-Df-4RS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="KAYDET">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="Hqg-ap-gwG" eventType="touchUpInside" id="K5c-sR-shz"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Çalışan Sayısı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9h-1g-ng7">
+                                <rect key="frame" x="20" y="428" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="o7V-ul-XgF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8o7-EJ-BoK" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="8ya-1h-adh"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="ng5-4m-BTx" secondAttribute="trailing" constant="20" id="BVe-rE-CqX"/>
+                            <constraint firstItem="ToB-YA-ozj" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="BjS-dd-sdm"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="30W-Ex-Huw" secondAttribute="trailing" constant="20" id="EEO-u4-Ehl"/>
+                            <constraint firstItem="30W-Ex-Huw" firstAttribute="top" secondItem="Et3-RC-Igs" secondAttribute="bottom" constant="10" id="MOf-E9-8Ga"/>
+                            <constraint firstItem="ng5-4m-BTx" firstAttribute="top" secondItem="lOt-wv-U22" secondAttribute="top" constant="10" id="MSt-Bd-Xu9"/>
+                            <constraint firstItem="ToB-YA-ozj" firstAttribute="top" secondItem="bwN-BL-0cX" secondAttribute="bottom" constant="10" id="ST9-s0-18h"/>
+                            <constraint firstItem="Et3-RC-Igs" firstAttribute="top" secondItem="ng5-4m-BTx" secondAttribute="bottom" constant="10" id="SW1-fV-Xhl"/>
+                            <constraint firstItem="Et3-RC-Igs" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="TYT-tB-bB7"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="Et3-RC-Igs" secondAttribute="trailing" constant="20" id="X6K-rO-vxJ"/>
+                            <constraint firstItem="j9h-1g-ng7" firstAttribute="top" secondItem="ToB-YA-ozj" secondAttribute="bottom" constant="10" id="bye-Qw-K5z"/>
+                            <constraint firstItem="bwN-BL-0cX" firstAttribute="top" secondItem="30W-Ex-Huw" secondAttribute="bottom" constant="10" id="fzX-z5-Vku"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="8o7-EJ-BoK" secondAttribute="trailing" constant="20" id="gm1-dO-yIe"/>
+                            <constraint firstItem="8o7-EJ-BoK" firstAttribute="top" secondItem="j9h-1g-ng7" secondAttribute="bottom" constant="10" id="gwD-5K-1ip"/>
+                            <constraint firstItem="ng5-4m-BTx" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="hdh-h8-UFb"/>
+                            <constraint firstItem="j9h-1g-ng7" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="hs6-sw-Oah"/>
+                            <constraint firstItem="Dwg-C6-5Er" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="nOy-86-BWV"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="j9h-1g-ng7" secondAttribute="trailing" constant="20" id="nYW-O6-s2k"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="Dwg-C6-5Er" secondAttribute="trailing" constant="20" id="pAG-dN-j9o"/>
+                            <constraint firstItem="bwN-BL-0cX" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="qPV-PJ-bQu"/>
+                            <constraint firstItem="Dwg-C6-5Er" firstAttribute="top" secondItem="8o7-EJ-BoK" secondAttribute="bottom" constant="10" id="rOP-46-UVE"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="ToB-YA-ozj" secondAttribute="trailing" constant="20" id="rob-3x-qh3"/>
+                            <constraint firstItem="lOt-wv-U22" firstAttribute="trailing" secondItem="bwN-BL-0cX" secondAttribute="trailing" constant="20" id="wqE-Ij-9Qh"/>
+                            <constraint firstItem="30W-Ex-Huw" firstAttribute="leading" secondItem="lOt-wv-U22" secondAttribute="leading" constant="20" id="xgr-aD-1Vf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lOt-wv-U22"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hayvanat Bahçesi Ekle" id="8Sa-f6-fa1">
@@ -203,11 +255,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="address" destination="Et3-RC-Igs" id="UKI-sk-qzE"/>
+                        <outlet property="button" destination="Dwg-C6-5Er" id="AlA-eq-TWa"/>
                         <outlet property="desc" destination="8o7-EJ-BoK" id="g43-3B-Gzo"/>
                         <outlet property="email" destination="bwN-BL-0cX" id="jJ8-Lt-AFe"/>
                         <outlet property="establishDate" destination="ToB-YA-ozj" id="f0Q-Y5-nCc"/>
                         <outlet property="name" destination="ng5-4m-BTx" id="l8D-Pj-eLw"/>
                         <outlet property="phone" destination="30W-Ex-Huw" id="Ldr-9N-Zh8"/>
+                        <outlet property="workers" destination="j9h-1g-ng7" id="gBg-Ao-rhZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl8-iR-TeU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -19,6 +19,7 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var genusTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/animal/save"
@@ -41,6 +42,10 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
         genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
         genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
+        
+        // Button Button
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
         
         // delegate
         typePickerView.delegate = self

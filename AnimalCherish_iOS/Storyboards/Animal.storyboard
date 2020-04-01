@@ -95,7 +95,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="DHe-xw-ui5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZL3-J7-33k">
@@ -103,7 +103,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="v9a-cb-0B3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulunduğu Yer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FlA-jT-Gmb">
@@ -111,7 +111,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="SIP-wE-eji"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tür" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-du-ox2">
@@ -119,7 +119,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="ZZx-FL-Uxb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cins" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J7b-Rj-aFO">
@@ -127,7 +127,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Cxu-lB-fK2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKf-kJ-GOW">
@@ -136,7 +136,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="BC7-J2-QZq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Kaydet">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -149,7 +149,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="eQ5-IK-Egc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -182,6 +182,7 @@
                     <navigationItem key="navigationItem" title="Hayvan Ekle" id="2rQ-eb-qwc"/>
                     <connections>
                         <outlet property="IdTextField" destination="uq8-ho-IAC" id="tHd-qK-ZMb"/>
+                        <outlet property="button" destination="FKf-kJ-GOW" id="pne-i0-OP3"/>
                         <outlet property="genderTextField" destination="gTr-9W-ntJ" id="Qka-uY-Rd9"/>
                         <outlet property="genusTextField" destination="J7b-Rj-aFO" id="cky-Cn-gq8"/>
                         <outlet property="locationTextField" destination="FlA-jT-Gmb" id="Ofn-fq-K1w"/>
@@ -295,7 +296,7 @@
             <objects>
                 <viewController id="uKa-gz-baZ" customClass="EditAnimalViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1p4-up-lqd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Küpe Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-wC-Nps">

@@ -274,6 +274,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="address" destination="JSf-jP-JTc" id="GkV-im-B60"/>
+                        <outlet property="button" destination="VEW-HD-00D" id="rNV-z7-mFN"/>
                         <outlet property="capacity" destination="17J-tv-Vpm" id="7Jk-vw-PU9"/>
                         <outlet property="detail" destination="6J4-Yw-6ao" id="qu1-XF-9Hh"/>
                         <outlet property="establishDate" destination="UXh-k2-wCI" id="SLx-zZ-rym"/>
