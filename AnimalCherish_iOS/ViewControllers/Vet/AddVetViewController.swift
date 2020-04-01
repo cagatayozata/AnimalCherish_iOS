@@ -48,7 +48,7 @@ class AddVetViewController: UIViewController {
         "education": educationInfo.text!,
         "phone": phone.text!,
         "email": email.text!,
-        "workplace": "Üniversiteler Mah. 06800 Bilkent Ankara/Çankaya ",
+        "workplace": nil,
         "clinic": "PetClinic No 15.",
         "details": "Ankarada 1996 tarihinde kurulmuş, hafta sonu dahil 24 saat hizmet veren bir kliniktir.",
         "birthdate": 831340800000,
@@ -57,7 +57,7 @@ class AddVetViewController: UIViewController {
         "diplomaNo": "6456418765465",
         "userId": nil,
         "sicilNo": "87894641679",
-        "kullaniciId": "bd0218f6-2889-4bd1-a829-82b4f1b4950d",
+        "kullaniciId": nil,
         "kullaniciAdi": nil] as [String : Any?]
         
         // POST request

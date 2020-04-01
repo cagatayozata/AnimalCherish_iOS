@@ -281,10 +281,10 @@
         <!--Profile-->
         <scene sceneID="aRt-mT-aui">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VL0-5g-CI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Profile" id="lwF-qC-F2q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="iKr-AA-V0O"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VL0-5g-CI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="522" y="-587"/>
         </scene>

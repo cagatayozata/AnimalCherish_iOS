@@ -31,12 +31,12 @@ class LoginViewController: UIViewController {
         // Username
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Kullanıcı Adı",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        usernameTextField.setLeftImage(imageName: "person")
+        usernameTextField.setIcon(imageName: "person")
         
         // Password
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Parola",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        passwordTextField.setLeftImage(imageName: "lock")
+        passwordTextField.setIcon(imageName: "lock")
         
         // Login Button
         loginButton.layer.cornerRadius = 5

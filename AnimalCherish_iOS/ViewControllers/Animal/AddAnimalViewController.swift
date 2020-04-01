@@ -10,10 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-protocol AddAnimalViewControllerDelegate {
-    func animalInfo()
-}
-
 class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: IBOutlet
@@ -22,68 +18,50 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var genusTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/animal/save"
     let types = ["Köpek", "Kuş", "Yılan", "Böcek", "Balık"]
     let genus = ["Tür 1", "Tür 2", "Tür 3"]
+    let gender = ["Dişi", "Erkek"]
     
     var typePickerView = UIPickerView()
     var genusPickerView = UIPickerView()
-    var delegate: AddAnimalViewControllerDelegate?
+    var genderPickerView = UIPickerView()
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // TextField Style
+        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
+        nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
+        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
+        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
+        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
+        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
+        
+        // delegate
         typePickerView.delegate = self
         typePickerView.dataSource = self
         
         genusPickerView.delegate = self
         genusPickerView.dataSource = self
         
+        genderPickerView.delegate = self
+        genderPickerView.dataSource = self
+        
+        // inputView
         typeTextField.inputView = typePickerView
         genusTextField.inputView = genusPickerView
+        genderTextField.inputView = genderPickerView
         
     }
     
     // MARK: Pressed Functions
     @IBAction func saveButtonPressed(_ sender: Any) {
         validate()
-    }
-    
-    // MARK: Data Preparation and POST request
-    func post(){
-
-        // prepare paramaters
-        let parameters = ["id": IdTextField.text!,"olusmaTarihi":1583865345219,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":1583865345219,"name":nameTextField.text!,"address": locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":false,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
-        
-        // POST request
-        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            
-            // debug
-            debugPrint(response)
-            
-            // check result is success or failure
-            switch response.result {
-            case .success:
-                
-                // refresh Animal List on previous screen
-                self.delegate?.animalInfo()
-                self.showWarning(for: "Hayvan başarıyla eklendi!")
-                
-                break
-            case .failure:
-                
-                // show warning to user
-                print(response.error!)
-                self.showWarning(for: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
-                break
-                
-            }
-        
-        }
-        
     }
     
     // MARK: Validation
@@ -99,26 +77,54 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             post()
             
        } catch(let error) {
-           showAlert(for: (error as! ValidationError).message)
+            Alert.showAlert(message: (error as! ValidationError).message, vc: self)
        }
     }
     
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func showWarning(for alert: String) {
+    // MARK: Data Preparation and POST request
+    func post(){
+
+        // prepare paramaters
+        let parameters = [
+            "id": IdTextField.text!,
+            "olusmaTarihi":nil,
+            "olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784",
+            "sonGuncellenmeTarihi":nil,
+            "name":nameTextField.text!,
+            "address": locationTextField.text!,
+            "birthdate":nil,
+            "turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1",
+            "cinsId":"d09a1d83-5151-416a-834f-db95f510e341",
+            "cinsiyet":genderTextField.text!,
+            "sahipId":nil,
+            "turAd":typeTextField.text!,
+            "cinsAd": genusTextField.text!
+        ] as [String : Any?]
         
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
+        // POST request
+        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            // debug
+            debugPrint(response)
+            
+            // check result is success or failure
+            switch response.result {
+            case .success:
+                
+                // refresh Animal List on previous screen
+                Alert.showAlertThenPreviousScreen(message: "Hayvan başarıyla eklendi!", vc: self)
+                
+                break
+            case .failure:
+                
+                // show warning to user
+                print(response.error!)
+                Alert.showAlert(message: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
+                break
+                
+            }
+        
+        }
         
     }
     
@@ -133,8 +139,10 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         if self.typeTextField.isEditing {
             return types.count
-        } else {
+        } else if self.genusTextField.isEditing {
             return genus.count
+        } else {
+            return gender.count
         }
         
     }
@@ -143,8 +151,10 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         if self.typeTextField.isEditing {
             return types[row]
-        } else {
+        } else if self.genusTextField.isEditing {
             return genus[row]
+        } else {
+            return gender[row]
         }
         
     }
@@ -154,11 +164,22 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         if self.typeTextField.isEditing {
             typeTextField.text = types[row]
             typeTextField.resignFirstResponder()
-        } else {
+        } else if self.genusTextField.isEditing {
             genusTextField.text = genus[row]
             genusTextField.resignFirstResponder()
+        } else {
+            genderTextField.text = gender[row]
+            genderTextField.resignFirstResponder()
         }
         
+    }
+    
+    // MARK: Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       
+           // when clicking the UIView, keyboard will be removed
+           self.view.endEditing(true)
+       
     }
 
 }
