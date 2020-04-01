@@ -18,6 +18,7 @@ class DetailShelterViewController: UIViewController {
     @IBOutlet weak var capacityTF: UITextField!
     @IBOutlet weak var detailTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
+    @IBOutlet weak var workerCountTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var establishDateTF: UITextField!
    
@@ -66,6 +67,7 @@ class DetailShelterViewController: UIViewController {
                         let email = item["email"].stringValue
                         let detail = item["detail"].stringValue
                         let capacity = item["capacity"].stringValue
+                        let workerCount = item["workerCount"].stringValue
                         
                         self.nameTF.text! = name
                         self.establishDateTF.text! = establish
@@ -74,6 +76,7 @@ class DetailShelterViewController: UIViewController {
                         self.phoneTF.text! = phone
                         self.emailTF.text! = email
                         self.capacityTF.text! = capacity
+                        self.workerCountTF.text! = workerCount
                     }
                     
                     i = i + 1
@@ -93,6 +96,16 @@ class DetailShelterViewController: UIViewController {
         
     }
     
+    // MARK: prepare to send selectedId to EditShelterViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEditShelterView" {
+            let editShelterController = segue.destination as? EditShelterViewController
+            if let tempController = editShelterController {
+                tempController.selectedId = selectedId
+            }
+        }
+    }
+    
     // MARK: Fill Data to Text Fields
     func prepareTextFields() {
         
@@ -107,6 +120,7 @@ class DetailShelterViewController: UIViewController {
         detailTF.isUserInteractionEnabled = false
         phoneTF.isUserInteractionEnabled = false
         emailTF.isUserInteractionEnabled = false
+        workerCountTF.isUserInteractionEnabled = false
     }
     
     // MARK: Alert

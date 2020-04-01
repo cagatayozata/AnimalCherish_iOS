@@ -119,7 +119,7 @@ class EditPetShopViewController: UIViewController {
        "workerCount": workerCountTF.text!] as [String : Any?]
 
        // POST request
-       AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+       AF.request(apiUrlSave, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
            
            // debug
            debugPrint(response)
@@ -158,7 +158,6 @@ class EditPetShopViewController: UIViewController {
         //MARK: Kaydet button in EditPetShopViewController
         @IBAction func SaveBtn(_ sender: Any) {
                      validate()
-                     post()
                      getPetShopDetail(ids:selectedId!)
                 }
               
