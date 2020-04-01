@@ -193,12 +193,12 @@ class EditShelterViewController: UIViewController {
        func disableEditing() {
            nameTF.isUserInteractionEnabled = false
            establishDateTF.isUserInteractionEnabled = false
-           addressTF.isUserInteractionEnabled = false
-           capacityTF.isUserInteractionEnabled = false
-           detailTF.isUserInteractionEnabled = false
-           phoneTF.isUserInteractionEnabled = false
-           emailTF.isUserInteractionEnabled = false
-           workerCountTF.isUserInteractionEnabled = false
+        //   addressTF.isUserInteractionEnabled = false
+        //   capacityTF.isUserInteractionEnabled = false
+        //   detailTF.isUserInteractionEnabled = false
+        //   phoneTF.isUserInteractionEnabled = false
+        //   emailTF.isUserInteractionEnabled = false
+        //   workerCountTF.isUserInteractionEnabled = false
        }
        
        // MARK: Alert
