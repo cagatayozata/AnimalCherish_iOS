@@ -31,17 +31,17 @@ class RegisterViewController: UIViewController {
         // Username
         usernameTextField.attributedPlaceholder = NSAttributedString(string: "Kullanıcı Adı",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        usernameTextField.setLeftImage(imageName: "person")
+        usernameTextField.setIcon(imageName: "person")
         
         // E-mail
         emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        emailTextField.setLeftImage(imageName: "envelope")
+        emailTextField.setIcon(imageName: "envelope")
         
         // Password
         passwordTextField.attributedPlaceholder = NSAttributedString(string: "Parola",
         attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        passwordTextField.setLeftImage(imageName: "lock")
+        passwordTextField.setIcon(imageName: "lock")
         
         // Login Button
         registerButton.layer.cornerRadius = 5

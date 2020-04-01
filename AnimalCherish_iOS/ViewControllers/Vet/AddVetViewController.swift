@@ -17,10 +17,14 @@ class AddVetViewController: UIViewController {
     @IBOutlet weak var educationInfo: UITextField!
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var state: UITextField!
-    @IBOutlet weak var clinicInfo: UITextField!
+    @IBOutlet weak var address: UITextField!
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var birthDate: UITextField!
+    @IBOutlet weak var detail: UITextField!
+    @IBOutlet weak var diplomaNo: UITextField!
+    @IBOutlet weak var sicilNo: UITextField!
+    @IBOutlet weak var button: UIButton!
     
      // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/vet/save"
@@ -29,11 +33,48 @@ class AddVetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TextField Style
+        nameSurname.setTitleAndIcon(title: "İsim Soyad", icon: "person", systemIcon: true)
+        educationInfo.setTitleAndIcon(title: "Eğitim Bilgisi", icon: "person", systemIcon: true)
+        city.setTitleAndIcon(title: "Şehir", icon: "person", systemIcon: true)
+        state.setTitleAndIcon(title: "İlçe", icon: "person", systemIcon: true)
+        address.setTitleAndIcon(title: "Klinik Bilgisi", icon: "person", systemIcon: true)
+        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
+        email.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
+        birthDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "person", systemIcon: true)
+        detail.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
+        diplomaNo.setTitleAndIcon(title: "Diploma No", icon: "person", systemIcon: true)
+        sicilNo.setTitleAndIcon(title: "Sicil No", icon: "person", systemIcon: true)
+        
+        // Button Button
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        
     }
     
     // MARK: Pressed Functions
     @IBAction func saveButtonPressed(_ sender: Any) {
         validate()
+    }
+    
+    // MARK: Validation
+    func validate() {
+        do {
+            
+            try nameSurname.validatedText(validationType: ValidatorType.vetName)
+            try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
+            try city.validatedText(validationType: ValidatorType.vetCity)
+            try state.validatedText(validationType: ValidatorType.vetState)
+            try address.validatedText(validationType: ValidatorType.vetClinicInfo)
+            try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
+            try email.validatedText(validationType: ValidatorType.vetMailAddress)
+            try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
+            
+            post()
+            
+       } catch(let error) {
+           Alert.showAlert(message: (error as! ValidationError).message, vc: self)
+       }
     }
     
     // MARK: Data Preparation and POST request
@@ -43,21 +84,21 @@ class AddVetViewController: UIViewController {
         let parameters = [        "id": "3c7c0a75-3d2b-428a-bf65-ed25686a5357",
         "olusmaTarihi": nil,
         "olusturanKullanici": nil,
-        "sonGuncellenmeTarihi": 1583947209624,
+        "sonGuncellenmeTarihi": nil,
         "name": nameSurname.text!,
         "education": educationInfo.text!,
         "phone": phone.text!,
         "email": email.text!,
-        "workplace": "Üniversiteler Mah. 06800 Bilkent Ankara/Çankaya ",
-        "clinic": "PetClinic No 15.",
-        "details": "Ankarada 1996 tarihinde kurulmuş, hafta sonu dahil 24 saat hizmet veren bir kliniktir.",
+        "workplace": nil,
+        "clinic": address.text!,
+        "details": detail.text!,
         "birthdate": 831340800000,
         "city": city.text!,
         "ilce": state.text!,
-        "diplomaNo": "6456418765465",
+        "diplomaNo": diplomaNo.text!,
         "userId": nil,
-        "sicilNo": "87894641679",
-        "kullaniciId": "bd0218f6-2889-4bd1-a829-82b4f1b4950d",
+        "sicilNo": sicilNo.text!,
+        "kullaniciId": nil,
         "kullaniciAdi": nil] as [String : Any?]
         
         // POST request
@@ -71,14 +112,14 @@ class AddVetViewController: UIViewController {
             case .success:
                 
                 // refresh Vet List on previous screen
-                self.showWarning(for: "Veteriner başarıyla eklendi!")
+                Alert.showAlertThenPreviousScreen(message: "Veteriner başarıyla eklendi!", vc: self)
                 
                 break
             case .failure:
                 
                 // show warning to user
                 print(response.error!)
-                self.showAlert(for: "Veteriner eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                Alert.showAlert(message: "Veteriner eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
                 break
                 
             }
@@ -87,43 +128,12 @@ class AddVetViewController: UIViewController {
         
     }
     
-    // MARK: Validation
-    func validate() {
-        do {
-            
-            try nameSurname.validatedText(validationType: ValidatorType.vetName)
-            try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
-            try city.validatedText(validationType: ValidatorType.vetCity)
-            try state.validatedText(validationType: ValidatorType.vetState)
-            try clinicInfo.validatedText(validationType: ValidatorType.vetClinicInfo)
-            try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
-            try email.validatedText(validationType: ValidatorType.vetMailAddress)
-            try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
-            
-            post()
-            
-       } catch(let error) {
-           showAlert(for: (error as! ValidationError).message)
-       }
-    }
-    
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func showWarning(for alert: String) {
-        
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-        
+    // MARK: Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       
+           // when clicking the UIView, keyboard will be removed
+           self.view.endEditing(true)
+       
     }
   
 }

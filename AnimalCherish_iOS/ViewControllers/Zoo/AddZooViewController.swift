@@ -19,6 +19,8 @@ class AddZooViewController: UIViewController {
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var address: UITextField!
     @IBOutlet weak var desc: UITextField!
+    @IBOutlet weak var workers: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/vet/save"
@@ -27,11 +29,42 @@ class AddZooViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TextField Style
+        establishDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "person", systemIcon: true)
+        name.setTitleAndIcon(title: "Adı", icon: "person", systemIcon: true)
+        email.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
+        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
+        address.setTitleAndIcon(title: "Adres", icon: "person", systemIcon: true)
+        desc.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
+        workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person", systemIcon: true)
+        
+        // Button Button
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        
     }
     
     // MARK: Pressed Functions
     @IBAction func saveButtonPressed(_ sender: Any) {
         validate()
+    }
+    
+    
+    // MARK: Validation
+    func validate() {
+        do {
+            try establishDate.validatedText(validationType: ValidatorType.zooEstablishDate)
+            try name.validatedText(validationType: ValidatorType.zooName)
+            try email.validatedText(validationType: ValidatorType.zooMailAddress)
+            try phone.validatedText(validationType: ValidatorType.zooPhoneNumber)
+            try address.validatedText(validationType: ValidatorType.zooAddress)
+            try desc.validatedText(validationType: ValidatorType.zooDescription)
+            
+            post()
+            
+       } catch(let error) {
+           Alert.showAlert(message: (error as! ValidationError).message, vc: self)
+       }
     }
     
     // MARK: Data Preparation and POST request
@@ -49,7 +82,7 @@ class AddZooViewController: UIViewController {
         "description": desc.text!,
         "phone": phone.text!,
         "email": email.text!,
-        "workerCount": 1] as [String : Any?]
+        "workerCount": workers.text!] as [String : Any?]
         
         // POST request
         AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -62,55 +95,20 @@ class AddZooViewController: UIViewController {
             case .success:
                 
                 // refresh Vet List on previous screen
-                self.showWarning(for: "Veteriner başarıyla eklendi!")
+                Alert.showAlertThenPreviousScreen(message: "Hayvanat Bahçesi başarıyla eklendi!", vc: self)
                 
                 break
             case .failure:
                 
                 // show warning to user
                 print(response.error!)
-                self.showAlert(for: "Veteriner eklenirken hata oluştu. Lütfen tekrar deneyiniz!")
+                Alert.showAlert(message: "Hayvanat Bahçesi eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
                 break
                 
             }
         
         }
     }
-        
-    // MARK: Validation
-    func validate() {
-        do {
-            try establishDate.validatedText(validationType: ValidatorType.zooEstablishDate)
-            try name.validatedText(validationType: ValidatorType.zooName)
-            try email.validatedText(validationType: ValidatorType.zooMailAddress)
-            try phone.validatedText(validationType: ValidatorType.zooPhoneNumber)
-            try address.validatedText(validationType: ValidatorType.zooAddress)
-            try desc.validatedText(validationType: ValidatorType.zooDescription)
-            
-            post()
-            
-       } catch(let error) {
-           showAlert(for: (error as! ValidationError).message)
-       }
-    }
-    
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func showWarning(for alert: String) {
-        
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
-            self.navigationController?.popViewController(animated: true)
-        })
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-        
-    }
+
   
 }

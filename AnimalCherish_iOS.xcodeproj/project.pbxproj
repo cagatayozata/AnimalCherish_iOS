@@ -45,6 +45,7 @@
 		08B761D524180F8700AC98C3 /* EditVetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D424180F8700AC98C3 /* EditVetViewController.swift */; };
 		08B761D724180F9D00AC98C3 /* DetailZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D624180F9D00AC98C3 /* DetailZooViewController.swift */; };
 		08B761D924180FA600AC98C3 /* EditZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B761D824180FA600AC98C3 /* EditZooViewController.swift */; };
+		08BA62BC24349C8400A04A78 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BA62BB24349C8400A04A78 /* Alert.swift */; };
 		08C6F38124139D8400E53BA2 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */; };
 		08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3822413BE3500E53BA2 /* Validators.swift */; };
 		08C6F3862413BE8400E53BA2 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */; };
@@ -99,6 +100,7 @@
 		08B761D424180F8700AC98C3 /* EditVetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVetViewController.swift; sourceTree = "<group>"; };
 		08B761D624180F9D00AC98C3 /* DetailZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailZooViewController.swift; sourceTree = "<group>"; };
 		08B761D824180FA600AC98C3 /* EditZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditZooViewController.swift; sourceTree = "<group>"; };
+		08BA62BB24349C8400A04A78 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		08C6F38024139D8400E53BA2 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		08C6F3822413BE3500E53BA2 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			children = (
 				08FE0DFD240C2C92002AFC96 /* Reachability.swift */,
 				08C6F3822413BE3500E53BA2 /* Validators.swift */,
+				08BA62BB24349C8400A04A78 /* Alert.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				086E42682406FD6600F2469C /* ShelterViewController.swift in Sources */,
 				08A41695242B69C1005CC9B2 /* MenuSlide.swift in Sources */,
 				086E426C2406FD8000F2469C /* ZooViewController.swift in Sources */,
+				08BA62BC24349C8400A04A78 /* Alert.swift in Sources */,
 				08CF276424165E0D0029FE4B /* AddShelterViewController.swift in Sources */,
 				086E426A2406FD6F00F2469C /* VetViewController.swift in Sources */,
 				08C6F3832413BE3500E53BA2 /* Validators.swift in Sources */,

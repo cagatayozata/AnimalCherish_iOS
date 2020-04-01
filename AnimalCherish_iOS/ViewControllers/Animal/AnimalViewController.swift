@@ -3,7 +3,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddAnimalViewControllerDelegate {
+class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     // MARK: IBOutlet
     @IBOutlet weak var tableView: UITableView!
@@ -152,13 +152,6 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         menuViewController.transitioningDelegate = self
         present(menuViewController, animated: true)
         
-    }
-    
-    // MARK: Delegate
-    func animalInfo() {
-        
-        getAnimalList()
-    
     }
     
     // MARK: Alert
