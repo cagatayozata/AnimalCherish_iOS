@@ -14,13 +14,17 @@ class DetailVetViewController: UIViewController {
 
     //MARK: IBOutlet
     @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var birthDateTF: UITextField!
     @IBOutlet weak var educationInfoTF: UITextField!
     @IBOutlet weak var cityTF: UITextField!
     @IBOutlet weak var stateTF: UITextField!
-    @IBOutlet weak var clinicInfoTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var birthDateTF: UITextField!
+    @IBOutlet weak var diplomaNoTF: UITextField!
+    @IBOutlet weak var sicilNoTF: UITextField!
+    @IBOutlet weak var addressTF: UITextField!
+    @IBOutlet weak var detailTF: UITextField!
+    
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/vet/getall"
@@ -66,19 +70,24 @@ class DetailVetViewController: UIViewController {
                         let education = item["education"].stringValue
                         let city = item["city"].stringValue
                         let state = item["ilce"].stringValue
-                        let clinic = item["clinic"].stringValue
                         let phone = item["phone"].stringValue
                         let email = item["email"].stringValue
                         let birthday = item["birthdate"].stringValue
+                        let address = item["address"].stringValue
+                        let diplomaNo = item["diplomaNo"].stringValue
+                        let sicilNo = item["sicilNo"].stringValue
+                        let detail = item["details"].stringValue
                         
                         self.nameTF.text! = name
                         self.educationInfoTF.text! = education
                         self.cityTF.text! = city
                         self.stateTF.text! = state
-                        self.clinicInfoTF.text! = clinic
                         self.phoneTF.text! = phone
                         self.emailTF.text! = email
-                        self.birthDateTF.text! = birthday
+                        self.addressTF.text! = address
+                        self.diplomaNoTF.text! = diplomaNo
+                        self.sicilNoTF.text! = sicilNo
+                        self.detailTF.text! = detail
                     }
                     
                     i = i + 1
@@ -98,6 +107,16 @@ class DetailVetViewController: UIViewController {
         
     }
     
+    // MARK: prepare to send selectedId
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "goToEditVetViewController" {
+             let editVetController = segue.destination as? EditVetViewController
+             if let tempController = editVetController {
+                 tempController.selectedId = selectedId
+             }
+         }
+     }
+    
     // MARK: Fill Data to Text Fields
     func prepareTextFields() {
         
@@ -109,10 +128,13 @@ class DetailVetViewController: UIViewController {
         educationInfoTF.isUserInteractionEnabled = false
         cityTF.isUserInteractionEnabled = false
         stateTF.isUserInteractionEnabled = false
-        clinicInfoTF.isUserInteractionEnabled = false
         phoneTF.isUserInteractionEnabled = false
         emailTF.isUserInteractionEnabled = false
         birthDateTF.isUserInteractionEnabled = false
+        addressTF.isUserInteractionEnabled = false
+        diplomaNoTF.isUserInteractionEnabled = false
+        sicilNoTF.isUserInteractionEnabled = false
+        detailTF.isUserInteractionEnabled = false
     }
     
     // MARK: Alert
