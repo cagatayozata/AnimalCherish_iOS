@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3K-81-Tju">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3K-81-Tju">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -88,8 +88,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TUa-FT-jPE">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TUa-FT-jPE">
                                 <rect key="frame" x="80" y="157" width="254" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -97,11 +98,6 @@
                                     <action selector="idTF" destination="7wm-sh-Nw8" eventType="editingDidEndOnExit" id="8Kh-K3-dCT"/>
                                     <action selector="nameTF:" destination="7wm-sh-Nw8" eventType="editingDidEnd" id="vK4-8M-8mp"/>
                                 </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ui-yo-B5q">
-                                <rect key="frame" x="80" y="231" width="254" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6A-aj-FSw">
                                 <rect key="frame" x="80" y="305" width="254" height="34"/>
@@ -123,20 +119,43 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Çalışan Sayısı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q2i-4G-4jm">
+                                <rect key="frame" x="20" y="585" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="RfL-kb-vGq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhq-b2-XxS">
+                                <rect key="frame" x="20" y="651" width="374" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="ljH-ne-1Sl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQd-Bd-tkE">
+                                <rect key="frame" x="20" y="199" width="374" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="qHp-zA-x7G"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="qgg-b3-u4f" firstAttribute="top" secondItem="jlM-MM-P3F" secondAttribute="bottom" constant="40" id="Jt5-Hv-dAC"/>
-                            <constraint firstItem="2Ui-yo-B5q" firstAttribute="top" secondItem="TUa-FT-jPE" secondAttribute="bottom" constant="40" id="Opl-GK-NdL"/>
                             <constraint firstItem="Fel-ag-UFh" firstAttribute="top" secondItem="z6A-aj-FSw" secondAttribute="bottom" constant="40" id="am5-Lp-tTd"/>
-                            <constraint firstItem="z6A-aj-FSw" firstAttribute="top" secondItem="2Ui-yo-B5q" secondAttribute="bottom" constant="40" id="d0d-Lp-fsc"/>
+                            <constraint firstItem="hhq-b2-XxS" firstAttribute="top" secondItem="Q2i-4G-4jm" secondAttribute="bottom" constant="10" id="hWu-9d-aeq"/>
                             <constraint firstItem="jlM-MM-P3F" firstAttribute="top" secondItem="Fel-ag-UFh" secondAttribute="bottom" constant="40" id="peO-6k-a7i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iqo-Td-Ix7"/>
                     </view>
                     <navigationItem key="navigationItem" id="yFz-OU-8WY"/>
                     <connections>
-                        <outlet property="addressTF" destination="2Ui-yo-B5q" id="3fi-Kw-aFs"/>
+                        <outlet property="addressTF" destination="vQd-Bd-tkE" id="fme-hd-OX9"/>
                         <outlet property="detailTF" destination="z6A-aj-FSw" id="hLw-oB-3u5"/>
                         <outlet property="emailTF" destination="jlM-MM-P3F" id="dpB-sM-oc1"/>
                         <outlet property="establishDateTF" destination="qgg-b3-u4f" id="wXP-dc-9pD"/>
@@ -147,7 +166,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjG-FT-JR0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="7wm-sh-Nw8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3137.68115942029" y="720.53571428571422"/>
+            <point key="canvasLocation" x="3116" y="722"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1SV-Qx-NHT">
@@ -166,13 +185,9 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hu4-0a-e8R">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hu4-0a-e8R">
                                 <rect key="frame" x="80" y="133" width="254" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kmC-OP-o7A">
-                                <rect key="frame" x="80" y="207" width="254" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -197,21 +212,44 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-kp-rqR">
-                                <rect key="frame" x="183" y="637" width="48" height="30"/>
+                                <rect key="frame" x="183" y="811" width="48" height="30"/>
                                 <state key="normal" title="Kaydet"/>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="RfD-Pq-2ie" eventType="touchUpInside" id="OTm-0J-HgK"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Çalışan Sayısı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLp-ip-jzn">
+                                <rect key="frame" x="20" y="562" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Pwe-Cn-qo3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRG-gN-soJ">
+                                <rect key="frame" x="20" y="628" width="374" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="4Wk-nj-OMj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PUz-N6-pCw">
+                                <rect key="frame" x="20" y="171" width="374" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="gEi-V6-dGk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Oos-kp-rqR" firstAttribute="top" secondItem="Vsj-nG-ZmY" secondAttribute="bottom" constant="100" id="4xO-d6-hIk"/>
-                            <constraint firstItem="kmC-OP-o7A" firstAttribute="top" secondItem="Hu4-0a-e8R" secondAttribute="bottom" constant="40" id="5gp-FG-HeX"/>
                             <constraint firstItem="YEI-Tb-hIq" firstAttribute="top" secondItem="9lx-16-VrA" secondAttribute="bottom" constant="40" id="FVh-Zs-dwo"/>
+                            <constraint firstItem="GRG-gN-soJ" firstAttribute="top" secondItem="VLp-ip-jzn" secondAttribute="bottom" constant="10" id="Hlt-28-J9w"/>
                             <constraint firstItem="Vsj-nG-ZmY" firstAttribute="top" secondItem="YEI-Tb-hIq" secondAttribute="bottom" constant="40" id="Rjr-Vb-E4M"/>
                             <constraint firstItem="9lx-16-VrA" firstAttribute="top" secondItem="cBo-RD-JzP" secondAttribute="bottom" constant="40" id="aRl-Ty-qAb"/>
-                            <constraint firstItem="cBo-RD-JzP" firstAttribute="top" secondItem="kmC-OP-o7A" secondAttribute="bottom" constant="40" id="mMj-I7-Fhv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oy9-6f-Vhq"/>
                     </view>
@@ -368,6 +406,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
     </resources>
 </document>

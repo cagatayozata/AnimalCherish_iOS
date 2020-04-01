@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Gh-Cf-eco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Gh-Cf-eco">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +26,10 @@
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="aP1-JJ-s5U">
-                                        <rect key="frame" x="0.0" y="72" width="373" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="72" width="373" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aP1-JJ-s5U" id="baK-r0-MEx">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -199,31 +199,37 @@
             <objects>
                 <viewController storyboardIdentifier="goToEditAnimalScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PM3-cd-rKd" customClass="DeatilAnimalViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GaG-MU-e9t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Küpe Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="730-eZ-sdS">
-                                <rect key="frame" x="80" y="100" width="254" height="34"/>
+                                <rect key="frame" x="80" y="188" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W1v-d6-9zg">
-                                <rect key="frame" x="80" y="174" width="254" height="34"/>
+                                <rect key="frame" x="80" y="262" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulunduğu Yer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="77w-xd-T5N">
-                                <rect key="frame" x="80" y="248" width="254" height="34"/>
+                                <rect key="frame" x="80" y="336" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tür" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B9W-OO-Gmt">
-                                <rect key="frame" x="80" y="322" width="254" height="34"/>
+                                <rect key="frame" x="80" y="410" width="254" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cins" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="opE-X3-HCd">
-                                <rect key="frame" x="80" y="396" width="254" height="34"/>
+                                <rect key="frame" x="80" y="484" width="254" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cinsiyet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="myz-Bp-WwY">
+                                <rect key="frame" x="80" y="547" width="254" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -262,6 +268,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="IdTextField" destination="730-eZ-sdS" id="z21-d9-Hi2"/>
+                        <outlet property="genderTextField" destination="myz-Bp-WwY" id="hRC-Ii-5Yh"/>
                         <outlet property="genusTextField" destination="opE-X3-HCd" id="SpZ-u6-Igb"/>
                         <outlet property="locationTextField" destination="77w-xd-T5N" id="1au-Dx-c81"/>
                         <outlet property="nameTextField" destination="W1v-d6-9zg" id="KnA-kx-kwA"/>
@@ -300,27 +307,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Küpe Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDh-wC-Nps">
-                                <rect key="frame" x="70" y="90" width="274" height="34"/>
+                                <rect key="frame" x="70" y="178" width="274" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İsim" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fzy-4i-Bks">
-                                <rect key="frame" x="70" y="164" width="274" height="34"/>
+                                <rect key="frame" x="70" y="252" width="274" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bulunduğu Yer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cZE-Vo-evj">
-                                <rect key="frame" x="70" y="238" width="274" height="34"/>
+                                <rect key="frame" x="70" y="326" width="274" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tür" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xkp-VL-1if">
-                                <rect key="frame" x="70" y="312" width="274" height="34"/>
+                                <rect key="frame" x="70" y="400" width="274" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cins" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXx-0H-PjR">
-                                <rect key="frame" x="70" y="386" width="274" height="34"/>
+                                <rect key="frame" x="70" y="474" width="274" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -330,9 +337,14 @@
                                 <connections>
                                     <action selector="SaveBtn:" destination="uKa-gz-baZ" eventType="touchUpInside" id="AjX-G6-zq0"/>
                                     <action selector="saveButtonPressed:" destination="2Ab-Pd-fgU" eventType="touchUpInside" id="L0l-ZP-rYB"/>
-                                    <segue destination="PM3-cd-rKd" kind="presentation" identifier="saveAnimalSegue" id="j41-BF-9vS"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cinsiyet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="96P-CP-gMI">
+                                <rect key="frame" x="70" y="533" width="274" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -359,6 +371,7 @@
                     <navigationItem key="navigationItem" title="Düzenle" id="cTd-yZ-uK6"/>
                     <connections>
                         <outlet property="IdTextField" destination="jDh-wC-Nps" id="Fer-Mw-GBW"/>
+                        <outlet property="genderTextField" destination="96P-CP-gMI" id="4m1-M7-TV2"/>
                         <outlet property="genusTextField" destination="lXx-0H-PjR" id="OdS-C7-wpm"/>
                         <outlet property="locationTextField" destination="cZE-Vo-evj" id="SpB-BB-6Tz"/>
                         <outlet property="nameTextField" destination="Fzy-4i-Bks" id="ZOA-Io-qYm"/>
@@ -367,14 +380,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rk-gr-iQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261" y="753"/>
+            <point key="canvasLocation" x="1260.8695652173915" y="752.67857142857144"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="j41-BF-9vS"/>
-    </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="icons8-crow-30" width="30" height="30"/>
     </resources>
 </document>

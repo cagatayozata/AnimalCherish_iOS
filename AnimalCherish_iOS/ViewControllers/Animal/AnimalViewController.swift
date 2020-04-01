@@ -219,7 +219,7 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
             viewController.selectedId = selectedId
             navigationController?.pushViewController(viewController, animated: true)
         }
-        
+
     }
     
     // MARK: UISearchBar
