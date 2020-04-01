@@ -183,12 +183,12 @@ class EditPetShopViewController: UIViewController {
               // MARK: disableEditing
               func disableEditing() {
                   nameTF.isUserInteractionEnabled = false
-                  addressTF.isUserInteractionEnabled = false
-                  detailTF.isUserInteractionEnabled = false
-                  phoneTF.isUserInteractionEnabled = false
-                  emailTF.isUserInteractionEnabled = false
+              //    addressTF.isUserInteractionEnabled = false
+              //    detailTF.isUserInteractionEnabled = false
+              //    phoneTF.isUserInteractionEnabled = false
+              //    emailTF.isUserInteractionEnabled = false
                   establishDateTF.isUserInteractionEnabled = false
-                  workerCountTF.isUserInteractionEnabled = false
+              //    workerCountTF.isUserInteractionEnabled = false
               }
               
               // MARK: Alert
