@@ -49,7 +49,7 @@ class EditVetViewController: UIViewController {
       
       // MARK: GET request and Prepare Selected Data
     func getVetDetail(ids: Int) {
-      AF.request(apiUrlSave, method: .get).responseJSON { (myresponse) in
+      AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
               // check result is success or failure
               switch myresponse.result {
               case .success:
@@ -164,7 +164,7 @@ class EditVetViewController: UIViewController {
            "kullaniciAdi": nil] as [String : Any?]
            
            // POST request
-           AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+           AF.request(apiUrlSave, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
                
                // debug
                debugPrint(response)
