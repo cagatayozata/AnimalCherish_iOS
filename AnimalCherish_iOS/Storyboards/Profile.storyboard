@@ -7,29 +7,106 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="I6B-Uc-QTh">
             <objects>
-                <viewController id="bvq-eu-faI" sceneMemberID="viewController">
+                <viewController id="bvq-eu-faI" customClass="ProfileViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="61e-nZ-bWt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wy2-pQ-ahQ">
-                                <rect key="frame" x="161" y="437.5" width="92" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="8HD-NP-iYs">
+                                <rect key="frame" x="142" y="158" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="dCu-HF-J2L"/>
+                                    <constraint firstAttribute="width" constant="130" id="pUq-9O-pGY"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Çağatay" borderStyle="roundedRect" placeholder="Ad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jvW-b9-N4d">
+                                <rect key="frame" x="20" y="358" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Qgu-fs-NPi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ÖZATA" borderStyle="roundedRect" placeholder="Soyad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WsB-C3-vhB">
+                                <rect key="frame" x="20" y="424" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="JHD-Cj-8wb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Veteriner Hekim" borderStyle="roundedRect" placeholder="Rolü" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOk-Jp-190">
+                                <rect key="frame" x="20" y="490" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Zks-ty-kEo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cagatayozata@me.com" borderStyle="roundedRect" placeholder="Telefon Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JwH-zr-vDE">
+                                <rect key="frame" x="20" y="556" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="mYh-Jh-Dng"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0 532 100 73 03" borderStyle="roundedRect" placeholder="Telefon Numarası" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="68E-Xh-ebd">
+                                <rect key="frame" x="20" y="622" width="374" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="TbQ-0O-qmv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTI-Wj-VCI">
+                                <rect key="frame" x="20" y="688" width="374" height="56"/>
+                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="mee-zd-5EI"/>
+                                </constraints>
+                                <state key="normal" title="Kaydet">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Wy2-pQ-ahQ" firstAttribute="centerX" secondItem="61e-nZ-bWt" secondAttribute="centerX" id="hM1-LV-kcH"/>
-                            <constraint firstItem="Wy2-pQ-ahQ" firstAttribute="centerY" secondItem="61e-nZ-bWt" secondAttribute="centerY" id="vNE-j3-ctS"/>
+                            <constraint firstItem="JwH-zr-vDE" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="39F-b6-pLc"/>
+                            <constraint firstItem="WsB-C3-vhB" firstAttribute="top" secondItem="jvW-b9-N4d" secondAttribute="bottom" constant="10" id="BE1-3c-YZe"/>
+                            <constraint firstItem="8HD-NP-iYs" firstAttribute="top" secondItem="tz2-aS-4GO" secondAttribute="top" constant="70" id="BRR-Pk-Poq"/>
+                            <constraint firstItem="jvW-b9-N4d" firstAttribute="top" secondItem="8HD-NP-iYs" secondAttribute="bottom" constant="70" id="Bak-Yd-eq3"/>
+                            <constraint firstItem="TTI-Wj-VCI" firstAttribute="top" secondItem="68E-Xh-ebd" secondAttribute="bottom" constant="10" id="CHd-R7-buQ"/>
+                            <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="JwH-zr-vDE" secondAttribute="trailing" constant="20" id="FuP-hn-ALZ"/>
+                            <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="WsB-C3-vhB" secondAttribute="trailing" constant="20" id="MIt-87-W14"/>
+                            <constraint firstItem="8HD-NP-iYs" firstAttribute="centerX" secondItem="61e-nZ-bWt" secondAttribute="centerX" id="PWO-qJ-Xm1"/>
+                            <constraint firstItem="TTI-Wj-VCI" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="QxG-JD-0U0"/>
+                            <constraint firstItem="jvW-b9-N4d" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="REx-ku-pCS"/>
+                            <constraint firstItem="JwH-zr-vDE" firstAttribute="top" secondItem="IOk-Jp-190" secondAttribute="bottom" constant="10" id="Rsz-Sc-eoF"/>
+                            <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="68E-Xh-ebd" secondAttribute="trailing" constant="20" id="UZo-1n-NpN"/>
+                            <constraint firstItem="IOk-Jp-190" firstAttribute="top" secondItem="WsB-C3-vhB" secondAttribute="bottom" constant="10" id="Zp2-f5-0Qh"/>
+                            <constraint firstItem="IOk-Jp-190" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="hdW-LR-j3L"/>
+                            <constraint firstItem="WsB-C3-vhB" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="itx-Ny-TFE"/>
+                            <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="jvW-b9-N4d" secondAttribute="trailing" constant="20" id="kh2-HJ-W3k"/>
+                            <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="IOk-Jp-190" secondAttribute="trailing" constant="20" id="lbk-g7-k56"/>
+                            <constraint firstItem="68E-Xh-ebd" firstAttribute="top" secondItem="JwH-zr-vDE" secondAttribute="bottom" constant="10" id="tQi-fe-JMt"/>
+                            <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="TTI-Wj-VCI" secondAttribute="trailing" constant="20" id="wgV-Q3-Loi"/>
+                            <constraint firstItem="68E-Xh-ebd" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="yLh-4U-ER7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tz2-aS-4GO"/>
                     </view>
                     <navigationItem key="navigationItem" id="2l1-lr-rTO"/>
+                    <connections>
+                        <outlet property="image" destination="8HD-NP-iYs" id="ooT-wm-g3y"/>
+                        <outlet property="mail" destination="JwH-zr-vDE" id="M1O-Ff-p07"/>
+                        <outlet property="name" destination="jvW-b9-N4d" id="pE6-AC-ENU"/>
+                        <outlet property="phone" destination="68E-Xh-ebd" id="UYl-ls-qwM"/>
+                        <outlet property="role" destination="IOk-Jp-190" id="Kb4-jP-q1o"/>
+                        <outlet property="surname" destination="WsB-C3-vhB" id="6re-3X-IYb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yN4-dI-wwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,6 +134,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0" width="200" height="200"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>

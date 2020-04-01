@@ -36,7 +36,7 @@ class AddZooViewController: UIViewController {
         phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
         address.setTitleAndIcon(title: "Adres", icon: "person", systemIcon: true)
         desc.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
-        workers.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
+        workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person", systemIcon: true)
         
         // Button Button
         button.layer.cornerRadius = 5

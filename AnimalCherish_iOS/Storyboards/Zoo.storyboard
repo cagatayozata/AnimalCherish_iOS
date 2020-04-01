@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kuruluş Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ToB-YA-ozj">
-                                <rect key="frame" x="20" y="362" width="374" height="56"/>
+                                <rect key="frame" x="20" y="408" width="374" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Nc3-YB-sYV"/>
                                 </constraints>
@@ -167,7 +167,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bwN-BL-0cX">
-                                <rect key="frame" x="20" y="296" width="374" height="56"/>
+                                <rect key="frame" x="20" y="342" width="374" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="zgt-OH-5zw"/>
                                 </constraints>
@@ -175,7 +175,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0312-000-0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="30W-Ex-Huw">
-                                <rect key="frame" x="20" y="230" width="374" height="56"/>
+                                <rect key="frame" x="20" y="276" width="374" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="sjG-Vb-mBi"/>
                                 </constraints>
@@ -183,23 +183,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Et3-RC-Igs">
-                                <rect key="frame" x="20" y="164" width="374" height="56"/>
+                                <rect key="frame" x="20" y="164" width="374" height="102"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="u4y-QU-r2j"/>
+                                    <constraint firstAttribute="height" constant="102" id="u4y-QU-r2j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8o7-EJ-BoK">
-                                <rect key="frame" x="20" y="494" width="374" height="56"/>
+                                <rect key="frame" x="20" y="540" width="374" height="102"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="h9E-Vc-hwG"/>
+                                    <constraint firstAttribute="height" constant="102" id="h9E-Vc-hwG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dwg-C6-5Er">
-                                <rect key="frame" x="20" y="560" width="374" height="56"/>
+                                <rect key="frame" x="20" y="652" width="374" height="56"/>
                                 <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="zAY-Df-4RS"/>
@@ -213,7 +213,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Çalışan Sayısı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9h-1g-ng7">
-                                <rect key="frame" x="20" y="428" width="374" height="56"/>
+                                <rect key="frame" x="20" y="474" width="374" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="o7V-ul-XgF"/>
                                 </constraints>
