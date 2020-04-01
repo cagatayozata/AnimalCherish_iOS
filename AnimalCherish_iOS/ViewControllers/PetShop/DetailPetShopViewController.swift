@@ -15,10 +15,11 @@ class DetailPetShopViewController: UIViewController {
     //MARK: IBOutlet
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
-    @IBOutlet weak var detailTF: UITextField!
     @IBOutlet weak var phoneTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var establishDateTF: UITextField!
+    @IBOutlet weak var workerCountTF: UITextField!
+    @IBOutlet weak var detailTF: UITextField!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/petshop/getall"
@@ -66,7 +67,7 @@ class DetailPetShopViewController: UIViewController {
                            let phone = item["phone"].stringValue
                            let email = item["email"].stringValue
                            let establish = item["birthdate"].stringValue
-                           
+                           let workerCount = item["workerCount"].stringValue
 
                            self.nameTF.text! = name
                            self.addressTF.text! = address
@@ -74,6 +75,7 @@ class DetailPetShopViewController: UIViewController {
                            self.phoneTF.text! = phone
                            self.emailTF.text! = email
                            self.establishDateTF.text! = establish
+                           self.workerCountTF.text! = workerCount
                        }
                        
                        i = i + 1
@@ -106,6 +108,7 @@ class DetailPetShopViewController: UIViewController {
            phoneTF.isUserInteractionEnabled = false
            emailTF.isUserInteractionEnabled = false
            establishDateTF.isUserInteractionEnabled = false
+           workerCountTF.isUserInteractionEnabled = false
        }
        
        // MARK: Alert
