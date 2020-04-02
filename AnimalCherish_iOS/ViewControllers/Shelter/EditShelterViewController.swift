@@ -121,7 +121,7 @@ class EditShelterViewController: UIViewController {
                   try detailTF.validatedText(validationType: ValidatorType.shelterDetail)
                   try phoneTF.validatedText(validationType: ValidatorType.shelterPhoneNumber)
                   try emailTF.validatedText(validationType: ValidatorType.shelterMailAddress)
-                  try establishDateTF.validatedText(validationType: ValidatorType.shelterEstablishDate)
+
                   
                   post()
                   
