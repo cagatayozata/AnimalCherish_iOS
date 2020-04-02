@@ -91,15 +91,19 @@ class DetailPetShopViewController: UIViewController {
        
            }
            
-           prepareTextFields()
            
        }
        
-       // MARK: Fill Data to Text Fields
-       func prepareTextFields() {
-           
-       }
-       
+    // MARK: prepare to send selectedId
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "goToEditPetShopViewController" {
+             let editVetController = segue.destination as? EditVetViewController
+             if let tempController = editVetController {
+                 tempController.selectedId = selectedId
+             }
+         }
+     }
+
        // MARK: disableEditing
        func disableEditing() {
            nameTF.isUserInteractionEnabled = false
