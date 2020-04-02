@@ -18,7 +18,7 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     var animalNameArr = [String]()
     var animalTypeArr = [String]()
     var animalGenusArr = [String]()
-        
+    
     var filteredData = [String]()
     
     var selectedType: String? = nil
@@ -30,8 +30,8 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-
-
+        
+        
         getAnimalList()
         
         self.searchBar.delegate = self
@@ -67,7 +67,7 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 //
                 for item in resultArray.arrayValue {
-
+                    
                     let id = item["id"].stringValue
                     let name = item["name"].stringValue
                     let type = item["turAd"].stringValue
@@ -98,56 +98,56 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                 print(myresponse.error!)
                 break
             }
-    
+            
         }
     }
-
+    
     // MARK: UISegmentedControl
     @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
-
-       // change title, image and pickerView hidden
-       switch segmentControl.selectedSegmentIndex {
-           case 0:
+        
+        // change title, image and pickerView hidden
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
             
             // Köpek
             selectedType = "dog"
-           
-           case 1:
+            
+        case 1:
             
             // Kuş
             selectedType = "bird"
-           
-           case 2:
-               
+            
+        case 2:
+            
             // Yılan
             selectedType = "snake"
-
-           case 3:
-               
+            
+        case 3:
+            
             // Böcek
             selectedType = "insect"
-
-           
-           case 4:
-           
+            
+            
+        case 4:
+            
             // Balık
             selectedType = "fish"
-
-           
-           default:
-           break
-       }
-
+            
+            
+        default:
+            break
+        }
+        
         self.tableView.reloadData()
-
+        
     }
-
+    
     // MARK: Show Menu
     @IBAction func menuButtonPressed(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
-
+        
         menuViewController.modalPresentationStyle = .overCurrentContext
         menuViewController.transitioningDelegate = self
         present(menuViewController, animated: true)
@@ -166,12 +166,12 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     func loadingIndicator() {
         
         let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
-
+        
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = UIActivityIndicatorView.Style.gray
         loadingIndicator.startAnimating();
-
+        
         alert.view.addSubview(loadingIndicator)
         present(alert, animated: true, completion: nil)
         
@@ -185,10 +185,10 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "animalcell")
-         if cell == nil {
-             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "animalcell")
-         }
-         
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "animalcell")
+        }
+        
         cell?.textLabel?.text = self.filteredData[indexPath.row]
         cell?.detailTextLabel?.text = (self.animalTypeArr[indexPath.row] ) + ", " + (self.animalGenusArr[indexPath.row] )
         
@@ -207,7 +207,7 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         } else  {}
         
         
-         return cell!
+        return cell!
         
     }
     
@@ -219,7 +219,7 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
             viewController.selectedId = selectedId
             navigationController?.pushViewController(viewController, animated: true)
         }
-
+        
     }
     
     // MARK: UISearchBar
@@ -231,5 +231,5 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.reloadData()
     }
-
+    
 }

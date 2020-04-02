@@ -19,80 +19,92 @@ class EditAnimalViewController: UIViewController {
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var genusTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     // MARK: Variables
-       let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
-       let apiUrlSave = Configuration.apiUrl + "/api/v1/animal/save"
-       
-       var selectedId:Int? = nil
-       
-       // MARK: viewDidLoad
-       override func viewDidLoad() {
-           super.viewDidLoad()
-                
-           self.disableEditing()
-           
-           // if selected id has a problem, it will be equal to -1
-           let checkId = selectedId ?? -1
-           
-           if checkId != -1 {
+    let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
+    let apiUrlSave = Configuration.apiUrl + "/api/v1/animal/save"
+    
+    var selectedId:Int? = nil
+    
+    // MARK: viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // disable text fields
+        self.disableEditing()
+        
+        // TextField Style
+        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
+        nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
+        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
+        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
+        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
+        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
+        
+        // Button Button
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        
+        // if selected id has a problem, it will be equal to -1
+        let checkId = selectedId ?? -1
+        
+        if checkId != -1 {
             self.getAnimalDetail(ids: selectedId!)
-           }
-           else {
-               showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
-           }
-           
-       }
-       
-       // MARK: GET request and Prepare Selected Data
+        }
+        else {
+            Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
+        }
+        
+    }
+    
+    // MARK: GET request and Prepare Selected Data
     func getAnimalDetail(ids:Int) {
-           
-       AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
-  
+        
+        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
+            
             // check result is success or failure
             switch myresponse.result {
             case .success:
-                   
-            // GET data
-            let myresult = try? JSON(data: myresponse.data!)
-            let resultArray = myresult!
-                   
-            //
-            var i = 0
-            for item in resultArray.arrayValue {
-
-            if i == self.selectedId  {
-                let id = item["id"].stringValue
-                let name = item["name"].stringValue
-                let location = item["address"].stringValue
-                let type = item["turAd"].stringValue
-                let genus = item["cinsAd"].stringValue
-                let gender = item["cinsiyet"].stringValue
+                
+                // GET data
+                let myresult = try? JSON(data: myresponse.data!)
+                let resultArray = myresult!
+                
+                //
+                var i = 0
+                for item in resultArray.arrayValue {
+                    
+                    if i == self.selectedId  {
+                        let id = item["id"].stringValue
+                        let name = item["name"].stringValue
+                        let location = item["address"].stringValue
+                        let type = item["turAd"].stringValue
+                        let genus = item["cinsAd"].stringValue
+                        let gender = item["cinsiyet"].stringValue
                         
-                self.IdTextField.text! = id
-                self.nameTextField.text! = name
-                self.locationTextField.text! = location
-                self.typeTextField.text! = type
-                self.genusTextField.text! = genus
-                self.genderTextField.text! = genus
+                        self.IdTextField.text! = id
+                        self.nameTextField.text! = name
+                        self.locationTextField.text! = location
+                        self.typeTextField.text! = type
+                        self.genusTextField.text! = genus
+                        self.genderTextField.text! = genus
+                    }
+                    
+                    i = i + 1
+                    
                 }
-                       
-            i = i + 1
-                       
+                
+                break
+            case .failure:
+                Alert.showAlert(message: "Bir hata oluştu. Hayvan Listesi Getiriemedi!", vc: self)
+                print(myresponse.error!)
+                break
+            }
+            
         }
-                   
-        break
-        case .failure:
-            self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
-            print(myresponse.error!)
-            break
-        }
-       
+        
     }
-           
-    prepareTextFields()
-           
-}
     
     // MARK: Data Preparation and POST request
     func post(){
@@ -110,84 +122,47 @@ class EditAnimalViewController: UIViewController {
             switch response.result {
             case .success:
                 // refresh Animal List on previous screen
-                self.showAlert(for: ("Hayvan düzenlemesi kaydedildi."))
+                Alert.showAlertThenPreviousScreen(message: "Hayvan düzenlemesi kaydedildi.", vc: self)
                 break
                 
             case .failure:
                 // show warning to user
                 print(response.error!)
-                self.showWarning(for: "Hayven bilgileri düzeltilirken hata oluştu. Lütfen tekrar deneyiniz!")
+                Alert.showAlert(message: "Hayven bilgileri düzeltilirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
                 break
             }
-
-        }
-    }
-    
-    // prepare
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveAnimalSegue" {
-            let detailAnimalController = segue.destination as? DeatilAnimalViewController
-            if let tempController = detailAnimalController {
-                tempController.selectedId = selectedId
-            }
+            
         }
     }
     
     @IBAction func SaveBtn(_ sender: Any) {
         validate()
-        post()
-        getAnimalDetail(ids:selectedId!)
-       
     }
     
-    // MARK: Fill Data to Text Fiels
-       func prepareTextFields() {
-
-    }
-    
-     // MARK: Validation
-       func validate() {
-              do {
-                  
-                  // try IdTextField.validatedText(validationType: ValidatorType.animalId)
-                  try nameTextField.validatedText(validationType: ValidatorType.animalName)
-                  try locationTextField.validatedText(validationType: ValidatorType.location)
-                  // try typeTextField.validatedText(validationType: ValidatorType.animalType)
-                  // try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
-                  // try genderTextField.validatedText(validationType: ValidatorType.location)
-     
-             } catch(let error) {
-                 showAlert(for: (error as! ValidationError).message)
-             }
-          }
-    
-       // MARK: disableEditing
-       func disableEditing() {
-           
-           IdTextField.isUserInteractionEnabled = false
-           typeTextField.isUserInteractionEnabled = false
-           genusTextField.isUserInteractionEnabled = false
-           genderTextField.isUserInteractionEnabled = false
-           
-       }
-       
-       // MARK: Alert
-       func showAlert(for alert: String) {
-           let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-           let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-           alertController.addAction(alertAction)
-           present(alertController, animated: true, completion: nil)
-       }
-    
-        // MARK: Warning
-        func showWarning(for alert: String) {
+    // MARK: Validation
+    func validate() {
+        do {
             
-            let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-            let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: { (action: UIAlertAction!) in
-                self.navigationController?.popViewController(animated: true)
-            })
-            alertController.addAction(alertAction)
-            present(alertController, animated: true, completion: nil)
+            // try IdTextField.validatedText(validationType: ValidatorType.animalId)
+            try nameTextField.validatedText(validationType: ValidatorType.animalName)
+            try locationTextField.validatedText(validationType: ValidatorType.location)
+            // try typeTextField.validatedText(validationType: ValidatorType.animalType)
+            // try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
+            // try genderTextField.validatedText(validationType: ValidatorType.location)
             
+        } catch(let error) {
+            Alert.showAlert(message: (error as! ValidationError).message, vc: self)
         }
+    }
+    
+    // MARK: disableEditing
+    func disableEditing() {
+        
+        IdTextField.isUserInteractionEnabled = false
+        typeTextField.isUserInteractionEnabled = false
+        genusTextField.isUserInteractionEnabled = false
+        genderTextField.isUserInteractionEnabled = false
+        
+    }
+    
 }
