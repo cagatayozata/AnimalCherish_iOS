@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class AddShelterViewController: UIViewController {
-
+    
     // MARK: IBOutlet
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var address: UITextField!
@@ -23,7 +23,7 @@ class AddShelterViewController: UIViewController {
     @IBOutlet weak var workers: UITextField!
     @IBOutlet weak var button: UIButton!
     
-   // MARK: Variables
+    // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/shelter/save"
     
     // MARK: viewDidLoad
@@ -65,61 +65,61 @@ class AddShelterViewController: UIViewController {
             
             post()
             
-       } catch(let error) {
-           Alert.showAlert(message: (error as! ValidationError).message, vc: self)
-       }
+        } catch(let error) {
+            Alert.showAlert(message: (error as! ValidationError).message, vc: self)
+        }
     }
     
     // MARK: Data Preparation and POST request
-     func post(){
-
-         // prepare paramaters
-         let parameters = ["id": "d4bc2f7f-ebde-4e00-b91f-c3e0a970e1e5",
-         "olusmaTarihi": nil,
-         "olusturanKullanici": nil,
-         "sonGuncellenmeTarihi": nil,
-         "name": name.text!,
-         "address": address.text!,
-         "capacity": capacity.text!,
-         "email": mail.text!,
-         "phone": phone.text!,
-         "details": detail.text!,
-         "birthdate": 1575158400000,
-         "workerCount": workers.text!] as [String : Any?]
-         
-         // POST request
-         AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-             
-             // debug
-             debugPrint(response)
-             
-             // check result is success or failure
-             switch response.result {
-             case .success:
-                 
-                 // refresh Shelter List on previous screen
+    func post(){
+        
+        // prepare paramaters
+        let parameters = ["id": "d8bc2f2f-ebde-1e00-b91f-c3e0a970e1e5",
+                          "olusmaTarihi": nil,
+                          "olusturanKullanici": nil,
+                          "sonGuncellenmeTarihi": nil,
+                          "name": name.text!,
+                          "address": address.text!,
+                          "capacity": capacity.text!,
+                          "email": mail.text!,
+                          "phone": phone.text!,
+                          "details": detail.text!,
+                          "birthdate": 1575158400000,
+                          "workerCount": workers.text!] as [String : Any?]
+        
+        // POST request
+        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            // debug
+            debugPrint(response)
+            
+            // check result is success or failure
+            switch response.result {
+            case .success:
+                
+                // refresh Shelter List on previous screen
                 Alert.showAlertThenPreviousScreen(message: "Barınak başarıyla eklendi!", vc: self)
-                 
-                 break
-             case .failure:
-                 
-                 // show warning to user
-                 print(response.error!)
-                 Alert.showAlert(message: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
-                 break
-                 
-             }
-         
-         }
-         
-     }
+                
+                break
+            case .failure:
+                
+                // show warning to user
+                print(response.error!)
+                Alert.showAlert(message: "Hayven eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
+                break
+                
+            }
+            
+        }
+        
+    }
     
     // MARK: Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-           // when clicking the UIView, keyboard will be removed
-           self.view.endEditing(true)
-       
+        
+        // when clicking the UIView, keyboard will be removed
+        self.view.endEditing(true)
+        
     }
-  
+    
 }
