@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class DetailVetViewController: UIViewController {
-
+    
     //MARK: IBOutlet
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var birthDateTF: UITextField!
@@ -51,7 +51,7 @@ class DetailVetViewController: UIViewController {
     // MARK: GET request and Prepare Selected Data
     func getVetDetail() {
         
-    AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
+        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
             // check result is success or failure
             switch myresponse.result {
@@ -64,7 +64,7 @@ class DetailVetViewController: UIViewController {
                 //
                 var i = 0
                 for item in resultArray.arrayValue {
-
+                    
                     if i == self.selectedId {
                         let name = item["name"].stringValue
                         let education = item["education"].stringValue
@@ -100,27 +100,22 @@ class DetailVetViewController: UIViewController {
                 print(myresponse.error!)
                 break
             }
-    
+            
         }
-        
-        prepareTextFields()
         
     }
     
     // MARK: prepare to send selectedId
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "goToEditVetViewController" {
-             let editVetController = segue.destination as? EditPetShopViewController
-             if let tempController = editVetController {
-                 tempController.selectedId = selectedId
-             }
-         }
-     }
-    
-    // MARK: Fill Data to Text Fields
-    func prepareTextFields() {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEditVetViewController" {
+            let editVetController = segue.destination as? EditVetViewController
+            if let tempController = editVetController {
+                tempController.selectedId = selectedId
+            }
+        }
     }
+    
+    
     
     // MARK: disableEditing
     func disableEditing() {

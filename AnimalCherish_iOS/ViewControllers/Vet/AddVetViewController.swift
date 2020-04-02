@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class AddVetViewController: UIViewController {
-
+    
     // MARK: IBOutlet
     @IBOutlet weak var nameSurname: UITextField!
     @IBOutlet weak var educationInfo: UITextField!
@@ -26,9 +26,9 @@ class AddVetViewController: UIViewController {
     @IBOutlet weak var sicilNo: UITextField!
     @IBOutlet weak var button: UIButton!
     
-     // MARK: Variables
+    // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/vet/save"
-        
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,45 +61,45 @@ class AddVetViewController: UIViewController {
     func validate() {
         do {
             
-            try nameSurname.validatedText(validationType: ValidatorType.vetName)
-            try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
-            try city.validatedText(validationType: ValidatorType.vetCity)
-            try state.validatedText(validationType: ValidatorType.vetState)
-            try address.validatedText(validationType: ValidatorType.vetClinicInfo)
-            try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
-            try email.validatedText(validationType: ValidatorType.vetMailAddress)
-            try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
-            
+             try nameSurname.validatedText(validationType: ValidatorType.vetName)
+             try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
+             try city.validatedText(validationType: ValidatorType.vetCity)
+             try state.validatedText(validationType: ValidatorType.vetState)
+             try address.validatedText(validationType: ValidatorType.vetClinicInfo)
+             try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
+             try email.validatedText(validationType: ValidatorType.vetMailAddress)
+             try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
+             
             post()
             
-       } catch(let error) {
-           Alert.showAlert(message: (error as! ValidationError).message, vc: self)
-       }
+        } catch(let error) {
+            Alert.showAlert(message: (error as! ValidationError).message, vc: self)
+        }
     }
     
     // MARK: Data Preparation and POST request
     func post(){
-
+        
         // prepare paramaters
-        let parameters = [        "id": "3c7c0a75-3d2b-428a-bf65-ed25686a5357",
-        "olusmaTarihi": nil,
-        "olusturanKullanici": nil,
-        "sonGuncellenmeTarihi": nil,
-        "name": nameSurname.text!,
-        "education": educationInfo.text!,
-        "phone": phone.text!,
-        "email": email.text!,
-        "workplace": nil,
-        "clinic": address.text!,
-        "details": detail.text!,
-        "birthdate": 831340800000,
-        "city": city.text!,
-        "ilce": state.text!,
-        "diplomaNo": diplomaNo.text!,
-        "userId": nil,
-        "sicilNo": sicilNo.text!,
-        "kullaniciId": nil,
-        "kullaniciAdi": nil] as [String : Any?]
+        let parameters = [        "id": "1c7c0a75-3d2b-428a-bf65-ed25686a5357",
+                                  "olusmaTarihi": nil,
+                                  "olusturanKullanici": nil,
+                                  "sonGuncellenmeTarihi": nil,
+                                  "name": nameSurname.text!,
+                                  "education": educationInfo.text!,
+                                  "phone": phone.text!,
+                                  "email": email.text!,
+                                  "workplace": nil,
+                                  "clinic": address.text!,
+                                  "details": detail.text!,
+                                  "birthdate": 831340800000,
+                                  "city": city.text!,
+                                  "ilce": state.text!,
+                                  "diplomaNo": diplomaNo.text!,
+                                  "userId": nil,
+                                  "sicilNo": sicilNo.text!,
+                                  "kullaniciId": nil,
+                                  "kullaniciAdi": nil] as [String : Any?]
         
         // POST request
         AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -123,17 +123,17 @@ class AddVetViewController: UIViewController {
                 break
                 
             }
-        
+            
         }
         
     }
     
     // MARK: Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-           // when clicking the UIView, keyboard will be removed
-           self.view.endEditing(true)
-       
+        
+        // when clicking the UIView, keyboard will be removed
+        self.view.endEditing(true)
+        
     }
-  
+    
 }
