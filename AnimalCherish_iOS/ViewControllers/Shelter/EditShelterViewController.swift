@@ -134,7 +134,7 @@ class EditShelterViewController: UIViewController {
            func post(){
 
                // prepare paramaters
-               let parameters = ["id": "d4bc2f7f-ebde-4e00-b91f-c3e0a970e1e5",
+               let parameters = ["id": "d4bc2f9f-ebde-4e00-b91f-c3e0a970e1e5",
                "olusmaTarihi": nil,
                "olusturanKullanici": nil,
                "sonGuncellenmeTarihi": nil,
