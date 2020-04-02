@@ -110,7 +110,7 @@ class DetailVetViewController: UIViewController {
     // MARK: prepare to send selectedId
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "goToEditVetViewController" {
-             let editVetController = segue.destination as? EditVetViewController
+             let editVetController = segue.destination as? EditPetShopViewController
              if let tempController = editVetController {
                  tempController.selectedId = selectedId
              }

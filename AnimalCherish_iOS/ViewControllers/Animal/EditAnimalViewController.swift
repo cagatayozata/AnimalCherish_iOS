@@ -88,7 +88,8 @@ class EditAnimalViewController: UIViewController {
                         self.locationTextField.text! = location
                         self.typeTextField.text! = type
                         self.genusTextField.text! = genus
-                        self.genderTextField.text! = genus
+                        self.genderTextField.text! = gender
+                        
                     }
                     
                     i = i + 1
@@ -110,7 +111,7 @@ class EditAnimalViewController: UIViewController {
     func post(){
         
         // prepare paramaters
-        let parameters = ["id": IdTextField.text!,"olusmaTarihi":nil,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":nil,"name":nameTextField.text!,"address": locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":genderTextField.text,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
+        let parameters = ["id": IdTextField.text!,"olusmaTarihi":nil,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":nil,"name":nameTextField.text!,"address":locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":genderTextField.text,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
         
         // POST request
         AF.request(apiUrlSave, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -137,18 +138,17 @@ class EditAnimalViewController: UIViewController {
     
     @IBAction func SaveBtn(_ sender: Any) {
         validate()
+        Alert.showAlertThenPreviousScreen(message: "Hayvan düzenlenmesi kaydedildi", vc: self)
     }
     
     // MARK: Validation
     func validate() {
         do {
             
-            // try IdTextField.validatedText(validationType: ValidatorType.animalId)
             try nameTextField.validatedText(validationType: ValidatorType.animalName)
             try locationTextField.validatedText(validationType: ValidatorType.location)
-            // try typeTextField.validatedText(validationType: ValidatorType.animalType)
-            // try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
-            // try genderTextField.validatedText(validationType: ValidatorType.location)
+            
+            post()
             
             post()
             
