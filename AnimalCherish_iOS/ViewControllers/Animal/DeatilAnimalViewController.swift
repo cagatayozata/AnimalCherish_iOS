@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 class DeatilAnimalViewController: UIViewController {
-   
     
     // MARK: IBOutlet
     @IBOutlet weak var IdTextField: UITextField!
@@ -29,8 +28,17 @@ class DeatilAnimalViewController: UIViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // disable text fields
         self.disableEditing()
+        
+        // TextField Style
+        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
+        nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
+        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
+        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
+        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
+        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
         
         // if selected id has a problem, it will be equal to -1
         let checkId = selectedId ?? -1
@@ -39,27 +47,15 @@ class DeatilAnimalViewController: UIViewController {
             self.getAnimalDetail()
         }
         else {
-            showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
+            Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-          super.viewWillAppear(animated)
-          viewLoadSetup()
 
-       }
-
-
-        func viewLoadSetup(){
-         // setup view did load here
-        }
-    
-    
     // MARK: GET request and Prepare Selected Data
     func getAnimalDetail() {
         
-    AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
+        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
             // check result is success or failure
             switch myresponse.result {
@@ -72,7 +68,7 @@ class DeatilAnimalViewController: UIViewController {
                 //
                 var i = 0
                 for item in resultArray.arrayValue {
-
+                    
                     if i == self.selectedId {
                         let id = item["id"].stringValue
                         let name = item["name"].stringValue
@@ -95,21 +91,12 @@ class DeatilAnimalViewController: UIViewController {
                 
                 break
             case .failure:
-                self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
+                Alert.showAlert(message: "Bir hata oluştu. Hayvan Listesi Getiriemedi!", vc: self)
                 print(myresponse.error!)
                 break
             }
-    
+            
         }
-        
-        prepareTextFields()
-        
-    }
-    
-    // MARK: Fill Data to Text Fields
-    func prepareTextFields() {
-        
-
         
     }
     
@@ -125,22 +112,14 @@ class DeatilAnimalViewController: UIViewController {
         
     }
     
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
     // MARK: Send selectedId to EditAnimalViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goEditAnimalScreen" {
             let editAnimalController = segue.destination as? EditAnimalViewController
-                if let tempController = editAnimalController {
-                    tempController.selectedId = selectedId
-                }
+            if let tempController = editAnimalController {
+                tempController.selectedId = selectedId
             }
         }
     }
+}
 

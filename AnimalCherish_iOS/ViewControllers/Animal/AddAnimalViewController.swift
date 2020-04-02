@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     // MARK: IBOutlet
     @IBOutlet weak var IdTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
@@ -78,17 +78,17 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             try locationTextField.validatedText(validationType: ValidatorType.location)
             try typeTextField.validatedText(validationType: ValidatorType.animalType)
             try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
-
+            
             post()
             
-       } catch(let error) {
+        } catch(let error) {
             Alert.showAlert(message: (error as! ValidationError).message, vc: self)
-       }
+        }
     }
     
     // MARK: Data Preparation and POST request
     func post(){
-
+        
         // prepare paramaters
         let parameters = [
             "id": IdTextField.text!,
@@ -104,7 +104,7 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             "sahipId":nil,
             "turAd":typeTextField.text!,
             "cinsAd": genusTextField.text!
-        ] as [String : Any?]
+            ] as [String : Any?]
         
         // POST request
         AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -128,7 +128,7 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 break
                 
             }
-        
+            
         }
         
     }
@@ -137,9 +137,9 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
-    
+        
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if self.typeTextField.isEditing {
@@ -181,10 +181,10 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     // MARK: Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-           // when clicking the UIView, keyboard will be removed
-           self.view.endEditing(true)
-       
+        
+        // when clicking the UIView, keyboard will be removed
+        self.view.endEditing(true)
+        
     }
-
+    
 }
