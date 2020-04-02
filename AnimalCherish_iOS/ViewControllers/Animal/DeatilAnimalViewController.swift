@@ -29,16 +29,11 @@ class DeatilAnimalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // style textfields and buttons
+        style()
+        
         // disable text fields
         self.disableEditing()
-        
-        // TextField Style
-        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
-        nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
-        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
-        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
-        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
-        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
         
         // if selected id has a problem, it will be equal to -1
         let checkId = selectedId ?? -1
@@ -51,7 +46,7 @@ class DeatilAnimalViewController: UIViewController {
         }
         
     }
-
+    
     // MARK: GET request and Prepare Selected Data
     func getAnimalDetail() {
         
@@ -100,6 +95,16 @@ class DeatilAnimalViewController: UIViewController {
         
     }
     
+    // MARK: Send selectedId to EditAnimalViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goEditAnimalScreen" {
+            let editAnimalController = segue.destination as? EditAnimalViewController
+            if let tempController = editAnimalController {
+                tempController.selectedId = selectedId
+            }
+        }
+    }
+    
     // MARK: disableEditing
     func disableEditing() {
         
@@ -112,14 +117,18 @@ class DeatilAnimalViewController: UIViewController {
         
     }
     
-    // MARK: Send selectedId to EditAnimalViewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goEditAnimalScreen" {
-            let editAnimalController = segue.destination as? EditAnimalViewController
-            if let tempController = editAnimalController {
-                tempController.selectedId = selectedId
-            }
-        }
+    // MARK: style
+    func style() {
+        
+        // TextField Style
+        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
+        nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
+        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
+        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
+        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
+        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
+        
     }
+    
 }
 

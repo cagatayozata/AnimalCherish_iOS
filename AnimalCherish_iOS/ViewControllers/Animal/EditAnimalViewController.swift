@@ -34,17 +34,8 @@ class EditAnimalViewController: UIViewController {
         // disable text fields
         self.disableEditing()
         
-        // TextField Style
-        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
-        nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
-        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
-        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
-        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
-        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
-        
-        // Button Button
-        button.layer.cornerRadius = 5
-        button.layer.borderWidth = 1
+        // style textfields and buttons
+        style()
         
         // if selected id has a problem, it will be equal to -1
         let checkId = selectedId ?? -1
@@ -107,6 +98,24 @@ class EditAnimalViewController: UIViewController {
         
     }
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        validate()
+    }
+    
+    // MARK: Validation
+    func validate() {
+        do {
+            
+            try nameTextField.validatedText(validationType: ValidatorType.animalName)
+            try locationTextField.validatedText(validationType: ValidatorType.location)
+            
+            post()
+            
+        } catch(let error) {
+            Alert.showAlert(message: (error as! ValidationError).message, vc: self)
+        }
+    }
+    
     // MARK: Data Preparation and POST request
     func post(){
         
@@ -136,27 +145,6 @@ class EditAnimalViewController: UIViewController {
         }
     }
     
-    @IBAction func SaveBtn(_ sender: Any) {
-        validate()
-        Alert.showAlertThenPreviousScreen(message: "Hayvan düzenlenmesi kaydedildi", vc: self)
-    }
-    
-    // MARK: Validation
-    func validate() {
-        do {
-            
-            try nameTextField.validatedText(validationType: ValidatorType.animalName)
-            try locationTextField.validatedText(validationType: ValidatorType.location)
-            
-            post()
-            
-            post()
-            
-        } catch(let error) {
-            Alert.showAlert(message: (error as! ValidationError).message, vc: self)
-        }
-    }
-    
     // MARK: disableEditing
     func disableEditing() {
         
@@ -164,6 +152,23 @@ class EditAnimalViewController: UIViewController {
         typeTextField.isUserInteractionEnabled = false
         genusTextField.isUserInteractionEnabled = false
         genderTextField.isUserInteractionEnabled = false
+        
+    }
+    
+    // MARK: style
+    func style() {
+        
+        // TextField Style
+        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
+        nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
+        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
+        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
+        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
+        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
+        
+        // Button Button
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
         
     }
     

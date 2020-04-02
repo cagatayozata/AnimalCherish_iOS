@@ -26,13 +26,13 @@ class MainViewController: UIViewController, UIScrollViewDelegate  {
         // set current page and refresh
         pageControl.currentPage = 0
         changePage(pageControl)
-
+        
         // enable interaction for arrow images
         nextImage.isUserInteractionEnabled = true
         backImage.isUserInteractionEnabled = true
         
     }
-
+    
     // MARK: Navigation
     @IBAction func nextPage(_ sender: Any) {
         
@@ -71,7 +71,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate  {
             startButton.isHidden = true
             
         case 1:
-
+            
             // set main image
             mainImage.image = UIImage(named: "trusted")
             
@@ -85,7 +85,7 @@ class MainViewController: UIViewController, UIScrollViewDelegate  {
             startButton.isHidden = true
             
         case 2:
-
+            
             // set main image
             mainImage.image = UIImage(named: "statics")
             

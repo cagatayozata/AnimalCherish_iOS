@@ -9,14 +9,16 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-
+    
+    // MARK: IBOutlet
     @IBOutlet weak var box: UIView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var alreadyRegisterdButton: UIButton!
-
+    
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,44 +26,17 @@ class RegisterViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        // Box
-        box.layer.cornerRadius = 15
-        box.layer.borderWidth = 1
+        // style edits
+        style()
         
-        // Username
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "Kullanıcı Adı",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        usernameTextField.setIcon(imageName: "person")
-        
-        // E-mail
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        emailTextField.setIcon(imageName: "envelope")
-        
-        // Password
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Parola",
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        passwordTextField.setIcon(imageName: "lock")
-        
-        // Login Button
-        registerButton.layer.cornerRadius = 5
-        registerButton.layer.borderWidth = 1
-        
-        // Already Registered Button
-        let attributedString = NSAttributedString(string: NSLocalizedString("Zaten üyeyim, giriş yap", comment: ""), attributes:[
-            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0),
-            NSAttributedString.Key.foregroundColor : UIColor.black,
-            NSAttributedString.Key.underlineStyle:1.0
-        ])
-        alreadyRegisterdButton.setAttributedTitle(attributedString, for: .normal)
-
     }
     
+    // MARK: Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    
+        
         // when clicking the UIView, keyboard will be removed
         self.view.endEditing(true)
-    
+        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -71,12 +46,37 @@ class RegisterViewController: UIViewController {
             }
         }
     }
-
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
     }
-
+    
+    // MARK: style
+    func style() {
+        
+        // Box
+        box.layer.cornerRadius = 15
+        box.layer.borderWidth = 1
+        
+        // Username
+        usernameTextField.setTitleAndIcon(title: "Kullanıcı Adı", icon: "person", systemIcon: true)
+        
+        // E-mail
+        emailTextField.setTitleAndIcon(title: "Email", icon: "envelope", systemIcon: true)
+        
+        // Password
+        passwordTextField.setTitleAndIcon(title: "Parola", icon: "lock", systemIcon: true)
+        
+        // Login Button
+        registerButton.layer.cornerRadius = 5
+        registerButton.layer.borderWidth = 1
+        
+        // Already Registered Button
+        alreadyRegisterdButton.setLoginButton(title: "Zaten üyeyim, giriş yap")
+        
+    }
+    
 }
 
