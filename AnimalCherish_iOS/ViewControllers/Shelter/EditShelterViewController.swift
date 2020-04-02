@@ -93,8 +93,6 @@ class EditShelterViewController: UIViewController {
        
            }
            
-           prepareTextFields()
-           
        }
     
     // prepare
@@ -110,7 +108,6 @@ class EditShelterViewController: UIViewController {
     // MARK: Post data
     @IBAction func SaveBtn(_ sender: Any) {
         validate()
-        getShelterDetail(ids: selectedId!)
     }
     
     
@@ -184,21 +181,11 @@ class EditShelterViewController: UIViewController {
                  self.view.endEditing(true)
              
           }
-       // MARK: Fill Data to Text Fields
-       func prepareTextFields() {
-           
-       }
        
        // MARK: disableEditing
        func disableEditing() {
            nameTF.isUserInteractionEnabled = false
            establishDateTF.isUserInteractionEnabled = false
-        //   addressTF.isUserInteractionEnabled = false
-        //   capacityTF.isUserInteractionEnabled = false
-        //   detailTF.isUserInteractionEnabled = false
-        //   phoneTF.isUserInteractionEnabled = false
-        //   emailTF.isUserInteractionEnabled = false
-        //   workerCountTF.isUserInteractionEnabled = false
        }
        
        // MARK: Alert

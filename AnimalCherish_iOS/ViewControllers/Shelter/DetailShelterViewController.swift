@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class DetailShelterViewController: UIViewController {
-
+    
     //MARK: IBOutlet
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
@@ -21,7 +21,7 @@ class DetailShelterViewController: UIViewController {
     @IBOutlet weak var workerCountTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var establishDateTF: UITextField!
-   
+    
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/shelter/getall"
     var selectedId:Int? = nil
@@ -29,11 +29,11 @@ class DetailShelterViewController: UIViewController {
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.disableEditing()
         // if selected id has a problem, it will be equal to -1
         let checkId = selectedId ?? -1
-               
+        
         if checkId != -1 {
             self.getShelterDetail()
         }
@@ -45,7 +45,7 @@ class DetailShelterViewController: UIViewController {
     // MARK: GET request and Prepare Selected Data
     func getShelterDetail() {
         
-    AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
+        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
             // check result is success or failure
             switch myresponse.result {
@@ -58,7 +58,7 @@ class DetailShelterViewController: UIViewController {
                 //
                 var i = 0
                 for item in resultArray.arrayValue {
-
+                    
                     if i == self.selectedId {
                         let name = item["name"].stringValue
                         let establish = item["birtdahte"].stringValue
@@ -89,10 +89,9 @@ class DetailShelterViewController: UIViewController {
                 print(myresponse.error!)
                 break
             }
-    
+            
         }
         
-        prepareTextFields()
         
     }
     
@@ -104,11 +103,6 @@ class DetailShelterViewController: UIViewController {
                 tempController.selectedId = selectedId
             }
         }
-    }
-    
-    // MARK: Fill Data to Text Fields
-    func prepareTextFields() {
-        
     }
     
     // MARK: disableEditing
