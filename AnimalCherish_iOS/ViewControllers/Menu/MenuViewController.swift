@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,7 +18,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // close
         closeImage.isUserInteractionEnabled = true
         
@@ -32,7 +32,7 @@ class MenuViewController: UIViewController {
         nameLabel.text! = "Çağatay ÖZATA"
         usernameLabel.text! = "Veteriner Hekim"
     }
-
+    
     @IBAction func closePressed(_ sender: Any) {
         
         dismiss(animated: true)

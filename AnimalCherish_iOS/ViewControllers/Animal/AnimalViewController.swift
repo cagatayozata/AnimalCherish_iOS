@@ -30,8 +30,6 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
-        
         getAnimalList()
         
         self.searchBar.delegate = self
