@@ -150,6 +150,8 @@ class EditAnimalViewController: UIViewController {
             
             post()
             
+            post()
+            
         } catch(let error) {
             Alert.showAlert(message: (error as! ValidationError).message, vc: self)
         }

@@ -372,7 +372,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="SaveBtn:" destination="uKa-gz-baZ" eventType="touchUpInside" id="AjX-G6-zq0"/>
                                     <action selector="saveButtonPressed:" destination="2Ab-Pd-fgU" eventType="touchUpInside" id="L0l-ZP-rYB"/>
                                 </connections>
                             </button>
