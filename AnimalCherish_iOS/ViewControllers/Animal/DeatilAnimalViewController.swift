@@ -11,13 +11,15 @@ import Alamofire
 import SwiftyJSON
 
 class DeatilAnimalViewController: UIViewController {
-
+   
+    
     // MARK: IBOutlet
     @IBOutlet weak var IdTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var genusTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
@@ -77,12 +79,14 @@ class DeatilAnimalViewController: UIViewController {
                         let location = item["address"].stringValue
                         let type = item["turAd"].stringValue
                         let genus = item["cinsAd"].stringValue
+                        let gender = item["cinsiyet"].stringValue
                         
                         self.IdTextField.text! = id
                         self.nameTextField.text! = name
                         self.locationTextField.text! = location
                         self.typeTextField.text! = type
                         self.genusTextField.text! = genus
+                        self.genderTextField.text! = gender
                     }
                     
                     i = i + 1
@@ -117,6 +121,7 @@ class DeatilAnimalViewController: UIViewController {
         locationTextField.isUserInteractionEnabled = false
         typeTextField.isUserInteractionEnabled = false
         genusTextField.isUserInteractionEnabled = false
+        genderTextField.isUserInteractionEnabled = false
         
     }
     

@@ -18,6 +18,7 @@ class EditAnimalViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var genusTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
     
     // MARK: Variables
        let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
@@ -48,54 +49,56 @@ class EditAnimalViewController: UIViewController {
            
        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
   
-               // check result is success or failure
-               switch myresponse.result {
-               case .success:
+            // check result is success or failure
+            switch myresponse.result {
+            case .success:
                    
-                   // GET data
-                   let myresult = try? JSON(data: myresponse.data!)
-                   let resultArray = myresult!
+            // GET data
+            let myresult = try? JSON(data: myresponse.data!)
+            let resultArray = myresult!
                    
-                   //
-                   var i = 0
-                   for item in resultArray.arrayValue {
+            //
+            var i = 0
+            for item in resultArray.arrayValue {
 
-                       if i == self.selectedId  {
-                           let id = item["id"].stringValue
-                           let name = item["name"].stringValue
-                           let location = item["address"].stringValue
-                           let type = item["turAd"].stringValue
-                           let genus = item["cinsAd"].stringValue
-                           
-                           self.IdTextField.text! = id
-                           self.nameTextField.text! = name
-                           self.locationTextField.text! = location
-                           self.typeTextField.text! = type
-                           self.genusTextField.text! = genus
-                       }
+            if i == self.selectedId  {
+                let id = item["id"].stringValue
+                let name = item["name"].stringValue
+                let location = item["address"].stringValue
+                let type = item["turAd"].stringValue
+                let genus = item["cinsAd"].stringValue
+                let gender = item["cinsiyet"].stringValue
+                        
+                self.IdTextField.text! = id
+                self.nameTextField.text! = name
+                self.locationTextField.text! = location
+                self.typeTextField.text! = type
+                self.genusTextField.text! = genus
+                self.genderTextField.text! = genus
+                }
                        
-                       i = i + 1
+            i = i + 1
                        
-                   }
+        }
                    
-                   break
-               case .failure:
-                   self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
-                   print(myresponse.error!)
-                   break
-               }
+        break
+        case .failure:
+            self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
+            print(myresponse.error!)
+            break
+        }
        
-           }
+    }
            
-           prepareTextFields()
+    prepareTextFields()
            
-       }
+}
     
     // MARK: Data Preparation and POST request
     func post(){
         
         // prepare paramaters
-        let parameters = ["id": IdTextField.text!,"olusmaTarihi":nil,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":nil,"name":nameTextField.text!,"address": locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":false,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
+        let parameters = ["id": IdTextField.text!,"olusmaTarihi":nil,"olusturanKullanici":"d19238c6-3578-466e-a293-3ba6f7ef1784","sonGuncellenmeTarihi":nil,"name":nameTextField.text!,"address": locationTextField.text!,"birthdate":nil,"turId":"5529ad2a-ab07-4fad-9a94-355fa7da4ca1","cinsId":"d09a1d83-5151-416a-834f-db95f510e341","cinsiyet":genderTextField.text,"sahipId":nil,"turAd":typeTextField.text!,"cinsAd": genusTextField.text!] as [String : Any?]
         
         // POST request
         AF.request(apiUrlSave, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
@@ -106,21 +109,17 @@ class EditAnimalViewController: UIViewController {
             // check result is success or failure
             switch response.result {
             case .success:
-                
-                    
                 // refresh Animal List on previous screen
                 self.showAlert(for: ("Hayvan düzenlemesi kaydedildi."))
-               
                 break
-            case .failure:
                 
+            case .failure:
                 // show warning to user
                 print(response.error!)
                 self.showWarning(for: "Hayven bilgileri düzeltilirken hata oluştu. Lütfen tekrar deneyiniz!")
                 break
-                
             }
-        
+
         }
     }
     
@@ -140,12 +139,11 @@ class EditAnimalViewController: UIViewController {
         getAnimalDetail(ids:selectedId!)
        
     }
+    
     // MARK: Fill Data to Text Fiels
        func prepareTextFields() {
-           
 
-           
-       }
+    }
     
      // MARK: Validation
        func validate() {
@@ -156,18 +154,20 @@ class EditAnimalViewController: UIViewController {
                   try locationTextField.validatedText(validationType: ValidatorType.location)
                   // try typeTextField.validatedText(validationType: ValidatorType.animalType)
                   // try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
-
-                  
+                  // try genderTextField.validatedText(validationType: ValidatorType.location)
+     
              } catch(let error) {
                  showAlert(for: (error as! ValidationError).message)
              }
           }
+    
        // MARK: disableEditing
        func disableEditing() {
            
            IdTextField.isUserInteractionEnabled = false
            typeTextField.isUserInteractionEnabled = false
            genusTextField.isUserInteractionEnabled = false
+           genderTextField.isUserInteractionEnabled = false
            
        }
        
@@ -179,7 +179,7 @@ class EditAnimalViewController: UIViewController {
            present(alertController, animated: true, completion: nil)
        }
     
-      // MARK: Warning
+        // MARK: Warning
         func showWarning(for alert: String) {
             
             let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
@@ -190,5 +190,4 @@ class EditAnimalViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
             
         }
-
 }

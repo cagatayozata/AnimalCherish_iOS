@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XYS-WU-bnI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XYS-WU-bnI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -268,17 +268,17 @@
             <objects>
                 <viewController storyboardIdentifier="goToEditVetScreen" title="Veteriner Detay" id="FuV-in-GfH" customClass="DetailVetViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QcO-tX-3XL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Doğum Tarihi" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wcq-WB-z4R">
-                                <rect key="frame" x="77" y="564" width="261" height="34"/>
+                                <rect key="frame" x="77" y="215" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0312-000-0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MqX-Yb-bEq">
-                                <rect key="frame" x="77" y="445" width="261" height="34"/>
+                                <rect key="frame" x="77" y="431" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -293,31 +293,43 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İl" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9xT-gY-a0C">
-                                <rect key="frame" x="77" y="275" width="261" height="34"/>
+                                <rect key="frame" x="77" y="615" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ExF-Ci-NyS">
-                                <rect key="frame" x="77" y="505" width="261" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Klinik Bilgisi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ed0-eD-SBj">
-                                <rect key="frame" x="77" y="388" width="261" height="34"/>
+                                <rect key="frame" x="77" y="473" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eğitim Bilgisi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1I9-4U-wZA">
-                                <rect key="frame" x="77" y="219" width="261" height="34"/>
+                                <rect key="frame" x="77" y="265" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Diploma No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VcG-ZG-Mfc">
+                                <rect key="frame" x="77" y="319" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sicil No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zSz-OI-gRV">
+                                <rect key="frame" x="77" y="372" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İlçe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cUV-c5-YiD">
-                                <rect key="frame" x="77" y="332" width="261" height="34"/>
+                                <rect key="frame" x="77" y="563" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dtc-TG-ztf">
+                                <rect key="frame" x="77" y="515" width="261" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -329,52 +341,161 @@
                                     <navigationItem title=" Veteriner Detay" id="nYB-b0-Udq" userLabel="Veteriner Detay">
                                         <barButtonItem key="rightBarButtonItem" title="Düzenle" id="R0v-iC-LQh">
                                             <connections>
-                                                <segue destination="zgq-Jb-Y1E" kind="show" id="9Bi-Dn-Ikw"/>
+                                                <segue destination="zgq-Jb-Y1E" kind="show" identifier="goToEditVetViewController" id="9Bi-Dn-Ikw"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ed0-eD-SBj">
+                                <rect key="frame" x="77" y="668" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="wsD-s4-izk"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hdh-qd-SIR"/>
                     <connections>
+                        <outlet property="addressTF" destination="dtc-TG-ztf" id="7Mf-yY-PLx"/>
                         <outlet property="birthDateTF" destination="Wcq-WB-z4R" id="yV7-aH-VZP"/>
                         <outlet property="cityTF" destination="9xT-gY-a0C" id="2Dw-6U-qz2"/>
                         <outlet property="clinicInfoTF" destination="ed0-eD-SBj" id="fhX-eF-MHK"/>
+                        <outlet property="detailTF" destination="ed0-eD-SBj" id="W2t-vp-AF6"/>
+                        <outlet property="diplomaNo" destination="VcG-ZG-Mfc" id="jT3-eR-Abb"/>
                         <outlet property="educationInfoTF" destination="1I9-4U-wZA" id="Shj-aL-RID"/>
                         <outlet property="emailTF" destination="ExF-Ci-NyS" id="9XL-Gm-h4v"/>
                         <outlet property="nameTF" destination="dvO-SZ-JEU" id="fjN-m3-1VH"/>
                         <outlet property="phoneTF" destination="MqX-Yb-bEq" id="f8D-8q-V27"/>
+                        <outlet property="sicilNo" destination="zSz-OI-gRV" id="8OO-dT-0XE"/>
                         <outlet property="stateTF" destination="cUV-c5-YiD" id="8is-dH-1WG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7x5-Ir-DLb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="W8Y-2C-W47" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1444.9275362318842" y="736.60714285714278"/>
+            <point key="canvasLocation" x="1445" y="743"/>
         </scene>
         <!--Veteriner Düzenle-->
         <scene sceneID="gQR-gf-AnI">
             <objects>
-                <viewController title="Veteriner Düzenle" id="zgq-Jb-Y1E" sceneMemberID="viewController">
+                <viewController title="Veteriner Düzenle" id="zgq-Jb-Y1E" customClass="EditVetViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A4n-Xr-NlQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Doğum Tarihi" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FTK-Vh-wLf">
+                                <rect key="frame" x="84" y="118" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0312-000-0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pna-CT-UAj">
+                                <rect key="frame" x="84" y="334" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ad Soyad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="upM-t6-htg">
+                                <rect key="frame" x="84" y="64" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameTF:" destination="A3D-n1-1sB" eventType="editingDidEnd" id="sTd-4M-ZSo"/>
+                                    <action selector="nameTextField:" destination="W8Y-2C-W47" eventType="editingDidEnd" id="lJY-En-dZW"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İl" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JiY-Bq-XXT">
+                                <rect key="frame" x="84" y="518" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uol-BO-bNA">
+                                <rect key="frame" x="84" y="376" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Detay" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P84-Xe-uFV">
+                                <rect key="frame" x="84" y="571" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Eğitim Bilgisi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lSA-Qv-nPc">
+                                <rect key="frame" x="84" y="168" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Diploma No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Em-t5-I3q">
+                                <rect key="frame" x="84" y="222" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sicil No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c96-5O-cFG">
+                                <rect key="frame" x="84" y="275" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="İlçe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRF-Do-smz">
+                                <rect key="frame" x="84" y="466" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Adres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XAD-ch-q3b">
+                                <rect key="frame" x="84" y="418" width="261" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6T-q6-Ssr">
+                                <rect key="frame" x="186" y="734" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="KAYDET"/>
+                                <connections>
+                                    <action selector="SaveBtn:" destination="zgq-Jb-Y1E" eventType="touchUpInside" id="zCW-wl-wRh"/>
+                                    <segue destination="FuV-in-GfH" kind="presentation" identifier="saveVetSegue" id="2Kn-Bt-3OS"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jqQ-XR-SXw"/>
                     </view>
                     <navigationItem key="navigationItem" id="KeP-6y-gmk"/>
+                    <connections>
+                        <outlet property="addressTF" destination="XAD-ch-q3b" id="QiH-7g-2bu"/>
+                        <outlet property="birthdateTF" destination="FTK-Vh-wLf" id="Wnv-FC-g8s"/>
+                        <outlet property="cityTF" destination="JiY-Bq-XXT" id="ceU-x7-LRO"/>
+                        <outlet property="detailTF" destination="P84-Xe-uFV" id="Ckg-BV-ePL"/>
+                        <outlet property="diplomaNoTF" destination="0Em-t5-I3q" id="IM0-5o-jDt"/>
+                        <outlet property="educationInfoTF" destination="lSA-Qv-nPc" id="zhA-kA-agi"/>
+                        <outlet property="emailTF" destination="uol-BO-bNA" id="Hz4-qQ-hti"/>
+                        <outlet property="nameTF" destination="upM-t6-htg" id="Vzy-3k-KwK"/>
+                        <outlet property="phoneTF" destination="Pna-CT-UAj" id="lJi-xM-klB"/>
+                        <outlet property="sicilNoTF" destination="c96-5O-cFG" id="BhQ-Wi-EiF"/>
+                        <outlet property="stateTF" destination="SRF-Do-smz" id="mC9-xy-T3H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBc-Gt-mXK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="A3D-n1-1sB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2518" y="737"/>
+            <point key="canvasLocation" x="2441" y="743"/>
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left" catalog="system" width="128" height="98"/>
-        <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
+        <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="square.and.arrow.down" catalog="system" width="60" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9Bi-Dn-Ikw"/>
+        <segue reference="2Kn-Bt-3OS"/>
+    </inferredMetricsTieBreakers>
 </document>
