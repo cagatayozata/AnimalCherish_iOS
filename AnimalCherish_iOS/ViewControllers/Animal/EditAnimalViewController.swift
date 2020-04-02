@@ -150,6 +150,8 @@ class EditAnimalViewController: UIViewController {
             // try genusTextField.validatedText(validationType: ValidatorType.animalGenus)
             // try genderTextField.validatedText(validationType: ValidatorType.location)
             
+            post()
+            
         } catch(let error) {
             Alert.showAlert(message: (error as! ValidationError).message, vc: self)
         }
