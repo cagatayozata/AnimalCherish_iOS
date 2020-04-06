@@ -8,8 +8,9 @@
 
 import UIKit
 import Charts
+import Foundation
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
     
     // MARK: IBOutlet
     @IBOutlet weak var pieChartView: PieChartView!
@@ -17,10 +18,21 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var yeniliklerButton: UIButton!
     @IBOutlet weak var recentNewsButton: UIButton!
     @IBOutlet weak var summaryButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: Variables
     let rolesTitles = ["Barınak Görevlisi", "Veteriner Hekim", "Normal Kullanıcı", "Administrator"]
     let rolesValues = [1, 1, 1, 12]
+    
+    // MARK: TableView News from RSS
+    var parser = XMLParser()
+    var news = NSMutableArray()
+    var elements = NSMutableDictionary()
+    var element:String = ""
+    var titleOfNew:String = ""
+    var link:String = ""
+    var pubDate:String = ""
+    var foundCharacters = ""
     
     // MARK: viewDidLoad
     override func viewDidLoad()
@@ -33,7 +45,94 @@ class DashboardViewController: UIViewController {
         // style edits
         style()
         
+        parsingDataFromURL()
+        print("parsingDataFromURL2")
     }
+    
+    
+    
+    // MARK: Data parsing from url
+    func parsingDataFromURL(){
+        news = []
+        parser = XMLParser(contentsOf: URL(string: "https://www.hurriyet.com.tr/rss/hayvan")!)!
+        parser.delegate = self
+        parser.parse()
+        tableView.reloadData()
+        print("parsingDataFromURL")
+    }
+    
+    //fill the news
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+        
+        element = elementName
+        if elementName.isEqual("item"){
+            elements = NSMutableDictionary()
+            elements = [:]
+            titleOfNew = NSMutableString() as String
+            pubDate = NSMutableString() as String
+            link = NSMutableString() as String
+            
+            titleOfNew = " "
+            pubDate = " "
+            link = " "
+            print("Parser if içi")
+        }
+        print("Parser if dışı")
+    }
+    
+    // MARK: find character Title ı linke yazdırmak
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
+        self.foundCharacters += string
+        print("foundCharacters : ",foundCharacters)
+        if element.isEqual("title"){
+            titleOfNew.append(string)
+        }
+        else if element.isEqual("link"){
+            link.append(string)
+        }
+        else if element.isEqual("pubDate"){
+            pubDate.append(string)
+        }
+        print("foundCharacter")
+    }
+    
+    // MARK: elemanların sonuna geldiğini anlamak ıcın
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if (elementName as NSString).isEqual(to: "item") {
+            if !titleOfNew.isEqual(nil) {
+                elements.setObject(titleOfNew, forKey: "title" as NSMutableCopying as! NSCopying)
+            }
+            else if !link.isEqual(nil) {
+                elements.setObject(link, forKey: "link" as NSCopying)
+            }
+            else if !pubDate.isEqual(nil) {
+                elements.setObject(pubDate, forKey: "pubDate" as NSCopying)
+            }
+            
+            news.add(elements)
+        }
+        print("end of parser")
+    }
+    
+    
+    // MARK: TableView delegate & datasource
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return news.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as UITableViewCell
+        if (cell.isEqual(NSNull.self)) {
+            cell = Bundle.main.loadNibNamed("myCell",owner: self, options: nil)![0] as! UITableViewCell
+        }
+        
+        //cell.textLabel?.text = (self.news[indexPath.row] as! String)
+        cell.textLabel?.text = (Bundle.main.loadNibNamed("myCell", owner: self, options: nil)?[0] as! String)
+        print(news)
+        print("table view doldu")
+        return cell
+    }
+    
     
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
