@@ -88,6 +88,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         return 1
     }
     
+    // MARK: Table view show selected segment
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if activeSegment == 0 {
             
@@ -97,6 +98,10 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         } else if activeSegment == 1 {
             
             // son haberler
+            if myFeed.count > 7 {
+                return 7
+            }
+            
             return myFeed.count
             
         } else {
@@ -107,6 +112,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         }
     }
     
+    // 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if activeSegment == 0 {
@@ -132,12 +138,12 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
             cell.textLabel?.backgroundColor = UIColor.clear
             cell.detailTextLabel?.backgroundColor = UIColor.clear
-            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.numberOfLines = 1
             
             if indexPath.row % 2 == 0 {
                 cell.backgroundColor = UIColor(white: 1, alpha: 0)
             } else {
-                cell.backgroundColor = UIColor(white: 0, alpha: 0.1)
+                cell.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
             }
             
             // Load feed iamge.
@@ -149,7 +155,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
             
             let cellImageLayer: CALayer?  = cell.imageView?.layer
             
-            cellImageLayer!.cornerRadius = 50
+            cellImageLayer!.cornerRadius = 15
             cellImageLayer!.masksToBounds = true
             
             cell.imageView?.image = image
@@ -186,6 +192,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         )
     }
     
+    // MARK: Resize Image of Recent News
     func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
         
         let scale = CGFloat(max(size.width/image.size.width,
@@ -210,6 +217,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
+    // MARK: Show Summary Page
     @IBAction func pressedSummary(_ sender: Any) {
         
         summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
@@ -220,6 +228,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
+    // MARK: Show Recent News Page
     @IBAction func pressedRecentNews(_ sender: Any) {
         
         summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
@@ -231,6 +240,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
+    // MARK: Show Yenilikler Page
     @IBAction func pressedYenilikler(_ sender: Any) {
         
         summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
