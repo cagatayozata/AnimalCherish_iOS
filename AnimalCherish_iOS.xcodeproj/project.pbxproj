@@ -20,6 +20,7 @@
 		0838D60E2406A3990056E2F0 /* Zoo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0838D60D2406A3990056E2F0 /* Zoo.storyboard */; };
 		0838D6112406A58D0056E2F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6102406A58D0056E2F0 /* LoginViewController.swift */; };
 		0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D6122406A59E0056E2F0 /* RegisterViewController.swift */; };
+		08590CC6244731B500239203 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08590CC5244731B500239203 /* UIView.swift */; };
 		0863D857243207E00000ED6B /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0863D856243207E00000ED6B /* Homepage.storyboard */; };
 		0863D859243208790000ED6B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0863D858243208790000ED6B /* Profile.storyboard */; };
 		0863D85C24320EBC0000ED6B /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863D85B24320EBC0000ED6B /* HomepageViewController.swift */; };
@@ -79,6 +80,7 @@
 		0838D60D2406A3990056E2F0 /* Zoo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Zoo.storyboard; sourceTree = "<group>"; };
 		0838D6102406A58D0056E2F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0838D6122406A59E0056E2F0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		08590CC5244731B500239203 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0863D856243207E00000ED6B /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		0863D858243208790000ED6B /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0863D85B24320EBC0000ED6B /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				08C6F3852413BE8400E53BA2 /* UITextField+Extensions.swift */,
 				08A41696242B81C4005CC9B2 /* UIViewControllerTransitioningDelegate.swift */,
 				08A2FE832435FAF800CD7ADF /* UIButton.swift */,
+				08590CC5244731B500239203 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08590CC6244731B500239203 /* UIView.swift in Sources */,
 				08A41697242B81C4005CC9B2 /* UIViewControllerTransitioningDelegate.swift in Sources */,
 				08B761D724180F9D00AC98C3 /* DetailZooViewController.swift in Sources */,
 				086E42662406FD5200F2469C /* PetShopViewController.swift in Sources */,
