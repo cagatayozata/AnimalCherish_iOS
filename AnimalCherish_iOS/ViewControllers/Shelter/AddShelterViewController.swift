@@ -32,13 +32,13 @@ class AddShelterViewController: UIViewController {
         
         // TextField Style
         name.setTitleAndIcon(title: "İsim", icon: "person", systemIcon: true)
-        address.setTitleAndIcon(title: "Adres", icon: "person", systemIcon: true)
-        capacity.setTitleAndIcon(title: "Kapsasite", icon: "person", systemIcon: true)
-        detail.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
-        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
-        mail.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
-        establishDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "person", systemIcon: true)
-        workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person", systemIcon: true)
+        address.setTitleAndIcon(title: "Adres", icon: "location", systemIcon: true)
+        capacity.setTitleAndIcon(title: "Kapsasite", icon: "number", systemIcon: true)
+        detail.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
+        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "phone", systemIcon: true)
+        mail.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
+        establishDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "calendar", systemIcon: true)
+        workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person.2", systemIcon: true)
         
         // Button Button
         button.layer.cornerRadius = 5

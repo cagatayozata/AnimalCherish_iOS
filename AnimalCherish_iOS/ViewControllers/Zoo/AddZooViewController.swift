@@ -30,13 +30,13 @@ class AddZooViewController: UIViewController {
         super.viewDidLoad()
         
         // TextField Style
-        establishDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "person", systemIcon: true)
+        establishDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "calendar", systemIcon: true)
         name.setTitleAndIcon(title: "Adı", icon: "person", systemIcon: true)
-        email.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
-        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
-        address.setTitleAndIcon(title: "Adres", icon: "person", systemIcon: true)
-        desc.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
-        workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person", systemIcon: true)
+        email.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
+        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "phone", systemIcon: true)
+        address.setTitleAndIcon(title: "Adres", icon: "location", systemIcon: true)
+        desc.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
+        workers.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person.2", systemIcon: true)
         
         // Button Button
         button.layer.cornerRadius = 5
