@@ -34,6 +34,19 @@ class EditVetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TextField Style
+        nameTF.setTitleAndIcon(title: "İsim Soyad", icon: "person", systemIcon: true)
+        educationInfoTF.setTitleAndIcon(title: "Eğitim Bilgisi", icon: "info", systemIcon: true)
+        cityTF.setTitleAndIcon(title: "Şehir", icon: "location", systemIcon: true)
+        stateTF.setTitleAndIcon(title: "İlçe", icon: "location", systemIcon: true)
+        addressTF.setTitleAndIcon(title: "Klinik Bilgisi", icon: "location", systemIcon: true)
+        phoneTF.setTitleAndIcon(title: "Telefon Numarası", icon: "phone", systemIcon: true)
+        emailTF.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
+        birthdateTF.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "calendar", systemIcon: true)
+        detailTF.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
+        diplomaNoTF.setTitleAndIcon(title: "Diploma No", icon: "number.circle", systemIcon: true)
+        sicilNoTF.setTitleAndIcon(title: "Sicil No", icon: "number.circle", systemIcon: true)
+        
         self.disableEditing()
         
         // check nil

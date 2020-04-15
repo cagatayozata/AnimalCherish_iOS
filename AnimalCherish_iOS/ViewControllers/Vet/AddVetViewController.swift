@@ -35,16 +35,16 @@ class AddVetViewController: UIViewController {
         
         // TextField Style
         nameSurname.setTitleAndIcon(title: "İsim Soyad", icon: "person", systemIcon: true)
-        educationInfo.setTitleAndIcon(title: "Eğitim Bilgisi", icon: "person", systemIcon: true)
-        city.setTitleAndIcon(title: "Şehir", icon: "person", systemIcon: true)
-        state.setTitleAndIcon(title: "İlçe", icon: "person", systemIcon: true)
-        address.setTitleAndIcon(title: "Klinik Bilgisi", icon: "person", systemIcon: true)
-        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
-        email.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
-        birthDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "person", systemIcon: true)
-        detail.setTitleAndIcon(title: "Detay", icon: "person", systemIcon: true)
-        diplomaNo.setTitleAndIcon(title: "Diploma No", icon: "person", systemIcon: true)
-        sicilNo.setTitleAndIcon(title: "Sicil No", icon: "person", systemIcon: true)
+        educationInfo.setTitleAndIcon(title: "Eğitim Bilgisi", icon: "info", systemIcon: true)
+        city.setTitleAndIcon(title: "Şehir", icon: "location", systemIcon: true)
+        state.setTitleAndIcon(title: "İlçe", icon: "location", systemIcon: true)
+        address.setTitleAndIcon(title: "Klinik Bilgisi", icon: "location", systemIcon: true)
+        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "phone", systemIcon: true)
+        email.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
+        birthDate.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "calendar", systemIcon: true)
+        detail.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
+        diplomaNo.setTitleAndIcon(title: "Diploma No", icon: "number.circle", systemIcon: true)
+        sicilNo.setTitleAndIcon(title: "Sicil No", icon: "number.circle", systemIcon: true)
         
         // Button Button
         button.layer.cornerRadius = 5
@@ -61,15 +61,15 @@ class AddVetViewController: UIViewController {
     func validate() {
         do {
             
-             try nameSurname.validatedText(validationType: ValidatorType.vetName)
-             try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
-             try city.validatedText(validationType: ValidatorType.vetCity)
-             try state.validatedText(validationType: ValidatorType.vetState)
-             try address.validatedText(validationType: ValidatorType.vetClinicInfo)
-             try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
-             try email.validatedText(validationType: ValidatorType.vetMailAddress)
-             try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
-             
+            try nameSurname.validatedText(validationType: ValidatorType.vetName)
+            try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
+            try city.validatedText(validationType: ValidatorType.vetCity)
+            try state.validatedText(validationType: ValidatorType.vetState)
+            try address.validatedText(validationType: ValidatorType.vetClinicInfo)
+            try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
+            try email.validatedText(validationType: ValidatorType.vetMailAddress)
+            try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
+            
             post()
             
         } catch(let error) {

@@ -157,9 +157,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RUd-0D-JPs"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="Lr0-cH-ICN">
-                        <barButtonItem key="rightBarButtonItem" image="text.justify" catalog="system" id="AB6-R0-3IN"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dashboard" id="Lr0-cH-ICN"/>
                     <connections>
                         <outlet property="middleMenu" destination="sOy-rZ-EnC" id="K0z-0U-wDJ"/>
                         <outlet property="pieChartView" destination="9gs-7j-oDZ" id="qCD-qC-iI7"/>
@@ -231,6 +229,5 @@
     <resources>
         <image name="square.and.arrow.down.fill" catalog="system" width="60" height="64"/>
         <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
-        <image name="text.justify" catalog="system" width="64" height="50"/>
     </resources>
 </document>

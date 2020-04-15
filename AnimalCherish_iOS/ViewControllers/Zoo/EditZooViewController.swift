@@ -30,6 +30,15 @@ class EditZooViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TextField Style
+        establishDateTF.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "calendar", systemIcon: true)
+        nameTF.setTitleAndIcon(title: "Adı", icon: "person", systemIcon: true)
+        emailTF.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
+        phoneTF.setTitleAndIcon(title: "Telefon Numarası", icon: "phone", systemIcon: true)
+        addressTF.setTitleAndIcon(title: "Adres", icon: "location", systemIcon: true)
+        detailTF.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
+        workerCountTF.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person.2", systemIcon: true)
+        
         self.disableEditing()
         
         // check nil

@@ -50,6 +50,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        loadData()
     }
     
     func loadData() {
@@ -234,7 +235,6 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
         recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
         yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
-        loadData()
         activeSegment = 1
         tableView.reloadData()
         

@@ -28,11 +28,11 @@ class HomepageViewController: UIViewController {
     
     func style() {
         
-        animalButton.setHomepageButton(imageName: "person")
-        vetButton.setHomepageButton(imageName: "person")
-        shelterButton.setHomepageButton(imageName: "person")
-        petShopButton.setHomepageButton(imageName: "person")
-        zooButton.setHomepageButton(imageName: "person")
+        animalButton.setHomepageButton(imageName: "tortoise.fill")
+        vetButton.setHomepageButton(imageName: "person.fill")
+        shelterButton.setHomepageButton(imageName: "house.fill")
+        petShopButton.setHomepageButton(imageName: "person.2.square.stack.fill")
+        zooButton.setHomepageButton(imageName: "chevron.up")
         
     }
     
