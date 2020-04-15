@@ -11,9 +11,9 @@ import UIKit
 
 // homepage button style
 extension UIButton{
-
+    
     func setHomepageButton(imageName:String) {
-
+        
         var icon = UIImage(systemName: imageName)!
         self.setImage(icon, for: .normal)
         self.imageView?.contentMode = .scaleAspectFit
@@ -25,7 +25,7 @@ extension UIButton{
     }
     
     func setLoginButton(title:String) {
-
+        
         let attributedString = NSAttributedString(string: NSLocalizedString(title, comment: ""), attributes:[
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0),
             NSAttributedString.Key.foregroundColor : UIColor.black,
@@ -36,7 +36,7 @@ extension UIButton{
     }
     
     func setRegisterButton(title:String) {
-
+        
         let attributedString = NSAttributedString(string: NSLocalizedString(title, comment: ""), attributes:[
             NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15.0),
             NSAttributedString.Key.foregroundColor : UIColor.black,

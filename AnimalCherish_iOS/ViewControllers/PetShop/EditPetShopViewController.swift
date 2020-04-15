@@ -26,7 +26,7 @@ class EditPetShopViewController: UIViewController {
     let apiUrl = Configuration.apiUrl + "/api/v1/petshop/getall"
     let apiUrlSave = Configuration.apiUrl + "/api/v1/petshop/save"
     
-    var selectedId:Int? = nil
+    var selectedId:String? = nil
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
@@ -34,14 +34,12 @@ class EditPetShopViewController: UIViewController {
         
         self.disableEditing()
         
-        // if selected id has a problem, it will be equal to -1
-        let checkId = selectedId ?? -1
-        
-        if checkId != -1 {
+        // check nil
+        if selectedId != nil {
             self.getPetShopDetail()
         }
         else {
-            showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
+            Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
     }
     
@@ -61,7 +59,7 @@ class EditPetShopViewController: UIViewController {
                 var i = 0
                 for item in resultArray.arrayValue {
                     
-                    if i == self.selectedId {
+                    if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let address = item["address"].stringValue
                         let detail = item["details"].stringValue
@@ -138,16 +136,6 @@ class EditPetShopViewController: UIViewController {
             
         }
         
-    }
-    
-    // prepare
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "savePetShopSegue" {
-            let detailAnimalController = segue.destination as? DetailPetShopViewController
-            if let tempController = detailAnimalController {
-                tempController.selectedId = selectedId
-            }
-        }
     }
     
     //MARK: Kaydet button in EditPetShopViewController

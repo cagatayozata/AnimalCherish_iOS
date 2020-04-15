@@ -23,7 +23,7 @@ class DeatilAnimalViewController: UIViewController {
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
     
-    var selectedId:Int? = nil
+    var selectedId:String? = nil
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -35,10 +35,8 @@ class DeatilAnimalViewController: UIViewController {
         // disable text fields
         self.disableEditing()
         
-        // if selected id has a problem, it will be equal to -1
-        let checkId = selectedId ?? -1
-        
-        if checkId != -1 {
+        // check nil
+        if selectedId != nil {
             self.getAnimalDetail()
         }
         else {
@@ -64,7 +62,7 @@ class DeatilAnimalViewController: UIViewController {
                 var i = 0
                 for item in resultArray.arrayValue {
                     
-                    if i == self.selectedId {
+                    if item["id"].stringValue == self.selectedId {
                         let id = item["id"].stringValue
                         let name = item["name"].stringValue
                         let location = item["address"].stringValue

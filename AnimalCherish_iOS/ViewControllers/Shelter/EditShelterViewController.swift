@@ -25,26 +25,26 @@ class EditShelterViewController: UIViewController {
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/shelter/getall"
     let apiUrlSave = Configuration.apiUrl + "/api/v1/shelter/save"
-    var selectedId:Int? = nil
+    var selectedId:String? = nil
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.disableEditing()
-        // if selected id has a problem, it will be equal to -1
-        let checkId = selectedId ?? -1
         
-        if checkId != -1 {
+        // check nil
+        if selectedId != nil {
             self.getShelterDetail(ids: selectedId!)
         }
         else {
-            showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
+            Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
+        
     }
     
     // MARK: GET request and Prepare Selected Data
-    func getShelterDetail(ids: Int) {
+    func getShelterDetail(ids: String) {
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -60,7 +60,7 @@ class EditShelterViewController: UIViewController {
                 var i = 0
                 for item in resultArray.arrayValue {
                     
-                    if i == self.selectedId {
+                    if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let establish = item["birtdahte"].stringValue
                         let address = item["address"].stringValue
@@ -86,23 +86,13 @@ class EditShelterViewController: UIViewController {
                 
                 break
             case .failure:
-                self.showAlert(for: "Bir hata oluştu. Barınak Listesi Getiriemedi!")
+                Alert.showAlert(message: "Bir hata oluştu. Barınak Listesi Getiriemedi!", vc: self)
                 print(myresponse.error!)
                 break
             }
             
         }
         
-    }
-    
-    // prepare
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveShelterSegue" {
-            let detailAnimalController = segue.destination as? DeatilAnimalViewController
-            if let tempController = detailAnimalController {
-                tempController.selectedId = selectedId
-            }
-        }
     }
     
     // MARK: Post data
@@ -187,11 +177,4 @@ class EditShelterViewController: UIViewController {
         establishDateTF.isUserInteractionEnabled = false
     }
     
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
 }
