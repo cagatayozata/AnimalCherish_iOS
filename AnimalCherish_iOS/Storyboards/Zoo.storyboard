@@ -16,19 +16,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2v1-rq-CQU">
-                                <rect key="frame" x="20.5" y="45" width="373" height="806"/>
+                                <rect key="frame" x="20" y="108" width="374" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="sJd-ro-Cwk">
-                                    <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Qhe-9T-c4C">
-                                        <rect key="frame" x="0.0" y="72" width="373" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="72" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qhe-9T-c4C" id="VLD-OV-WHw">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -37,10 +37,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2v1-rq-CQU" firstAttribute="height" secondItem="tJq-vQ-4ek" secondAttribute="height" multiplier="0.899554" id="7Pj-Es-FTM"/>
-                            <constraint firstItem="2v1-rq-CQU" firstAttribute="width" secondItem="tJq-vQ-4ek" secondAttribute="width" multiplier="0.900966" id="9Y1-OW-CXY"/>
-                            <constraint firstItem="2v1-rq-CQU" firstAttribute="centerY" secondItem="tJq-vQ-4ek" secondAttribute="centerY" id="LBk-8W-x5v"/>
-                            <constraint firstItem="2v1-rq-CQU" firstAttribute="centerX" secondItem="tJq-vQ-4ek" secondAttribute="centerX" id="s10-8q-ItF"/>
+                            <constraint firstItem="2v1-rq-CQU" firstAttribute="top" secondItem="Pgy-hq-v83" secondAttribute="top" constant="20" id="Hxo-wo-jht"/>
+                            <constraint firstItem="Pgy-hq-v83" firstAttribute="bottom" secondItem="2v1-rq-CQU" secondAttribute="bottom" constant="20" id="gcB-pM-5gM"/>
+                            <constraint firstItem="Pgy-hq-v83" firstAttribute="trailing" secondItem="2v1-rq-CQU" secondAttribute="trailing" constant="20" id="ia5-w2-Fg1"/>
+                            <constraint firstItem="2v1-rq-CQU" firstAttribute="leading" secondItem="Pgy-hq-v83" secondAttribute="leading" constant="20" id="yKx-hL-t0L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pgy-hq-v83"/>
                     </view>
@@ -57,6 +57,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="sJd-ro-Cwk" id="6mU-VU-aMG"/>
                         <outlet property="tableView" destination="2v1-rq-CQU" id="vcc-a8-rvL"/>
                         <segue destination="P0R-gK-zut" kind="show" identifier="goToEditZooScreen" id="9oN-4m-K1v"/>
                     </connections>
@@ -64,7 +65,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFB-Ea-RT1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="aQa-x6-eOj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3116" y="363"/>
+            <point key="canvasLocation" x="3115.9420289855075" y="362.94642857142856"/>
         </scene>
         <!--Detay-->
         <scene sceneID="cij-Ub-kCI">

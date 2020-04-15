@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile View Controller-->
+        <!--Profil-->
         <scene sceneID="I6B-Uc-QTh">
             <objects>
                 <viewController id="bvq-eu-faI" customClass="ProfileViewController" customModule="AnimalCherish_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tz2-aS-4GO"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2l1-lr-rTO"/>
+                    <navigationItem key="navigationItem" title="Profil" id="2l1-lr-rTO"/>
                     <connections>
                         <outlet property="image" destination="8HD-NP-iYs" id="ooT-wm-g3y"/>
                         <outlet property="mail" destination="JwH-zr-vDE" id="M1O-Ff-p07"/>
