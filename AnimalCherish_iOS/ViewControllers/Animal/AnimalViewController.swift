@@ -19,8 +19,6 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
-    var loadingIndicatorAlert: UIAlertController? = nil
-    let menuSlide = MenuSlide()
     
     var animals = [animalStruct]()
     lazy var filteredData = self.animals
@@ -32,29 +30,29 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        getAnimalList()
-        
         self.searchBar.delegate = self
         
         // UISegmentedControl - set default segment index
         segmentControl.selectedSegmentIndex = 0
+        selectedType = "all"
         
-        selectedType = "dog"
+        getAnimalList(type: selectedType!)
         
     }
     
     // MARK: Data Preparation and GET request
-    func getAnimalList() {
+    func getAnimalList(type: String) {
         
         // show loading indicator
-        //loadingIndicator()
+        self.showLoadingIndicator(onView: self.view)
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
             // check result is success or failure
             switch myresponse.result {
             case .success:
+                
+                self.animals.removeAll()
                 
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
@@ -68,8 +66,27 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                     let type = item["turAd"].stringValue
                     let genus = item["cinsAd"].stringValue
                     
-                    self.animals.insert(animalStruct(id: id, name: name, type: type, genus: genus), at: 0)
-
+                    if self.selectedType == "all" {
+                        self.animals.insert(animalStruct(id: id, name: name, type: type, genus: genus), at: 0)
+                    } else if self.selectedType == "dog" {
+                        if type == "Köpek"  {
+                            self.animals.insert(animalStruct(id: id, name: name, type: type, genus: genus), at: 0)
+                        }
+                    } else if self.selectedType == "cat" {
+                        if type == "Kedi"  {
+                            self.animals.insert(animalStruct(id: id, name: name, type: type, genus: genus), at: 0)
+                        }
+                    } else if self.selectedType == "bird" {
+                        if type == "Kuş"  {
+                            self.animals.insert(animalStruct(id: id, name: name, type: type, genus: genus), at: 0)
+                        }
+                    } else  {
+                        if type != "Köpek" && type != "Kedi" && type != "Kuş" {
+                            self.animals.insert(animalStruct(id: id, name: name, type: type, genus: genus), at: 0)
+                        }
+                    }
+                    
+                    
                 }
                 
                 // prepare filtered data
@@ -78,18 +95,19 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                 // reload table data
                 self.tableView.reloadData()
                 
-                // close loading indicator
-                //self.loadingIndicatorAlert!.dismiss(animated: false, completion: nil)
+                // remove loading indicator
+                self.removeLoadingIndicator()
                 
                 break
             case .failure:
                 
-                // close loading indicator
-                //self.loadingIndicatorAlert!.dismiss(animated: false, completion: nil)
+                // remove loading indicator
+                self.removeLoadingIndicator()
                 
-                self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
-                print(myresponse.error!)
+                // show error
+                Alert.showAlert(message: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!", vc: self)
                 break
+                
             }
             
         }
@@ -102,57 +120,38 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         switch segmentControl.selectedSegmentIndex {
         case 0:
             
+            // Tamamı
+            selectedType = "all"
+            
+        case 1:
+            
             // Köpek
             selectedType = "dog"
             
-        case 1:
+        case 2:
+            
+            // Kedi
+            selectedType = "cat"
+            
+        case 3:
             
             // Kuş
             selectedType = "bird"
             
-        case 2:
-            
-            // Yılan
-            selectedType = "snake"
-            
-        case 3:
-            
-            // Böcek
-            selectedType = "insect"
-            
             
         case 4:
             
-            // Balık
-            selectedType = "fish"
+            // Diğer
+            selectedType = "other"
             
             
         default:
             break
         }
         
+        getAnimalList(type: selectedType!)
         self.tableView.reloadData()
         
-    }
-    
-    // MARK: Show Menu
-    @IBAction func menuButtonPressed(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
-        
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self
-        present(menuViewController, animated: true)
-        
-    }
-    
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: UITableView
@@ -170,29 +169,14 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         cell?.textLabel?.text = filteredData[indexPath.row].name
         cell?.detailTextLabel?.text = (filteredData[indexPath.row].type ) + ", " + (filteredData[indexPath.row].genus )
         
-        cell?.imageView?.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
-        
-        if selectedType == "dog" {
-            cell?.imageView?.image = UIImage(named: "dog3")
-        } else if selectedType == "bird" {
-            cell?.imageView?.image = UIImage(named: "bird3")
-        } else if selectedType == "snake" {
-            cell?.imageView?.image = UIImage(named: "snake3")
-        } else if selectedType == "insect" {
-            cell?.imageView?.image = UIImage(named: "insect3")
-        } else if selectedType == "fish" {
-            cell?.imageView?.image = UIImage(named: "fish3")
-        } else  {}
-        
-        
         return cell!
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-               
+        
         if let viewController = storyboard?.instantiateViewController(identifier: "goToEditAnimalScreen") as? DeatilAnimalViewController {
-            viewController.selectedId = Int (filteredData[indexPath.row].id)
+            viewController.selectedId = self.filteredData[indexPath.row].id
             navigationController?.pushViewController(viewController, animated: true)
         }
         
@@ -204,7 +188,7 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
             .hasPrefix(searchText) })
         self.tableView.reloadData()
     }
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         self.filteredData = self.animals
