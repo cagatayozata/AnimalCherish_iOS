@@ -74,7 +74,7 @@ class EditZooViewController: UIViewController {
                         let address = item["address"].stringValue
                         let phone = item["phone"].stringValue
                         let email = item["email"].stringValue
-                        let detail = item["detail"].stringValue
+                        let detail = item["description"].stringValue
                         let workerCount = item["workerCount"].stringValue
                         
                         self.nameTF.text! = name
