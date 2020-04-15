@@ -8,58 +8,58 @@
 
 import UIKit
 
-extension AnimalViewController: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = true
-        return menuSlide
-    }
-
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = false
-        return menuSlide
-    }
-    
-}
-
-extension PetShopViewController: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = true
-        return menuSlide
-    }
-
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = false
-        return menuSlide
-    }
-    
-}
-
-extension ShelterViewController: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = true
-        return menuSlide
-    }
-
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = false
-        return menuSlide
-    }
-    
-}
-
-extension ZooViewController: UIViewControllerTransitioningDelegate {
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = true
-        return menuSlide
-    }
-
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        menuSlide.isPresenting = false
-        return menuSlide
-    }
-    
-}
+//extension AnimalViewController: UIViewControllerTransitioningDelegate {
+//    
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = true
+//        return menuSlide
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = false
+//        return menuSlide
+//    }
+//    
+//}
+//
+//extension PetShopViewController: UIViewControllerTransitioningDelegate {
+//    
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = true
+//        return menuSlide
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = false
+//        return menuSlide
+//    }
+//    
+//}
+//
+//extension ShelterViewController: UIViewControllerTransitioningDelegate {
+//    
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = true
+//        return menuSlide
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = false
+//        return menuSlide
+//    }
+//    
+//}
+//
+//extension ZooViewController: UIViewControllerTransitioningDelegate {
+//    
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = true
+//        return menuSlide
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        menuSlide.isPresenting = false
+//        return menuSlide
+//    }
+//    
+//}
