@@ -10,37 +10,43 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+struct vetStruct {
+    let id : String!
+    let name : String!
+    let city : String!
+    let state : String!
+    let clinicInfo : String!
+}
 
-  // MARK: IBOutlet
-     @IBOutlet weak var tableView: UITableView!
-     
-     // MARK: Variables
-     let apiUrl = Configuration.apiUrl + "/api/v1/vet/getall"
-    let menuSlide = MenuSlide()
-     
-     var vetIdArr = [String]()
-     var vetNameArr = [String]()
-     var vetCityArr = [String]()
-     var vetStateArr = [String]()
-     var vetClinicInfoArr = [String]()
+class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
+    // MARK: IBOutlet
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
-     // MARK: viewDidLoad
-     override func viewDidLoad() {
-         super.viewDidLoad()
+    // MARK: Variables
+    let apiUrl = Configuration.apiUrl + "/api/v1/vet/getall"
+    
+    var vets = [vetStruct]()
+    lazy var filteredData = self.vets
+    
+    // MARK: viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-         self.tableView.delegate = self
-         self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.searchBar.delegate = self
         
-         getVetlist()
-     }
-
+        getVetlist()
+        
+    }
+    
     // MARK: Data Preparation and GET request
     func getVetlist() {
         
         // show loading indicator
-//        loadingIndicator()
+        self.showLoadingIndicator(onView: self.view)
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -48,114 +54,86 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             switch myresponse.result {
             case .success:
                 
-                // removeAll
-                self.vetIdArr.removeAll()
-                self.vetNameArr.removeAll()
-                self.vetCityArr.removeAll()
-                self.vetStateArr.removeAll()
-                self.vetClinicInfoArr.removeAll()
-                
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
                 let resultArray = myresult!
                 
                 //
                 for item in resultArray.arrayValue {
-
+                    
                     let id = item["id"].stringValue
                     let name = item["name"].stringValue
                     let clinic = item["clinic"].stringValue
                     let state = item["ilce"].stringValue
                     let city = item["city"].stringValue
                     
-                    self.vetIdArr.append(id)
-                    self.vetNameArr.append(name)
-                    self.vetClinicInfoArr.append(clinic)
-                    self.vetStateArr.append(state)
-                    self.vetCityArr.append(city)
+                    self.vets.insert(vetStruct(id: id, name: name, city: city, state: state, clinicInfo: clinic), at: 0)
                     
                 }
+                
+                // prepare filtered data
+                self.filteredData = self.vets
+                
                 // reload table data
                 self.tableView.reloadData()
                 
+                // remove loading indicator
+                self.removeLoadingIndicator()
                 
                 break
-                case .failure:
-                    
-
-                    
-                    self.showAlert(for: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!")
-                    print(myresponse.error!)
-                    break
+            case .failure:
+                
+                // remove loading indicator
+                self.removeLoadingIndicator()
+                
+                // show error
+                Alert.showAlert(message: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!", vc: self)
+                break
+                
             }
-    
+            
         }
-//        // close loading indicator
-//        self.dismiss(animated: false, completion: nil)
     }
     
-    // MARK: Show Menu
-    @IBAction func menuButtonPressed(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
-
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self
-        present(menuViewController, animated: true)
-        
-    }
-    
-     // MARK: Alert
-     func showAlert(for alert: String) {
-         let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-         alertController.addAction(alertAction)
-         present(alertController, animated: true, completion: nil)
-     }
-    
-    // MARK: Loading Indicator
-    func loadingIndicator() {
-        
-        let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-        
-    }
-     
-     // MARK: UITableView
+    // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vetIdArr.count
+        return filteredData.count
     }
     
-     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         
-         var cell = tableView.dequeueReusableCell(withIdentifier: "vetcell")
-          if cell == nil {
-              cell = UITableViewCell(style: .subtitle, reuseIdentifier: "vetcell")
-          }
-          
-         cell?.textLabel?.text = self.vetNameArr[indexPath.row]
-         cell?.detailTextLabel?.text = (self.vetClinicInfoArr[indexPath.row] ) + ", " + (self.vetCityArr[indexPath.row] ) + "," + (self.vetStateArr[indexPath.row])
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-          return cell!
-         
-     }
-     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         
-         var selectedId = indexPath.row
-
-         if let viewController = storyboard?.instantiateViewController(identifier: "goToEditVetScreen") as? DetailVetViewController {
-             viewController.selectedId = selectedId
-             navigationController?.pushViewController(viewController, animated: true)
-         }
-     }
+        var cell = tableView.dequeueReusableCell(withIdentifier: "vetcell")
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "vetcell")
+        }
+        
+        cell?.textLabel?.text = self.filteredData[indexPath.row].name
+        cell?.detailTextLabel?.text = (self.filteredData[indexPath.row].clinicInfo ) + ", " + (self.filteredData[indexPath.row].city ) + "," + (self.filteredData[indexPath.row].state)
+        
+        return cell!
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "goToEditVetScreen") as? DetailVetViewController {
+            viewController.selectedId = Int (filteredData[indexPath.row].id)
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+        
+    }
+    
+    // MARK: UISearchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredData = self.vets.filter({ $0.name
+            .hasPrefix(searchText) })
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.filteredData = self.vets
+        self.tableView.reloadData()
+    }
+    
 }

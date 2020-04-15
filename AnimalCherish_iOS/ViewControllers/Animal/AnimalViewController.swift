@@ -3,6 +3,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+struct animalStruct {
+    let id : String!
+    let name : String!
+    let type : String!
+    let genus : String!
+}
+
 class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     // MARK: IBOutlet
@@ -12,15 +19,11 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/animal/getall"
+    var loadingIndicatorAlert: UIAlertController? = nil
     let menuSlide = MenuSlide()
     
-    var animalIdArr = [String]()
-    var animalNameArr = [String]()
-    var animalTypeArr = [String]()
-    var animalGenusArr = [String]()
-    
-    var filteredData = [String]()
-    
+    var animals = [animalStruct]()
+    lazy var filteredData = self.animals
     var selectedType: String? = nil
     
     // MARK: viewDidLoad
@@ -53,12 +56,6 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
             switch myresponse.result {
             case .success:
                 
-                // removeAll
-                self.animalIdArr.removeAll()
-                self.animalNameArr.removeAll()
-                self.animalTypeArr.removeAll()
-                self.animalGenusArr.removeAll()
-                
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
                 let resultArray = myresult!
@@ -71,26 +68,24 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                     let type = item["turAd"].stringValue
                     let genus = item["cinsAd"].stringValue
                     
-                    self.animalIdArr.append(id)
-                    self.animalNameArr.append(name)
-                    self.animalTypeArr.append(type)
-                    self.animalGenusArr.append(genus)
-                    
-                    self.filteredData.append(name)
-                    
+                    self.animals.insert(animalStruct(id: id, name: name, type: type, genus: genus), at: 0)
+
                 }
+                
+                // prepare filtered data
+                self.filteredData = self.animals
                 
                 // reload table data
                 self.tableView.reloadData()
                 
                 // close loading indicator
-                //self.dismiss(animated: false, completion: nil)
+                //self.loadingIndicatorAlert!.dismiss(animated: false, completion: nil)
                 
                 break
             case .failure:
                 
                 // close loading indicator
-                //self.dismiss(animated: false, completion: nil)
+                //self.loadingIndicatorAlert!.dismiss(animated: false, completion: nil)
                 
                 self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
                 print(myresponse.error!)
@@ -160,21 +155,6 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
         present(alertController, animated: true, completion: nil)
     }
     
-    // MARK: Loading Indicator
-    func loadingIndicator() {
-        
-        let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
-        
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-        
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-        
-    }
-    
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredData.count
@@ -187,8 +167,8 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "animalcell")
         }
         
-        cell?.textLabel?.text = self.filteredData[indexPath.row]
-        cell?.detailTextLabel?.text = (self.animalTypeArr[indexPath.row] ) + ", " + (self.animalGenusArr[indexPath.row] )
+        cell?.textLabel?.text = filteredData[indexPath.row].name
+        cell?.detailTextLabel?.text = (filteredData[indexPath.row].type ) + ", " + (filteredData[indexPath.row].genus )
         
         cell?.imageView?.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
         
@@ -210,11 +190,9 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let selectedId = indexPath.row
-        
+               
         if let viewController = storyboard?.instantiateViewController(identifier: "goToEditAnimalScreen") as? DeatilAnimalViewController {
-            viewController.selectedId = selectedId
+            viewController.selectedId = Int (filteredData[indexPath.row].id)
             navigationController?.pushViewController(viewController, animated: true)
         }
         
@@ -222,12 +200,15 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
     
     // MARK: UISearchBar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        filteredData = searchText.isEmpty ? animalNameArr : animalNameArr.filter { (item: String) -> Bool in
-            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        }
-        
-        tableView.reloadData()
+        self.filteredData = self.animals.filter({ $0.name
+            .hasPrefix(searchText) })
+        self.tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.filteredData = self.animals
+        self.tableView.reloadData()
     }
     
 }
