@@ -61,15 +61,15 @@ class AddVetViewController: UIViewController {
     func validate() {
         do {
             
-             try nameSurname.validatedText(validationType: ValidatorType.vetName)
-             try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
-             try city.validatedText(validationType: ValidatorType.vetCity)
-             try state.validatedText(validationType: ValidatorType.vetState)
-             try address.validatedText(validationType: ValidatorType.vetClinicInfo)
-             try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
-             try email.validatedText(validationType: ValidatorType.vetMailAddress)
-             try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
-             
+            try nameSurname.validatedText(validationType: ValidatorType.vetName)
+            try educationInfo.validatedText(validationType: ValidatorType.vetEducationInfo)
+            try city.validatedText(validationType: ValidatorType.vetCity)
+            try state.validatedText(validationType: ValidatorType.vetState)
+            try address.validatedText(validationType: ValidatorType.vetClinicInfo)
+            try phone.validatedText(validationType: ValidatorType.vetPhoneNumber)
+            try email.validatedText(validationType: ValidatorType.vetMailAddress)
+            try birthDate.validatedText(validationType: ValidatorType.vetBirthDate)
+            
             post()
             
         } catch(let error) {

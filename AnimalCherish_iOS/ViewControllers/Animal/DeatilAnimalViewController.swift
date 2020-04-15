@@ -119,12 +119,13 @@ class DeatilAnimalViewController: UIViewController {
     func style() {
         
         // TextField Style
-        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "person", systemIcon: true)
+        IdTextField.setTitleAndIcon(title: "Küpe Numarası", icon: "star", systemIcon: true)
         nameTextField.setTitleAndIcon(title: "Hayvan Adı", icon: "person", systemIcon: true)
-        locationTextField.setTitleAndIcon(title: "Konum", icon: "person", systemIcon: true)
-        typeTextField.setTitleAndIcon(title: "Tür", icon: "person", systemIcon: true)
-        genusTextField.setTitleAndIcon(title: "Cins", icon: "person", systemIcon: true)
-        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "person", systemIcon: true)
+        locationTextField.setTitleAndIcon(title: "Konum", icon: "location", systemIcon: true)
+        typeTextField.setTitleAndIcon(title: "Tür", icon: "tortoise", systemIcon: true)
+        genusTextField.setTitleAndIcon(title: "Cins", icon: "tortoise", systemIcon: true)
+        genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "info", systemIcon: true)
+        
         
     }
     

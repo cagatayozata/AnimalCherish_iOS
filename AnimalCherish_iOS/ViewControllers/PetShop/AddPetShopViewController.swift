@@ -12,7 +12,7 @@ import SwiftyJSON
 
 
 class AddPetShopViewController: UIViewController {
-
+    
     // MARK: IBOutlet
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var address: UITextField!
@@ -25,12 +25,12 @@ class AddPetShopViewController: UIViewController {
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/petshop/save"
-        
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TextField Style
+        // MARK: TextField Style
         name.setTitleAndIcon(title: "İsim", icon: "person", systemIcon: true)
         address.setTitleAndIcon(title: "Adres", icon: "location", systemIcon: true)
         detail.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
@@ -63,60 +63,60 @@ class AddPetShopViewController: UIViewController {
             
             post()
             
-       } catch(let error) {
-           Alert.showAlert(message: (error as! ValidationError).message, vc: self)
-       }
+        } catch(let error) {
+            Alert.showAlert(message: (error as! ValidationError).message, vc: self)
+        }
     }
     
     // MARK: Data Preparation and POST request
     func post(){
-
-     // prepare paramaters
-     let parameters = ["id": "f592580a-e3d6-4c28-a9ed-1c02e675ef3d",
-     "olusmaTarihi": nil,
-     "olusturanKullanici": nil,
-     "sonGuncellenmeTarihi": nil,
-     "name": name.text!,
-     "address": address.text!,
-     "email": mail.text!,
-     "phone": phone.text!,
-     "details": detail.text!,
-     "birthdate": 1575331200000,
-     "workerCount": workers.text!] as [String : Any?]
-
-     // POST request
-     AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-         
-         // debug
-         debugPrint(response)
-         
-         // check result is success or failure
-         switch response.result {
-         case .success:
-             
-            // refresh Pet Shop List on previous screen
-            Alert.showAlertThenPreviousScreen(message: "Pet Shop başarıyla eklendi!", vc: self)
-             
-             break
-         case .failure:
-             
-             // show warning to user
-             print(response.error!)
-             Alert.showAlert(message: "Pet Shop eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
-             break
-             
-         }
-     
-     }
-     
+        
+        // prepare paramaters
+        let parameters = ["id": "f592580a-e3d6-4c28-a9ed-1c02e675ef3d",
+                          "olusmaTarihi": nil,
+                          "olusturanKullanici": nil,
+                          "sonGuncellenmeTarihi": nil,
+                          "name": name.text!,
+                          "address": address.text!,
+                          "email": mail.text!,
+                          "phone": phone.text!,
+                          "details": detail.text!,
+                          "birthdate": 1575331200000,
+                          "workerCount": workers.text!] as [String : Any?]
+        
+        // POST request
+        AF.request(apiUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            // debug
+            debugPrint(response)
+            
+            // check result is success or failure
+            switch response.result {
+            case .success:
+                
+                // refresh Pet Shop List on previous screen
+                Alert.showAlertThenPreviousScreen(message: "Pet Shop başarıyla eklendi!", vc: self)
+                
+                break
+            case .failure:
+                
+                // show warning to user
+                print(response.error!)
+                Alert.showAlert(message: "Pet Shop eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
+                break
+                
+            }
+            
+        }
+        
     }
-
+    
     // MARK: Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-     
-         // when clicking the UIView, keyboard will be removed
-         self.view.endEditing(true)
-     
+        
+        // when clicking the UIView, keyboard will be removed
+        self.view.endEditing(true)
+        
     }
     
 }

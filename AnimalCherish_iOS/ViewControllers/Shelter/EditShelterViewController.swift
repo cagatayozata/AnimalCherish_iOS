@@ -31,6 +31,16 @@ class EditShelterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TextField Style
+        nameTF.setTitleAndIcon(title: "İsim", icon: "person", systemIcon: true)
+        addressTF.setTitleAndIcon(title: "Adres", icon: "location", systemIcon: true)
+        capacityTF.setTitleAndIcon(title: "Kapsasite", icon: "number", systemIcon: true)
+        detailTF.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
+        phoneTF.setTitleAndIcon(title: "Telefon Numarası", icon: "phone", systemIcon: true)
+        emailTF.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
+        establishDateTF.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "calendar", systemIcon: true)
+        workerCountTF.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person.2", systemIcon: true)
+        
         self.disableEditing()
         
         // check nil
