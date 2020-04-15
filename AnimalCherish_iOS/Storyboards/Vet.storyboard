@@ -61,6 +61,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="BfV-Vn-NL6" id="KAg-4n-hqt"/>
                         <outlet property="tableView" destination="b1j-pX-lKH" id="0ZZ-04-C28"/>
                         <segue destination="FuV-in-GfH" kind="show" identifier="goToEditVetScreen" id="SZY-zD-xqt"/>
                     </connections>
