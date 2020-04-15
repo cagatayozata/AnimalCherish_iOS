@@ -18,11 +18,11 @@ extension UITextField {
 
 // set icon to text fields
 extension UITextField{
-
+    
     func setTitleAndIcon(title:String, icon:String, systemIcon:Bool) {
-
+        
         self.attributedPlaceholder = NSAttributedString(string: title,
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         
         let leftImageView = UIImageView()
         if systemIcon {
@@ -31,13 +31,13 @@ extension UITextField{
             leftImageView.image = UIImage(named: icon)
         }
         
-
+        
         let leftView = UIView()
         leftView.addSubview(leftImageView)
-
+        
         leftView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         leftImageView.frame = CGRect(x: 10, y: 10, width: 20, height: 20)
-
+        
         self.leftViewMode = .always
         self.leftView = leftView
         

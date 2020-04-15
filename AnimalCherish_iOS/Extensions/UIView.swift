@@ -9,7 +9,7 @@
 import UIKit
 
 var loadingIndicator : UIView?
- 
+
 extension UIViewController {
     
     func showLoadingIndicator(onView : UIView) {
