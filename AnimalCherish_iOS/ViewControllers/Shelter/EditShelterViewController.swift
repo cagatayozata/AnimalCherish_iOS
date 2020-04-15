@@ -72,7 +72,7 @@ class EditShelterViewController: UIViewController {
                     
                     if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
-                        let establish = item["birtdahte"].stringValue
+                        let establish = item["birthdate"].stringValue
                         let address = item["address"].stringValue
                         let phone = item["phone"].stringValue
                         let email = item["email"].stringValue
