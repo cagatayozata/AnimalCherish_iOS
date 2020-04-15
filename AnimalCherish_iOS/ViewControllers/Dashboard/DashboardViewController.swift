@@ -25,9 +25,11 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
     let rolesValues = [1, 1, 1, 12]
     
     var activeSegment = 0 // 0 -> Özet, 1 -> Son Haberler, 3 -> Yenilikler
+    
     var summaryData: [String] = ["15", "52", "13", "18"]
     var summaryDataTitles: [String] = ["Sistemdeki kayıtlı veteriner sayısı", "Sistemdeki kayıtlı hayvan sayısı","Sistemdeki kayıtlı barınak sayısı","Sistemdeki kayıtlı kullanıcı sayısı"]
     var summaryDataIcons: [String] = ["veticon", "animalicon", "sheltericon", "usericon"]
+    
     var myFeed : NSArray = []
     var feedImgs: [AnyObject] = []
     var url: URL!
@@ -160,7 +162,14 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
             cellImageLayer!.masksToBounds = true
             
             cell.imageView?.image = image
-            cell.textLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
+            
+            let str = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
+            let nsString = str as! NSString
+            if nsString.length >= 30
+            {
+                cell.textLabel?.text = nsString.substring(with: NSRange(location: 0, length: nsString.length > 30 ? 30 : nsString.length)) + "..."
+            }
+            
 
             cell.textLabel?.numberOfLines = 1
             cell.textLabel?.lineBreakMode = .byWordWrapping
