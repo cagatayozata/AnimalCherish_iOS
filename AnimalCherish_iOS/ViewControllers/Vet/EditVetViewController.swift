@@ -28,7 +28,7 @@ class EditVetViewController: UIViewController {
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/vet/getall"
     let apiUrlSave = Configuration.apiUrl + "/api/v1/vet/save"
-    var selectedId:Int? = nil
+    var selectedId:String? = nil
     
     //MARK: viewDownload
     override func viewDidLoad() {
@@ -36,15 +36,14 @@ class EditVetViewController: UIViewController {
         
         self.disableEditing()
         
-        // if selected id has a problem, it will be equal to -1
-        let checkId = selectedId ?? -1
-        
-        if checkId != -1 {
+        // check nil
+        if selectedId != nil {
             self.getVetDetail()
         }
         else {
-            showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
+            Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
+        
     }
     
     // MARK: GET request and Prepare Selected Data
@@ -61,7 +60,7 @@ class EditVetViewController: UIViewController {
                 var i = 0
                 for item in resultArray.arrayValue {
                     
-                    if i == self.selectedId {
+                    if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let education = item["education"].stringValue
                         let city = item["city"].stringValue
@@ -93,7 +92,7 @@ class EditVetViewController: UIViewController {
                 
                 break
             case .failure:
-                self.showAlert(for: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!")
+                Alert.showAlert(message: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!", vc: self)
                 print(myresponse.error!)
                 break
             }
@@ -194,14 +193,6 @@ class EditVetViewController: UIViewController {
         birthdateTF.isUserInteractionEnabled = false
         diplomaNoTF.isUserInteractionEnabled = false
         sicilNoTF.isUserInteractionEnabled = false
-    }
-    
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
     }
     
 }

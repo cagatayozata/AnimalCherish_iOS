@@ -23,7 +23,8 @@ class DetailZooViewController: UIViewController {
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/zoo/getall"
-    var selectedId:Int? = nil
+    
+    var selectedId:String? = nil
     
     //MARK: viewDownload
     override func viewDidLoad() {
@@ -31,14 +32,12 @@ class DetailZooViewController: UIViewController {
         
         self.disableEditing()
         
-        // if selected id has a problem, it will be equal to -1
-        let checkId = selectedId ?? -1
-        
-        if checkId != -1 {
+        // check nil
+        if selectedId != nil {
             self.getZooDetail()
         }
         else {
-            showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
+            Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
     }
     
@@ -59,7 +58,7 @@ class DetailZooViewController: UIViewController {
                 var i = 0
                 for item in resultArray.arrayValue {
                     
-                    if i == self.selectedId {
+                    if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let establish = item["establishDate"].stringValue
                         let address = item["address"].stringValue
@@ -83,8 +82,7 @@ class DetailZooViewController: UIViewController {
                 
                 break
             case .failure:
-                self.showAlert(for: "Bir hata oluştu. Hayvanat Bahçesi Listesi Getiriemedi!")
-                print(myresponse.error!)
+                Alert.showAlert(message: "Bir hata oluştu. Hayvanat Bahçesi Listesi Getiriemedi!", vc: self)
                 break
             }
             
@@ -111,14 +109,6 @@ class DetailZooViewController: UIViewController {
         phoneTF.isUserInteractionEnabled = false
         emailTF.isUserInteractionEnabled = false
         workerCountTF.isUserInteractionEnabled = false
-    }
-    
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
     }
     
 }

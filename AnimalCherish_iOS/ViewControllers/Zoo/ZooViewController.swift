@@ -10,19 +10,24 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ZooViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+struct zooStruct {
+    let id : String!
+    let name : String!
+    let address : String!
+    let phone : String!
+}
 
+class ZooViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
     // MARK: IBOutlet
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/zoo/getall"
-    let menuSlide = MenuSlide()
     
-    var zooIdArr = [String]()
-    var zooNameArr = [String]()
-    var zooAddressArr = [String]()
-    var zooPhoneArr = [String]()
+    var zoos = [zooStruct]()
+    lazy var filteredData = self.zoos
     
     // MARK: viewDownload
     override func viewDidLoad() {
@@ -30,115 +35,98 @@ class ZooViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.searchBar.delegate = self
         
         getZooList()
         
+    }
+    
+    // MARK: Data Preparation and GET request
+    func getZooList() {
+        
+        // show loading indicator
+        self.showLoadingIndicator(onView: self.view)
+        
+        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
+            
+            // check result is success or failure
+            switch myresponse.result {
+            case .success:
+                
+                // GET data
+                let myresult = try? JSON(data: myresponse.data!)
+                let resultArray = myresult!
+                
+                //
+                for item in resultArray.arrayValue {
+                    
+                    let id = item["id"].stringValue
+                    let name = item["name"].stringValue
+                    let address = item["address"].stringValue
+                    let phone = item["phone"].stringValue
+                    
+                    self.zoos.insert(zooStruct(id: id, name: name, address: address, phone: phone), at: 0)
+                    
+                }
+                
+                // prepare filtered data
+                self.filteredData = self.zoos
+                
+                // reload table data
+                self.tableView.reloadData()
+                
+                // remove loading indicator
+                self.removeLoadingIndicator()
+                
+                break
+            case .failure:
+                Alert.showAlert(message: "Bir hata oluştu. Hayvanat Bahçesi Listesi Getiriemedi!", vc: self)
+                print(myresponse.error!)
+                break
+            }
+            
         }
-    
-       // MARK: Data Preparation and GET request
-       func getZooList() {
-           
-           AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
-               
-               // check result is success or failure
-               switch myresponse.result {
-               case .success:
-                   
-                   // removeAll
-                   self.zooIdArr.removeAll()
-                   self.zooNameArr.removeAll()
-                   self.zooAddressArr.removeAll()
-                   self.zooPhoneArr.removeAll()
-                   
-                   // GET data
-                   let myresult = try? JSON(data: myresponse.data!)
-                   let resultArray = myresult!
-                   
-                   //
-                   for item in resultArray.arrayValue {
-
-                       let id = item["id"].stringValue
-                       let name = item["name"].stringValue
-                       let address = item["address"].stringValue
-                       let phone = item["phone"].stringValue
-                       
-                       self.zooIdArr.append(id)
-                       self.zooNameArr.append(name)
-                       self.zooAddressArr.append(address)
-                       self.zooPhoneArr.append(phone)
-                       
-                   }
-                   // reload table data
-                   self.tableView.reloadData()
-                   
-                   break
-                   case .failure:
-                   self.showAlert(for: "Bir hata oluştu. Hayvanat Bahçesi Listesi Getiriemedi!")
-                   print(myresponse.error!)
-                   break
-               }
-       
-           }
-       }
-    
-     // MARK: Alert
-     func showAlert(for alert: String) {
-         let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-         let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-         alertController.addAction(alertAction)
-         present(alertController, animated: true, completion: nil)
-     }
-     
-    // MARK: Show Menu
-    @IBAction func menuButtonPressed(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
-
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self
-        present(menuViewController, animated: true)
-        
     }
     
-     // MARK: UITableView
+    // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return zooIdArr.count
+        return filteredData.count
     }
     
-     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         
-         var cell = tableView.dequeueReusableCell(withIdentifier: "zoocell")
-          if cell == nil {
-              cell = UITableViewCell(style: .subtitle, reuseIdentifier: "zoocell")
-          }
-          
-         cell?.textLabel?.text = self.zooNameArr[indexPath.row]
-         cell?.detailTextLabel?.text = (self.zooAddressArr[indexPath.row] ) + ", " + (self.zooPhoneArr[indexPath.row] )
-         
-          return cell!
-         
-     }
-     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         
-         var selectedId = indexPath.row
-
-         if let viewController = storyboard?.instantiateViewController(identifier: "goToEditZooScreen") as? DetailZooViewController {
-             viewController.selectedId = selectedId
-             navigationController?.pushViewController(viewController, animated: true)
-         }
-     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "zoocell")
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "zoocell")
+        }
+        
+        cell?.textLabel?.text = self.filteredData[indexPath.row].name
+        cell?.detailTextLabel?.text = (self.filteredData[indexPath.row].address ) + ", " + (self.filteredData[indexPath.row].phone )
+        
+        return cell!
+        
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let viewController = storyboard?.instantiateViewController(identifier: "goToEditZooScreen") as? DetailZooViewController {
+            viewController.selectedId = self.filteredData[indexPath.row].id
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    // MARK: UISearchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredData = self.zoos.filter({ $0.name
+            .hasPrefix(searchText) })
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.filteredData = self.zoos
+        self.tableView.reloadData()
+    }
+    
 }

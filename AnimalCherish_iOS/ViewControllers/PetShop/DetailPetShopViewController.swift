@@ -24,7 +24,7 @@ class DetailPetShopViewController: UIViewController {
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/petshop/getall"
     
-    var selectedId:Int? = nil
+    var selectedId:String? = nil
     
     //MARK: viewDidLoad
     override func viewDidLoad() {
@@ -32,14 +32,12 @@ class DetailPetShopViewController: UIViewController {
         
         self.disableEditing()
         
-        // if selected id has a problem, it will be equal to -1
-        let checkId = selectedId ?? -1
-        
-        if checkId != -1 {
+        // check nil
+        if selectedId != nil {
             self.getPetShopDetail()
         }
         else {
-            showAlert(for: "Hata Oluştu! Lütfen geri dönünüz!")
+            Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
     }
     
@@ -60,7 +58,7 @@ class DetailPetShopViewController: UIViewController {
                 var i = 0
                 for item in resultArray.arrayValue {
                     
-                    if i == self.selectedId {
+                    if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let address = item["address"].stringValue
                         let detail = item["details"].stringValue
@@ -84,24 +82,13 @@ class DetailPetShopViewController: UIViewController {
                 
                 break
             case .failure:
-                self.showAlert(for: "Bir hata oluştu. Pet Shop Listesi Getiriemedi!")
-                print(myresponse.error!)
+                Alert.showAlert(message: "Bir hata oluştu. Pet Shop Listesi Getiriemedi!", vc: self)
                 break
             }
             
         }
         
         
-    }
-    
-    // MARK: prepare to send selectedId
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToEditPetShopViewController" {
-            let editVetController = segue.destination as? EditPetShopViewController
-            if let tempController = editVetController {
-                tempController.selectedId = selectedId
-            }
-        }
     }
     
     // MARK: disableEditing
@@ -115,11 +102,4 @@ class DetailPetShopViewController: UIViewController {
         workerCountTF.isUserInteractionEnabled = false
     }
     
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
 }

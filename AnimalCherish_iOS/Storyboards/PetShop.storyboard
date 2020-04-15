@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3K-81-Tju">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g3K-81-Tju">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,19 +16,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fh9-EY-eij">
-                                <rect key="frame" x="20.5" y="45" width="373" height="806"/>
+                                <rect key="frame" x="20" y="108" width="374" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="IT9-NQ-TzP">
-                                    <rect key="frame" x="0.0" y="0.0" width="373" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Ya2-ng-IpW">
-                                        <rect key="frame" x="0.0" y="72" width="373" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="72" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ya2-ng-IpW" id="V8E-S2-JSA">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -37,10 +37,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Fh9-EY-eij" firstAttribute="width" secondItem="7M4-mr-Ldq" secondAttribute="width" multiplier="0.900966" id="69f-mP-cwL"/>
-                            <constraint firstItem="Fh9-EY-eij" firstAttribute="centerX" secondItem="7M4-mr-Ldq" secondAttribute="centerX" id="W8G-kY-spy"/>
-                            <constraint firstItem="Fh9-EY-eij" firstAttribute="height" secondItem="7M4-mr-Ldq" secondAttribute="height" multiplier="0.899554" id="Z7O-Ec-3LT"/>
-                            <constraint firstItem="Fh9-EY-eij" firstAttribute="centerY" secondItem="7M4-mr-Ldq" secondAttribute="centerY" id="dnX-qe-9Ri"/>
+                            <constraint firstItem="Fh9-EY-eij" firstAttribute="leading" secondItem="CX2-ys-7WO" secondAttribute="leading" constant="20" id="0fe-Gv-3Ux"/>
+                            <constraint firstAttribute="bottom" secondItem="Fh9-EY-eij" secondAttribute="bottom" constant="20" id="Lif-59-Avl"/>
+                            <constraint firstItem="CX2-ys-7WO" firstAttribute="trailing" secondItem="Fh9-EY-eij" secondAttribute="trailing" constant="20" id="hqm-C9-rZx"/>
+                            <constraint firstItem="Fh9-EY-eij" firstAttribute="top" secondItem="CX2-ys-7WO" secondAttribute="top" constant="20" id="qtz-UM-Rbw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CX2-ys-7WO"/>
                     </view>
@@ -57,6 +57,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="Fh9-EY-eij" id="L0g-Hy-mgc"/>
                         <outlet property="tableView" destination="Fh9-EY-eij" id="ns6-V5-Gqq"/>
                         <segue destination="Y2C-pK-5dm" kind="show" identifier="goToPetShopDetailScreen" id="kL2-AI-HHV"/>
                     </connections>
@@ -451,6 +452,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left" catalog="system" width="64" height="48"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
     </resources>
 </document>
