@@ -24,15 +24,10 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
     let rolesTitles = ["Barınak Görevlisi", "Veteriner Hekim", "Normal Kullanıcı", "Administrator"]
     let rolesValues = [1, 1, 1, 12]
     
-    // MARK: TableView News from RSS
-    var parser = XMLParser()
-    var news = NSMutableArray()
-    var elements = NSMutableDictionary()
-    var element:String = ""
-    var titleOfNew:String = ""
-    var link:String = ""
-    var pubDate:String = ""
-    var foundCharacters = ""
+    
+    var myFeed : NSArray = []
+    var feedImgs: [AnyObject] = []
+    var url: URL!
     
     // MARK: viewDidLoad
     override func viewDidLoad()
@@ -45,94 +40,114 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         // style edits
         style()
         
-        parsingDataFromURL()
-        print("parsingDataFromURL2")
+       
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 140
+        tableView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.1)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+
     }
     
-    
-    
-    // MARK: Data parsing from url
-    func parsingDataFromURL(){
-        news = []
-        parser = XMLParser(contentsOf: URL(string: "https://www.hurriyet.com.tr/rss/hayvan")!)!
-        parser.delegate = self
-        parser.parse()
-        tableView.reloadData()
-        print("parsingDataFromURL")
-    }
-    
-    //fill the news
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        
-        element = elementName
-        if elementName.isEqual("item"){
-            elements = NSMutableDictionary()
-            elements = [:]
-            titleOfNew = NSMutableString() as String
-            pubDate = NSMutableString() as String
-            link = NSMutableString() as String
+    func loadData() {
+           url = URL(string: "https://www.tshf.org.tr/rss/latest-posts")!
+           loadRss(url);
+       }
+
+       func loadRss(_ data: URL) {
+
+           // XmlParserManager instance/object/variable.
+           let myParser : XmlParserManager = XmlParserManager().initWithURL(data) as! XmlParserManager
+
+           // Put feed in array.
+           feedImgs = myParser.img as [AnyObject]
+           myFeed = myParser.feeds
+           tableView.reloadData()
+       }
+
+       override func didReceiveMemoryWarning() {
+           super.didReceiveMemoryWarning()
+       }
+
+       override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "openPage" {
+               let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
+               let selectedFURL: String = (myFeed[indexPath.row] as AnyObject).object(forKey: "link") as! String
+
+               // Instance of our feedpageviewcontrolelr.
+               let fivc: FeedItemWebViewController = segue.destination as! FeedItemWebViewController
+               fivc.selectedFeedURL = selectedFURL as String
+           }
+       }
+
+       // MARK: - Table view data source.
+        func numberOfSections(in tableView: UITableView) -> Int {
+           return 1
+       }
+
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           return myFeed.count
+       }
+
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+           let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+           cell.textLabel?.backgroundColor = UIColor.clear
+           cell.detailTextLabel?.backgroundColor = UIColor.clear
+           cell.textLabel?.numberOfLines = 0
             
-            titleOfNew = " "
-            pubDate = " "
-            link = " "
-            print("Parser if içi")
-        }
-        print("Parser if dışı")
-    }
-    
-    // MARK: find character Title ı linke yazdırmak
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        self.foundCharacters += string
-        print("foundCharacters : ",foundCharacters)
-        if element.isEqual("title"){
-            titleOfNew.append(string)
-        }
-        else if element.isEqual("link"){
-            link.append(string)
-        }
-        else if element.isEqual("pubDate"){
-            pubDate.append(string)
-        }
-        print("foundCharacter")
-    }
-    
-    // MARK: elemanların sonuna geldiğini anlamak ıcın
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if (elementName as NSString).isEqual(to: "item") {
-            if !titleOfNew.isEqual(nil) {
-                elements.setObject(titleOfNew, forKey: "title" as NSMutableCopying as! NSCopying)
-            }
-            else if !link.isEqual(nil) {
-                elements.setObject(link, forKey: "link" as NSCopying)
-            }
-            else if !pubDate.isEqual(nil) {
-                elements.setObject(pubDate, forKey: "pubDate" as NSCopying)
-            }
-            
-            news.add(elements)
-        }
-        print("end of parser")
-    }
-    
-    
-    // MARK: TableView delegate & datasource
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return news.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as UITableViewCell
-        if (cell.isEqual(NSNull.self)) {
-            cell = Bundle.main.loadNibNamed("myCell",owner: self, options: nil)![0] as! UITableViewCell
-        }
-        
-        //cell.textLabel?.text = (self.news[indexPath.row] as! String)
-        cell.textLabel?.text = (Bundle.main.loadNibNamed("myCell", owner: self, options: nil)?[0] as! String)
-        print(news)
-        print("table view doldu")
-        return cell
-    }
-    
+           if indexPath.row % 2 == 0 {
+               cell.backgroundColor = UIColor(white: 1, alpha: 0)
+           } else {
+               cell.backgroundColor = UIColor(white: 0, alpha: 0.1)
+           }
+
+           // Load feed iamge.
+           let url = NSURL(string:feedImgs[indexPath.row] as! String)
+           let data = NSData(contentsOf:url! as URL)
+           var image = UIImage(data:data! as Data)
+
+           image = resizeImage(image: image!, toTheSize: CGSize(width: 70, height: 70))
+
+           let cellImageLayer: CALayer?  = cell.imageView?.layer
+
+           cellImageLayer!.cornerRadius = 35
+           cellImageLayer!.masksToBounds = true
+
+           cell.imageView?.image = image
+           cell.textLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
+           cell.textLabel?.textColor = UIColor.black
+           cell.textLabel?.numberOfLines = 1
+           cell.textLabel?.lineBreakMode = .byWordWrapping
+           cell.detailTextLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "pubDate") as? String
+           cell.detailTextLabel?.textColor = UIColor.black
+
+           return cell
+       }
+
+       func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+           return UIColor(
+               red: CGFloat((rgbValue & 0xFF0000) >> 255) / 255.0,
+               green: CGFloat((rgbValue & 0x00FF00) >> 255) / 255.0,
+               blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+               alpha: CGFloat(1.0)
+           )
+       }
+
+       func resizeImage(image:UIImage, toTheSize size:CGSize)->UIImage{
+
+           let scale = CGFloat(max(size.width/image.size.width,
+                                   size.height/image.size.height))
+           let width:CGFloat  = image.size.width * scale
+           let height:CGFloat = image.size.height * scale;
+
+           let rr:CGRect = CGRect(x: 0, y: 0, width: width, height: height)
+
+           UIGraphicsBeginImageContextWithOptions(size, false, 0);
+           image.draw(in: rr)
+           let newImage = UIGraphicsGetImageFromCurrentImageContext()
+           UIGraphicsEndImageContext();
+           return newImage!
+       }
     
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -147,7 +162,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
         recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
         yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
-        
+
     }
     
     @IBAction func pressedRecentNews(_ sender: Any) {
@@ -155,7 +170,8 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
         recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
         yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
-        
+        loadData()
+
     }
     
     @IBAction func pressedYenilikler(_ sender: Any) {
@@ -163,7 +179,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         summaryButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
         recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
         yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
-        
+
     }
     
     // MARK: Create Pie Chart
