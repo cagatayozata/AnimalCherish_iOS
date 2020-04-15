@@ -23,9 +23,9 @@ class ProfileViewController: UIViewController {
         // TextField Style
         name.setTitleAndIcon(title: "İsim", icon: "person", systemIcon: true)
         surname.setTitleAndIcon(title: "Soyad", icon: "person", systemIcon: true)
-        role.setTitleAndIcon(title: "Rol", icon: "person", systemIcon: true)
-        mail.setTitleAndIcon(title: "Mail Adresi", icon: "person", systemIcon: true)
-        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "person", systemIcon: true)
+        role.setTitleAndIcon(title: "Rol", icon: "rosette", systemIcon: true)
+        mail.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
+        phone.setTitleAndIcon(title: "Telefon Numarası", icon: "phone", systemIcon: true)
         
         // Image Style
         image?.layer.cornerRadius = (image?.frame.size.width ?? 0.0) / 2
