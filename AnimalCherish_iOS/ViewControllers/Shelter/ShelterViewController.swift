@@ -10,27 +10,33 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ShelterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+struct shelterStruct {
+    let id : String!
+    let name : String!
+    let email : String!
+    let phone : String!
+}
 
+class ShelterViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
     // MARK: IBOutlet
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Variables
     let apiUrl = Configuration.apiUrl + "/api/v1/shelter/getall"
-    let menuSlide = MenuSlide()
     
-    var shelterIdArr = [String]()
-    var shelterNameArr = [String]()
-    var shelterEmailArr = [String]()
-    var shelterPhoneArr = [String]()
-        
+    var shelters = [shelterStruct]()
+    lazy var filteredData = self.shelters
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
+        self.searchBar.delegate = self
+        
         getShelterList()
         
     }
@@ -39,7 +45,7 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
     func getShelterList() {
         
         // show loading indicator
-        //loadingIndicator()
+        self.showLoadingIndicator(onView: self.view)
         
         AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
             
@@ -47,115 +53,85 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
             switch myresponse.result {
             case .success:
                 
-                // removeAll
-                self.shelterIdArr.removeAll()
-                self.shelterNameArr.removeAll()
-                self.shelterEmailArr.removeAll()
-                self.shelterPhoneArr.removeAll()
-                
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
                 let resultArray = myresult!
                 
                 //
                 for item in resultArray.arrayValue {
-
+                    
                     let id = item["id"].stringValue
                     let name = item["name"].stringValue
                     let email = item["email"].stringValue
                     let phone = item["phone"].stringValue
                     
-                    self.shelterIdArr.append(id)
-                    self.shelterNameArr.append(name)
-                    self.shelterEmailArr.append(email)
-                    self.shelterPhoneArr.append(phone)
+                    self.shelters.insert(shelterStruct(id: id, name: name, email: email, phone: phone), at: 0)
                     
                 }
+                
+                // prepare filtered data
+                self.filteredData = self.shelters
                 
                 // reload table data
                 self.tableView.reloadData()
                 
-                // close loading indicator
-                //self.dismiss(animated: false, completion: nil)
+                // remove loading indicator
+                self.removeLoadingIndicator()
                 
                 break
             case .failure:
                 
-                // close loading indicator
-                //self.dismiss(animated: false, completion: nil)
+                // remove loading indicator
+                self.removeLoadingIndicator()
                 
-                self.showAlert(for: "Bir hata oluştu. Hayvan Listesi Getiriemedi!")
-                print(myresponse.error!)
+                // show error
+                Alert.showAlert(message: "Bir hata oluştu. Barınak Hekim Listesi Getiriemedi!", vc: self)
                 break
+                
             }
-    
+            
         }
-    }
-    
-    // MARK: Show Menu
-    @IBAction func menuButtonPressed(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-        let menuViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController1") as! MenuViewController
-
-        menuViewController.modalPresentationStyle = .overCurrentContext
-        menuViewController.transitioningDelegate = self
-        present(menuViewController, animated: true)
-        
-    }
-    
-    
-    // MARK: Alert
-    func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: UIAlertController.Style.alert)
-        let alertAction = UIAlertAction(title: "Tamam", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    // MARK: Loading Indicator
-    func loadingIndicator() {
-        
-        let alert = UIAlertController(title: nil, message: "Yükleniyor...", preferredStyle: .alert)
-
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
-        
     }
     
     // MARK: UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shelterIdArr.count
+        return filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "animalcell")
-         if cell == nil {
-             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "animalcell")
-         }
-         
-        cell?.textLabel?.text = self.shelterNameArr[indexPath.row]
-        cell?.detailTextLabel?.text = (self.shelterEmailArr[indexPath.row] ) + ", " + (self.shelterPhoneArr[indexPath.row] )
+        if cell == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "animalcell")
+        }
         
-         return cell!
+        cell?.textLabel?.text = self.filteredData[indexPath.row].name
+        cell?.detailTextLabel?.text = (self.filteredData[indexPath.row].email ) + ", " + (self.filteredData[indexPath.row].phone )
+        
+        return cell!
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedId = indexPath.row
-        
         if let viewController = storyboard?.instantiateViewController(identifier: "goToDetailShelterScreen") as? DetailShelterViewController {
-            viewController.selectedId = selectedId
+            viewController.selectedId = self.filteredData[indexPath.row].id
             navigationController?.pushViewController(viewController, animated: true)
         }
         
     }
-
+    
+    // MARK: UISearchBar
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredData = self.shelters.filter({ $0.name
+            .hasPrefix(searchText) })
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        self.filteredData = self.shelters
+        self.tableView.reloadData()
+    }
+    
 }

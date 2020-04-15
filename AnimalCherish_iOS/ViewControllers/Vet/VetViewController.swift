@@ -108,7 +108,7 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         cell?.textLabel?.text = self.filteredData[indexPath.row].name
-        cell?.detailTextLabel?.text = (self.filteredData[indexPath.row].clinicInfo ) + ", " + (self.filteredData[indexPath.row].city ) + "," + (self.filteredData[indexPath.row].state)
+        cell?.detailTextLabel?.text = (self.filteredData[indexPath.row].clinicInfo ) + ", " + (self.filteredData[indexPath.row].state ) + ", " + (self.filteredData[indexPath.row].city)
         
         return cell!
         
@@ -117,7 +117,7 @@ class VetViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let viewController = storyboard?.instantiateViewController(identifier: "goToEditVetScreen") as? DetailVetViewController {
-            viewController.selectedId = Int (filteredData[indexPath.row].id)
+            viewController.selectedId = self.filteredData[indexPath.row].id
             navigationController?.pushViewController(viewController, animated: true)
         }
         
