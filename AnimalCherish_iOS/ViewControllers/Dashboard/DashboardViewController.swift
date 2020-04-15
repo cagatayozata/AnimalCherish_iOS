@@ -30,6 +30,8 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
     var summaryDataTitles: [String] = ["Sistemdeki kayıtlı veteriner sayısı", "Sistemdeki kayıtlı hayvan sayısı","Sistemdeki kayıtlı barınak sayısı","Sistemdeki kayıtlı kullanıcı sayısı"]
     var summaryDataIcons: [String] = ["veticon", "animalicon", "sheltericon", "usericon"]
     
+    var tweetData: [String] = ["Tweet 1", "Tweet 2", "Tweet 3", "Tweet 4", "Tweet 5" ]
+    
     var myFeed : NSArray = []
     var feedImgs: [AnyObject] = []
     var url: URL!
@@ -110,7 +112,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         } else {
             
             // yenilikler
-            return summaryData.count
+            return tweetData.count
             
         }
     }
@@ -183,9 +185,9 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
             // yenilikler
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
             
-            cell.imageView?.image = UIImage(systemName: "person")
-            cell.textLabel?.text = self.summaryData[indexPath.row]
-            cell.detailTextLabel?.text = self.summaryData[indexPath.row]
+            cell.imageView?.image = UIImage(systemName: "message")
+            cell.textLabel?.text = self.tweetData[indexPath.row]
+            cell.detailTextLabel?.text = "@animalcherish"
             
             return cell
             
