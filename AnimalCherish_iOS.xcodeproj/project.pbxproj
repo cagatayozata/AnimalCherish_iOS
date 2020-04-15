@@ -58,6 +58,9 @@
 		08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE0DFD240C2C92002AFC96 /* Reachability.swift */; };
 		08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE0DFF240C2D18002AFC96 /* Auth.storyboard */; };
 		480A6F64C2D04A630049A528 /* Pods_AnimalCherish_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207ACC1586453D7B95104130 /* Pods_AnimalCherish_iOS.framework */; };
+		833CBE9624471836006955CF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833CBE9524471836006955CF /* WebKit.framework */; };
+		83BD58C32446061800A8B982 /* FeedItemWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD58C22446061800A8B982 /* FeedItemWebViewController.swift */; };
+		83BD58C52446091100A8B982 /* XmlParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD58C42446091100A8B982 /* XmlParserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +118,9 @@
 		08FE0DFF240C2D18002AFC96 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		207ACC1586453D7B95104130 /* Pods_AnimalCherish_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimalCherish_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F3BA28F6454F0610EF00202 /* Pods-AnimalCherish_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalCherish_iOS.release.xcconfig"; path = "Target Support Files/Pods-AnimalCherish_iOS/Pods-AnimalCherish_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		833CBE9524471836006955CF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		83BD58C22446061800A8B982 /* FeedItemWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemWebViewController.swift; sourceTree = "<group>"; };
+		83BD58C42446091100A8B982 /* XmlParserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmlParserManager.swift; sourceTree = "<group>"; };
 		D44CB9E29D8535CF1C1F338A /* Pods-AnimalCherish_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimalCherish_iOS.debug.xcconfig"; path = "Target Support Files/Pods-AnimalCherish_iOS/Pods-AnimalCherish_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833CBE9624471836006955CF /* WebKit.framework in Frameworks */,
 				480A6F64C2D04A630049A528 /* Pods_AnimalCherish_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				086E42632406FD4600F2469C /* DashboardViewController.swift */,
+				83BD58C42446091100A8B982 /* XmlParserManager.swift */,
+				83BD58C22446061800A8B982 /* FeedItemWebViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 		EF0C26DD9218B4C679C1AC9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				833CBE9524471836006955CF /* WebKit.framework */,
 				207ACC1586453D7B95104130 /* Pods_AnimalCherish_iOS.framework */,
 			);
 			name = Frameworks;
@@ -505,7 +515,9 @@
 				08B761C72418024900AC98C3 /* DeatilAnimalViewController.swift in Sources */,
 				08B761D324180F7900AC98C3 /* DetailVetViewController.swift in Sources */,
 				08B761C42417E78000AC98C3 /* Configuration.swift in Sources */,
+				83BD58C52446091100A8B982 /* XmlParserManager.swift in Sources */,
 				08B761CD24180F4E00AC98C3 /* EditPetShopViewController.swift in Sources */,
+				83BD58C32446061800A8B982 /* FeedItemWebViewController.swift in Sources */,
 				0838D6132406A59E0056E2F0 /* RegisterViewController.swift in Sources */,
 				0806814824053BDB00FDE61D /* AppDelegate.swift in Sources */,
 				08B761CF24180F5A00AC98C3 /* DetailShelterViewController.swift in Sources */,
