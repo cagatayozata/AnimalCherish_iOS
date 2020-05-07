@@ -68,7 +68,14 @@ class DeatilAnimalViewController: UIViewController {
                         let location = item["address"].stringValue
                         let type = item["turAd"].stringValue
                         let genus = item["cinsAd"].stringValue
-                        let gender = item["cinsiyet"].stringValue
+                        var gender = item["cinsiyet"].stringValue
+                        
+                        if gender == "true"{
+                            gender = "Erkek"
+                        }
+                        else {
+                            gender = "Dişi"
+                        }
                         
                         self.IdTextField.text! = id
                         self.nameTextField.text! = name
@@ -126,7 +133,7 @@ class DeatilAnimalViewController: UIViewController {
         genusTextField.setTitleAndIcon(title: "Cins", icon: "tortoise", systemIcon: true)
         genderTextField.setTitleAndIcon(title: "Cinsiyet", icon: "info", systemIcon: true)
         
-        
+
     }
     
 }

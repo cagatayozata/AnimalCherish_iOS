@@ -54,7 +54,7 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        loadData()
+       // loadData()
     }
     
     func loadData() {
