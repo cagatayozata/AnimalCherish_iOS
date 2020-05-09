@@ -9,24 +9,23 @@
 import Foundation
 
 class XmlParserManager: NSObject, XMLParserDelegate {
-    
     var parser = XMLParser()
     var feeds = NSMutableArray()
     var elements = NSMutableDictionary()
     var element = NSString()
     var ftitle = NSMutableString()
     var link = NSMutableString()
-    var img:  [AnyObject] = []
+    var img: [AnyObject] = []
     var fdescription = NSMutableString()
     var fdate = NSMutableString()
-    
+
     // initilise parser
-    func initWithURL(_ url :URL) -> AnyObject {
+    func initWithURL(_ url: URL) -> AnyObject {
         startParse(url)
         return self
     }
-    
-    func startParse(_ url :URL) {
+
+    func startParse(_ url: URL) {
         feeds = []
         parser = XMLParser(contentsOf: url)!
         parser.delegate = self
@@ -35,15 +34,15 @@ class XmlParserManager: NSObject, XMLParserDelegate {
         parser.shouldResolveExternalEntities = false
         parser.parse()
     }
-    
+
     func allFeeds() -> NSMutableArray {
         return feeds
     }
-    
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+
+    func parser(_: XMLParser, didStartElement elementName: String, namespaceURI _: String?, qualifiedName _: String?, attributes attributeDict: [String: String]) {
         element = elementName as NSString
         if (element as NSString).isEqual(to: "item") {
-            elements =  NSMutableDictionary()
+            elements = NSMutableDictionary()
             elements = [:]
             ftitle = NSMutableString()
             ftitle = ""
@@ -59,9 +58,8 @@ class XmlParserManager: NSObject, XMLParserDelegate {
             }
         }
     }
-    
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
 
+    func parser(_: XMLParser, didEndElement elementName: String, namespaceURI _: String?, qualifiedName _: String?) {
         if (elementName as NSString).isEqual(to: "item") {
             if ftitle != "" {
                 elements.setObject(ftitle, forKey: "title" as NSCopying)
@@ -78,8 +76,8 @@ class XmlParserManager: NSObject, XMLParserDelegate {
             feeds.add(elements)
         }
     }
-    
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
+
+    func parser(_: XMLParser, foundCharacters string: String) {
         if element.isEqual(to: "title") {
             ftitle.append(string)
         } else if element.isEqual(to: "link") {

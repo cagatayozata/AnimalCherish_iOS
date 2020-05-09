@@ -81,7 +81,7 @@ public struct HTTPHeaders {
             return
         }
 
-        headers.replaceSubrange(index...index, with: [header])
+        headers.replaceSubrange(index ... index, with: [header])
     }
 
     /// Case-insensitively removes an `HTTPHeader`, if it exists, from the instance.

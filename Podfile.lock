@@ -8,7 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
-  - Charts
+  - Charts (~> 3.4.0)
   - SwiftFormat/CLI
   - SwiftyJSON (~> 4.0)
 
@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   SwiftFormat: e415b539c50e7a956a44b023544c9846c0c037d7
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 1f6aefb2b8d5c83461ba22655d1dcfd74eeae3e4
+PODFILE CHECKSUM: 6dd47fc6f921ba8d1c2549ae304cd0b4692a1941
 
 COCOAPODS: 1.9.0

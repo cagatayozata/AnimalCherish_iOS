@@ -8,8 +8,8 @@
 
 import UIKit
 
-//extension AnimalViewController: UIViewControllerTransitioningDelegate {
-//    
+// extension AnimalViewController: UIViewControllerTransitioningDelegate {
+//
 //    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //        menuSlide.isPresenting = true
 //        return menuSlide
@@ -19,11 +19,11 @@ import UIKit
 //        menuSlide.isPresenting = false
 //        return menuSlide
 //    }
-//    
-//}
 //
-//extension PetShopViewController: UIViewControllerTransitioningDelegate {
-//    
+// }
+//
+// extension PetShopViewController: UIViewControllerTransitioningDelegate {
+//
 //    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //        menuSlide.isPresenting = true
 //        return menuSlide
@@ -33,11 +33,11 @@ import UIKit
 //        menuSlide.isPresenting = false
 //        return menuSlide
 //    }
-//    
-//}
 //
-//extension ShelterViewController: UIViewControllerTransitioningDelegate {
-//    
+// }
+//
+// extension ShelterViewController: UIViewControllerTransitioningDelegate {
+//
 //    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //        menuSlide.isPresenting = true
 //        return menuSlide
@@ -47,11 +47,11 @@ import UIKit
 //        menuSlide.isPresenting = false
 //        return menuSlide
 //    }
-//    
-//}
 //
-//extension ZooViewController: UIViewControllerTransitioningDelegate {
-//    
+// }
+//
+// extension ZooViewController: UIViewControllerTransitioningDelegate {
+//
 //    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 //        menuSlide.isPresenting = true
 //        return menuSlide
@@ -61,5 +61,5 @@ import UIKit
 //        menuSlide.isPresenting = false
 //        return menuSlide
 //    }
-//    
-//}
+//
+// }

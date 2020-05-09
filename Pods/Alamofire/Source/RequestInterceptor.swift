@@ -93,13 +93,13 @@ public protocol RequestRetrier {
 public protocol RequestInterceptor: RequestAdapter, RequestRetrier {}
 
 extension RequestInterceptor {
-    public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
+    public func adapt(_ urlRequest: URLRequest, for _: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         completion(.success(urlRequest))
     }
 
-    public func retry(_ request: Request,
-                      for session: Session,
-                      dueTo error: Error,
+    public func retry(_: Request,
+                      for _: Session,
+                      dueTo _: Error,
                       completion: @escaping (RetryResult) -> Void) {
         completion(.doNotRetry)
     }

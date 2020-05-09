@@ -6,31 +6,34 @@
 //  Copyright © 2020 CTIS_Team1. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class DetailPetShopViewController: UIViewController {
-    
-    //MARK: IBOutlet
-    @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var addressTF: UITextField!
-    @IBOutlet weak var phoneTF: UITextField!
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var establishDateTF: UITextField!
-    @IBOutlet weak var workerCountTF: UITextField!
-    @IBOutlet weak var detailTF: UITextField!
-    
+    // MARK: IBOutlet
+
+    @IBOutlet var nameTF: UITextField!
+    @IBOutlet var addressTF: UITextField!
+    @IBOutlet var phoneTF: UITextField!
+    @IBOutlet var emailTF: UITextField!
+    @IBOutlet var establishDateTF: UITextField!
+    @IBOutlet var workerCountTF: UITextField!
+    @IBOutlet var detailTF: UITextField!
+
     // MARK: Variables
+
     let apiUrl = Configuration.apiUrl + "/api/v1/petshop/getall"
-    
-    var selectedId:String? = nil
-    
-    //MARK: viewDidLoad
+
+    var selectedId: String?
+
+    // MARK: viewDidLoad
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // MARK: TextField Style
+
         nameTF.setTitleAndIcon(title: "İsim", icon: "person", systemIcon: true)
         addressTF.setTitleAndIcon(title: "Adres", icon: "location", systemIcon: true)
         detailTF.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
@@ -38,35 +41,33 @@ class DetailPetShopViewController: UIViewController {
         emailTF.setTitleAndIcon(title: "Mail Adresi", icon: "envelope", systemIcon: true)
         establishDateTF.setTitleAndIcon(title: "Kuruluş Tarihi", icon: "calendar", systemIcon: true)
         workerCountTF.setTitleAndIcon(title: "Çalışan Sayısı", icon: "person.2", systemIcon: true)
-        
-        self.disableEditing()
-        
+
+        disableEditing()
+
         // check nil
         if selectedId != nil {
-            self.getPetShopDetail()
-        }
-        else {
+            getPetShopDetail()
+        } else {
             Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
     }
-    
+
     // MARK: GET request and Prepare Selected Data
+
     func getPetShopDetail() {
-        
-        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
-            
+        AF.request(apiUrl, method: .get).responseJSON { myresponse in
+
             // check result is success or failure
             switch myresponse.result {
             case .success:
-                
+
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
                 let resultArray = myresult!
-                
+
                 //
                 var i = 0
                 for item in resultArray.arrayValue {
-                    
                     if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let address = item["address"].stringValue
@@ -75,7 +76,7 @@ class DetailPetShopViewController: UIViewController {
                         let email = item["email"].stringValue
                         let establish = item["birthdate"].stringValue
                         let workerCount = item["workerCount"].stringValue
-                        
+
                         self.nameTF.text! = name
                         self.addressTF.text! = address
                         self.detailTF.text! = detail
@@ -84,23 +85,18 @@ class DetailPetShopViewController: UIViewController {
                         self.establishDateTF.text! = establish
                         self.workerCountTF.text! = workerCount
                     }
-                    
+
                     i = i + 1
-                    
                 }
-                
-                break
+
             case .failure:
                 Alert.showAlert(message: "Bir hata oluştu. Pet Shop Listesi Getiriemedi!", vc: self)
-                break
             }
-            
         }
-        
-        
     }
-    
+
     // MARK: disableEditing
+
     func disableEditing() {
         nameTF.isUserInteractionEnabled = false
         addressTF.isUserInteractionEnabled = false
@@ -110,5 +106,4 @@ class DetailPetShopViewController: UIViewController {
         establishDateTF.isUserInteractionEnabled = false
         workerCountTF.isUserInteractionEnabled = false
     }
-    
 }

@@ -9,16 +9,14 @@
 import UIKit
 
 class MenuSlide: NSObject, UIViewControllerAnimatedTransitioning {
-
     var isPresenting = false
     let dimmingView = UIView()
 
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    func transitionDuration(using _: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-
         guard let toViewController = transitionContext.viewController(forKey: .to),
             let fromViewController = transitionContext.viewController(forKey: .from) else { return }
 
@@ -46,7 +44,6 @@ class MenuSlide: NSObject, UIViewControllerAnimatedTransitioning {
             toViewController.view.transform = CGAffineTransform(translationX: finalWidth, y: 0)
         }
 
-
         // Move back off screen
         let identity = {
             self.dimmingView.alpha = 0.0
@@ -58,9 +55,8 @@ class MenuSlide: NSObject, UIViewControllerAnimatedTransitioning {
         let isCancelled = transitionContext.transitionWasCancelled
         UIView.animate(withDuration: duration, animations: {
             self.isPresenting ? transform() : identity()
-        }) { (_) in
+        }) { _ in
             transitionContext.completeTransition(!isCancelled)
         }
     }
-
 }
