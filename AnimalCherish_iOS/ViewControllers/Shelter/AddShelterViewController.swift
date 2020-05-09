@@ -76,7 +76,7 @@ class AddShelterViewController: UIViewController {
 
     func post() {
         // prepare paramaters
-        let parameters = ["id": "d8bc2f2f-ebde-1e00-b91f-c3e0a970e1e5",
+        let parameters = ["id": UUID().uuidString,
                           "olusmaTarihi": nil,
                           "olusturanKullanici": nil,
                           "sonGuncellenmeTarihi": nil,

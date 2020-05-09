@@ -66,7 +66,6 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
     func validate() {
         do {
-            try IdTextField.validatedText(validationType: ValidatorType.animalId)
             try nameTextField.validatedText(validationType: ValidatorType.animalName)
             try locationTextField.validatedText(validationType: ValidatorType.location)
             try typeTextField.validatedText(validationType: ValidatorType.animalType)
@@ -88,6 +87,10 @@ class AddAnimalViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             tempGender = true
         } else {
             tempGender = false
+        }
+
+        if IdTextField.text! == "" {
+            IdTextField.text! = UUID().uuidString
         }
 
         let parameters = ["id": IdTextField.text!, "olusmaTarihi": nil, "olusturanKullanici": "d19238c6-3578-466e-a293-3ba6f7ef1784", "sonGuncellenmeTarihi": nil, "name": nameTextField.text!, "address": locationTextField.text!, "birthdate": nil, "turId": "5529ad2a-ab07-4fad-9a94-355fa7da4ca1", "cinsId": "d09a1d83-5151-416a-834f-db95f510e341", "cinsiyet": tempGender, "sahipId": nil, "turAd": typeTextField.text!, "cinsAd": genusTextField.text!] as [String: Any?]
