@@ -73,7 +73,7 @@ class AddZooViewController: UIViewController {
 
     func post() {
         // prepare paramaters
-        let parameters = ["id": "2e502411-b76b-4948-bfd3-dde86d3272ac",
+        let parameters = ["id": UUID().uuidString,
                           "olusmaTarihi": nil,
                           "olusturanKullanici": nil,
                           "sonGuncellenmeTarihi": nil,

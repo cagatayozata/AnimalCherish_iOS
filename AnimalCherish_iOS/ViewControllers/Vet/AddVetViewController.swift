@@ -83,7 +83,7 @@ class AddVetViewController: UIViewController {
 
     func post() {
         // prepare paramaters
-        let parameters = ["id": "1c7c0a75-3d2b-428a-bf65-ed25686a5357",
+        let parameters = ["id": UUID().uuidString,
                           "olusmaTarihi": nil,
                           "olusturanKullanici": nil,
                           "sonGuncellenmeTarihi": nil,

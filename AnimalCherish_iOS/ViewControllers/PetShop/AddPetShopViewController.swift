@@ -74,7 +74,7 @@ class AddPetShopViewController: UIViewController {
 
     func post() {
         // prepare paramaters
-        let parameters = ["id": "f592580a-e3d6-4c28-a9ed-1c02e675ef3d",
+        let parameters = ["id": UUID().uuidString,
                           "olusmaTarihi": nil,
                           "olusturanKullanici": nil,
                           "sonGuncellenmeTarihi": nil,
