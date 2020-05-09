@@ -9,6 +9,8 @@
 import UIKit
 import Charts
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class DashboardViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, XMLParserDelegate {
     
@@ -21,17 +23,25 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Variables
+    var activeSegment = 0 // 0 -> Özet, 1 -> Son Haberler, 3 -> Yenilikler
+    let apiVetUrl = Configuration.apiUrl + "/api/v1/vet/getall"
+    let apiAnimalUrl = Configuration.apiUrl + "/api/v1/animal/getall"
+    let apiShelterUrl = Configuration.apiUrl + "/api/v1/shelter/getall"
+    let apiUserUrl = Configuration.apiUrl + "/api/v1/users/getall"
+    
+    // Graph
     let rolesTitles = ["Barınak Görevlisi", "Veteriner Hekim", "Normal Kullanıcı", "Administrator"]
     let rolesValues = [1, 1, 1, 12]
     
-    var activeSegment = 0 // 0 -> Özet, 1 -> Son Haberler, 3 -> Yenilikler
-    
-    var summaryData: [String] = ["15", "52", "13", "18"]
+    // Summary
+    var summaryData: [String] = ["", "", "", ""]
     var summaryDataTitles: [String] = ["Sistemdeki kayıtlı veteriner sayısı", "Sistemdeki kayıtlı hayvan sayısı","Sistemdeki kayıtlı barınak sayısı","Sistemdeki kayıtlı kullanıcı sayısı"]
     var summaryDataIcons: [String] = ["veticon", "animalicon", "sheltericon", "usericon"]
     
+    // Tweeets
     var tweetData: [String] = ["Tweet 1", "Tweet 2", "Tweet 3", "Tweet 4", "Tweet 5" ]
     
+    // News
     var myFeed : NSArray = []
     var feedImgs: [AnyObject] = []
     var url: URL!
@@ -47,7 +57,6 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         // style edits
         style()
         
-        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 180
         tableView.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.1)
@@ -55,6 +64,51 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         self.tableView.delegate = self
         
         loadData()
+        
+        // get count
+        getCount(url: apiVetUrl, num: 0)
+        getCount(url: apiAnimalUrl, num: 1)
+        getCount(url: apiShelterUrl, num: 2)
+        getCount(url: apiAnimalUrl, num: 3)
+        
+    }
+    
+    // GET the number of registered vets, animals, shelters, users
+    func getCount(url: String, num: Int) {
+        
+        AF.request(url, method: .get).responseJSON { (myresponse) in
+            
+            // check result is success or failure
+            switch myresponse.result {
+            case .success:
+                
+                // GET data
+                let myresult = try? JSON(data: myresponse.data!)
+                let resultArray = myresult!
+                var count = 0
+                
+                
+                //
+                for item in resultArray.arrayValue {
+                    count += 1
+                }
+                
+                self.summaryData[num] = ("\(count)")
+                
+                // reload table data
+                self.tableView.reloadData()
+                
+                break
+            case .failure:
+            
+                // show error
+                Alert.showAlert(message: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!", vc: self)
+                break
+                
+            }
+            
+        }
+        
     }
     
     func loadData() {
