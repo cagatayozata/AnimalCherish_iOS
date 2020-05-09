@@ -55,6 +55,7 @@
 		08CF276424165E0D0029FE4B /* AddShelterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF276324165E0D0029FE4B /* AddShelterViewController.swift */; };
 		08CF276624165E220029FE4B /* AddVetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF276524165E220029FE4B /* AddVetViewController.swift */; };
 		08CF276824165E2E0029FE4B /* AddZooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF276724165E2E0029FE4B /* AddZooViewController.swift */; };
+		08E63BBE2462F37800F3BDC2 /* AnimalCherish_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E63BBD2462F37800F3BDC2 /* AnimalCherish_iOSTests.swift */; };
 		08FB2B7F2405A1E3000D431A /* Vet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FB2B7E2405A1E3000D431A /* Vet.storyboard */; };
 		08FE0DFE240C2C92002AFC96 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FE0DFD240C2C92002AFC96 /* Reachability.swift */; };
 		08FE0E00240C2D18002AFC96 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08FE0DFF240C2D18002AFC96 /* Auth.storyboard */; };
@@ -63,6 +64,16 @@
 		83BD58C32446061800A8B982 /* FeedItemWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD58C22446061800A8B982 /* FeedItemWebViewController.swift */; };
 		83BD58C52446091100A8B982 /* XmlParserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD58C42446091100A8B982 /* XmlParserManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		08E63BC02462F37800F3BDC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0806813C24053BDB00FDE61D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0806814324053BDB00FDE61D;
+			remoteInfo = AnimalCherish_iOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0806814424053BDB00FDE61D /* AnimalCherish_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimalCherish_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +126,9 @@
 		08CF276324165E0D0029FE4B /* AddShelterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShelterViewController.swift; sourceTree = "<group>"; };
 		08CF276524165E220029FE4B /* AddVetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVetViewController.swift; sourceTree = "<group>"; };
 		08CF276724165E2E0029FE4B /* AddZooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddZooViewController.swift; sourceTree = "<group>"; };
+		08E63BBB2462F37800F3BDC2 /* AnimalCherish_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimalCherish_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E63BBD2462F37800F3BDC2 /* AnimalCherish_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCherish_iOSTests.swift; sourceTree = "<group>"; };
+		08E63BBF2462F37800F3BDC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08FB2B7E2405A1E3000D431A /* Vet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Vet.storyboard; sourceTree = "<group>"; };
 		08FE0DFD240C2C92002AFC96 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		08FE0DFF240C2D18002AFC96 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -136,6 +150,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08E63BB82462F37800F3BDC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -143,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				0806814624053BDB00FDE61D /* AnimalCherish_iOS */,
+				08E63BBC2462F37800F3BDC2 /* AnimalCherish_iOSTests */,
 				0806814524053BDB00FDE61D /* Products */,
 				363595BBF1FCCEC1DCBAC3FE /* Pods */,
 				EF0C26DD9218B4C679C1AC9B /* Frameworks */,
@@ -153,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				0806814424053BDB00FDE61D /* AnimalCherish_iOS.app */,
+				08E63BBB2462F37800F3BDC2 /* AnimalCherish_iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -317,6 +340,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		08E63BBC2462F37800F3BDC2 /* AnimalCherish_iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				08E63BBD2462F37800F3BDC2 /* AnimalCherish_iOSTests.swift */,
+				08E63BBF2462F37800F3BDC2 /* Info.plist */,
+			);
+			path = AnimalCherish_iOSTests;
+			sourceTree = "<group>";
+		};
 		08FB2B7B24059E51000D431A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,18 +418,40 @@
 			productReference = 0806814424053BDB00FDE61D /* AnimalCherish_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		08E63BBA2462F37800F3BDC2 /* AnimalCherish_iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08E63BC42462F37800F3BDC2 /* Build configuration list for PBXNativeTarget "AnimalCherish_iOSTests" */;
+			buildPhases = (
+				08E63BB72462F37800F3BDC2 /* Sources */,
+				08E63BB82462F37800F3BDC2 /* Frameworks */,
+				08E63BB92462F37800F3BDC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				08E63BC12462F37800F3BDC2 /* PBXTargetDependency */,
+			);
+			name = AnimalCherish_iOSTests;
+			productName = AnimalCherish_iOSTests;
+			productReference = 08E63BBB2462F37800F3BDC2 /* AnimalCherish_iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0806813C24053BDB00FDE61D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = CTIS_Team1;
 				TargetAttributes = {
 					0806814324053BDB00FDE61D = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					08E63BBA2462F37800F3BDC2 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 0806814324053BDB00FDE61D;
 					};
 				};
 			};
@@ -415,6 +469,7 @@
 			projectRoot = "";
 			targets = (
 				0806814324053BDB00FDE61D /* AnimalCherish_iOS */,
+				08E63BBA2462F37800F3BDC2 /* AnimalCherish_iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -437,6 +492,13 @@
 				0806815124053BDE00FDE61D /* Assets.xcassets in Resources */,
 				0838D6062406A2B50056E2F0 /* Animal.storyboard in Resources */,
 				0806814F24053BDB00FDE61D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08E63BB92462F37800F3BDC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,7 +594,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		08E63BB72462F37800F3BDC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E63BBE2462F37800F3BDC2 /* AnimalCherish_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		08E63BC12462F37800F3BDC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0806814324053BDB00FDE61D /* AnimalCherish_iOS */;
+			targetProxy = 08E63BC02462F37800F3BDC2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0806814D24053BDB00FDE61D /* Main.storyboard */ = {
@@ -706,6 +784,48 @@
 			};
 			name = Release;
 		};
+		08E63BC22462F37800F3BDC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98FL93A273;
+				INFOPLIST_FILE = AnimalCherish_iOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ozata.AnimalCherish-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimalCherish_iOS.app/AnimalCherish_iOS";
+			};
+			name = Debug;
+		};
+		08E63BC32462F37800F3BDC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 98FL93A273;
+				INFOPLIST_FILE = AnimalCherish_iOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ozata.AnimalCherish-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AnimalCherish_iOS.app/AnimalCherish_iOS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -723,6 +843,15 @@
 			buildConfigurations = (
 				0806815924053BDE00FDE61D /* Debug */,
 				0806815A24053BDE00FDE61D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08E63BC42462F37800F3BDC2 /* Build configuration list for PBXNativeTarget "AnimalCherish_iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08E63BC22462F37800F3BDC2 /* Debug */,
+				08E63BC32462F37800F3BDC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

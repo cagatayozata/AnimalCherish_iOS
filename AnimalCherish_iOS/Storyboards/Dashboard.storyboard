@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vhw-75-SKH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vhw-75-SKH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,13 +25,8 @@
                                 <color key="textColor" red="0.00062585918930000003" green="0.45167380569999999" blue="0.96962744000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L1v-zq-o4A">
-                                <rect key="frame" x="187.5" y="494.5" width="39" height="37"/>
-                                <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pageControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="914-JU-2c2">
-                                <rect key="frame" x="0.0" y="541.5" width="414" height="340.5"/>
+                                <rect key="frame" x="0.0" y="504.5" width="414" height="340.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sOy-rZ-EnC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -143,17 +138,15 @@
                             <constraint firstItem="914-JU-2c2" firstAttribute="height" secondItem="ELH-vy-T6h" secondAttribute="height" multiplier="0.38" id="0hq-Cw-maX"/>
                             <constraint firstItem="4lN-nB-ap0" firstAttribute="top" secondItem="RUd-0D-JPs" secondAttribute="top" constant="10" id="17H-fh-t5p"/>
                             <constraint firstItem="914-JU-2c2" firstAttribute="leading" secondItem="RUd-0D-JPs" secondAttribute="leading" id="CH7-0u-Su7"/>
-                            <constraint firstItem="L1v-zq-o4A" firstAttribute="centerX" secondItem="ELH-vy-T6h" secondAttribute="centerX" id="Fzo-wb-b7m"/>
                             <constraint firstItem="9gs-7j-oDZ" firstAttribute="leading" secondItem="RUd-0D-JPs" secondAttribute="leading" id="Hjz-ey-kSi"/>
                             <constraint firstItem="9gs-7j-oDZ" firstAttribute="top" secondItem="Igb-HJ-M3t" secondAttribute="bottom" constant="5" id="KtZ-LD-q6o"/>
-                            <constraint firstItem="914-JU-2c2" firstAttribute="top" secondItem="L1v-zq-o4A" secondAttribute="bottom" constant="10" id="OgV-mk-cYv"/>
                             <constraint firstItem="9gs-7j-oDZ" firstAttribute="height" secondItem="ELH-vy-T6h" secondAttribute="height" multiplier="0.4" id="VCZ-XC-45f"/>
                             <constraint firstItem="4lN-nB-ap0" firstAttribute="leading" secondItem="Igb-HJ-M3t" secondAttribute="trailing" constant="10" id="YGp-ba-rcv"/>
                             <constraint firstItem="RUd-0D-JPs" firstAttribute="trailing" secondItem="4lN-nB-ap0" secondAttribute="trailing" constant="10" id="ZLs-Dk-5a7"/>
                             <constraint firstItem="RUd-0D-JPs" firstAttribute="trailing" secondItem="914-JU-2c2" secondAttribute="trailing" id="a9Z-OW-khC"/>
                             <constraint firstItem="9gs-7j-oDZ" firstAttribute="trailing" secondItem="RUd-0D-JPs" secondAttribute="trailing" id="dpO-Sj-vjB"/>
+                            <constraint firstItem="914-JU-2c2" firstAttribute="top" secondItem="9gs-7j-oDZ" secondAttribute="bottom" constant="20" id="fMn-np-biF"/>
                             <constraint firstItem="Igb-HJ-M3t" firstAttribute="centerY" secondItem="4lN-nB-ap0" secondAttribute="centerY" id="lrU-zh-xPU"/>
-                            <constraint firstItem="L1v-zq-o4A" firstAttribute="top" secondItem="9gs-7j-oDZ" secondAttribute="bottom" constant="10" id="yWL-x9-LEz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RUd-0D-JPs"/>
                     </view>
@@ -227,7 +220,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.down.fill" catalog="system" width="60" height="64"/>
-        <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
+        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
+        <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>
