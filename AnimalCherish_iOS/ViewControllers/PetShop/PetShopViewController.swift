@@ -73,7 +73,9 @@ class PetShopViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.filteredData = self.petShops
                 
                 // reload table data
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
                 // remove loading indicator
                 self.removeLoadingIndicator()

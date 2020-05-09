@@ -73,7 +73,9 @@ class ShelterViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.filteredData = self.shelters
                 
                 // reload table data
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
                 // remove loading indicator
                 self.removeLoadingIndicator()

@@ -73,7 +73,9 @@ class ZooViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 self.filteredData = self.zoos
                 
                 // reload table data
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
                 // remove loading indicator
                 self.removeLoadingIndicator()
