@@ -27,15 +27,15 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
     let apiVetUrl = Configuration.apiUrl + "/api/v1/vet/getall"
     let apiAnimalUrl = Configuration.apiUrl + "/api/v1/animal/getall"
     let apiShelterUrl = Configuration.apiUrl + "/api/v1/shelter/getall"
-    let apiUserUrl = Configuration.apiUrl + "/api/v1/users/getall"
+    let apiZooUrl = Configuration.apiUrl + "/api/v1/zoo/getall"
     
     // Graph
-    let rolesTitles = ["Barınak Görevlisi", "Veteriner Hekim", "Normal Kullanıcı", "Administrator"]
-    let rolesValues = [1, 1, 1, 12]
+    var rolesTitles = ["Veteriner Hekim", "Hayvan", "Barınak Görevlisi", "Hayvanat Bahçesi"]
+    var rolesValues: [Int] = [0, 0, 0, 0]
     
     // Summary
     var summaryData: [String] = ["", "", "", ""]
-    var summaryDataTitles: [String] = ["Sistemdeki kayıtlı veteriner sayısı", "Sistemdeki kayıtlı hayvan sayısı","Sistemdeki kayıtlı barınak sayısı","Sistemdeki kayıtlı kullanıcı sayısı"]
+    var summaryDataTitles: [String] = ["Sistemdeki kayıtlı veteriner sayısı", "Sistemdeki kayıtlı hayvan sayısı","Sistemdeki kayıtlı barınak sayısı","Sistemdeki kayıtlı hayvanat bahçesi sayısı"]
     var summaryDataIcons: [String] = ["veticon", "animalicon", "sheltericon", "usericon"]
     
     // Tweeets
@@ -51,9 +51,13 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
     {
         super.viewDidLoad()
         
-        // create pie chart with data
-        createPieChart(dataPoints: rolesTitles, values: rolesValues.map{ Double($0) })
+        // get count
+        getCount(url: apiVetUrl, num: 0)
+        getCount(url: apiAnimalUrl, num: 1)
+        getCount(url: apiShelterUrl, num: 2)
+        getCount(url: apiZooUrl, num: 3)
         
+
         // style edits
         style()
         
@@ -64,13 +68,8 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         self.tableView.delegate = self
         
         loadData()
-        
-        // get count
-        getCount(url: apiVetUrl, num: 0)
-        getCount(url: apiAnimalUrl, num: 1)
-        getCount(url: apiShelterUrl, num: 2)
-        getCount(url: apiAnimalUrl, num: 3)
-        
+
+    
     }
     
     // GET the number of registered vets, animals, shelters, users
@@ -94,9 +93,15 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
                 }
                 
                 self.summaryData[num] = ("\(count)")
+                self.rolesValues[num] = (count)
                 
                 // reload table data
                 self.tableView.reloadData()
+                
+                self.pieChartView.reloadInputViews()
+                // create pie chart with data
+                self.createPieChart(dataPoints: self.rolesTitles, values: self.rolesValues.map{ Double($0) })
+                
                 
                 break
             case .failure:
@@ -125,6 +130,8 @@ class DashboardViewController: UIViewController,UITableViewDelegate, UITableView
         feedImgs = myParser.img as [AnyObject]
         myFeed = myParser.feeds
         tableView.reloadData()
+
+        print(self.rolesValues)
     }
     
     override func didReceiveMemoryWarning() {
