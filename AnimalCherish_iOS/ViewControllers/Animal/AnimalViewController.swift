@@ -93,7 +93,9 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
                 self.filteredData = self.animals
                 
                 // reload table data
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 
                 // remove loading indicator
                 self.removeLoadingIndicator()
