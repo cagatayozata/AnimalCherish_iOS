@@ -8,30 +8,28 @@
 
 import UIKit
 
-var loadingIndicator : UIView?
+var loadingIndicator: UIView?
 
 extension UIViewController {
-    
-    func showLoadingIndicator(onView : UIView) {
-        let spinnerView = UIView.init(frame: onView.bounds)
-        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+    func showLoadingIndicator(onView: UIView) {
+        let spinnerView = UIView(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView(style: .whiteLarge)
         ai.startAnimating()
         ai.center = spinnerView.center
-        
+
         DispatchQueue.main.async {
             spinnerView.addSubview(ai)
             onView.addSubview(spinnerView)
         }
-        
+
         loadingIndicator = spinnerView
     }
-    
+
     func removeLoadingIndicator() {
         DispatchQueue.main.async {
             loadingIndicator?.removeFromSuperview()
             loadingIndicator = nil
         }
     }
-    
 }

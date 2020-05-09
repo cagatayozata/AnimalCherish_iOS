@@ -6,35 +6,36 @@
 //  Copyright © 2020 CTIS_Team1. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class DetailVetViewController: UIViewController {
-    
-    //MARK: IBOutlet
-    @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var birthDateTF: UITextField!
-    @IBOutlet weak var educationInfoTF: UITextField!
-    @IBOutlet weak var cityTF: UITextField!
-    @IBOutlet weak var stateTF: UITextField!
-    @IBOutlet weak var phoneTF: UITextField!
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var diplomaNoTF: UITextField!
-    @IBOutlet weak var sicilNoTF: UITextField!
-    @IBOutlet weak var addressTF: UITextField!
-    @IBOutlet weak var detailTF: UITextField!
-    
-    
+    // MARK: IBOutlet
+
+    @IBOutlet var nameTF: UITextField!
+    @IBOutlet var birthDateTF: UITextField!
+    @IBOutlet var educationInfoTF: UITextField!
+    @IBOutlet var cityTF: UITextField!
+    @IBOutlet var stateTF: UITextField!
+    @IBOutlet var phoneTF: UITextField!
+    @IBOutlet var emailTF: UITextField!
+    @IBOutlet var diplomaNoTF: UITextField!
+    @IBOutlet var sicilNoTF: UITextField!
+    @IBOutlet var addressTF: UITextField!
+    @IBOutlet var detailTF: UITextField!
+
     // MARK: Variables
+
     let apiUrl = Configuration.apiUrl + "/api/v1/vet/getall"
-    
-    var selectedId:String? = nil
-    
-    //MARK: viewDownload
+
+    var selectedId: String?
+
+    // MARK: viewDownload
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // TextField Style
         nameTF.setTitleAndIcon(title: "İsim Soyad", icon: "person", systemIcon: true)
         educationInfoTF.setTitleAndIcon(title: "Eğitim Bilgisi", icon: "info", systemIcon: true)
@@ -47,35 +48,33 @@ class DetailVetViewController: UIViewController {
         detailTF.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
         diplomaNoTF.setTitleAndIcon(title: "Diploma No", icon: "number.circle", systemIcon: true)
         sicilNoTF.setTitleAndIcon(title: "Sicil No", icon: "number.circle", systemIcon: true)
-        
-        self.disableEditing()
-        
+
+        disableEditing()
+
         // check nil
         if selectedId != nil {
-            self.getVetDetail()
-        }
-        else {
+            getVetDetail()
+        } else {
             Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
     }
-    
+
     // MARK: GET request and Prepare Selected Data
+
     func getVetDetail() {
-        
-        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
-            
+        AF.request(apiUrl, method: .get).responseJSON { myresponse in
+
             // check result is success or failure
             switch myresponse.result {
             case .success:
-                
+
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
                 let resultArray = myresult!
-                
+
                 //
                 var i = 0
                 for item in resultArray.arrayValue {
-                    
                     if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let education = item["education"].stringValue
@@ -88,8 +87,7 @@ class DetailVetViewController: UIViewController {
                         var diplomaNo = item["diplomaNo"].stringValue
                         var sicilNo = item["sicilNo"].stringValue
                         let detail = item["details"].stringValue
-            
-                        
+
                         self.nameTF.text! = name
                         self.educationInfoTF.text! = education
                         self.birthDateTF.text! = birthday
@@ -102,23 +100,19 @@ class DetailVetViewController: UIViewController {
                         self.sicilNoTF.text! = sicilNo
                         self.detailTF.text! = detail
                     }
-                    
+
                     i = i + 1
-                    
                 }
-                
-                break
+
             case .failure:
                 Alert.showAlert(message: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!", vc: self)
-                break
             }
-            
         }
-        
     }
-    
+
     // MARK: prepare to send selectedId
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if segue.identifier == "goToEditVetViewController" {
             let editVetController = segue.destination as? EditVetViewController
             if let tempController = editVetController {
@@ -126,8 +120,9 @@ class DetailVetViewController: UIViewController {
             }
         }
     }
-    
+
     // MARK: disableEditing
+
     func disableEditing() {
         nameTF.isUserInteractionEnabled = false
         educationInfoTF.isUserInteractionEnabled = false
@@ -141,5 +136,4 @@ class DetailVetViewController: UIViewController {
         sicilNoTF.isUserInteractionEnabled = false
         detailTF.isUserInteractionEnabled = false
     }
-    
 }

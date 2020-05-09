@@ -768,7 +768,7 @@ extension DataRequest {
     ///
     /// - Returns:             The request.
     @discardableResult
-    public func responseDecodable<T: Decodable>(of type: T.Type = T.self,
+    public func responseDecodable<T: Decodable>(of _: T.Type = T.self,
                                                 queue: DispatchQueue = .main,
                                                 decoder: DataDecoder = JSONDecoder(),
                                                 completionHandler: @escaping (AFDataResponse<T>) -> Void) -> Self {
@@ -789,7 +789,7 @@ extension DownloadRequest {
     ///
     /// - Returns:             The request.
     @discardableResult
-    public func responseDecodable<T: Decodable>(of type: T.Type = T.self,
+    public func responseDecodable<T: Decodable>(of _: T.Type = T.self,
                                                 queue: DispatchQueue = .main,
                                                 decoder: DataDecoder = JSONDecoder(),
                                                 completionHandler: @escaping (AFDownloadResponse<T>) -> Void) -> Self {

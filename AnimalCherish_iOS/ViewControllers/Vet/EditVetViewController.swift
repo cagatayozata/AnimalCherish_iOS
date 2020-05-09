@@ -6,34 +6,36 @@
 //  Copyright © 2020 CTIS_Team1. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 class EditVetViewController: UIViewController {
-    
     // MARK: IBOutlet
-    @IBOutlet weak var nameTF: UITextField!
-    @IBOutlet weak var birthdateTF: UITextField!
-    @IBOutlet weak var educationInfoTF: UITextField!
-    @IBOutlet weak var diplomaNoTF: UITextField!
-    @IBOutlet weak var sicilNoTF: UITextField!
-    @IBOutlet weak var phoneTF: UITextField!
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var addressTF: UITextField!
-    @IBOutlet weak var stateTF: UITextField!
-    @IBOutlet weak var cityTF: UITextField!
-    @IBOutlet weak var detailTF: UITextField!
-    
+
+    @IBOutlet var nameTF: UITextField!
+    @IBOutlet var birthdateTF: UITextField!
+    @IBOutlet var educationInfoTF: UITextField!
+    @IBOutlet var diplomaNoTF: UITextField!
+    @IBOutlet var sicilNoTF: UITextField!
+    @IBOutlet var phoneTF: UITextField!
+    @IBOutlet var emailTF: UITextField!
+    @IBOutlet var addressTF: UITextField!
+    @IBOutlet var stateTF: UITextField!
+    @IBOutlet var cityTF: UITextField!
+    @IBOutlet var detailTF: UITextField!
+
     // MARK: Variables
+
     let apiUrl = Configuration.apiUrl + "/api/v1/vet/getall"
     let apiUrlSave = Configuration.apiUrl + "/api/v1/vet/save"
-    var selectedId:String? = nil
-    
-    //MARK: viewDownload
+    var selectedId: String?
+
+    // MARK: viewDownload
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // TextField Style
         nameTF.setTitleAndIcon(title: "İsim Soyad", icon: "person", systemIcon: true)
         educationInfoTF.setTitleAndIcon(title: "Eğitim Bilgisi", icon: "info", systemIcon: true)
@@ -46,33 +48,31 @@ class EditVetViewController: UIViewController {
         detailTF.setTitleAndIcon(title: "Detay", icon: "doc.text", systemIcon: true)
         diplomaNoTF.setTitleAndIcon(title: "Diploma No", icon: "number.circle", systemIcon: true)
         sicilNoTF.setTitleAndIcon(title: "Sicil No", icon: "number.circle", systemIcon: true)
-        
-        self.disableEditing()
-        
+
+        disableEditing()
+
         // check nil
         if selectedId != nil {
-            self.getVetDetail()
-        }
-        else {
+            getVetDetail()
+        } else {
             Alert.showAlert(message: "Hata Oluştu! Lütfen geri dönünüz!", vc: self)
         }
-        
     }
-    
+
     // MARK: GET request and Prepare Selected Data
+
     func getVetDetail() {
-        AF.request(apiUrl, method: .get).responseJSON { (myresponse) in
+        AF.request(apiUrl, method: .get).responseJSON { myresponse in
             // check result is success or failure
             switch myresponse.result {
             case .success:
                 // GET data
                 let myresult = try? JSON(data: myresponse.data!)
                 let resultArray = myresult!
-                
+
                 //
                 var i = 0
                 for item in resultArray.arrayValue {
-                    
                     if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let education = item["education"].stringValue
@@ -85,7 +85,7 @@ class EditVetViewController: UIViewController {
                         let diplomaNo = item["diplomaNo"].stringValue
                         let sicilNo = item["sicilNo"].stringValue
                         let detail = item["details"].stringValue
-                        
+
                         self.nameTF.text! = name
                         self.educationInfoTF.text! = education
                         self.cityTF.text! = city
@@ -98,31 +98,25 @@ class EditVetViewController: UIViewController {
                         self.sicilNoTF.text! = sicilNo
                         self.detailTF.text! = detail
                     }
-                    
+
                     i = i + 1
-                    
                 }
-                
-                break
+
             case .failure:
                 Alert.showAlert(message: "Bir hata oluştu. Veteriner Hekim Listesi Getiriemedi!", vc: self)
                 print(myresponse.error!)
-                break
             }
-            
         }
-        
     }
-    
-    @IBAction func SaveBtn(_ sender: Any) {
+
+    @IBAction func SaveBtn(_: Any) {
         validate()
     }
-    
-    
+
     // MARK: Validation
+
     func validate() {
         do {
-            
             try nameTF.validatedText(validationType: ValidatorType.vetName)
             try educationInfoTF.validatedText(validationType: ValidatorType.vetEducationInfo)
             try cityTF.validatedText(validationType: ValidatorType.vetCity)
@@ -131,17 +125,17 @@ class EditVetViewController: UIViewController {
             try phoneTF.validatedText(validationType: ValidatorType.vetPhoneNumber)
             try emailTF.validatedText(validationType: ValidatorType.vetMailAddress)
             try birthdateTF.validatedText(validationType: ValidatorType.vetBirthDate)
-            
+
             post()
-            
-        } catch(let error) {
+
+        } catch {
             Alert.showAlert(message: (error as! ValidationError).message, vc: self)
         }
     }
-    
+
     // MARK: Data Preparation and POST request
-    func post(){
-        
+
+    func post() {
         // prepare paramaters
         let parameters = ["id": "3c7c0a75-3d2b-428a-bf65-ed25686a5357",
                           "olusmaTarihi": nil,
@@ -154,52 +148,46 @@ class EditVetViewController: UIViewController {
                           "workplace": nil,
                           "clinic": addressTF.text!,
                           "details": detailTF.text!,
-                          "birthdate": 831340800000,
+                          "birthdate": 831_340_800_000,
                           "city": cityTF.text!,
                           "ilce": stateTF.text!,
                           "diplomaNo": diplomaNoTF.text!,
                           "userId": nil,
                           "sicilNo": sicilNoTF.text!,
                           "kullaniciId": nil,
-                          "kullaniciAdi": nil] as [String : Any?]
-        
+                          "kullaniciAdi": nil] as [String: Any?]
+
         // POST request
-        AF.request(apiUrlSave, method: .post , parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            
+        AF.request(apiUrlSave, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+
             // debug
             debugPrint(response)
-            
+
             // check result is success or failure
             switch response.result {
             case .success:
-                
+
                 // refresh Vet List on previous screen
                 Alert.showAlertThenPreviousScreen(message: "Veteriner başarıyla eklendi!", vc: self)
-                
-                break
+
             case .failure:
-                
+
                 // show warning to user
                 print(response.error!)
                 Alert.showAlert(message: "Veteriner eklenirken hata oluştu. Lütfen tekrar deneyiniz!", vc: self)
-                break
-                
             }
-            
         }
-        
     }
-    
+
     // MARK: Keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+
+    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
         // when clicking the UIView, keyboard will be removed
-        self.view.endEditing(true)
-        
+        view.endEditing(true)
     }
-    
-    
+
     // MARK: disableEditing
+
     func disableEditing() {
         nameTF.isUserInteractionEnabled = false
         educationInfoTF.isUserInteractionEnabled = false
@@ -207,5 +195,4 @@ class EditVetViewController: UIViewController {
         diplomaNoTF.isUserInteractionEnabled = false
         sicilNoTF.isUserInteractionEnabled = false
     }
-    
 }

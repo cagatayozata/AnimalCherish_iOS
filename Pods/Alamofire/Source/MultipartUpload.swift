@@ -50,7 +50,7 @@ final class MultipartUpload {
         urlRequest.setValue(multipartFormData.contentType, forHTTPHeaderField: "Content-Type")
 
         let uploadable: UploadRequest.Uploadable
-        if multipartFormData.contentLength < encodingMemoryThreshold && !isInBackgroundSession {
+        if multipartFormData.contentLength < encodingMemoryThreshold, !isInBackgroundSession {
             let data = try multipartFormData.encode()
 
             uploadable = .data(data)
