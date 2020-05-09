@@ -75,7 +75,7 @@ class DetailShelterViewController: UIViewController {
                         let address = item["address"].stringValue
                         let phone = item["phone"].stringValue
                         let email = item["email"].stringValue
-                        let detail = item["detail"].stringValue
+                        let detail = item["details"].stringValue
                         let capacity = item["capacity"].stringValue
                         let workerCount = item["workerCount"].stringValue
                         

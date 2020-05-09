@@ -23,7 +23,7 @@ class EditPetShopViewController: UIViewController {
     
     
     // MARK: Variables
-    let apiUrl = Configuration.apiUrl + "/api/v1/petshop/getall"
+    let apiUrl = "http://138.68.67.165/api/v1/petshop/getall"
     let apiUrlSave = Configuration.apiUrl + "/api/v1/petshop/save"
     
     var selectedId:String? = nil
@@ -65,9 +65,9 @@ class EditPetShopViewController: UIViewController {
                 let myresult = try? JSON(data: myresponse.data!)
                 let resultArray = myresult!
                 
+                //
                 var i = 0
                 for item in resultArray.arrayValue {
-                    
                     if item["id"].stringValue == self.selectedId {
                         let name = item["name"].stringValue
                         let address = item["address"].stringValue
@@ -92,8 +92,7 @@ class EditPetShopViewController: UIViewController {
                 
                 break
             case .failure:
-                self.showAlert(for: "Bir hata oluştu. Pet Shop Listesi Getiriemedi!")
-                print(myresponse.error!)
+                Alert.showAlert(message: "Bir hata oluştu. Pet Shop Listesi Getiriemedi!", vc: self)
                 break
             }
             
@@ -101,8 +100,6 @@ class EditPetShopViewController: UIViewController {
         
         
     }
-    
-    
     
     // MARK: Data Preparation and POST request
     func post(){

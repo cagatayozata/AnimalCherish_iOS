@@ -77,17 +77,18 @@ class DetailVetViewController: UIViewController {
                 for item in resultArray.arrayValue {
                     
                     if item["id"].stringValue == self.selectedId {
-                          let name = item["name"].stringValue
-                         let education = item["education"].stringValue
-                         let city = item["city"].stringValue
-                         let state = item["ilce"].stringValue
-                         let phone = item["phone"].stringValue
-                         let email = item["email"].stringValue
-                         let birthday = item["birthdate"].stringValue
-                         let address = item["address"].stringValue
-                         let diplomaNo = item["diplomaNo"].stringValue
-                         let sicilNo = item["sicilNo"].stringValue
-                         let detail = item["details"].stringValue
+                        let name = item["name"].stringValue
+                        let education = item["education"].stringValue
+                        let city = item["city"].stringValue
+                        let state = item["ilce"].stringValue
+                        let phone = item["phone"].stringValue
+                        let email = item["email"].stringValue
+                        let birthday = item["birthdate"].stringValue
+                        let address = item["clinic"].stringValue
+                        var diplomaNo = item["diplomaNo"].stringValue
+                        var sicilNo = item["sicilNo"].stringValue
+                        let detail = item["details"].stringValue
+            
                         
                         self.nameTF.text! = name
                         self.educationInfoTF.text! = education

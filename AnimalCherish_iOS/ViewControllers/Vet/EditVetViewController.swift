@@ -81,7 +81,7 @@ class EditVetViewController: UIViewController {
                         let phone = item["phone"].stringValue
                         let email = item["email"].stringValue
                         let birthday = item["birthdate"].stringValue
-                        let address = item["address"].stringValue
+                        let address = item["clinic"].stringValue
                         let diplomaNo = item["diplomaNo"].stringValue
                         let sicilNo = item["sicilNo"].stringValue
                         let detail = item["details"].stringValue
@@ -164,7 +164,7 @@ class EditVetViewController: UIViewController {
                           "kullaniciAdi": nil] as [String : Any?]
         
         // POST request
-        AF.request(apiUrlSave, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        AF.request(apiUrlSave, method: .post , parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
             // debug
             debugPrint(response)
