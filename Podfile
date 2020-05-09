@@ -10,5 +10,6 @@ target 'AnimalCherish_iOS' do
 pod 'Alamofire', '~> 5.0'
 pod 'SwiftyJSON', '~> 4.0'
 pod 'Charts'
+pod 'SwiftFormat/CLI'
 
 end

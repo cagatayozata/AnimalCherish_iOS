@@ -404,6 +404,7 @@
 			buildConfigurationList = 0806815824053BDE00FDE61D /* Build configuration list for PBXNativeTarget "AnimalCherish_iOS" */;
 			buildPhases = (
 				1B9F9D873AE64E651B2D0C81 /* [CP] Check Pods Manifest.lock */,
+				08D7F5622466E8F1008D4D70 /* ShellScript */,
 				0806814024053BDB00FDE61D /* Sources */,
 				0806814124053BDB00FDE61D /* Frameworks */,
 				0806814224053BDB00FDE61D /* Resources */,
@@ -505,6 +506,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		08D7F5622466E8F1008D4D70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
+		};
 		1B9F9D873AE64E651B2D0C81 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
