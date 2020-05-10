@@ -28,8 +28,10 @@ open class ChartDataSet: ChartBaseDataSet {
         super.init()
     }
 
-    override public convenience init(label: String?) {
-        self.init(entries: nil, label: label)
+    override public init(label: String?) {
+        entries = []
+
+        super.init(label: label)
     }
 
     @objc public init(entries: [ChartDataEntry]?, label: String?) {

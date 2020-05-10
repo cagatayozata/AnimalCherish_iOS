@@ -12,14 +12,6 @@
 import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-    import UIKit
-#endif
-
-#if canImport(Cocoa)
-    import Cocoa
-#endif
-
 open class PieChartRenderer: DataRenderer {
     @objc open weak var chart: PieChartView?
 
@@ -113,7 +105,7 @@ open class PieChartRenderer: DataRenderer {
         let phaseY = animator.phaseY
 
         let entryCount = dataSet.entryCount
-        let drawAngles = chart.drawAngles
+        var drawAngles = chart.drawAngles
         let center = chart.centerCircleBox
         let radius = chart.radius
         let drawInnerArc = chart.drawHoleEnabled && !chart.drawSlicesUnderHoleEnabled
@@ -659,8 +651,8 @@ open class PieChartRenderer: DataRenderer {
         var angle: CGFloat = 0.0
         let rotationAngle = chart.rotationAngle
 
-        let drawAngles = chart.drawAngles
-        let absoluteAngles = chart.absoluteAngles
+        var drawAngles = chart.drawAngles
+        var absoluteAngles = chart.absoluteAngles
         let center = chart.centerCircleBox
         let radius = chart.radius
         let drawInnerArc = chart.drawHoleEnabled && !chart.drawSlicesUnderHoleEnabled
@@ -677,6 +669,10 @@ open class PieChartRenderer: DataRenderer {
             }
 
             guard let set = data.getDataSetByIndex(indices[i].dataSetIndex) as? IPieChartDataSet else { continue }
+
+            if !set.isHighlightEnabled {
+                continue
+            }
 
             let entryCount = set.entryCount
             var visibleAngleCount = 0
@@ -698,7 +694,7 @@ open class PieChartRenderer: DataRenderer {
             let sliceAngle = drawAngles[index]
             var innerRadius = userInnerRadius
 
-            let shift = set.isHighlightEnabled ? set.selectionShift : 0.0
+            let shift = set.selectionShift
             let highlightedRadius = radius + shift
 
             let accountForSliceSpacing = sliceSpace > 0.0 && sliceAngle <= 180.0
@@ -811,9 +807,7 @@ open class PieChartRenderer: DataRenderer {
 
         // Prepend selected slices before the already rendered unselected ones.
         // NOTE: - This relies on drawDataSet() being called before drawHighlighted in PieChartView.
-        if !accessibleChartElements.isEmpty {
-            accessibleChartElements.insert(contentsOf: highlightedAccessibleElements, at: 1)
-        }
+        accessibleChartElements.insert(contentsOf: highlightedAccessibleElements, at: 1)
 
         context.restoreGState()
     }

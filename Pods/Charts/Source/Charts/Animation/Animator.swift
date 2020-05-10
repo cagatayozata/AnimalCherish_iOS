@@ -11,7 +11,6 @@
 
 import CoreGraphics
 import Foundation
-import QuartzCore
 
 @objc(ChartAnimatorDelegate)
 public protocol AnimatorDelegate {

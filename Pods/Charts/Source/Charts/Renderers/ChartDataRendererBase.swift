@@ -12,14 +12,6 @@
 import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-    import UIKit
-#endif
-
-#if canImport(Cocoa)
-    import Cocoa
-#endif
-
 @objc(ChartDataRendererBase)
 open class DataRenderer: Renderer {
     /// An array of accessibility elements that are presented to the ChartViewBase accessibility methods.
