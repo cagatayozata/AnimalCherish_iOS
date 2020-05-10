@@ -102,12 +102,6 @@ extension BarLineScatterCandleBubbleRenderer.XBounds: Sequence {
     }
 
     public func makeIterator() -> Iterator {
-        return Iterator(min: min, max: min + range)
-    }
-}
-
-extension BarLineScatterCandleBubbleRenderer.XBounds: CustomDebugStringConvertible {
-    public var debugDescription: String {
-        return "min:\(min), max:\(max), range:\(range)"
+        return Iterator(min: min, max: max)
     }
 }

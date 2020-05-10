@@ -12,14 +12,6 @@
 import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-    import UIKit
-#endif
-
-#if canImport(Cocoa)
-    import Cocoa
-#endif
-
 @objc(ChartYAxisRenderer)
 open class YAxisRenderer: AxisRendererBase {
     @objc public init(viewPortHandler: ViewPortHandler, yAxis: YAxis?, transformer: Transformer?) {

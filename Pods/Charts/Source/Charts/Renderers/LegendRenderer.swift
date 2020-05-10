@@ -34,14 +34,14 @@ open class LegendRenderer: Renderer {
             for i in 0 ..< data.dataSetCount {
                 guard let dataSet = data.getDataSetByIndex(i) else { continue }
 
-                let clrs: [NSUIColor] = dataSet.colors
+                var clrs: [NSUIColor] = dataSet.colors
                 let entryCount = dataSet.entryCount
 
                 // if we have a barchart with stacked bars
                 if dataSet is IBarChartDataSet,
                     (dataSet as! IBarChartDataSet).isStacked {
                     let bds = dataSet as! IBarChartDataSet
-                    let sLabels = bds.stackLabels
+                    var sLabels = bds.stackLabels
                     let minEntries = min(clrs.count, bds.stackSize)
 
                     for j in 0 ..< minEntries {
@@ -185,7 +185,7 @@ open class LegendRenderer: Renderer {
         let labelLineHeight = labelFont.lineHeight
         let formYOffset = labelLineHeight / 2.0
 
-        let entries = legend.entries
+        var entries = legend.entries
 
         let defaultFormSize = legend.formSize
         let formToTextSpace = legend.formToTextSpace
@@ -256,9 +256,9 @@ open class LegendRenderer: Renderer {
         switch orientation {
         case .horizontal:
 
-            let calculatedLineSizes = legend.calculatedLineSizes
-            let calculatedLabelSizes = legend.calculatedLabelSizes
-            let calculatedLabelBreakPoints = legend.calculatedLabelBreakPoints
+            var calculatedLineSizes = legend.calculatedLineSizes
+            var calculatedLabelSizes = legend.calculatedLabelSizes
+            var calculatedLabelBreakPoints = legend.calculatedLabelBreakPoints
 
             var posX: CGFloat = originPosX
             var posY: CGFloat

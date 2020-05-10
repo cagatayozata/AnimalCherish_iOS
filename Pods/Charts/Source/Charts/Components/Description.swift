@@ -12,14 +12,6 @@
 import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-    import UIKit
-#endif
-
-#if canImport(Cocoa)
-    import Cocoa
-#endif
-
 @objc(ChartDescription)
 open class Description: ComponentBase {
     override public init() {

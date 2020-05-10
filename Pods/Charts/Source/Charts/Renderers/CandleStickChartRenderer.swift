@@ -235,7 +235,7 @@ open class CandleStickChartRenderer: LineScatterCandleRadarRenderer {
 
         // if values are drawn
         if isDrawingValuesAllowed(dataProvider: dataProvider) {
-            let dataSets = candleData.dataSets
+            var dataSets = candleData.dataSets
 
             let phaseY = animator.phaseY
 

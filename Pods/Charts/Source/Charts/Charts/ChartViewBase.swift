@@ -13,14 +13,6 @@
 import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-    import UIKit
-#endif
-
-#if canImport(Cocoa)
-    import Cocoa
-#endif
-
 @objc
 public protocol ChartViewDelegate {
     /// Called when a value has been selected inside the chart.

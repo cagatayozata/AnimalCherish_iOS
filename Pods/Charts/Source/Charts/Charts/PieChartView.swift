@@ -12,14 +12,6 @@
 import CoreGraphics
 import Foundation
 
-#if canImport(UIKit)
-    import UIKit
-#endif
-
-#if canImport(Cocoa)
-    import Cocoa
-#endif
-
 /// View that represents a pie chart. Draws cake like slices.
 open class PieChartView: PieRadarChartViewBase {
     /// rect object that represents the bounds of the piechart, needed for drawing the circle
