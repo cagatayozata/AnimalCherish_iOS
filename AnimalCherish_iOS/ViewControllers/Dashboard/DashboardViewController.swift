@@ -46,6 +46,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     var myFeed: NSArray = []
     var feedImgs: [AnyObject] = []
     var url: URL!
+    var isTweet: Bool = false
 
     // MARK: viewDidLoad
 
@@ -67,7 +68,9 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
 
-        loadData()
+        DispatchQueue.main.async {
+            self.loadData()
+        }
     }
 
     // GET the number of registered vets, animals, shelters, users
@@ -107,15 +110,25 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func loadData() {
-        url = URL(string: "https://www.tshf.org.tr/rss/latest-posts")!
+        if isTweet == true {
+            // MARK: NEWS RSS FEED
+
+            url = URL(string: "https://www.tshf.org.tr/rss/latest-posts")!
+        } else {
+            // MARK: TWITTER RSS FEED
+
+            url = URL(string: "https://twitrss.me/twitter_user_to_rss/?user=CherishAnimal")!
+        }
         loadRss(url)
     }
 
     func loadRss(_ data: URL) {
-        // XmlParserManager instance/object/variable.
+        // MARK: XmlParserManager instance/object/variable.
+
         let myParser: XmlParserManager = XmlParserManager().initWithURL(data) as! XmlParserManager
 
-        // Put feed in array.
+        // MARK: Put feed in array.
+
         feedImgs = myParser.img as [AnyObject]
         myFeed = myParser.feeds
         tableView.reloadData()
@@ -132,13 +145,14 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             let indexPath: IndexPath = tableView.indexPathForSelectedRow!
             let selectedFURL: String = (myFeed[indexPath.row] as AnyObject).object(forKey: "link") as! String
 
-            // Instance of our feedpageviewcontrolelr.
+            // MARK: Instance of our feedpageviewcontrolelr.
+
             let fivc: FeedItemWebViewController = segue.destination as! FeedItemWebViewController
             fivc.selectedFeedURL = selectedFURL as String
         }
     }
 
-    // MARK: - Table view data source.
+    // MARK: Table view data source.
 
     func numberOfSections(in _: UITableView) -> Int {
         return 1
@@ -161,7 +175,10 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
 
         } else {
             // yenilikler
-            return tweetData.count
+            if myFeed.count > 7 {
+                return 7
+            }
+            return myFeed.count
         }
     }
 
@@ -184,7 +201,8 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
 
         } else if activeSegment == 1 {
-            // son haberler
+            // MARK: Latest News
+
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
             cell.textLabel?.backgroundColor = UIColor.clear
             cell.detailTextLabel?.backgroundColor = UIColor.clear
@@ -196,9 +214,12 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
                 cell.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
             }
 
-            // Load feed iamge.
+            // MARK: Load feed iamge.
+
             let url = NSURL(string: feedImgs[indexPath.row] as! String)
+
             let data = NSData(contentsOf: url! as URL)
+
             var image = UIImage(data: data! as Data)
 
             image = resizeImage(image: image!, toTheSize: CGSize(width: 70, height: 70))
@@ -211,7 +232,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.imageView?.image = image
 
             let str = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
-            let nsString = str as! NSString
+            let nsString = str! as NSString
             if nsString.length >= 30 {
                 cell.textLabel?.text = nsString.substring(with: NSRange(location: 0, length: nsString.length > 30 ? 30 : nsString.length)) + "..."
             }
@@ -223,12 +244,40 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
             return cell
 
         } else {
-            // yenilikler
-            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+            // MARK: yenilikler || twitter
 
+            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
             cell.imageView?.image = UIImage(systemName: "message")
-            cell.textLabel?.text = tweetData[indexPath.row]
-            cell.detailTextLabel?.text = "@animalcherish"
+
+            cell.textLabel?.backgroundColor = UIColor.clear
+            cell.detailTextLabel?.backgroundColor = UIColor.clear
+            cell.textLabel?.numberOfLines = 1
+
+            if indexPath.row % 2 == 0 {
+                cell.backgroundColor = UIColor(white: 1, alpha: 0)
+            } else {
+                cell.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
+            }
+
+            // MARK: Load feed image.
+
+            // let url = NSURL(string: feedImgs[indexPath.row] as! String)
+            if feedImgs.count > indexPath.row {
+                let url = NSURL(string: feedImgs[indexPath.row] as! String)
+            }
+            let data = NSData(contentsOf: url! as URL)
+
+            let str = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
+            let nsString = str as! NSString
+            if nsString.length >= 30 {
+                cell.textLabel?.text = nsString.substring(with: NSRange(location: 0, length: nsString.length > 30 ? 30 : nsString.length)) + "..."
+            }
+
+            cell.textLabel?.numberOfLines = 1
+            cell.textLabel?.lineBreakMode = .byWordWrapping
+            cell.detailTextLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "pubDate") as? String
+
+            cell.detailTextLabel?.text = "@CherishAnimal"
 
             return cell
         }
@@ -284,6 +333,9 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
         yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
         activeSegment = 1
+        isTweet = false
+        print(isTweet)
+        print(url)
         tableView.reloadData()
     }
 
@@ -294,6 +346,9 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         recentNewsButton.setTitleColor(UIColor(#colorLiteral(red: 0.7922700644, green: 0.7923850417, blue: 0.7922448516, alpha: 1)), for: .normal)
         yeniliklerButton.setTitleColor(UIColor(#colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)), for: .normal)
         activeSegment = 2
+        isTweet = true
+        print(isTweet)
+        print(url)
         tableView.reloadData()
     }
 
