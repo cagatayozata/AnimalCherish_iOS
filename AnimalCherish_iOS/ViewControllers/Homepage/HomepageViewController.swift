@@ -37,6 +37,12 @@ class HomepageViewController: UIViewController {
         zooButton.setHomepageButton(imageName: "chevron.up")
     }
 
+    // MARK: Logout
+    
+    func logout(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "status")
+    }
+    
     // MARK: goBackToFirst
 
     @IBAction func goBackToHomepage(_: UIStoryboardSegue) {}

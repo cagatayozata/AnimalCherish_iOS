@@ -32,4 +32,10 @@ class ProfileViewController: UIViewController {
         image?.layer.borderWidth = 3.0
         image?.layer.borderColor = #colorLiteral(red: 0.0006258591893, green: 0.4516738057, blue: 0.96962744, alpha: 1)
     }
+    
+    // MARK: Logout
+     
+     func logout(_ sender: Any) {
+         UserDefaults.standard.set(false, forKey: "status")
+     }
 }
