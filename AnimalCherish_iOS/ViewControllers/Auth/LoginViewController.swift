@@ -50,6 +50,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 
+        passwordTextField.isSecureTextEntry = true
+
         // style edits
         style()
 
@@ -87,8 +89,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.userPasswords.append(password)
                 }
 
-                print(self.emails, self.userPasswords)
-                // remove loading indicator
+                //  print(self.emails, self.userPasswords)
+                //  remove loading indicator
                 self.removeLoadingIndicator()
 
             case .failure:
@@ -108,9 +110,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func login() {
         var count = 0
 
-        print("passss")
-        print(enteredpassword)
-
         if enteredEmail!.isEmpty || enteredpassword!.isEmpty {
             Alert.showAlert(message: "Email veya Parola boş bırakılamaz !", vc: self)
         } else {
@@ -125,20 +124,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 count += 1
             }
         }
-        getUserId()
-    }
-
-    // MARK: Get ID to send data
-
-    func getUserId() -> String {
-        var count = 0
-        for mail in emails {
-            if enteredEmail == mail {
-                selectedId = iDs[count]
-            }
-            count += 1
-        }
-        return selectedId!
     }
 
     // MARK: Login Button
@@ -206,6 +191,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+
+    // MARK: Keyboard hide
 
     @objc func keyboardWillHide(notification _: NSNotification) {
         if view.frame.origin.y != 0 {

@@ -2,11 +2,19 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j7R-HV-sYa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Auth-->
+        <scene sceneID="wNK-NT-qC8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="9nR-2w-2CL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNb-cm-Uty" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1473" y="-292"/>
+        </scene>
         <!--Profil-->
         <scene sceneID="I6B-Uc-QTh">
             <objects>
@@ -62,16 +70,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTI-Wj-VCI">
-                                <rect key="frame" x="20" y="688" width="374" height="56"/>
-                                <color key="backgroundColor" red="0.016697414220000002" green="0.040459655230000002" blue="0.24400261039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="mee-zd-5EI"/>
-                                </constraints>
-                                <state key="normal" title="Kaydet">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -79,11 +77,9 @@
                             <constraint firstItem="WsB-C3-vhB" firstAttribute="top" secondItem="jvW-b9-N4d" secondAttribute="bottom" constant="10" id="BE1-3c-YZe"/>
                             <constraint firstItem="8HD-NP-iYs" firstAttribute="top" secondItem="tz2-aS-4GO" secondAttribute="top" constant="70" id="BRR-Pk-Poq"/>
                             <constraint firstItem="jvW-b9-N4d" firstAttribute="top" secondItem="8HD-NP-iYs" secondAttribute="bottom" constant="70" id="Bak-Yd-eq3"/>
-                            <constraint firstItem="TTI-Wj-VCI" firstAttribute="top" secondItem="68E-Xh-ebd" secondAttribute="bottom" constant="10" id="CHd-R7-buQ"/>
                             <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="JwH-zr-vDE" secondAttribute="trailing" constant="20" id="FuP-hn-ALZ"/>
                             <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="WsB-C3-vhB" secondAttribute="trailing" constant="20" id="MIt-87-W14"/>
                             <constraint firstItem="8HD-NP-iYs" firstAttribute="centerX" secondItem="61e-nZ-bWt" secondAttribute="centerX" id="PWO-qJ-Xm1"/>
-                            <constraint firstItem="TTI-Wj-VCI" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="QxG-JD-0U0"/>
                             <constraint firstItem="jvW-b9-N4d" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="REx-ku-pCS"/>
                             <constraint firstItem="JwH-zr-vDE" firstAttribute="top" secondItem="IOk-Jp-190" secondAttribute="bottom" constant="10" id="Rsz-Sc-eoF"/>
                             <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="68E-Xh-ebd" secondAttribute="trailing" constant="20" id="UZo-1n-NpN"/>
@@ -93,12 +89,17 @@
                             <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="jvW-b9-N4d" secondAttribute="trailing" constant="20" id="kh2-HJ-W3k"/>
                             <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="IOk-Jp-190" secondAttribute="trailing" constant="20" id="lbk-g7-k56"/>
                             <constraint firstItem="68E-Xh-ebd" firstAttribute="top" secondItem="JwH-zr-vDE" secondAttribute="bottom" constant="10" id="tQi-fe-JMt"/>
-                            <constraint firstItem="tz2-aS-4GO" firstAttribute="trailing" secondItem="TTI-Wj-VCI" secondAttribute="trailing" constant="20" id="wgV-Q3-Loi"/>
                             <constraint firstItem="68E-Xh-ebd" firstAttribute="leading" secondItem="tz2-aS-4GO" secondAttribute="leading" constant="20" id="yLh-4U-ER7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tz2-aS-4GO"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profil" id="2l1-lr-rTO"/>
+                    <navigationItem key="navigationItem" title="Profil" id="2l1-lr-rTO">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="chevron.right.square.fill" catalog="system" id="TaR-aH-Vui">
+                            <connections>
+                                <segue destination="9nR-2w-2CL" kind="presentation" modalPresentationStyle="fullScreen" id="eZ0-ZT-QyC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="image" destination="8HD-NP-iYs" id="ooT-wm-g3y"/>
                         <outlet property="mail" destination="JwH-zr-vDE" id="M1O-Ff-p07"/>
@@ -135,6 +136,7 @@
     </scenes>
     <resources>
         <image name="0" width="200" height="200"/>
+        <image name="chevron.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
     </resources>
 </document>

@@ -122,11 +122,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="87F-ly-6er"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="box" destination="dnS-lk-n3A" id="aca-Ty-XkG"/>
                         <outlet property="createUserButton" destination="FD4-f0-T16" id="U61-Qv-gFb"/>
                         <outlet property="forgetPasswordButton" destination="BF6-ak-wgQ" id="0rC-KK-Kqv"/>
-                        <outlet property="forgotPasswordBtn" destination="BF6-ak-wgQ" id="FIP-3l-h0v"/>
                         <outlet property="loginButton" destination="JJq-cr-xbW" id="IwA-X1-7xr"/>
                         <outlet property="passwordTextField" destination="ioN-qh-mg4" id="zKs-yg-C3U"/>
                         <outlet property="usernameTextField" destination="7ot-Ta-oNV" id="BJ8-AM-hBc"/>
