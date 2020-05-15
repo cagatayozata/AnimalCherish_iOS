@@ -31,6 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     let apiUrl = Configuration.apiUrl + "/api/v1/kullanici/getall"
     var selectedId: String?
+    var iDs: [String] = []
     var enteredEmail: String?
     var enteredpassword: String?
     var emails: [String] = []
@@ -79,7 +80,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let email = item["email"].stringValue
                     let password = item["password"].stringValue
 
-                    self.selectedId = id
+                    self.iDs.append(id)
                     self.emails.append(email)
                     self.userPasswords.append(password)
                 }
@@ -122,14 +123,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 count += 1
             }
         }
+        getUserId()
+    }
+
+    // MARK: Get ID to send data
+
+    func getUserId() -> String {
+        var count = 0
+        for mail in emails {
+            if enteredEmail == mail {
+                selectedId = iDs[count]
+            }
+            count += 1
+        }
+        return selectedId!
     }
 
     // MARK: Login Button
 
     @IBAction func loginButtonAction(_: Any) {
         enteredEmail = usernameTextField.text
-
-       
         enteredpassword = md5Hash(str: passwordTextField.text!)
         login()
     }
@@ -141,6 +154,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let loginController = segue.destination as? HomepageViewController
             if let tempController = loginController {
                 tempController.selectedId = selectedId
+                print("User ID ", selectedId)
             }
         }
     }

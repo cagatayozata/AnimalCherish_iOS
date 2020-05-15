@@ -25,7 +25,6 @@ class HomepageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // style textfields and buttons
         style()
     }
