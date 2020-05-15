@@ -18,7 +18,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnS-lk-n3A">
                                 <rect key="frame" x="0.0" y="502" width="375" height="310"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" minimumFontSize="17" disabledBackground="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="7ot-Ta-oNV">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" disabledBackground="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="7ot-Ta-oNV">
                                         <rect key="frame" x="20" y="25" width="335" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="997-Q8-QTN"/>
@@ -72,7 +72,6 @@
                                         </state>
                                         <connections>
                                             <action selector="createUserAction:" destination="QgR-Bs-A7v" eventType="touchUpInside" id="fa7-Nj-jf4"/>
-                                            <segue destination="ttS-jZ-Na9" kind="presentation" modalPresentationStyle="fullScreen" id="GvT-gX-Sb0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -174,9 +173,6 @@
                                         <state key="normal" title="Kayıt Ol">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="VUY-5w-eSF" kind="presentation" modalPresentationStyle="fullScreen" id="5vV-II-dco"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9Z-4p-zbc">
                                         <rect key="frame" x="99" y="304" width="177" height="33"/>
@@ -184,9 +180,6 @@
                                         <state key="normal" title="Zaten üyeyim, giriş yap">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="QgR-Bs-A7v" kind="presentation" modalPresentationStyle="fullScreen" id="xix-vE-ZT7"/>
-                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanıcı Adı" textAlignment="natural" minimumFontSize="17" disabledBackground="textfield" translatesAutoresizingMaskIntoConstraints="NO" id="EFe-48-0rl">
                                         <rect key="frame" x="20" y="25" width="335" height="56"/>
@@ -306,9 +299,6 @@
             <point key="canvasLocation" x="542" y="-928"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ci0-L9-tQ9"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="splash (1)" width="326" height="326"/>
         <image name="textfield" width="549" height="63"/>
