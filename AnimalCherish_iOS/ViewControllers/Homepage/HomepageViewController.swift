@@ -17,11 +17,14 @@ class HomepageViewController: UIViewController {
     @IBOutlet var petShopButton: UIButton!
     @IBOutlet var zooButton: UIButton!
 
+    // MARK: Variables
+
+    var selectedId: String?
+
     // MARK: viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // style textfields and buttons
         style()
     }

@@ -150,7 +150,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RUd-0D-JPs"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="Lr0-cH-ICN"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="Lr0-cH-ICN">
+                        <barButtonItem key="rightBarButtonItem" image="chevron.right.square.fill" catalog="system" id="iQJ-aI-UsD">
+                            <connections>
+                                <segue destination="u8w-cO-Lka" kind="presentation" modalPresentationStyle="fullScreen" id="cW0-Bw-trD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="middleMenu" destination="sOy-rZ-EnC" id="K0z-0U-wDJ"/>
                         <outlet property="pieChartView" destination="9gs-7j-oDZ" id="qCD-qC-iI7"/>
@@ -163,6 +169,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRb-63-d8o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2004.3478260869567" y="1148.4375"/>
+        </scene>
+        <!--Auth-->
+        <scene sceneID="B83-do-C7V">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="u8w-cO-Lka" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JL0-2G-Awf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xs-m8-xoT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1341" y="781"/>
         </scene>
         <!--Feed Item Web View Controller-->
         <scene sceneID="RkR-Rh-GfR">
@@ -220,6 +236,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
     </resources>

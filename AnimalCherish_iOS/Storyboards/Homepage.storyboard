@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FU4-im-6RK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -140,7 +140,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RUd-D9-DeZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="AnimalCherish" id="a57-KR-IEp"/>
+                    <navigationItem key="navigationItem" title="AnimalCherish" id="a57-KR-IEp">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="chevron.right.square.fill" catalog="system" id="8xB-jw-r3j">
+                            <connections>
+                                <segue destination="G4l-by-nbs" kind="presentation" modalPresentationStyle="fullScreen" id="yM3-eD-GiI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="animalButton" destination="oHq-ma-H81" id="kkY-j6-yJ1"/>
                         <outlet property="petShopButton" destination="2MS-V5-DHD" id="qYI-Bb-VrY"/>
@@ -152,6 +158,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zGr-fy-YFl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863.768115942029" y="47.544642857142854"/>
+        </scene>
+        <!--Auth-->
+        <scene sceneID="50w-Vw-UG3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="G4l-by-nbs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAY-37-Tk8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="-250"/>
         </scene>
         <!--Animal-->
         <scene sceneID="q3X-s5-Hz8">
@@ -217,6 +231,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right.square.fill" catalog="system" width="128" height="114"/>
         <image name="homepageicon" width="326" height="326"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
     </resources>
