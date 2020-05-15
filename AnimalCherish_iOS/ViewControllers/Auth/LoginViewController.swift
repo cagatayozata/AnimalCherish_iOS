@@ -36,13 +36,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var iDs: [String] = []
     var enteredEmail: String?
     var enteredpassword: String?
+    var enteredPass: String?
     var emails: [String] = []
     var userPasswords: [String] = []
+
+    var login_session: Data?
+    let login_url: String = ""
+    var sessions_data: Data?
 
     // MARK: viewDidLoad
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        enteredPass = sha256(str: passwordTextField.text!)
 
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -56,6 +63,108 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         style()
 
         getUser()
+    }
+
+    func login_now(username: String, password: String) {
+        let post_data: NSDictionary = NSMutableDictionary()
+
+        post_data.setValue(username, forKey: "username")
+        post_data.setValue(password, forKey: "password")
+
+        let url: URL = URL(string: login_url)!
+        let session = URLSession.shared
+
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+
+        var paramString = ""
+
+        for (key, value) in post_data {
+            paramString = paramString + (key as! String) + "=" + (value as! String) + "&"
+        }
+
+        request.httpBody = paramString.data(using: String.Encoding.utf8)
+
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {
+            data, response, error in
+
+            guard let _: Data = data, let _: URLResponse = response, error == nil else {
+                return
+            }
+
+            let json: Any?
+
+            do {
+                json = try JSONSerialization.jsonObject(with: data!, options: [])
+            } catch {
+                return
+            }
+
+            guard let server_response = json as? NSDictionary else {
+                return
+            }
+
+            if let data_block = server_response["data"] as? NSDictionary {
+                if let session_data = data_block["session"] as? String {
+                    self.login_session = self.sessions_data
+
+                    let preferences = UserDefaults.standard
+                    preferences.set(session_data, forKey: "session")
+                }
+            }
+
+        })
+
+        task.resume()
+    }
+
+    // MARK: prepare to send selectedId
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if segue.identifier == "loginSegue" {
+            let loginController = segue.destination as? HomepageViewController
+            if let tempController = loginController {
+                tempController.selectedId = selectedId
+                print("User ID ", selectedId)
+            }
+        }
+    }
+
+    // MARK: Password Hashing to match SHA256 standards
+
+    func sha256(str: String) -> String {
+        if let strData = str.data(using: String.Encoding.utf8) {
+            /// #define CC_SHA256_DIGEST_LENGTH     32
+            /// Creates an array of unsigned 8 bit integers that contains 32 zeros
+            var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
+
+            /// CC_SHA256 performs digest calculation and places the result in the caller-supplied buffer for digest (md)
+            /// Takes the strData referenced value (const unsigned char *d) and hashes it into a reference to the digest parameter.
+            strData.withUnsafeBytes {
+                // CommonCrypto
+                // extern unsigned char *CC_SHA256(const void *data, CC_LONG len, unsigned char *md)  -|
+                // OpenSSL                                                                             |
+                // unsigned char *SHA256(const unsigned char *d, size_t n, unsigned char *md)        <-|
+                CC_SHA256($0.baseAddress, UInt32(strData.count), &digest)
+            }
+
+            var sha256String = ""
+            /// Unpack each byte in the digest array and add them to the sha256String
+            for byte in digest {
+                sha256String += String(format: "%02x", UInt8(byte))
+            }
+
+            // MARK: To test / Debug
+
+            if sha256String.uppercased() == "E8721A6EBEA3B23768D943D075035C7819662B581E487456FDB1A7129C769188" {
+                print("Matching sha256 hash: E8721A6EBEA3B23768D943D075035C7819662B581E487456FDB1A7129C769188")
+            } else {
+                print("sha256 hash does not match: \(sha256String)")
+            }
+            return sha256String
+        }
+        return ""
     }
 
     // MARK: Find user
@@ -148,31 +257,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let url = NSURL(string: "http://138.68.67.165/sifre_sifirla.jsf") {
             UIApplication.shared.open(url as URL)
         }
-    }
-
-    // MARK: prepare to send selectedId
-
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        if segue.identifier == "loginSegue" {
-            let loginController = segue.destination as? HomepageViewController
-            if let tempController = loginController {
-                tempController.selectedId = selectedId
-                print("User ID ", selectedId)
-            }
-        }
-    }
-
-    // MARK: Password Hashing to match MD5 standards
-
-    func ccSha256(data: Data) -> Data {
-        var digest = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
-
-        _ = digest.withUnsafeMutableBytes { digestBytes in
-            data.withUnsafeBytes { stringBytes in
-                CC_SHA256(stringBytes, CC_LONG(data.count), digestBytes)
-            }
-        }
-        return digest
     }
 
     // MARK: Keyboard Disapper touches on the screen
