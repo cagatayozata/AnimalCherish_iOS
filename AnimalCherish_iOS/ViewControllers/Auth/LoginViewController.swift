@@ -16,6 +16,7 @@ import CryptoKit
 import Foundation
 import SwiftyJSON
 import UIKit
+import WebKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: IBOutlet
@@ -26,6 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var forgetPasswordButton: UIButton!
     @IBOutlet var createUserButton: UIButton!
+    @IBOutlet var forgotPasswordBtn: UIButton!
 
     // MARK: Variables
 
@@ -145,6 +147,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         enteredEmail = usernameTextField.text
         enteredpassword = md5Hash(str: passwordTextField.text!)
         login()
+    }
+
+    // MARK: Register
+
+    @IBAction func createUserAction(_: Any) {
+        if let url = NSURL(string: "http://138.68.67.165/register.jsf") {
+            UIApplication.shared.open(url as URL)
+        }
+    }
+
+    // MARK: Forgot Password
+
+    @IBAction func forgotPasswordAction(_: Any) {
+        if let url = NSURL(string: "http://138.68.67.165/sifre_sifirla.jsf") {
+            UIApplication.shared.open(url as URL)
+        }
     }
 
     // MARK: prepare to send selectedId
