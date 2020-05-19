@@ -42,11 +42,19 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    // MARK: Prev Page
+
     @IBAction func prevPage(_: Any) {
         if pageControl.currentPage != 0 {
             pageControl.currentPage = pageControl.currentPage - 1
             changePage(pageControl)
         }
+    }
+
+    // MARK: Logout
+
+    func logout(_: Any) {
+        UserDefaults.standard.set(false, forKey: "status")
     }
 
     // MARK: UIPageControl

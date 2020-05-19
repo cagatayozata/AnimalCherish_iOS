@@ -41,7 +41,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var userPasswords: [String] = []
 
     var login_session: Data?
-    let login_url: String = ""
+    var login_url: String = ""
+    let checksession_url: String = ""
     var sessions_data: Data?
 
     // MARK: viewDidLoad
@@ -165,6 +166,52 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return sha256String
         }
         return ""
+    }
+
+    // MARK: Session Control
+
+    func check_session() {
+        let post_data: NSDictionary = NSMutableDictionary()
+
+        post_data.setValue(login_session, forKey: "session")
+
+        let url: URL = URL(string: checksession_url)!
+        let session = URLSession.shared
+
+        let request = NSMutableURLRequest(url: url)
+        request.httpMethod = "POST"
+        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+
+        var paramString = ""
+
+        for (key, value) in post_data {
+            paramString = paramString + (key as! String) + "=" + (value as! String) + "&"
+        }
+
+        request.httpBody = paramString.data(using: String.Encoding.utf8)
+
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {
+            data, response, error in
+
+            guard let _: Data = data, let _: URLResponse = response, error == nil else {
+                return
+            }
+
+            let json: Any?
+
+            do {
+                json = try JSONSerialization.jsonObject(with: data!, options: [])
+            } catch {
+                return
+            }
+
+            guard let server_response = json as? NSDictionary else {
+                return
+            }
+
+              })
+
+        task.resume()
     }
 
     // MARK: Find user
