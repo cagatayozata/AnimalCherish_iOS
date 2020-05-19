@@ -171,14 +171,15 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
                 return 7
             }
 
-            return myFeed.count
+            return 7
 
         } else {
             // yenilikler
             if myFeed.count > 7 {
                 return 7
             }
-            return myFeed.count
+
+            return 7
         }
     }
 
@@ -216,20 +217,31 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
 
             // MARK: Load feed iamge.
 
-            let url = NSURL(string: feedImgs[indexPath.row] as! String)
+            // let url = NSURL(string: feedImgs[indexPath.row] as! String)
+
+            if indexPath.row < feedImgs.count {
+                let url = NSURL(string: feedImgs[indexPath.row] as! String)
+            }
+
+            if indexPath.row < myFeed.count {
+                cell.detailTextLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "pubDate") as? String
+
+                cell.textLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
+            }
 
             let data = NSData(contentsOf: url! as URL)
 
-            var image = UIImage(data: data! as Data)
+            if var image = UIImage(data: data! as Data) {
+                loadRss(URL(string: "https://www.tshf.org.tr/rss/latest-posts")!)
+                image = resizeImage(image: image, toTheSize: CGSize(width: 70, height: 70))
 
-            image = resizeImage(image: image!, toTheSize: CGSize(width: 70, height: 70))
+                let cellImageLayer: CALayer? = cell.imageView?.layer
 
-            let cellImageLayer: CALayer? = cell.imageView?.layer
+                cellImageLayer!.cornerRadius = 15
+                cellImageLayer!.masksToBounds = true
 
-            cellImageLayer!.cornerRadius = 15
-            cellImageLayer!.masksToBounds = true
-
-            cell.imageView?.image = image
+                cell.imageView?.image = image
+            }
 
             let str = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
             let nsString = str! as NSString
@@ -239,7 +251,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
 
             cell.textLabel?.numberOfLines = 1
             cell.textLabel?.lineBreakMode = .byWordWrapping
-            cell.detailTextLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "pubDate") as? String
+            // cell.detailTextLabel?.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "pubDate") as? String
 
             return cell
 
@@ -335,7 +347,7 @@ class DashboardViewController: UIViewController, UITableViewDelegate, UITableVie
         activeSegment = 1
         isTweet = false
         print(isTweet)
-        print(url)
+        print(url as Any)
         tableView.reloadData()
     }
 

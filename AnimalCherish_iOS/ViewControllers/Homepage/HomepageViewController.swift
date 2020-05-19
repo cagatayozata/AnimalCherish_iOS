@@ -38,11 +38,11 @@ class HomepageViewController: UIViewController {
     }
 
     // MARK: Logout
-    
-    func logout(_ sender: Any) {
+
+    func logout(_: Any) {
         UserDefaults.standard.set(false, forKey: "status")
     }
-    
+
     // MARK: goBackToFirst
 
     @IBAction func goBackToHomepage(_: UIStoryboardSegue) {}

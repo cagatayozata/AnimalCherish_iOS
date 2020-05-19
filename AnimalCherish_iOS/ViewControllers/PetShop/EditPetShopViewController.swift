@@ -23,7 +23,7 @@ class EditPetShopViewController: UIViewController {
 
     // MARK: Variables
 
-    let apiUrl = "http://138.68.67.165/api/v1/petshop/getall"
+    let apiUrl = "/api/v1/petshop/getall"
     let apiUrlSave = Configuration.apiUrl + "/api/v1/petshop/save"
 
     var selectedId: String?

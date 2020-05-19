@@ -9,5 +9,5 @@
 import Foundation
 
 struct Configuration {
-    static let apiUrl = "http://138.68.67.165"
+    static let apiUrl = "https://www.animalcherish.tk"
 }
